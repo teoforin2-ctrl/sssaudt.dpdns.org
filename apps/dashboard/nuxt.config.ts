@@ -109,8 +109,10 @@ export default defineNuxtConfig({
     },
   },
   // Local monorepo app (template used github-pages baseURL — removed)
+  // Prod (same host as web): NUXT_BUILD_ASSETS_DIR=/_nuxt_dash/ avoids /_nuxt clash
   app: {
     baseURL: '/',
+    buildAssetsDir: process.env.NUXT_BUILD_ASSETS_DIR || '/_nuxt/',
     head: {
       meta: [
         { name: 'robots', content: 'noindex, nofollow, noarchive' },

@@ -1,0 +1,110 @@
+name: Deploy to dfijdsif.website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-ssaudit-prod
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_PREFIX: ghcr.io/edward-mccain/ssaudit
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - name: api
+            file: deploy/Dockerfile.api
+          - name: web
+            file: deploy/Dockerfile.web
+          - name: dashboard
+            file: deploy/Dockerfile.dashboard
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push ${{ matrix.name }}
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ${{ matrix.file }}
+          push: true
+          tags: |
+            ${{ env.IMAGE_PREFIX }}-${{ matrix.name }}:main
+            ${{ env.IMAGE_PREFIX }}-${{ matrix.name }}:${{ github.sha }}
+          build-args: |
+            NUXT_PUBLIC_API_BASE=https://dfijdsif.website
+            NUXT_PUBLIC_SITE_URL=https://dfijdsif.website
+            NUXT_PUBLIC_DASHBOARD_URL=https://dfijdsif.website
+            NUXT_PUBLIC_ALLOW_INDEXING=false
+            NUXT_BUILD_ASSETS_DIR=/_nuxt_dash/
+          cache-from: type=gha,scope=ssaudit-${{ matrix.name }}
+          cache-to: type=gha,mode=max,scope=ssaudit-${{ matrix.name }}
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.1
+        env:
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: 22
+          envs: GHCR_TOKEN
+          script_stop: true
+          script: |
+            set -euo pipefail
+            APP_DIR=/var/www/dfijdsif/app
+            ENV_FILE=/var/www/dfijdsif/.env
+
+            if [ ! -d "$APP_DIR/.git" ]; then
+              echo "Missing $APP_DIR git clone — bootstrap required on server"
+              exit 1
+            fi
+
+            echo "$GHCR_TOKEN" | docker login ghcr.io -u edward-mccain --password-stdin
+
+            cd "$APP_DIR"
+            git fetch origin main
+            git reset --hard origin/main
+
+            export SSAUDIT_API_IMAGE=ghcr.io/edward-mccain/ssaudit-api:main
+            export SSAUDIT_WEB_IMAGE=ghcr.io/edward-mccain/ssaudit-web:main
+            export SSAUDIT_DASHBOARD_IMAGE=ghcr.io/edward-mccain/ssaudit-dashboard:main
+
+            set -a
+            # shellcheck disable=SC1090
+            source "$ENV_FILE"
+            set +a
+
+            docker compose -f deploy/docker-compose.prod.yml --env-file "$ENV_FILE" pull
+            docker compose -f deploy/docker-compose.prod.yml --env-file "$ENV_FILE" up -d --remove-orphans
+
+            sleep 4
+            curl -fsS http://127.0.0.1:3712/health
+            curl -fsS -o /dev/null -w "web:%{http_code}\n" http://127.0.0.1:3710/ru/ || true
+            docker compose -f deploy/docker-compose.prod.yml --env-file "$ENV_FILE" ps

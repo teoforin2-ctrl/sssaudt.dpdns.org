@@ -1,0 +1,33 @@
+# syntax=docker/dockerfile:1.7
+FROM node:22-bookworm-slim AS build
+WORKDIR /app
+ENV CI=1 COREPACK_ENABLE_DOWNLOAD_PROMPT=0 NODE_OPTIONS=--max-old-space-size=3072
+RUN corepack enable
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY apps/dashboard/package.json apps/dashboard/
+# workspace stubs so pnpm resolves the lockfile
+COPY packages/shared/package.json packages/shared/
+COPY apps/web/package.json apps/web/
+COPY apps/api/package.json apps/api/
+
+RUN pnpm install --frozen-lockfile --filter @x-reviewer/dashboard...
+
+COPY apps/dashboard apps/dashboard
+
+ARG NUXT_PUBLIC_API_BASE=https://dfijdsif.website
+ARG NUXT_PUBLIC_SITE_URL=https://dfijdsif.website
+ARG NUXT_BUILD_ASSETS_DIR=/_nuxt_dash/
+ENV NUXT_PUBLIC_API_BASE=$NUXT_PUBLIC_API_BASE \
+    NUXT_PUBLIC_SITE_URL=$NUXT_PUBLIC_SITE_URL \
+    NUXT_BUILD_ASSETS_DIR=$NUXT_BUILD_ASSETS_DIR
+
+RUN pnpm --filter @x-reviewer/dashboard build
+
+FROM node:22-bookworm-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production HOST=0.0.0.0 PORT=3000 NITRO_HOST=0.0.0.0 NITRO_PORT=3000
+COPY --from=build /app/apps/dashboard/.output ./.output
+EXPOSE 3000
+USER node
+CMD ["node", ".output/server/index.mjs"]

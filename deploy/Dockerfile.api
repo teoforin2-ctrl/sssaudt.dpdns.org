@@ -1,0 +1,43 @@
+# syntax=docker/dockerfile:1.7
+FROM node:22-bookworm-slim AS build
+WORKDIR /app
+ENV CI=1 COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+RUN corepack enable
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY packages/shared/package.json packages/shared/
+COPY apps/api/package.json apps/api/
+COPY apps/web/package.json apps/web/
+COPY apps/dashboard/package.json apps/dashboard/
+
+RUN pnpm install --frozen-lockfile --filter @x-reviewer/shared --filter @x-reviewer/api...
+
+COPY packages/shared packages/shared
+COPY apps/api apps/api
+
+RUN pnpm --filter @x-reviewer/shared build \
+ && pnpm --filter @x-reviewer/api build
+
+FROM node:22-bookworm-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+RUN corepack enable
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY packages/shared/package.json packages/shared/
+COPY apps/api/package.json apps/api/
+COPY apps/web/package.json apps/web/
+COPY apps/dashboard/package.json apps/dashboard/
+
+RUN pnpm install --frozen-lockfile --prod --filter @x-reviewer/shared --filter @x-reviewer/api... \
+ && pnpm store prune
+
+COPY --from=build /app/packages/shared/dist packages/shared/dist
+COPY --from=build /app/packages/shared/package.json packages/shared/package.json
+COPY --from=build /app/apps/api/dist apps/api/dist
+COPY --from=build /app/apps/api/package.json apps/api/package.json
+
+WORKDIR /app/apps/api
+ENV API_HOST=0.0.0.0 API_PORT=3712
+EXPOSE 3712
+CMD ["node", "dist/index.js"]

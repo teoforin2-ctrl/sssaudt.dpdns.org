@@ -1,0 +1,27 @@
+# Fragment used by casino-portal Caddy for dfijdsif.website
+# Host gateway (docker bridge) reaches published 127.0.0.1 ports on the host.
+
+dfijdsif.website {
+	encode zstd gzip
+
+	# API (Fastify)
+	@api path /v1/* /go/* /health /ready
+	handle @api {
+		reverse_proxy 172.18.0.1:3712
+	}
+
+	# CMS / partner (Nuxt SPA) — assets under /_nuxt_dash/
+	@dash path /admin* /partner* /login /_nuxt_dash* /critical-boot.css
+	handle @dash {
+		reverse_proxy 172.18.0.1:3711
+	}
+
+	# Public site (Nuxt SSR)
+	handle {
+		reverse_proxy 172.18.0.1:3710
+	}
+}
+
+www.dfijdsif.website {
+	redir https://dfijdsif.website{uri} permanent
+}

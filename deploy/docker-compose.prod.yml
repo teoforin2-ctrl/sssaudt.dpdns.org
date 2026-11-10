@@ -1,0 +1,94 @@
+# Production stack for dfijdsif.website
+# Deploy root on server: /var/www/dfijdsif
+name: ssaudit
+
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - ssaudit_redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  api:
+    image: ${SSAUDIT_API_IMAGE:-ghcr.io/edward-mccain/ssaudit-api:main}
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.api
+    restart: unless-stopped
+    env_file:
+      - /var/www/dfijdsif/.env
+    environment:
+      NODE_ENV: production
+      API_HOST: 0.0.0.0
+      API_PORT: "3712"
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: redis://redis:6379
+      WEB_PUBLIC_DIR: /data/web-public
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - /var/www/dfijdsif/uploads:/data/web-public/uploads
+    ports:
+      - "127.0.0.1:3712:3712"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  web:
+    image: ${SSAUDIT_WEB_IMAGE:-ghcr.io/edward-mccain/ssaudit-web:main}
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.web
+      args:
+        NUXT_PUBLIC_API_BASE: ${NUXT_PUBLIC_API_BASE:-https://dfijdsif.website}
+        NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://dfijdsif.website}
+        NUXT_PUBLIC_DASHBOARD_URL: ${NUXT_PUBLIC_DASHBOARD_URL:-https://dfijdsif.website}
+        NUXT_PUBLIC_ALLOW_INDEXING: ${NUXT_PUBLIC_ALLOW_INDEXING:-false}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: "3000"
+      NITRO_HOST: 0.0.0.0
+      NITRO_PORT: "3000"
+      NUXT_PUBLIC_API_BASE: ${NUXT_PUBLIC_API_BASE:-https://dfijdsif.website}
+      NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://dfijdsif.website}
+      NUXT_PUBLIC_DASHBOARD_URL: ${NUXT_PUBLIC_DASHBOARD_URL:-https://dfijdsif.website}
+      NUXT_PUBLIC_ALLOW_INDEXING: ${NUXT_PUBLIC_ALLOW_INDEXING:-false}
+    volumes:
+      - /var/www/dfijdsif/uploads:/app/.output/public/uploads
+    ports:
+      - "127.0.0.1:3710:3000"
+    depends_on:
+      - api
+
+  dashboard:
+    image: ${SSAUDIT_DASHBOARD_IMAGE:-ghcr.io/edward-mccain/ssaudit-dashboard:main}
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.dashboard
+      args:
+        NUXT_PUBLIC_API_BASE: ${NUXT_PUBLIC_API_BASE:-https://dfijdsif.website}
+        NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://dfijdsif.website}
+        NUXT_BUILD_ASSETS_DIR: /_nuxt_dash/
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: "3000"
+      NITRO_HOST: 0.0.0.0
+      NITRO_PORT: "3000"
+      NUXT_PUBLIC_API_BASE: ${NUXT_PUBLIC_API_BASE:-https://dfijdsif.website}
+      NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://dfijdsif.website}
+    ports:
+      - "127.0.0.1:3711:3000"
+    depends_on:
+      - api
+
+volumes:
+  ssaudit_redis:
