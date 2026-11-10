@@ -2,8 +2,8 @@
 import { Loader2 } from 'lucide-vue-next'
 import PasswordInput from '~/components/PasswordInput.vue'
 
-const email = ref('admin@casino-review.local')
-const password = ref('admin123')
+const email = ref('')
+const password = ref('')
 const isLoading = ref(false)
 const error = ref<string | null>(null)
 
@@ -64,8 +64,5 @@ async function onSubmit(event: Event) {
       <Loader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
       Войти
     </Button>
-    <p class="text-xs text-muted-foreground text-center">
-      Demo: admin@casino-review.local / admin123
-    </p>
   </form>
 </template>

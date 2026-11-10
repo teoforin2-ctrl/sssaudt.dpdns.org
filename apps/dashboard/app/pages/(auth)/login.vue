@@ -5,8 +5,8 @@ definePageMeta({
 </script>
 
 <template>
-  <LayoutAuth reverse>
-    <div class="grid mx-auto max-w-sm gap-6">
+  <div class="flex min-h-dvh items-center justify-center px-4">
+    <div class="grid w-full max-w-sm gap-6">
       <div class="grid gap-2 text-center">
         <h1 class="text-2xl font-semibold tracking-tight">
           Casino.Review CMS
@@ -17,5 +17,5 @@ definePageMeta({
       </div>
       <AuthSignIn />
     </div>
-  </LayoutAuth>
+  </div>
 </template>
