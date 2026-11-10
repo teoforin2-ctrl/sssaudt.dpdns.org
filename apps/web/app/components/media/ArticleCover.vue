@@ -18,19 +18,21 @@ const broken = ref(false);
 watch(imgSrc, () => {
   broken.value = false;
 });
-const useImg = computed(() => !!imgSrc.value && !broken.value);
+const { el, activeSrc } = useLazySrc(imgSrc);
+const useImg = computed(() => !!activeSrc.value && !broken.value);
 </script>
 
 <template>
-  <div class="cover" role="img" :aria-label="title">
+  <div ref="el" class="cover" role="img" :aria-label="title">
     <img
       v-if="useImg"
       class="photo"
-      :src="imgSrc!"
+      :src="activeSrc!"
       :alt="title"
       width="640"
       height="400"
       loading="lazy"
+      fetchpriority="low"
       decoding="async"
       @error="broken = true"
     />

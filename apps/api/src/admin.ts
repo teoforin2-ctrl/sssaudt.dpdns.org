@@ -5,10 +5,11 @@ import type { FastifyInstance } from "fastify";
 import type { Redis } from "ioredis";
 import type { Pool } from "pg";
 import { z } from "zod";
-import { requireStaff, isAdminRole } from "./auth.js";
+import { requireStaff, requireAdmin, isAdminRole } from "./auth.js";
 import { bumpCasinoCache } from "./cache.js";
 import { recalcCasinoRatings } from "./reviews.js";
 import { grantReviewApprovedXp } from "./gamification.js";
+import { collectServerStats } from "./server-stats.js";
 
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -846,6 +847,12 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
       });
     }
     return { item: rows[0] };
+  });
+
+  /** Live host / process metrics — admin & developer only. */
+  app.get("/v1/admin/server-stats", async (req, reply) => {
+    if (!requireAdmin(req, reply)) return;
+    return collectServerStats();
   });
 
   /** Lightweight ops snapshot for staff (p4-observability lite). */

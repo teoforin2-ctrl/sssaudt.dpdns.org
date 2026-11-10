@@ -34,10 +34,11 @@ docs/
 _templates/
 *.md
 *.html
-# robots — not for the private repo / staging
+
+# keep staging robots in repo; prod template stays local-only
 **/robots.txt
-deploy/robots*.txt
-robots.txt
+!apps/web/public/robots.txt
+deploy/robots.prod.txt
 
 # local secrets / server notes
 info.txt

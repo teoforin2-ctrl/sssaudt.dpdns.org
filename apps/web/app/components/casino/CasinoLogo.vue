@@ -21,20 +21,24 @@ const initials = computed(() =>
     .slice(0, 2)
     .toUpperCase(),
 );
+
+const { el, activeSrc } = useLazySrc(() => props.src, { eager: () => props.eager });
 </script>
 
 <template>
-  <div class="logo-tile" :class="size">
+  <div ref="el" class="logo-tile" :class="size">
     <img
-      v-if="src"
-      :src="src"
+      v-if="activeSrc"
+      :src="activeSrc"
       :alt="name"
       :loading="eager ? 'eager' : 'lazy'"
+      :fetchpriority="eager ? 'high' : 'low'"
       decoding="async"
       :width="px"
       :height="px"
     >
-    <span v-else aria-hidden="true">{{ initials }}</span>
+    <span v-else-if="!src" aria-hidden="true">{{ initials }}</span>
+    <span v-else class="logo-ph" aria-hidden="true" />
   </div>
 </template>
 
@@ -53,5 +57,12 @@ const initials = computed(() =>
   width: 72px;
   height: 72px;
   border-radius: 18px;
+}
+.logo-ph {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--bg-elev-2, #1a2330) 80%, transparent);
 }
 </style>

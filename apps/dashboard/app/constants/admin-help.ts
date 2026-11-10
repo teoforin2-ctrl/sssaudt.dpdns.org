@@ -249,6 +249,17 @@ export const adminHelp = {
     tips: ['Доступ: admin / editor / developer.'],
   },
 
+  'server': {
+    title: 'Сервер',
+    summary: 'Realtime CPU / RAM / диск / uptime хоста и процесса API.',
+    steps: [
+      'Страница опрашивает /v1/admin/server-stats каждые 2 с (Live on).',
+      'CPU% считается по дельте /proc/stat между опросами.',
+      'В Docker для метрик хоста монтируется HOST_PROC_ROOT=/host/proc.',
+    ],
+    tips: ['Только admin / developer.'],
+  },
+
   'settings': {
     title: 'Настройки сайта',
     summary: 'Бренд: имя, лого, фавикон, контакты публичного сайта.',

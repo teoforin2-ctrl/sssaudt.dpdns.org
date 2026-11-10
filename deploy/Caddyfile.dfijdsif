@@ -4,6 +4,16 @@
 dfijdsif.website {
 	encode zstd gzip
 
+	# Staging: block all crawlers (same as /var/www/dfijdsif/robots.txt)
+	handle /robots.txt {
+		header Content-Type "text/plain; charset=utf-8"
+		header X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
+		respond <<ROBOTS
+User-agent: *
+Disallow: /
+ROBOTS
+	}
+
 	# API (Fastify)
 	@api path /v1/* /go/* /health /ready
 	handle @api {

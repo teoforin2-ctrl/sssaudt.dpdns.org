@@ -234,7 +234,7 @@ usePageSeo({
   <article v-else-if="slot" class="page detail">
     <NuxtLink class="back" :to="localePath('/slots')">{{ t("catalog.back") }}</NuxtLink>
     <div class="hero">
-      <SlotCover :title="slot.title" :theme="slot.theme" :slug="slot.slug" set="slots" />
+      <SlotCover :title="slot.title" :theme="slot.theme" :slug="slot.slug" set="slots" eager />
       <div>
         <p v-if="slot.providerName" class="eyebrow">
           <NuxtLink

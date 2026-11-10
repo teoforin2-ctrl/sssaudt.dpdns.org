@@ -32,8 +32,10 @@ const activeMenu = computed(() => {
     return partnerNavMenu
 
   const hidden = new Set<string>()
-  if (!canKanban.value)
+  if (!canKanban.value) {
     hidden.add('/admin/kanban')
+    hidden.add('/admin/server')
+  }
   if (!canDocs.value) {
     hidden.add('/admin/branding')
     hidden.add('/admin/glossary')

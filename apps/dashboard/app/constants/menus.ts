@@ -122,6 +122,11 @@ export const navMenu: NavMenu[] = [
         link: '/admin/ops',
       },
       {
+        title: 'Сервер',
+        icon: 'i-lucide-server',
+        link: '/admin/server',
+      },
+      {
         title: 'Настройки сайта',
         icon: 'i-lucide-settings',
         link: '/admin/settings',
@@ -140,6 +145,6 @@ export const navMenuBottom: NavMenuItems = [
   {
     title: 'Открыть сайт',
     icon: 'i-lucide-external-link',
-    link: 'http://127.0.0.1:3710',
+    link: '/',
   },
 ]

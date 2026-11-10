@@ -8,8 +8,10 @@ const props = withDefaults(
     src?: string | null;
     /** Cover set: automats (home carousel) | slots (new slots row) */
     set?: "automats" | "slots";
+    /** Hero / above-the-fold covers should load immediately. */
+    eager?: boolean;
   }>(),
-  { set: "slots" },
+  { set: "slots", eager: false },
 );
 
 /** Real PNGs shipped under /img/automats|slots — API slugs rarely match filenames. */
@@ -56,10 +58,12 @@ watch(imgSrc, () => {
   broken.value = false;
 });
 
+const { el, activeSrc } = useLazySrc(imgSrc, { eager: () => props.eager });
+
 const seed = computed(() => hash(`${props.slug || ""}|${props.title}|${props.theme || ""}`));
 const theme = computed(() => props.theme || "fruits");
 const uid = computed(() => `sc-${(seed.value % 1e9).toString(36)}`);
-const useImg = computed(() => !!imgSrc.value && !broken.value);
+const useImg = computed(() => !!activeSrc.value && !broken.value);
 
 const palettes: Record<string, { a: string; b: string; c: string; glow: string }> = {
   egypt: { a: "#1a0610", b: "#6a1430", c: "#ff4d8d", glow: "rgba(255,77,141,.45)" },
@@ -99,6 +103,7 @@ const stars = computed(() => {
 
 <template>
   <div
+    ref="el"
     class="cover"
     role="img"
     :aria-label="title"
@@ -107,11 +112,12 @@ const stars = computed(() => {
     <img
       v-if="useImg"
       class="photo"
-      :src="imgSrc!"
+      :src="activeSrc!"
       :alt="title"
       width="400"
       height="500"
-      loading="lazy"
+      :loading="eager ? 'eager' : 'lazy'"
+      :fetchpriority="eager ? 'high' : 'low'"
       decoding="async"
       @error="broken = true"
     />

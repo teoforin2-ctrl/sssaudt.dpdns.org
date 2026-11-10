@@ -27,6 +27,6 @@ export const partnerNavMenuBottom: NavMenuItems = [
   {
     title: 'Открыть сайт',
     icon: 'i-lucide-external-link',
-    link: 'http://127.0.0.1:3710',
+    link: '/',
   },
 ]

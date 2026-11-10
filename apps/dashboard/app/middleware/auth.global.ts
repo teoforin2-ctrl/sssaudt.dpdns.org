@@ -37,7 +37,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   if (to.path.startsWith('/admin')) {
     if (!user.value?.isStaff)
       return navigateTo('/login')
-    if (to.path.startsWith('/admin/kanban')) {
+    if (to.path.startsWith('/admin/kanban') || to.path.startsWith('/admin/server')) {
       const role = user.value.role
       if (role !== 'admin' && role !== 'developer')
         return navigateTo('/403')
