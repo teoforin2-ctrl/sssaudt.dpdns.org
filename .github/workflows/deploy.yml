@@ -75,7 +75,6 @@ jobs:
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           port: 22
           envs: GHCR_TOKEN
-          script_stop: true
           script: |
             set -euo pipefail
             APP_DIR=/var/www/dfijdsif/app

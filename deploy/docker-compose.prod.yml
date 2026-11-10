@@ -13,12 +13,14 @@ services:
       interval: 5s
       timeout: 3s
       retries: 12
+    networks: [internal]
 
   api:
     image: ${SSAUDIT_API_IMAGE:-ghcr.io/edward-mccain/ssaudit-api:main}
     build:
       context: ..
       dockerfile: deploy/Dockerfile.api
+    container_name: ssaudit-api
     restart: unless-stopped
     env_file:
       - /var/www/dfijdsif/.env
@@ -38,6 +40,10 @@ services:
     depends_on:
       redis:
         condition: service_healthy
+    networks:
+      internal:
+      edge:
+        aliases: [ssaudit-api]
 
   web:
     image: ${SSAUDIT_WEB_IMAGE:-ghcr.io/edward-mccain/ssaudit-web:main}
@@ -49,6 +55,7 @@ services:
         NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://dfijdsif.website}
         NUXT_PUBLIC_DASHBOARD_URL: ${NUXT_PUBLIC_DASHBOARD_URL:-https://dfijdsif.website}
         NUXT_PUBLIC_ALLOW_INDEXING: ${NUXT_PUBLIC_ALLOW_INDEXING:-false}
+    container_name: ssaudit-web
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -66,6 +73,10 @@ services:
       - "127.0.0.1:3710:3000"
     depends_on:
       - api
+    networks:
+      internal:
+      edge:
+        aliases: [ssaudit-web]
 
   dashboard:
     image: ${SSAUDIT_DASHBOARD_IMAGE:-ghcr.io/edward-mccain/ssaudit-dashboard:main}
@@ -76,6 +87,7 @@ services:
         NUXT_PUBLIC_API_BASE: ${NUXT_PUBLIC_API_BASE:-https://dfijdsif.website}
         NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://dfijdsif.website}
         NUXT_BUILD_ASSETS_DIR: /_nuxt_dash/
+    container_name: ssaudit-dashboard
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -89,6 +101,16 @@ services:
       - "127.0.0.1:3711:3000"
     depends_on:
       - api
+    networks:
+      internal:
+      edge:
+        aliases: [ssaudit-dashboard]
+
+networks:
+  internal:
+  edge:
+    external: true
+    name: casino-portal_default
 
 volumes:
   ssaudit_redis:
