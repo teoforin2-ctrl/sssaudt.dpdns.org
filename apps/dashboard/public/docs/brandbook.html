@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Casino review — Brandbook & Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   Casino review Design Tokens
+   ========================================================= */
+:root, [data-theme="dark"] {
+  --bg-canvas: #080b10;
+  --bg-base: #0d1219;
+  --bg-elev-1: #141b24;
+  --bg-elev-2: #1a2330;
+  --bg-elev-3: #222d3d;
+  --bg-overlay: rgba(8, 11, 16, .72);
+
+  --border-subtle: rgba(255,255,255,.06);
+  --border-default: rgba(255,255,255,.10);
+  --border-strong: rgba(255,255,255,.18);
+  --border-focus: #3dff8a;
+
+  --text-primary: #f3f6fa;
+  --text-secondary: #9aa8b8;
+  --text-tertiary: #6b7a8c;
+  --text-inverse: #0b1220;
+
+  --accent-cta: #3dff8a;
+  --accent-cta-hover: #62ff9f;
+  --accent-cta-pressed: #2ad872;
+  --accent-cta-soft: rgba(61,255,138,.12);
+
+  --accent-violet: #8b5cff;
+  --accent-violet-soft: rgba(139,92,255,.16);
+  --accent-amber: #f5a524;
+  --accent-amber-soft: rgba(245,165,36,.14);
+  --accent-rose: #ff4d6d;
+  --accent-rose-soft: rgba(255,77,109,.14);
+  --accent-cyan: #3ec7ff;
+  --accent-gold: #f0b429;
+
+  --success: #3dff8a;
+  --warning: #f5a524;
+  --danger: #ff4d6d;
+  --info: #3ec7ff;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  --shadow-1: 0 1px 0 rgba(255,255,255,.04), 0 8px 24px rgba(0,0,0,.35);
+  --shadow-2: 0 12px 40px rgba(0,0,0,.45);
+  --glow-cta: 0 0 0 1px rgba(61,255,138,.25), 0 0 28px rgba(61,255,138,.18);
+  --glow-violet: 0 0 24px rgba(139,92,255,.28);
+
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-ui: "Figtree", system-ui, sans-serif;
+
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px;
+
+  --nav-w: 260px;
+  --ease: cubic-bezier(.22,.68,0,1.2);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+}
+
+[data-theme="light"] {
+  --bg-canvas: #eef2f6;
+  --bg-base: #f7f9fc;
+  --bg-elev-1: #ffffff;
+  --bg-elev-2: #f1f5f9;
+  --bg-elev-3: #e8eef5;
+  --bg-overlay: rgba(247,249,252,.8);
+  --border-subtle: rgba(15,23,42,.06);
+  --border-default: rgba(15,23,42,.10);
+  --border-strong: rgba(15,23,42,.16);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-inverse: #f8fafc;
+  --accent-cta: #12b76a;
+  --accent-cta-hover: #0f9f5c;
+  --accent-cta-pressed: #0d8a50;
+  --accent-cta-soft: rgba(18,183,106,.12);
+  --shadow-1: 0 1px 2px rgba(15,23,42,.06), 0 8px 24px rgba(15,23,42,.06);
+  --shadow-2: 0 16px 40px rgba(15,23,42,.10);
+  --glow-cta: 0 0 0 1px rgba(18,183,106,.2), 0 8px 20px rgba(18,183,106,.15);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, select { font: inherit; }
+a { color: var(--accent-cta); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+img { max-width: 100%; display: block; }
+
+/* Layout */
+.app {
+  display: grid;
+  grid-template-columns: var(--nav-w) minmax(0, 1fr);
+  min-height: 100vh;
+}
+.nav {
+  position: sticky; top: 0; height: 100vh; overflow: auto;
+  background: linear-gradient(180deg, #0a0e14 0%, #0d1219 100%);
+  border-right: 1px solid var(--border-subtle);
+  padding: 22px 14px 40px;
+  z-index: 20;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 10px 20px;
+}
+.nav-mark {
+  width: 36px; height: 36px; border-radius: 11px;
+  background:
+    radial-gradient(circle at 30% 30%, #62ff9f, transparent 50%),
+    linear-gradient(135deg, #3dff8a, #8b5cff);
+  box-shadow: var(--glow-cta);
+  position: relative;
+}
+.nav-mark::after {
+  content: "";
+  position: absolute; inset: 8px;
+  border: 1.5px solid rgba(255,255,255,.55);
+  border-radius: 6px;
+  transform: rotate(12deg);
+}
+.nav-brand strong {
+  font-family: var(--font-display);
+  font-size: 13px; font-weight: 700; letter-spacing: -.02em;
+  line-height: 1.15;
+}
+.nav-brand span {
+  display: block; font-size: 11px; color: var(--text-tertiary); font-weight: 500;
+}
+.nav-section {
+  margin: 14px 8px 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--text-tertiary);
+}
+.nav a.item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; border-radius: 10px;
+  color: var(--text-secondary); text-decoration: none;
+  font-size: 13.5px; font-weight: 500;
+  border: 1px solid transparent;
+}
+.nav a.item:hover { background: rgba(255,255,255,.04); color: var(--text-primary); }
+.nav a.item.active {
+  background: var(--accent-cta-soft);
+  color: var(--accent-cta);
+  border-color: rgba(61,255,138,.18);
+}
+.nav-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor; opacity: .55;
+}
+.theme-switch {
+  margin-top: 18px; padding: 12px;
+  border: 1px solid var(--border-default);
+  border-radius: 14px; background: var(--bg-elev-1);
+}
+.theme-switch p { margin: 0 0 10px; font-size: 12px; color: var(--text-secondary); }
+.seg {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+}
+.seg button {
+  border: 1px solid var(--border-default);
+  background: transparent; color: var(--text-secondary);
+  border-radius: 9px; padding: 8px; cursor: pointer; font-weight: 600; font-size: 12px;
+}
+.seg button.on {
+  background: var(--accent-cta); color: var(--text-inverse); border-color: transparent;
+}
+
+.main { min-width: 0; }
+.sheet { max-width: 1120px; margin: 0 auto; padding: 28px 28px 100px; }
+
+/* Cover */
+.cover {
+  position: relative;
+  border: 1px solid var(--border-default);
+  border-radius: 28px;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 420px at 15% -10%, rgba(139,92,255,.28), transparent 55%),
+    radial-gradient(700px 380px at 90% 10%, rgba(61,255,138,.16), transparent 50%),
+    radial-gradient(600px 300px at 50% 100%, rgba(245,165,36,.08), transparent 45%),
+    var(--bg-elev-1);
+  padding: 48px 44px 42px;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow-1);
+}
+.cover::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 30%, black, transparent 75%);
+  pointer-events: none;
+}
+.cover-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border-default);
+  font-size: 12px; font-weight: 600; color: var(--text-secondary);
+  margin-bottom: 18px; position: relative;
+}
+.cover h1 {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.05; letter-spacing: -.04em;
+  margin: 0 0 14px; max-width: 18ch;
+}
+.cover h1 em {
+  font-style: normal;
+  background: linear-gradient(120deg, #3dff8a, #8b5cff 55%, #f5a524);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.cover-lead {
+  position: relative;
+  max-width: 54ch; color: var(--text-secondary);
+  font-size: 1.05rem; margin: 0 0 28px;
+}
+.cover-meta {
+  position: relative;
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border-radius: var(--radius-pill);
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-default);
+  font-size: 12px; font-weight: 600; color: var(--text-secondary);
+}
+.chip .swatch {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+
+/* Sections */
+.section { margin: 48px 0 0; scroll-margin-top: 24px; }
+.section-head {
+  display: flex; align-items: end; justify-content: space-between; gap: 16px;
+  margin-bottom: 18px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.section-head h2 {
+  font-family: var(--font-display);
+  font-size: 1.45rem; letter-spacing: -.03em; margin: 0;
+}
+.section-head p { margin: 4px 0 0; color: var(--text-tertiary); font-size: 13px; }
+.section-note {
+  margin: 0 0 18px; color: var(--text-secondary); max-width: 70ch; font-size: 14.5px;
+}
+
+.panel {
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-1);
+}
+.panel + .panel { margin-top: 14px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+
+/* Color cards */
+.color-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elev-2);
+}
+.color-swatch { height: 84px; }
+.color-meta { padding: 12px; }
+.color-meta strong { display: block; font-size: 13px; }
+.color-meta code {
+  font-size: 11px; color: var(--text-tertiary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Type */
+.type-row {
+  display: grid; grid-template-columns: 140px 1fr; gap: 16px;
+  padding: 16px 0; border-bottom: 1px solid var(--border-subtle);
+  align-items: baseline;
+}
+.type-row:last-child { border-bottom: 0; }
+.type-label { font-size: 12px; color: var(--text-tertiary); font-weight: 600; }
+.t-display { font-family: var(--font-display); font-weight: 700; font-size: 40px; letter-spacing: -.04em; line-height: 1.05; }
+.t-h1 { font-family: var(--font-display); font-weight: 700; font-size: 32px; letter-spacing: -.03em; }
+.t-h2 { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -.02em; }
+.t-h3 { font-family: var(--font-ui); font-weight: 700; font-size: 18px; }
+.t-body { font-size: 16px; color: var(--text-secondary); }
+.t-small { font-size: 13px; color: var(--text-tertiary); }
+.t-btn { font-size: 14px; font-weight: 700; }
+
+/* Spacing / radius demos */
+.space-demo, .radius-demo { display: flex; flex-wrap: wrap; gap: 14px; align-items: end; }
+.space-box {
+  background: var(--accent-cta-soft);
+  border: 1px dashed rgba(61,255,138,.35);
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 700; color: var(--accent-cta);
+}
+.radius-box {
+  width: 72px; height: 72px;
+  background: var(--bg-elev-3);
+  border: 1px solid var(--border-strong);
+  display: grid; place-items: end start;
+  padding: 8px; font-size: 10px; color: var(--text-tertiary); font-weight: 700;
+}
+
+/* Principles */
+.principle {
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-default);
+  min-height: 140px;
+}
+.principle b {
+  display: block; font-family: var(--font-display); font-size: 14px;
+  letter-spacing: -.01em; margin-bottom: 8px;
+}
+.principle p { margin: 0; font-size: 13.5px; color: var(--text-secondary); }
+
+/* ============ UI COMPONENTS ============ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 44px; padding: 0 18px;
+  border-radius: 12px; border: 1px solid transparent;
+  font-weight: 700; font-size: 14px; cursor: pointer;
+  transition: transform .15s var(--ease-out), background .15s, border-color .15s, box-shadow .15s;
+  white-space: nowrap; user-select: none;
+}
+.btn:active { transform: translateY(1px) scale(.99); }
+.btn:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
+.btn-primary {
+  background: var(--accent-cta); color: var(--text-inverse);
+  box-shadow: var(--glow-cta);
+}
+.btn-primary:hover { background: var(--accent-cta-hover); }
+.btn-secondary {
+  background: var(--bg-elev-3); color: var(--text-primary);
+  border-color: var(--border-default);
+}
+.btn-secondary:hover { border-color: var(--border-strong); background: #263244; }
+[data-theme="light"] .btn-secondary:hover { background: #e2e8f0; }
+.btn-ghost {
+  background: transparent; color: var(--text-secondary);
+  border-color: var(--border-default);
+}
+.btn-ghost:hover { color: var(--text-primary); border-color: var(--border-strong); }
+.btn-danger { background: var(--accent-rose); color: #fff; }
+.btn-sm { height: 36px; padding: 0 12px; font-size: 13px; border-radius: 10px; }
+.btn-lg { height: 52px; padding: 0 22px; font-size: 15px; border-radius: 14px; }
+.btn-block { width: 100%; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+.field { display: grid; gap: 6px; }
+.field label { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+.input, .select, .textarea {
+  width: 100%;
+  background: var(--bg-base);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.textarea { min-height: 110px; resize: vertical; }
+.input:focus, .select:focus, .textarea:focus {
+  border-color: rgba(61,255,138,.55);
+  box-shadow: 0 0 0 3px rgba(61,255,138,.12);
+}
+.input::placeholder, .textarea::placeholder { color: var(--text-tertiary); }
+.field-hint { font-size: 12px; color: var(--text-tertiary); }
+.field-error { font-size: 12px; color: var(--accent-rose); }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 24px; padding: 0 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px; font-weight: 800; letter-spacing: .02em;
+}
+.badge-hot { background: var(--accent-amber-soft); color: var(--accent-amber); }
+.badge-top { background: var(--accent-violet-soft); color: #c4b5fd; }
+.badge-new { background: var(--accent-cta-soft); color: var(--accent-cta); }
+.badge-rep { background: rgba(62,199,255,.14); color: var(--accent-cyan); }
+.badge-rank {
+  width: 28px; height: 28px; border-radius: 9px;
+  display: grid; place-items: center;
+  font-size: 12px; font-weight: 800;
+  background: var(--bg-elev-3); color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+}
+.badge-rank.gold {
+  background: linear-gradient(160deg, #ffe08a, #f0b429);
+  color: #3a2a00; border: 0; box-shadow: 0 0 18px rgba(240,180,41,.35);
+}
+
+.stars { display: inline-flex; gap: 2px; color: var(--accent-gold); font-size: 14px; letter-spacing: 1px; }
+.stars .dim { opacity: .25; }
+.rating-num {
+  font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -.02em;
+}
+
+.tabs {
+  display: inline-flex; gap: 4px; padding: 4px;
+  background: var(--bg-base); border: 1px solid var(--border-default);
+  border-radius: 12px;
+}
+.tab {
+  border: 0; background: transparent; color: var(--text-secondary);
+  padding: 8px 14px; border-radius: 9px; cursor: pointer; font-weight: 600; font-size: 13px;
+}
+.tab.on { background: var(--bg-elev-3); color: var(--text-primary); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter-chip {
+  height: 36px; padding: 0 14px; border-radius: var(--radius-pill);
+  border: 1px solid var(--border-default); background: var(--bg-elev-2);
+  color: var(--text-secondary); font-weight: 600; font-size: 13px; cursor: pointer;
+}
+.filter-chip.on {
+  background: var(--accent-cta-soft); color: var(--accent-cta);
+  border-color: rgba(61,255,138,.28);
+}
+
+/* Casino listing row */
+.listing {
+  display: grid; gap: 10px;
+}
+.listing-row {
+  display: grid;
+  grid-template-columns: 40px 56px minmax(0, 1.1fr) minmax(0, 1.4fr) auto;
+  gap: 14px; align-items: center;
+  padding: 14px;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  transition: border-color .15s, transform .15s var(--ease-out), box-shadow .15s;
+}
+.listing-row:hover {
+  border-color: rgba(61,255,138,.28);
+  box-shadow: var(--shadow-1);
+  transform: translateY(-1px);
+}
+.listing-row.is-top {
+  border-color: rgba(139,92,255,.35);
+  background:
+    linear-gradient(90deg, rgba(139,92,255,.10), transparent 40%),
+    var(--bg-elev-2);
+}
+.logo-tile {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: linear-gradient(145deg, #2a3344, #151b25);
+  border: 1px solid var(--border-default);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 12px; font-weight: 700;
+  color: var(--text-secondary);
+}
+.logo-tile.a { background: linear-gradient(145deg, #1f3d32, #12201b); color: #3dff8a; }
+.logo-tile.b { background: linear-gradient(145deg, #3a2a12, #1c160c); color: #f5a524; }
+.logo-tile.c { background: linear-gradient(145deg, #2c2150, #161225); color: #c4b5fd; }
+.casino-name { font-weight: 800; font-size: 15px; margin: 0 0 4px; }
+.casino-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.offer { font-size: 13.5px; color: var(--text-secondary); }
+.offer strong { color: var(--text-primary); font-weight: 700; }
+.row-actions { display: flex; gap: 8px; }
+
+/* Casino card hero */
+.card-hero {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+  background:
+    radial-gradient(500px 220px at 90% 0%, rgba(139,92,255,.18), transparent 55%),
+    radial-gradient(420px 200px at 10% 100%, rgba(61,255,138,.10), transparent 50%),
+    var(--bg-elev-2);
+}
+.card-hero-top { display: flex; gap: 16px; align-items: start; }
+.score-ring {
+  width: 84px; height: 84px; border-radius: 50%;
+  background:
+    conic-gradient(var(--accent-cta) 0 82%, rgba(255,255,255,.08) 0);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.score-ring > div {
+  width: 68px; height: 68px; border-radius: 50%;
+  background: var(--bg-elev-1);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 22px;
+}
+.metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.metric {
+  padding: 12px; border-radius: 12px;
+  background: rgba(0,0,0,.22); border: 1px solid var(--border-subtle);
+}
+.metric span { display: block; font-size: 11px; color: var(--text-tertiary); font-weight: 600; }
+.metric b { font-size: 16px; }
+.promo-box {
+  padding: 18px; border-radius: 16px;
+  background: linear-gradient(160deg, rgba(245,165,36,.16), rgba(139,92,255,.10));
+  border: 1px solid rgba(245,165,36,.28);
+}
+.promo-code {
+  margin-top: 12px; display: flex; gap: 8px;
+}
+.promo-code code {
+  flex: 1; display: flex; align-items: center;
+  padding: 0 12px; height: 40px; border-radius: 10px;
+  background: rgba(0,0,0,.35); border: 1px dashed rgba(245,165,36,.45);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700; letter-spacing: .04em; color: var(--accent-amber);
+}
+
+/* Bonus / review cards */
+.bonus-card, .review-card {
+  padding: 16px; border-radius: var(--radius-md);
+  background: var(--bg-elev-2); border: 1px solid var(--border-default);
+}
+.bonus-card h4, .review-card h4 { margin: 0 0 6px; font-size: 15px; }
+.review-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cff, #3dff8a);
+  display: grid; place-items: center; font-weight: 800; font-size: 12px; color: #0b1220;
+}
+.review-user { display: flex; gap: 10px; align-items: center; }
+.review-user small { color: var(--text-tertiary); font-size: 12px; }
+
+/* Modal preview */
+.modal-stage {
+  min-height: 420px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+  background:
+    radial-gradient(circle at 50% 20%, rgba(139,92,255,.12), transparent 50%),
+    var(--bg-base);
+  display: grid; place-items: center; padding: 24px;
+}
+.modal {
+  width: min(440px, 100%);
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border-default);
+  border-radius: 20px;
+  box-shadow: var(--shadow-2);
+  padding: 22px;
+}
+.modal h3 {
+  font-family: var(--font-display); font-size: 18px; letter-spacing: -.02em;
+  margin: 0 0 6px;
+}
+.modal .sub { color: var(--text-secondary); font-size: 13px; margin: 0 0 16px; }
+.reward-banner {
+  margin-top: 14px; padding: 12px 14px; border-radius: 12px;
+  background: var(--accent-cta-soft); border: 1px solid rgba(61,255,138,.25);
+  color: var(--accent-cta); font-weight: 700; font-size: 13px;
+  text-align: center;
+}
+.stars-input { display: flex; gap: 6px; margin: 4px 0 12px; }
+.star-btn {
+  width: 36px; height: 36px; border-radius: 10px;
+  border: 1px solid var(--border-default); background: var(--bg-elev-2);
+  color: var(--accent-gold); cursor: pointer; font-size: 16px;
+}
+.star-btn.on { background: rgba(240,180,41,.16); border-color: rgba(240,180,41,.4); }
+
+/* Page frames */
+.page-frame {
+  border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elev-1);
+}
+.browser-bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 14px; background: var(--bg-elev-2);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; background: #3a4554; }
+.dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+.url {
+  flex: 1; height: 28px; border-radius: 8px; background: var(--bg-base);
+  border: 1px solid var(--border-subtle); color: var(--text-tertiary);
+  font-size: 12px; display: flex; align-items: center; padding: 0 10px;
+}
+.page-body { padding: 16px; }
+.site-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
+}
+.site-logo {
+  font-family: var(--font-display); font-weight: 700; font-size: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.site-nav { display: flex; gap: 14px; color: var(--text-secondary); font-size: 13px; font-weight: 600; }
+.site-nav span { cursor: default; }
+.site-nav span:hover { color: var(--text-primary); }
+.spacer { flex: 1; }
+.search-mini {
+  width: 180px; height: 36px; border-radius: 10px;
+  background: var(--bg-base); border: 1px solid var(--border-default);
+  color: var(--text-tertiary); font-size: 12px; display: flex; align-items: center; padding: 0 12px;
+}
+
+/* Do / Don't */
+.dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.do, .dont {
+  border-radius: var(--radius-md); padding: 16px;
+  border: 1px solid var(--border-default); background: var(--bg-elev-2);
+}
+.do { border-color: rgba(61,255,138,.28); }
+.dont { border-color: rgba(255,77,109,.28); }
+.do h4, .dont h4 { margin: 0 0 8px; font-size: 13px; }
+.do h4 { color: var(--accent-cta); }
+.dont h4 { color: var(--accent-rose); }
+.do ul, .dont ul { margin: 0; padding-left: 18px; color: var(--text-secondary); font-size: 13px; }
+
+/* Motion */
+.motion-demo {
+  height: 120px; border-radius: 14px; border: 1px solid var(--border-default);
+  background: var(--bg-elev-2); position: relative; overflow: hidden;
+}
+.motion-pill {
+  position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+  height: 44px; padding: 0 18px; border-radius: 12px;
+  background: var(--accent-cta); color: var(--text-inverse); font-weight: 800;
+  display: grid; place-items: center;
+  animation: pulse-cta 2.4s var(--ease-out) infinite;
+}
+@keyframes pulse-cta {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(61,255,138,.0); }
+  50% { box-shadow: var(--glow-cta); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-pill { animation: none; }
+  .btn, .listing-row { transition: none; }
+}
+
+/* Refs strip */
+.refs {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+}
+.ref-thumb {
+  aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border-default); background: #111;
+}
+.ref-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.ref-caption { font-size: 11px; color: var(--text-tertiary); margin-top: 6px; }
+
+.footer-note {
+  margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border-subtle);
+  color: var(--text-tertiary); font-size: 12px;
+}
+
+/* Category menu (3D icons) */
+.cat-demo {
+  display: grid;
+  gap: 16px;
+}
+.cat-groups {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.cat-group-btn {
+  border: 1px solid var(--border-default);
+  background: var(--bg-elev-2);
+  color: var(--text-secondary);
+  border-radius: var(--radius-pill);
+  padding: 8px 14px;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer;
+  transition: .15s var(--ease-out);
+}
+.cat-group-btn:hover { color: var(--text-primary); border-color: var(--border-strong); }
+.cat-group-btn.on {
+  color: var(--text-inverse);
+  background: var(--accent-cta);
+  border-color: transparent;
+  box-shadow: var(--glow-cta);
+}
+.cat-rail-wrap {
+  position: relative;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(120% 80% at 10% 0%, rgba(139,92,255,.12), transparent 50%),
+    radial-gradient(90% 70% at 90% 100%, rgba(61,255,138,.08), transparent 45%),
+    var(--bg-elev-1);
+  overflow: hidden;
+}
+.cat-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 112px;
+  gap: 10px;
+  padding: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+.cat-tile {
+  scroll-snap-align: start;
+  appearance: none;
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, var(--bg-elev-2), var(--bg-elev-1));
+  border-radius: 18px;
+  padding: 12px 10px 14px;
+  cursor: pointer;
+  text-align: center;
+  color: var(--text-secondary);
+  transition: transform .18s var(--ease-out), border-color .18s, box-shadow .18s, color .18s;
+  min-height: 132px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+.cat-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+.cat-tile.on {
+  border-color: rgba(61,255,138,.45);
+  box-shadow: var(--glow-cta);
+  color: var(--text-primary);
+  background: linear-gradient(180deg, rgba(61,255,138,.10), var(--bg-elev-1));
+}
+.cat-tile img {
+  width: 72px; height: 72px;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.45));
+  pointer-events: none;
+}
+.cat-tile span {
+  font-size: 12px; font-weight: 700; line-height: 1.2;
+}
+.cat-preview {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  background: var(--bg-elev-2);
+}
+.cat-preview-art {
+  width: 104px; height: 104px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.08), transparent 55%),
+    #0a0e14;
+  border: 1px solid var(--border-subtle);
+  display: grid; place-items: center;
+}
+.cat-preview-art img {
+  width: 88px; height: 88px; object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,.5));
+}
+.cat-preview h3 {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: 18px; font-weight: 700;
+}
+.cat-preview p { margin: 0; color: var(--text-secondary); font-size: 13px; max-width: 48ch; }
+.cat-preview .meta { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.cat-mega {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-elev-1);
+  min-height: 320px;
+}
+.cat-mega-side {
+  background: var(--bg-elev-2);
+  border-right: 1px solid var(--border-subtle);
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+  align-content: start;
+}
+.cat-mega-side button {
+  appearance: none; border: 0; background: transparent;
+  color: var(--text-secondary); text-align: left;
+  padding: 10px 12px; border-radius: 12px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; gap: 10px;
+}
+.cat-mega-side button img { width: 28px; height: 28px; object-fit: contain; }
+.cat-mega-side button:hover { background: rgba(255,255,255,.04); color: var(--text-primary); }
+.cat-mega-side button.on {
+  background: var(--accent-cta-soft);
+  color: var(--accent-cta);
+}
+.cat-mega-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  padding: 16px;
+  align-content: start;
+}
+.cat-mega-grid .cat-tile { min-height: 118px; grid-auto-columns: unset; }
+@media (max-width: 720px) {
+  .cat-preview { grid-template-columns: 88px 1fr; }
+  .cat-preview .btn { grid-column: 1 / -1; justify-self: stretch; }
+  .cat-mega { grid-template-columns: 1fr; }
+  .cat-mega-side {
+    border-right: 0; border-bottom: 1px solid var(--border-subtle);
+    grid-auto-flow: column; grid-auto-columns: max-content;
+    overflow-x: auto; padding: 10px;
+  }
+}
+
+.mobile-toggle {
+  display: none; position: fixed; right: 14px; bottom: 14px; z-index: 40;
+  border: 0; border-radius: 999px; padding: 12px 16px;
+  background: var(--accent-cta); color: var(--text-inverse); font-weight: 800;
+  box-shadow: var(--glow-cta);
+}
+.backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 25; }
+
+@media (max-width: 980px) {
+  .app { grid-template-columns: 1fr; }
+  .nav {
+    position: fixed; inset: 0 auto 0 0; width: min(86vw, 300px);
+    transform: translateX(-105%); transition: transform .2s var(--ease-out); z-index: 30;
+  }
+  .nav.open { transform: none; }
+  .backdrop.show { display: block; }
+  .mobile-toggle { display: inline-flex; }
+  .sheet { padding: 16px 14px 90px; }
+  .cover { padding: 28px 20px; border-radius: 20px; }
+  .grid-2, .grid-3, .grid-4, .grid-5, .dodont, .card-hero, .refs, .cat-preview { grid-template-columns: 1fr; }
+  .listing-row { grid-template-columns: 36px 48px 1fr; }
+  .listing-row .offer, .listing-row .row-actions { grid-column: 1 / -1; }
+  .type-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+<div class="backdrop" id="backdrop"></div>
+<button class="mobile-toggle" id="navToggle" type="button">Меню DS</button>
+
+<div class="app">
+  <aside class="nav" id="nav">
+    <div class="nav-brand">
+      <div class="nav-mark" aria-hidden="true"></div>
+      <div>
+        <strong>Casino review</strong>
+        <span>Brandbook · DS v1.0</span>
+      </div>
+    </div>
+
+    <div class="nav-section">Основы</div>
+    <a class="item active" href="#cover"><span class="nav-dot"></span>Обзор</a>
+    <a class="item" href="#principles"><span class="nav-dot"></span>Принципы</a>
+    <a class="item" href="#color"><span class="nav-dot"></span>Цвет</a>
+    <a class="item" href="#type"><span class="nav-dot"></span>Типографика</a>
+    <a class="item" href="#space"><span class="nav-dot"></span>Сетка и радиусы</a>
+
+    <div class="nav-section">Компоненты</div>
+    <a class="item" href="#buttons"><span class="nav-dot"></span>Кнопки</a>
+    <a class="item" href="#forms"><span class="nav-dot"></span>Формы</a>
+    <a class="item" href="#badges"><span class="nav-dot"></span>Бейджи и рейтинг</a>
+    <a class="item" href="#filters"><span class="nav-dot"></span>Фильтры</a>
+    <a class="item" href="#categories"><span class="nav-dot"></span>Категории</a>
+    <a class="item" href="#listing"><span class="nav-dot"></span>Casino Listing</a>
+    <a class="item" href="#card"><span class="nav-dot"></span>Casino Card</a>
+    <a class="item" href="#reviews"><span class="nav-dot"></span>Бонусы и отзывы</a>
+    <a class="item" href="#modal"><span class="nav-dot"></span>Review Flow</a>
+
+    <div class="nav-section">Страницы</div>
+    <a class="item" href="#pages"><span class="nav-dot"></span>Шаблоны экранов</a>
+    <a class="item" href="#motion"><span class="nav-dot"></span>Motion</a>
+    <a class="item" href="#voice"><span class="nav-dot"></span>Голос и правила</a>
+    <a class="item" href="#refs"><span class="nav-dot"></span>Референсы</a>
+
+    <div class="theme-switch">
+      <p>Тема превью</p>
+      <div class="seg">
+        <button type="button" class="on" data-theme-btn="dark">Dark</button>
+        <button type="button" data-theme-btn="light">Light</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="sheet">
+
+      <!-- COVER -->
+      <section class="cover" id="cover">
+        <div class="cover-kicker">
+          <span class="swatch" style="width:8px;height:8px;border-radius:50%;background:#3dff8a;display:inline-block"></span>
+          Working title · Casino review platform
+        </div>
+        <h1>Casino review <em>Design System</em></h1>
+        <p class="cover-lead">
+          Рабочее название сайта — <strong>Casino review</strong>.
+          Тёмная дизайн-система для обзорника казино: рейтинг, карточки брендов,
+          бонусы и платные отзывы. Визуальный язык собран из ваших референсов
+          03 / 04 / 08 / 09 — премиальный dark, зелёный money-CTA, фиолетовый статус.
+        </p>
+        <div class="cover-meta">
+          <span class="chip"><span class="swatch" style="background:#3dff8a"></span>CTA Mint</span>
+          <span class="chip"><span class="swatch" style="background:#8b5cff"></span>Status Violet</span>
+          <span class="chip"><span class="swatch" style="background:#f5a524"></span>HOT Amber</span>
+          <span class="chip"><span class="swatch" style="background:#0d1219;border:1px solid #fff3"></span>Ink Canvas</span>
+        </div>
+      </section>
+
+      <!-- PRINCIPLES -->
+      <section class="section" id="principles">
+        <div class="section-head">
+          <div>
+            <h2>Принципы</h2>
+            <p>Правила, которые держат продукт цельным</p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="principle">
+            <b>1. Обзорник, не казино</b>
+            <p>Плотность контента и сравнение важнее игрового лобби. Сетки слотов — акцент, не каркас.</p>
+          </div>
+          <div class="principle">
+            <b>2. Деньги = зелёный</b>
+            <p>Единственный «громкий» цвет — CTA Play / Claim / Получить награду. Остальное тише.</p>
+          </div>
+          <div class="principle">
+            <b>3. Dual action</b>
+            <p>Всегда пара: ghost «Обзор» + solid «Играть». Выбор без ловушки одного клика.</p>
+          </div>
+          <div class="principle">
+            <b>4. Статус поверх шума</b>
+            <p>HOT / TOP / представитель читаются за секунду. Glow только у #1 и primary CTA.</p>
+          </div>
+          <div class="principle">
+            <b>5. Dark-first</b>
+            <p>Основная тема — тёмная. Light — производная токенов, не отдельный дизайн.</p>
+          </div>
+          <div class="principle">
+            <b>6. Trust over neon</b>
+            <p>Рейтинги, факты, отзывы. Неон и 3D — точечно в hero/promo, не в каждом ряду.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLOR -->
+      <section class="section" id="color">
+        <div class="section-head">
+          <div>
+            <h2>Цвет</h2>
+            <p>Поверхности → текст → действие → статус</p>
+          </div>
+        </div>
+        <p class="section-note">
+          Палитра опирается на dark-каталоги 04/08/09 и зелёные CTA из 03/04/09.
+          Фиолетовый — только для статуса/промо (TOP, rank glow), не как фон всего продукта.
+        </p>
+
+        <h3 style="font-size:14px;color:var(--text-tertiary);margin:0 0 10px">Поверхности</h3>
+        <div class="grid-5" style="margin-bottom:18px">
+          <div class="color-card"><div class="color-swatch" style="background:#080b10"></div><div class="color-meta"><strong>Canvas</strong><code>#080B10</code></div></div>
+          <div class="color-card"><div class="color-swatch" style="background:#0d1219"></div><div class="color-meta"><strong>Base</strong><code>#0D1219</code></div></div>
+          <div class="color-card"><div class="color-swatch" style="background:#141b24"></div><div class="color-meta"><strong>Elev 1</strong><code>#141B24</code></div></div>
+          <div class="color-card"><div class="color-swatch" style="background:#1a2330"></div><div class="color-meta"><strong>Elev 2</strong><code>#1A2330</code></div></div>
+          <div class="color-card"><div class="color-swatch" style="background:#222d3d"></div><div class="color-meta"><strong>Elev 3</strong><code>#222D3D</code></div></div>
+        </div>
+
+        <h3 style="font-size:14px;color:var(--text-tertiary);margin:0 0 10px">Акценты</h3>
+        <div class="grid-4">
+          <div class="color-card"><div class="color-swatch" style="background:#3dff8a"></div><div class="color-meta"><strong>CTA Mint</strong><code>#3DFF8A</code></div></div>
+          <div class="color-card"><div class="color-swatch" style="background:#8b5cff"></div><div class="color-meta"><strong>Violet</strong><code>#8B5CFF</code></div></div>
+          <div class="color-card"><div class="color-swatch" style="background:#f5a524"></div><div class="color-meta"><strong>HOT Amber</strong><code>#F5A524</code></div></div>
+          <div class="color-card"><div class="color-swatch" style="background:#f0b429"></div><div class="color-meta"><strong>Star Gold</strong><code>#F0B429</code></div></div>
+        </div>
+
+        <div class="panel" style="margin-top:14px">
+          <div class="grid-3">
+            <div>
+              <strong style="font-size:13px">Текст</strong>
+              <div style="margin-top:10px;display:grid;gap:8px;font-size:13px">
+                <div style="color:#f3f6fa">Primary · #F3F6FA</div>
+                <div style="color:#9aa8b8">Secondary · #9AA8B8</div>
+                <div style="color:#6b7a8c">Tertiary · #6B7A8C</div>
+              </div>
+            </div>
+            <div>
+              <strong style="font-size:13px">Семантика</strong>
+              <div style="margin-top:10px;display:grid;gap:8px;font-size:13px">
+                <div style="color:#3dff8a">Success / Paid</div>
+                <div style="color:#f5a524">Warning / HOT</div>
+                <div style="color:#ff4d6d">Danger / Reject</div>
+                <div style="color:#3ec7ff">Info / Representative</div>
+              </div>
+            </div>
+            <div>
+              <strong style="font-size:13px">Контраст</strong>
+              <p style="margin:10px 0 0;font-size:13px;color:var(--text-secondary)">
+                Mint на ink для CTA: высокий контраст. Violet не использовать для длинного текста.
+                На light-теме CTA сдвигается в более глубокий зелёный (#12B76A).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TYPE -->
+      <section class="section" id="type">
+        <div class="section-head">
+          <div>
+            <h2>Типографика</h2>
+            <p>Unbounded · display · Figtree · UI</p>
+          </div>
+        </div>
+        <p class="section-note">
+          Display — характер бренда в заголовках и крупных цифрах рейтинга.
+          UI — читаемость таблиц, карточек, форм. Никакого Inter/Roboto по умолчанию.
+        </p>
+        <div class="panel">
+          <div class="type-row"><div class="type-label">Display</div><div class="t-display">Casino review</div></div>
+          <div class="type-row"><div class="type-label">H1</div><div class="t-h1">Лучшие онлайн-казино</div></div>
+          <div class="type-row"><div class="type-label">H2</div><div class="t-h2">Pokerdom — обзор</div></div>
+          <div class="type-row"><div class="type-label">H3</div><div class="t-h3">Бонусы и промокоды</div></div>
+          <div class="type-row"><div class="type-label">Body</div><div class="t-body">Оставь отзыв и получи награду. Негативный опыт проходит модерацию наравне с позитивным.</div></div>
+          <div class="type-row"><div class="type-label">Small</div><div class="t-small">LCP &lt; 2.5s · Mobile first · 18+</div></div>
+          <div class="type-row"><div class="type-label">Button</div><div class="t-btn">Играть онлайн</div></div>
+        </div>
+      </section>
+
+      <!-- SPACE -->
+      <section class="section" id="space">
+        <div class="section-head">
+          <div>
+            <h2>Сетка, отступы, радиусы</h2>
+            <p>4px base · content 1120 · card radius 14</p>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="panel">
+            <strong style="font-size:13px">Spacing scale</strong>
+            <div class="space-demo" style="margin-top:14px">
+              <div class="space-box" style="width:32px;height:32px">4</div>
+              <div class="space-box" style="width:40px;height:40px">8</div>
+              <div class="space-box" style="width:48px;height:48px">12</div>
+              <div class="space-box" style="width:56px;height:56px">16</div>
+              <div class="space-box" style="width:64px;height:64px">24</div>
+              <div class="space-box" style="width:80px;height:80px">32</div>
+            </div>
+          </div>
+          <div class="panel">
+            <strong style="font-size:13px">Radius</strong>
+            <div class="radius-demo" style="margin-top:14px">
+              <div class="radius-box" style="border-radius:6px">XS 6</div>
+              <div class="radius-box" style="border-radius:10px">SM 10</div>
+              <div class="radius-box" style="border-radius:14px">MD 14</div>
+              <div class="radius-box" style="border-radius:20px">LG 20</div>
+              <div class="radius-box" style="border-radius:999px;width:72px">Pill</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUTTONS -->
+      <section class="section" id="buttons">
+        <div class="section-head">
+          <div>
+            <h2>Кнопки</h2>
+            <p>Primary только для денег и ключевых конверсий</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="btn-row">
+            <button class="btn btn-primary" type="button">Играть</button>
+            <button class="btn btn-secondary" type="button">Обзор</button>
+            <button class="btn btn-ghost" type="button">Бонусы</button>
+            <button class="btn btn-danger" type="button">Отклонить</button>
+          </div>
+          <div class="btn-row" style="margin-top:14px">
+            <button class="btn btn-primary btn-sm" type="button">Скопировать</button>
+            <button class="btn btn-primary" type="button">Забрать награду</button>
+            <button class="btn btn-primary btn-lg" type="button">Оставить отзыв</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section class="section" id="forms">
+        <div class="section-head">
+          <div>
+            <h2>Формы</h2>
+            <p>Поля Review Flow и CMS</p>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="panel" style="display:grid;gap:12px">
+            <div class="field">
+              <label>Сколько играл</label>
+              <select class="select">
+                <option>Больше месяца</option>
+                <option>Меньше недели</option>
+                <option>Больше года</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Адрес криптокошелька</label>
+              <input class="input" placeholder="0x… или адрес сети" />
+              <div class="field-hint">Убедитесь, что кошелёк поддерживает указанную сеть</div>
+            </div>
+          </div>
+          <div class="panel" style="display:grid;gap:12px">
+            <div class="field">
+              <label>Детальный отзыв</label>
+              <textarea class="textarea" placeholder="Опишите опыт: депозит, вывод, поддержка…"></textarea>
+              <div class="field-hint">Минимум 250 символов</div>
+            </div>
+            <div class="field">
+              <label>Ошибка</label>
+              <input class="input" style="border-color:rgba(255,77,109,.55)" value="abc" />
+              <div class="field-error">Слишком короткий текст для модерации</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BADGES -->
+      <section class="section" id="badges">
+        <div class="section-head">
+          <div>
+            <h2>Бейджи и рейтинг</h2>
+            <p>HOT · TOP · NEW · представитель · звёзды</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="btn-row" style="margin-bottom:16px">
+            <span class="badge badge-hot">HOT</span>
+            <span class="badge badge-top">TOP</span>
+            <span class="badge badge-new">NEW</span>
+            <span class="badge badge-rep">Представитель</span>
+            <span class="badge-rank gold">1</span>
+            <span class="badge-rank">2</span>
+            <span class="badge-rank">5</span>
+          </div>
+          <div class="btn-row">
+            <span class="rating-num">4.9</span>
+            <span class="stars">★★★★★</span>
+            <span class="stars"><span>★★★★</span><span class="dim">★</span></span>
+            <span style="color:var(--text-tertiary);font-size:13px">Мало отзывов</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FILTERS -->
+      <section class="section" id="filters">
+        <div class="section-head">
+          <div>
+            <h2>Фильтры и табы</h2>
+            <p>Listing chips + Card tabs</p>
+          </div>
+        </div>
+        <div class="panel" style="display:grid;gap:16px">
+          <div class="filters">
+            <button class="filter-chip on" type="button">Все</button>
+            <button class="filter-chip" type="button">Лучшие</button>
+            <button class="filter-chip" type="button">Новые</button>
+            <button class="filter-chip" type="button">Крипто</button>
+            <button class="filter-chip" type="button">Быстрый вывод</button>
+          </div>
+          <div class="tabs">
+            <button class="tab on" type="button">Обзор</button>
+            <button class="tab" type="button">Бонусы</button>
+            <button class="tab" type="button">Отзывы</button>
+            <button class="tab" type="button">Новости</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORIES -->
+      <section class="section" id="categories">
+        <div class="section-head">
+          <div>
+            <h2>Меню категорий</h2>
+            <p>3D claymorphism icons · кликабельный прототип</p>
+          </div>
+        </div>
+        <p class="section-note">
+          Ассеты: <code>_refs/icons/cat-*.png</code> (прозрачный PNG). На тёмном UI иконка «всплывает» без подложки-карточки в hero;
+          в меню — компактный tile с label. Кликните группу и плитку — обновится превью справа/снизу.
+        </p>
+
+        <div class="cat-demo" id="catDemo">
+          <div class="cat-groups" role="tablist" aria-label="Группы категорий">
+            <button type="button" class="cat-group-btn on" data-cat-group="games">Игры</button>
+            <button type="button" class="cat-group-btn" data-cat-group="bonuses">Бонусы</button>
+            <button type="button" class="cat-group-btn" data-cat-group="themes">Темы</button>
+            <button type="button" class="cat-group-btn" data-cat-group="casino">Казино</button>
+          </div>
+
+          <div class="cat-rail-wrap">
+            <div class="cat-rail" id="catRail" role="listbox" aria-label="Категории"></div>
+          </div>
+
+          <div class="cat-preview" id="catPreview">
+            <div class="cat-preview-art">
+              <img id="catPreviewImg" src="_refs/icons/cat-slots.png" alt="" />
+            </div>
+            <div>
+              <h3 id="catPreviewTitle">Slots</h3>
+              <p id="catPreviewDesc">Игровые автоматы — главная точка входа в каталог игр и фильтры листинга.</p>
+              <div class="meta" id="catPreviewMeta">
+                <span class="badge badge-top">Игры</span>
+                <span class="badge">slug: slots</span>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="button" id="catPreviewCta">Открыть</button>
+          </div>
+
+          <div class="cat-mega" id="catMega">
+            <div class="cat-mega-side" id="catMegaSide" aria-label="Разделы мегаменю"></div>
+            <div class="cat-mega-grid" id="catMegaGrid" role="listbox" aria-label="Пункты раздела"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LISTING -->
+      <section class="section" id="listing">
+        <div class="section-head">
+          <div>
+            <h2>Casino Listing</h2>
+            <p>Главный паттерн каталога — строка рейтинга</p>
+          </div>
+        </div>
+        <p class="section-note">
+          Взято из 04 (rank + dual CTA) и плотности 08/09, но без сайдбар-лобби:
+          горизонтальная строка для SEO-листинга и быстрой конверсии.
+        </p>
+        <div class="listing">
+          <article class="listing-row is-top">
+            <div class="badge-rank gold">1</div>
+            <div class="logo-tile a">PD</div>
+            <div>
+              <p class="casino-name">Pokerdom</p>
+              <div class="casino-meta">
+                <span class="badge badge-top">TOP</span>
+                <span class="badge badge-hot">HOT</span>
+                <span class="stars">★★★★★</span>
+                <span class="rating-num" style="font-size:14px">5.0</span>
+              </div>
+            </div>
+            <div class="offer"><strong>600 FS + 100%</strong> по промокоду CASINORU</div>
+            <div class="row-actions">
+              <button class="btn btn-ghost btn-sm" type="button">Обзор</button>
+              <button class="btn btn-primary btn-sm" type="button">Играть</button>
+            </div>
+          </article>
+          <article class="listing-row">
+            <div class="badge-rank">2</div>
+            <div class="logo-tile b">ST</div>
+            <div>
+              <p class="casino-name">Stake</p>
+              <div class="casino-meta">
+                <span class="badge badge-new">NEW</span>
+                <span class="stars">★★★★★</span>
+                <span class="rating-num" style="font-size:14px">4.8</span>
+              </div>
+            </div>
+            <div class="offer"><strong>250% до $2500</strong> для новичков</div>
+            <div class="row-actions">
+              <button class="btn btn-ghost btn-sm" type="button">Обзор</button>
+              <button class="btn btn-primary btn-sm" type="button">Играть</button>
+            </div>
+          </article>
+          <article class="listing-row">
+            <div class="badge-rank">3</div>
+            <div class="logo-tile c">PN</div>
+            <div>
+              <p class="casino-name">Pinco</p>
+              <div class="casino-meta">
+                <span class="badge badge-rep">Представитель</span>
+                <span class="stars"><span>★★★★</span><span class="dim">★</span></span>
+                <span class="rating-num" style="font-size:14px">4.6</span>
+              </div>
+            </div>
+            <div class="offer"><strong>250 FS + 180%</strong> до 450 000</div>
+            <div class="row-actions">
+              <button class="btn btn-ghost btn-sm" type="button">Обзор</button>
+              <button class="btn btn-primary btn-sm" type="button">Играть</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CARD -->
+      <section class="section" id="card">
+        <div class="section-head">
+          <div>
+            <h2>Casino Card · Hero</h2>
+            <p>Шапка карточки бренда</p>
+          </div>
+        </div>
+        <div class="card-hero">
+          <div>
+            <div class="card-hero-top">
+              <div class="logo-tile a" style="width:72px;height:72px;font-size:16px">PD</div>
+              <div style="flex:1">
+                <div class="casino-meta" style="margin-bottom:8px">
+                  <span class="badge badge-top">#1 в рейтинге</span>
+                  <span class="badge badge-rep">Представитель</span>
+                </div>
+                <h3 style="margin:0 0 6px;font-family:var(--font-display);font-size:22px;letter-spacing:-.02em">Pokerdom</h3>
+                <div class="btn-row">
+                  <button class="btn btn-primary" type="button">Официальный сайт</button>
+                  <button class="btn btn-secondary" type="button">Оставить отзыв</button>
+                </div>
+              </div>
+              <div class="score-ring" title="Итоговый рейтинг"><div>5.0</div></div>
+            </div>
+            <div class="metric-grid">
+              <div class="metric"><span>Редакция</span><b>5.0</b></div>
+              <div class="metric"><span>Игроки</span><b>4.7</b></div>
+              <div class="metric"><span>Надёжность</span><b>5.0</b></div>
+              <div class="metric"><span>Вывод</span><b>5.0</b></div>
+            </div>
+          </div>
+          <div class="promo-box">
+            <span class="badge badge-hot">VIP BONUS</span>
+            <h4 style="margin:10px 0 4px;font-size:18px">600 FS и 100%</h4>
+            <p style="margin:0;color:var(--text-secondary);font-size:13px">Процентный бонус к депозиту · партнёрский промокод</p>
+            <div class="promo-code">
+              <code>CASINORU</code>
+              <button class="btn btn-secondary btn-sm" type="button">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REVIEWS / BONUSES -->
+      <section class="section" id="reviews">
+        <div class="section-head">
+          <div>
+            <h2>Бонусы и отзывы</h2>
+            <p>Модули контента на Card</p>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="bonus-card">
+            <div class="casino-meta" style="margin-bottom:8px">
+              <span class="badge badge-new">Новичкам</span>
+            </div>
+            <h4>Приветственный пакет 100%</h4>
+            <p style="margin:0 0 12px;color:var(--text-secondary);font-size:13px">Вейджер 35× · мин. депозит 500 · до 30 дней</p>
+            <button class="btn btn-primary btn-sm" type="button">Получить</button>
+          </div>
+          <div class="review-card">
+            <div class="review-head">
+              <div class="review-user">
+                <div class="avatar">HK</div>
+                <div>
+                  <strong style="font-size:13px">HILDAkamala</strong><br />
+                  <small>Новичок · 25 октября</small>
+                </div>
+              </div>
+              <span class="stars">★★★★★</span>
+            </div>
+            <p style="margin:0;color:var(--text-secondary);font-size:13.5px">
+              Взял весь приветственный пакет. Поддержка помогала на старте, вывод прошёл без отказа.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODAL -->
+      <section class="section" id="modal">
+        <div class="section-head">
+          <div>
+            <h2>Review Flow</h2>
+            <p>Модальное окно награды за отзыв</p>
+          </div>
+        </div>
+        <div class="modal-stage">
+          <div class="modal">
+            <h3>Оставить отзыв на Pokerdom</h3>
+            <p class="sub">После модерации вы получите крипто-награду</p>
+            <div class="field" style="margin-bottom:10px">
+              <label>Оценка</label>
+              <div class="stars-input">
+                <button class="star-btn on" type="button">★</button>
+                <button class="star-btn on" type="button">★</button>
+                <button class="star-btn on" type="button">★</button>
+                <button class="star-btn on" type="button">★</button>
+                <button class="star-btn" type="button">★</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Детальный отзыв</label>
+              <textarea class="textarea" placeholder="Ваш опыт в казино…"></textarea>
+            </div>
+            <div class="reward-banner">За этот отзыв вы получите: $1</div>
+            <div class="btn-row" style="margin-top:14px">
+              <button class="btn btn-ghost btn-block" type="button">Отмена</button>
+              <button class="btn btn-primary btn-block" type="button">На модерацию</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGES -->
+      <section class="section" id="pages">
+        <div class="section-head">
+          <div>
+            <h2>Шаблоны страниц</h2>
+            <p>Каркас ключевых экранов MVP</p>
+          </div>
+        </div>
+
+        <div class="page-frame" style="margin-bottom:16px">
+          <div class="browser-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <div class="url">casinoreview.app/ru/casinos</div>
+          </div>
+          <div class="page-body">
+            <div class="site-header">
+              <div class="site-logo"><span class="nav-mark" style="width:28px;height:28px;border-radius:8px"></span> Casino review</div>
+              <div class="site-nav"><span>Рейтинг</span><span>Бонусы</span><span>Статьи</span></div>
+              <div class="spacer"></div>
+              <div class="search-mini">Поиск по сайту</div>
+              <button class="btn btn-primary btn-sm" type="button">RU</button>
+            </div>
+            <h3 class="t-h2" style="margin:0 0 8px">Рейтинг лучших онлайн-казино</h3>
+            <div class="filters" style="margin-bottom:14px">
+              <button class="filter-chip on" type="button">Все</button>
+              <button class="filter-chip" type="button">Лучшие</button>
+              <button class="filter-chip" type="button">Новые</button>
+            </div>
+            <div class="listing">
+              <article class="listing-row is-top">
+                <div class="badge-rank gold">1</div>
+                <div class="logo-tile a">PD</div>
+                <div><p class="casino-name">Pokerdom</p><div class="casino-meta"><span class="stars">★★★★★</span></div></div>
+                <div class="offer"><strong>600 FS + 100%</strong></div>
+                <div class="row-actions"><button class="btn btn-ghost btn-sm" type="button">Обзор</button><button class="btn btn-primary btn-sm" type="button">Играть</button></div>
+              </article>
+              <article class="listing-row">
+                <div class="badge-rank">2</div>
+                <div class="logo-tile b">ST</div>
+                <div><p class="casino-name">Stake</p><div class="casino-meta"><span class="stars">★★★★★</span></div></div>
+                <div class="offer"><strong>250% до $2500</strong></div>
+                <div class="row-actions"><button class="btn btn-ghost btn-sm" type="button">Обзор</button><button class="btn btn-primary btn-sm" type="button">Играть</button></div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="page-frame">
+            <div class="browser-bar">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <div class="url">casinoreview.app/ru/casino/pokerdom</div>
+            </div>
+            <div class="page-body">
+              <div class="tabs" style="margin-bottom:12px">
+                <button class="tab on" type="button">Обзор</button>
+                <button class="tab" type="button">Бонусы</button>
+                <button class="tab" type="button">Отзывы</button>
+              </div>
+              <div style="padding:14px;border-radius:14px;background:var(--bg-elev-2);border:1px solid var(--border-default)">
+                <div class="casino-meta" style="margin-bottom:8px"><span class="badge badge-top">#1</span><span class="badge badge-hot">HOT</span></div>
+                <strong>Pokerdom</strong>
+                <p style="margin:6px 0 12px;color:var(--text-secondary);font-size:13px">Оценка редакции 5.0 · игроки 4.7</p>
+                <button class="btn btn-primary btn-sm" type="button">Оставить отзыв</button>
+              </div>
+            </div>
+          </div>
+          <div class="page-frame">
+            <div class="browser-bar">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <div class="url">modal · reward</div>
+            </div>
+            <div class="page-body" style="display:grid;place-items:center;min-height:220px">
+              <div style="text-align:center">
+                <div style="font-size:42px;line-height:1;margin-bottom:8px">✓</div>
+                <strong style="font-family:var(--font-display)">Награда отправлена</strong>
+                <p style="margin:6px 0 12px;color:var(--text-secondary);font-size:13px">$1 · USDT · сеть TBD</p>
+                <button class="btn btn-secondary btn-sm" type="button">Посмотреть транзакцию</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOTION -->
+      <section class="section" id="motion">
+        <div class="section-head">
+          <div>
+            <h2>Motion</h2>
+            <p>Мало, но осознанно</p>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="panel">
+            <strong style="font-size:13px">Разрешено</strong>
+            <ul style="margin:10px 0 0;padding-left:18px;color:var(--text-secondary);font-size:13.5px">
+              <li>Hover lift у listing-row (1–2px)</li>
+              <li>Glow pulse только у primary CTA в hero</li>
+              <li>Рулетка A/B: 15 оборотов с easing out</li>
+              <li>Смена экранов Review Flow — crossfade 180–220ms</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="motion-demo"><div class="motion-pill">Играть</div></div>
+            <p style="margin:10px 0 0;font-size:12px;color:var(--text-tertiary)">prefers-reduced-motion отключает pulse</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VOICE -->
+      <section class="section" id="voice">
+        <div class="section-head">
+          <div>
+            <h2>Голос, правила, Do / Don’t</h2>
+            <p>Микрокопирайт и визуальные запреты</p>
+          </div>
+        </div>
+        <div class="dodont">
+          <div class="do">
+            <h4>Делать</h4>
+            <ul>
+              <li>«Играть» / «Обзор» / «Оставить отзыв» — одни и те же слова везде</li>
+              <li>Негативный отзыв без стигматизации</li>
+              <li>18+ и ответственная игра на Card и Listing</li>
+              <li>Один зелёный CTA на зону внимания</li>
+            </ul>
+          </div>
+          <div class="dont">
+            <h4>Не делать</h4>
+            <ul>
+              <li>«Гарантированный выигрыш», агрессивный FOMO</li>
+              <li>Фиолетовый фон на весь экран</li>
+              <li>Сайдбар казино-лобби как главная модель</li>
+              <li>Glow на каждой карточке и pill-кластеры без смысла</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- REFS -->
+      <section class="section" id="refs">
+        <div class="section-head">
+          <div>
+            <h2>Исходные референсы</h2>
+            <p>Ваш выбор: 03 · 04 · 08 · 09</p>
+          </div>
+        </div>
+        <div class="refs">
+          <div>
+            <div class="ref-thumb"><img src="./_refs/03_slotinaator-casino-reviews-ratings.png" alt="Ref 03 Slotinaator" /></div>
+            <div class="ref-caption">03 · контентная сетка, Play CTA</div>
+          </div>
+          <div>
+            <div class="ref-thumb"><img src="./_refs/04_top-solana-casinos-affiliate.png" alt="Ref 04 Solana" /></div>
+            <div class="ref-caption">04 · dark listing, rank, dual CTA</div>
+          </div>
+          <div>
+            <div class="ref-thumb"><img src="./_refs/08_gambling-online-casino-dark-catalog.png" alt="Ref 08 Whale" /></div>
+            <div class="ref-caption">08 · dark density, cards depth</div>
+          </div>
+          <div>
+            <div class="ref-thumb"><img src="./_refs/09_casino-website-betting-layout.png" alt="Ref 09 Testluck" /></div>
+            <div class="ref-caption">09 · green Join, promo amber</div>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-note">
+        Casino review Brandbook & Design System v1.0 · dark-first · токены CSS в этом файле ·
+        рабочее название сайта: Casino review · светлая тема — переключатель слева.
+      </p>
+    </div>
+  </main>
+</div>
+
+<script>
+(() => {
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('navToggle');
+  const backdrop = document.getElementById('backdrop');
+  const openNav = (v) => { nav.classList.toggle('open', v); backdrop.classList.toggle('show', v); };
+  toggle.addEventListener('click', () => openNav(!nav.classList.contains('open')));
+  backdrop.addEventListener('click', () => openNav(false));
+
+  // Theme
+  document.querySelectorAll('[data-theme-btn]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-theme-btn]').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      document.documentElement.setAttribute('data-theme', btn.dataset.themeBtn);
+    });
+  });
+
+  // Active nav
+  const links = [...document.querySelectorAll('.nav a.item')];
+  const map = new Map();
+  links.forEach(a => {
+    const id = a.getAttribute('href')?.slice(1);
+    const el = document.getElementById(id);
+    if (el) map.set(el, a);
+    a.addEventListener('click', () => openNav(false));
+  });
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(l => l.classList.remove('active'));
+      map.get(e.target)?.classList.add('active');
+    });
+  }, { rootMargin: '-20% 0px -65% 0px', threshold: 0.01 });
+  map.forEach((_, el) => obs.observe(el));
+
+  // Interactive chips/tabs demos
+  document.querySelectorAll('.filters').forEach(group => {
+    group.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        group.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('on'));
+        chip.classList.add('on');
+      });
+    });
+  });
+  document.querySelectorAll('.tabs').forEach(group => {
+    group.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        group.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+        tab.classList.add('on');
+      });
+    });
+  });
+  document.querySelectorAll('.stars-input').forEach(group => {
+    const stars = [...group.querySelectorAll('.star-btn')];
+    stars.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        stars.forEach((s, j) => s.classList.toggle('on', j <= i));
+      });
+    });
+  });
+
+  // Category menu demo
+  const ICON = (slug) => `_refs/icons/cat-${slug}.png`;
+  const CAT = {
+    games: [
+      { slug: 'slots', label: 'Slots', desc: 'Игровые автоматы — главная точка входа в каталог игр и фильтры листинга.' },
+      { slug: 'live-dealer', label: 'Live', desc: 'Live-казино с реальными дилерами: рулетка, блэкджек, шоу-игры.' },
+      { slug: 'roulette', label: 'Roulette', desc: 'Рулетки: европейская, американская, французская и live-варианты.' },
+      { slug: 'poker', label: 'Poker', desc: 'Покер-румы и покерные столы в обзорах казино.' },
+      { slug: 'blackjack', label: 'Blackjack', desc: 'Блэкджек и вариации — настольные и live.' },
+      { slug: 'baccarat', label: 'Baccarat', desc: 'Баккара для high-roller и классических залов.' },
+      { slug: 'crash', label: 'Crash', desc: 'Краш-игры и мгновенные мультипликаторы.' },
+      { slug: 'mines', label: 'Mines', desc: 'Mines — быстрая skill/chance механика.' },
+      { slug: 'plinko', label: 'Plinko', desc: 'Plinko и ball-drop игры.' },
+      { slug: 'dice', label: 'Dice', desc: 'Dice / кости — быстрые ставки.' },
+      { slug: 'wheel', label: 'Wheel', desc: 'Колесо фортуны и spin-игры.' },
+      { slug: 'bingo', label: 'Bingo', desc: 'Бинго и лотерейные форматы.' },
+      { slug: 'keno', label: 'Keno', desc: 'Кено — numbered-ball лотерея.' },
+      { slug: 'videopoker', label: 'Video Poker', desc: 'Видеопокер: чипы + автоматная механика.' },
+      { slug: 'scratch', label: 'Scratch', desc: 'Скретч-карты и мгновенные лотереи.' },
+      { slug: 'table-games', label: 'Table', desc: 'Настольные игры казино общим блоком.' },
+      { slug: 'instant', label: 'Instant', desc: 'Быстрые / instant games.' },
+      { slug: 'craps', label: 'Craps', desc: 'Craps и кости-столы.' },
+      { slug: 'sicbo', label: 'Sic Bo', desc: 'Sic Bo — азиатские кости.' },
+      { slug: 'teen-patti', label: 'Teen Patti', desc: 'Teen Patti и карточные indie-форматы.' },
+    ],
+    bonuses: [
+      { slug: 'bonus', label: 'Все бонусы', desc: 'Общий хаб бонусных предложений.' },
+      { slug: 'welcome', label: 'Welcome', desc: 'Приветственный пакет: депозит + фриспины.' },
+      { slug: 'freespins', label: 'Free spins', desc: 'Фриспины на слоты — отдельный фильтр офферов.' },
+      { slug: 'daily', label: 'Daily', desc: 'Ежедневные бонусы и логин-реварды.' },
+      { slug: 'reload', label: 'Reload', desc: 'Релоад после первого депозита.' },
+      { slug: 'nodeposit', label: 'No deposit', desc: 'Бездепозитные бонусы и free credits.' },
+      { slug: 'jackpot', label: 'Jackpot', desc: 'Джекпот-офферы и progressive.' },
+      { slug: 'bonus-buy', label: 'Bonus buy', desc: 'Слоты с покупкой бонусной игры.' },
+    ],
+    themes: [
+      { slug: 'egypt', label: 'Egypt', desc: 'Египетская тематика слотов.' },
+      { slug: 'pirates', label: 'Pirates', desc: 'Пираты и сокровища.' },
+      { slug: 'magic', label: 'Magic', desc: 'Магия, орбы, фэнтези.' },
+      { slug: 'adventure', label: 'Adventure', desc: 'Приключения и карты сокровищ.' },
+      { slug: '777', label: '777', desc: 'Классика fruit / lucky sevens.' },
+      { slug: 'zombie', label: 'Zombie', desc: 'Хоррор и зомби-слоты.' },
+      { slug: 'anime', label: 'Anime', desc: 'Аниме-эстетика.' },
+      { slug: 'vampire', label: 'Vampire', desc: 'Вампиры и готика.' },
+      { slug: 'neon', label: 'Neon', desc: 'Неон / cyber.' },
+      { slug: 'newyear', label: 'New Year', desc: 'Новогодние сезонные слоты.' },
+      { slug: 'comics', label: 'Comics', desc: 'Комиксы и superhero.' },
+      { slug: 'history', label: 'History', desc: 'Исторические сеттинги.' },
+      { slug: 'asia', label: 'Asia', desc: 'Азиатская удача и фонари.' },
+    ],
+    casino: [
+      { slug: 'casinos', label: 'Рейтинг', desc: 'Главный рейтинг онлайн-казино.' },
+      { slug: 'reviews', label: 'Обзоры', desc: 'Редакторские и пользовательские обзоры.' },
+      { slug: 'crypto', label: 'Crypto', desc: 'Крипто-казино и crypto-friendly.' },
+      { slug: 'mobile', label: 'Mobile', desc: 'Мобильные казино и приложения.' },
+      { slug: 'landbased', label: 'Наземные', desc: 'Лучшие наземные казино.' },
+      { slug: 'sports', label: 'Спорт', desc: 'Букмекеры и спорт-офферы.' },
+      { slug: 'live-dealer', label: 'Live', desc: 'Казино с сильным live-блоком.' },
+    ],
+  };
+  const GROUP_META = {
+    games: { key: 'games', title: 'Игры', side: [
+      { id: 'all', label: 'Все игры', icon: 'slots' },
+      { id: 'table', label: 'Настольные', icon: 'table-games' },
+      { id: 'instant', label: 'Быстрые', icon: 'instant' },
+      { id: 'live', label: 'Live', icon: 'live-dealer' },
+    ]},
+    bonuses: { key: 'bonuses', title: 'Бонусы', side: [
+      { id: 'all', label: 'Все бонусы', icon: 'bonus' },
+      { id: 'welcome', label: 'Приветственные', icon: 'welcome' },
+      { id: 'spins', label: 'Фриспины', icon: 'freespins' },
+    ]},
+    themes: { key: 'themes', title: 'Темы', side: [
+      { id: 'all', label: 'Все темы', icon: 'magic' },
+      { id: 'classic', label: 'Классика', icon: '777' },
+      { id: 'season', label: 'Сезонные', icon: 'newyear' },
+    ]},
+    casino: { key: 'casino', title: 'Казино', side: [
+      { id: 'all', label: 'Рейтинг', icon: 'casinos' },
+      { id: 'trust', label: 'Обзоры', icon: 'reviews' },
+      { id: 'pay', label: 'Крипто / Mobile', icon: 'crypto' },
+    ]},
+  };
+  const MEGA_FILTER = {
+    games: {
+      all: () => true,
+      table: (c) => ['blackjack','baccarat','poker','roulette','table-games','craps','sicbo','teen-patti'].includes(c.slug),
+      instant: (c) => ['crash','mines','plinko','dice','wheel','instant','scratch'].includes(c.slug),
+      live: (c) => ['live-dealer','roulette','blackjack','baccarat'].includes(c.slug),
+    },
+    bonuses: {
+      all: () => true,
+      welcome: (c) => ['welcome','nodeposit','bonus'].includes(c.slug),
+      spins: (c) => ['freespins','bonus-buy','jackpot'].includes(c.slug),
+    },
+    themes: {
+      all: () => true,
+      classic: (c) => ['777','egypt','history','asia'].includes(c.slug),
+      season: (c) => ['newyear','comics','neon','vampire','zombie'].includes(c.slug),
+    },
+    casino: {
+      all: () => true,
+      trust: (c) => ['reviews','casinos','landbased'].includes(c.slug),
+      pay: (c) => ['crypto','mobile','sports','live-dealer'].includes(c.slug),
+    },
+  };
+
+  const rail = document.getElementById('catRail');
+  const previewImg = document.getElementById('catPreviewImg');
+  const previewTitle = document.getElementById('catPreviewTitle');
+  const previewDesc = document.getElementById('catPreviewDesc');
+  const previewMeta = document.getElementById('catPreviewMeta');
+  const megaSide = document.getElementById('catMegaSide');
+  const megaGrid = document.getElementById('catMegaGrid');
+  let activeGroup = 'games';
+  let activeSide = 'all';
+  let selected = CAT.games[0];
+
+  const setPreview = (item, groupTitle) => {
+    selected = item;
+    previewImg.src = ICON(item.slug);
+    previewImg.alt = item.label;
+    previewTitle.textContent = item.label;
+    previewDesc.textContent = item.desc;
+    previewMeta.innerHTML = `
+      <span class="badge badge-top">${groupTitle}</span>
+      <span class="badge">slug: ${item.slug}</span>`;
+  };
+
+  const makeTile = (item, selectedSlug) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'cat-tile' + (item.slug === selectedSlug ? ' on' : '');
+    btn.setAttribute('role', 'option');
+    btn.setAttribute('aria-selected', item.slug === selectedSlug ? 'true' : 'false');
+    btn.dataset.slug = item.slug;
+    btn.innerHTML = `<img src="${ICON(item.slug)}" alt="" loading="lazy" /><span>${item.label}</span>`;
+    btn.addEventListener('click', () => {
+      setPreview(item, GROUP_META[activeGroup].title);
+      renderRail();
+      renderMega();
+    });
+    return btn;
+  };
+
+  const renderRail = () => {
+    const list = CAT[activeGroup];
+    rail.innerHTML = '';
+    list.forEach(item => rail.appendChild(makeTile(item, selected.slug)));
+  };
+
+  const renderMega = () => {
+    const meta = GROUP_META[activeGroup];
+    const list = CAT[activeGroup].filter(MEGA_FILTER[activeGroup][activeSide] || (() => true));
+    megaSide.innerHTML = '';
+    meta.side.forEach(s => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = s.id === activeSide ? 'on' : '';
+      b.innerHTML = `<img src="${ICON(s.icon)}" alt="" /><span>${s.label}</span>`;
+      b.addEventListener('click', () => {
+        activeSide = s.id;
+        renderMega();
+      });
+      megaSide.appendChild(b);
+    });
+    megaGrid.innerHTML = '';
+    list.forEach(item => megaGrid.appendChild(makeTile(item, selected.slug)));
+  };
+
+  document.querySelectorAll('[data-cat-group]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-cat-group]').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      activeGroup = btn.dataset.catGroup;
+      activeSide = 'all';
+      selected = CAT[activeGroup][0];
+      setPreview(selected, GROUP_META[activeGroup].title);
+      renderRail();
+      renderMega();
+    });
+  });
+
+  document.getElementById('catPreviewCta')?.addEventListener('click', () => {
+    const cta = document.getElementById('catPreviewCta');
+    const prev = cta.textContent;
+    cta.textContent = `→ ${selected.label}`;
+    setTimeout(() => { cta.textContent = prev; }, 900);
+  });
+
+  setPreview(selected, 'Игры');
+  renderRail();
+  renderMega();
+})();
+</script>
+</body>
+</html>

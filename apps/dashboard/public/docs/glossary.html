@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>iGaming — Глоссарий и схемы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #e7edf0;
+  --sheet: #fffcf9;
+  --ink: #12202a;
+  --muted: #5a6974;
+  --line: #d4dde2;
+  --sidebar: #0c141c;
+  --sidebar-ink: #e6eef4;
+  --sidebar-muted: #8496a6;
+  --accent: #0f6e56;
+  --accent-bright: #2ee59a;
+  --accent-soft: #d6f2e8;
+  --amber: #b86a00;
+  --amber-soft: #fff1d6;
+  --cyan: #0a6e8a;
+  --cyan-soft: #d9f2fa;
+  --violet: #5b4aa8;
+  --violet-soft: #ece7fb;
+  --rose: #a61e3a;
+  --rose-soft: #fde8ee;
+  --shadow: 0 1px 0 rgba(18,32,42,.05), 0 14px 36px rgba(18,32,42,.07);
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(920px 460px at -5% -8%, #d5ebe3 0%, transparent 55%),
+    radial-gradient(820px 420px at 105% 0%, #d9e8f5 0%, transparent 48%),
+    radial-gradient(700px 380px at 70% 110%, #ebe4f5 0%, transparent 45%),
+    var(--bg);
+  line-height: 1.55;
+}
+a { color: var(--accent); }
+.layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); min-height: 100vh; }
+
+/* Sidebar */
+.sidebar {
+  position: sticky; top: 0; height: 100vh; overflow: auto;
+  background: var(--sidebar); color: var(--sidebar-ink); padding: 20px 14px 56px;
+}
+.brand { font-weight: 700; font-size: 15px; letter-spacing: -.02em; }
+.brand-sub { color: var(--sidebar-muted); font-size: 12px; margin: 4px 0 16px; }
+.search {
+  width: 100%; margin-bottom: 10px; border: 1px solid #2a3b48; background: #0a1016;
+  color: var(--sidebar-ink); border-radius: 10px; padding: 11px 12px; font: inherit; font-size: 13px;
+}
+.search:focus { outline: 2px solid var(--accent-bright); outline-offset: 1px; border-color: transparent; }
+.search::placeholder { color: var(--sidebar-muted); }
+.search-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: var(--sidebar-muted); margin-bottom: 12px; min-height: 18px;
+}
+.search-meta b { color: var(--accent-bright); font-weight: 600; }
+.kbd {
+  font-family: var(--mono); font-size: 10px; border: 1px solid #334552;
+  border-radius: 5px; padding: 1px 5px; color: #a9bbc8;
+}
+.toc { font-size: 13px; }
+.toc .group {
+  color: var(--sidebar-muted); font-size: 10px; letter-spacing: .08em;
+  text-transform: uppercase; margin: 14px 0 6px; padding: 0 8px;
+}
+.toc a {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  color: var(--sidebar-muted); text-decoration: none;
+  padding: 7px 8px; border-radius: 8px; border-left: 2px solid transparent;
+}
+.toc a:hover, .toc a.active { color: #fff; background: #17232e; border-left-color: var(--accent-bright); }
+.toc a .n { opacity: .55; font-family: var(--mono); font-size: 11px; }
+
+/* Main */
+.main { padding: 24px 24px 96px; }
+.sheet {
+  max-width: 1040px; margin: 0 auto; background: var(--sheet);
+  border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow);
+  padding: 28px 32px 56px;
+}
+.hero {
+  display: grid; gap: 10px; margin-bottom: 22px; padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.hero h1 {
+  margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.12;
+  letter-spacing: -.03em; font-weight: 700;
+}
+.hero p { margin: 0; color: var(--muted); max-width: 62ch; font-size: 15px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent-soft); color: var(--accent);
+  border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 600;
+}
+.pill.amber { background: var(--amber-soft); color: var(--amber); }
+.pill.cyan { background: var(--cyan-soft); color: var(--cyan); }
+.pill.violet { background: var(--violet-soft); color: var(--violet); }
+
+section.block { margin-top: 36px; scroll-margin-top: 24px; }
+section.block > h2 {
+  margin: 0 0 8px; font-size: 22px; letter-spacing: -.02em;
+  display: flex; align-items: baseline; gap: 10px;
+}
+section.block > h2 .idx {
+  font-family: var(--mono); font-size: 13px; color: var(--muted); font-weight: 500;
+}
+section.block > .lead {
+  margin: 0 0 16px; color: var(--muted); font-size: 14px; max-width: 70ch;
+}
+
+/* Terms */
+.terms { display: grid; gap: 10px; }
+.term {
+  border: 1px solid var(--line); border-radius: 12px; background: #fff;
+  padding: 14px 16px 14px; transition: border-color .15s ease, box-shadow .15s ease;
+}
+.term:hover { border-color: #b8c8c0; box-shadow: 0 8px 24px rgba(18,32,42,.05); }
+.term.hidden { display: none; }
+.term-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin-bottom: 6px;
+}
+.term-name { font-weight: 700; font-size: 15px; letter-spacing: -.01em; }
+.term-en {
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  background: #f2f5f7; border-radius: 6px; padding: 2px 7px;
+}
+.term-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-left: auto; }
+.tag {
+  font-size: 10px; font-weight: 600; border-radius: 999px;
+  padding: 2px 8px; background: #eef2f5; color: var(--muted);
+}
+.tag.money { background: var(--amber-soft); color: var(--amber); }
+.tag.tech { background: var(--cyan-soft); color: var(--cyan); }
+.tag.legal { background: var(--violet-soft); color: var(--violet); }
+.tag.risk { background: var(--rose-soft); color: var(--rose); }
+.term-body { margin: 0; font-size: 14px; color: #243540; }
+.term-alias {
+  margin: 8px 0 0; font-size: 12px; color: var(--muted);
+}
+.term-alias span { font-family: var(--mono); color: #3a4d5a; }
+.term mark {
+  background: #ffe58f; color: inherit; border-radius: 2px; padding: 0 2px;
+}
+
+/* Schemes */
+.scheme {
+  border: 1px solid var(--line); border-radius: 14px; background: #fff;
+  padding: 16px 16px 18px; margin-bottom: 14px;
+}
+.scheme h3 { margin: 0 0 4px; font-size: 16px; letter-spacing: -.015em; }
+.scheme .desc { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+.flow {
+  display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px;
+}
+.flow-node {
+  flex: 1 1 120px; min-width: 110px; max-width: 180px;
+  border-radius: 12px; padding: 12px 12px 10px;
+  background: #f4f7f8; border: 1px solid var(--line);
+  position: relative;
+}
+.flow-node.accent { background: var(--accent-soft); border-color: #b7ddd0; }
+.flow-node.amber { background: var(--amber-soft); border-color: #efd5a0; }
+.flow-node.cyan { background: var(--cyan-soft); border-color: #a8d7e6; }
+.flow-node.violet { background: var(--violet-soft); border-color: #cbbff0; }
+.flow-node.rose { background: var(--rose-soft); border-color: #f0b8c4; }
+.flow-node .role {
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+  margin-bottom: 4px; letter-spacing: .02em;
+}
+.flow-node .title { font-weight: 700; font-size: 13px; line-height: 1.25; }
+.flow-node .note { margin-top: 6px; font-size: 11px; color: var(--muted); line-height: 1.35; }
+.flow-arrow {
+  flex: 0 0 auto; align-self: center;
+  font-family: var(--mono); font-size: 16px; color: #7a8d99; padding: 0 2px;
+}
+.stack { display: grid; gap: 8px; }
+.lane {
+  display: grid; grid-template-columns: 110px 1fr; gap: 10px; align-items: stretch;
+}
+.lane-label {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-size: 11px; font-weight: 700; border-radius: 10px;
+  background: #12202a; color: #e8eef3; padding: 8px;
+}
+.lane-steps {
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  border: 1px dashed var(--line); border-radius: 12px; padding: 10px;
+  background: #fafbfc;
+}
+.chip {
+  font-size: 12px; font-weight: 600; background: #fff;
+  border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px;
+}
+.chip.soft { background: var(--accent-soft); border-color: #b7ddd0; }
+.chip.amber { background: var(--amber-soft); border-color: #efd5a0; }
+.chip.cyan { background: var(--cyan-soft); border-color: #a8d7e6; }
+.arrow-inline { color: #8a9ba8; font-family: var(--mono); font-size: 13px; }
+
+.matrix {
+  width: 100%; border-collapse: collapse; font-size: 13px; overflow: hidden;
+  border: 1px solid var(--line); border-radius: 12px;
+}
+.matrix th, .matrix td {
+  border-bottom: 1px solid var(--line); border-right: 1px solid var(--line);
+  padding: 10px 12px; text-align: left; vertical-align: top;
+}
+.matrix th:last-child, .matrix td:last-child { border-right: none; }
+.matrix tr:last-child td { border-bottom: none; }
+.matrix th { background: #f1f5f7; font-size: 11px; color: var(--muted); font-weight: 600; }
+.matrix td strong { display: block; margin-bottom: 2px; }
+
+.empty {
+  display: none; margin: 28px 0; padding: 28px; text-align: center;
+  border: 1px dashed var(--line); border-radius: 14px; color: var(--muted);
+}
+.empty.visible { display: block; }
+.empty b { color: var(--ink); }
+
+.footer-note {
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line);
+  font-size: 12px; color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: relative; height: auto; max-height: none; }
+  .sheet { padding: 20px 16px 40px; border-radius: 14px; }
+  .main { padding: 12px 12px 64px; }
+  .lane { grid-template-columns: 1fr; }
+  .term-tags { margin-left: 0; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .term { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">iGaming Glossary</div>
+    <div class="brand-sub">Термины · схемы · роли · деньги</div>
+    <input class="search" id="q" type="search" placeholder="Поиск по терминам…" autocomplete="off" />
+    <div class="search-meta">
+      <span id="count">—</span>
+      <span class="kbd">⌘/Ctrl K</span>
+    </div>
+    <nav class="toc" id="toc">
+      <div class="group">Навигация</div>
+      <a href="#base">База <span class="n" data-sec="base"></span></a>
+      <a href="#actors">Роли и участники <span class="n" data-sec="actors"></span></a>
+      <a href="#license">Лицензии и гео <span class="n" data-sec="license"></span></a>
+      <a href="#games">Игры <span class="n" data-sec="games"></span></a>
+      <a href="#math">Математика игр <span class="n" data-sec="math"></span></a>
+      <a href="#bonus">Бонусы <span class="n" data-sec="bonus"></span></a>
+      <a href="#pay">Платежи и KYC <span class="n" data-sec="pay"></span></a>
+      <a href="#aff">Affiliate <span class="n" data-sec="aff"></span></a>
+      <a href="#ops">Оператор и продукт <span class="n" data-sec="ops"></span></a>
+      <a href="#risk">Риск и compliance <span class="n" data-sec="risk"></span></a>
+      <a href="#content">Контент / обзорники <span class="n" data-sec="content"></span></a>
+      <div class="group">Схемы</div>
+      <a href="#schemes">Взаимодействия</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="sheet">
+      <header class="hero">
+        <h1>Глоссарий iGaming</h1>
+        <p>Справочник терминов и схем для команды обзорника: от RTP и вейджера до CPA, лицензий и цепочки «игрок → казино → провайдер → платёжка».</p>
+        <div class="hero-meta">
+          <span class="pill" id="pill-terms">термины</span>
+          <span class="pill amber">деньги / бонусы</span>
+          <span class="pill cyan">тех / math</span>
+          <span class="pill violet">legal / geo</span>
+        </div>
+      </header>
+
+      <div class="empty" id="empty">
+        По запросу <b id="empty-q"></b> ничего не найдено. Сбросьте поиск или попробуйте другое слово (EN/RU).
+      </div>
+
+      <!-- BASE -->
+      <section class="block" id="base" data-section="base">
+        <h2><span class="idx">01</span> Базовые понятия</h2>
+        <p class="lead">Каркас индустрии: что такое iGaming, онлайн-казино и как устроен рынок вокруг ставок и азартных игр.</p>
+        <div class="terms">
+          <article class="term" data-keys="igaming i-gaming азартные онлайн gambling">
+            <div class="term-head">
+              <div class="term-name">iGaming</div>
+              <div class="term-en">iGaming</div>
+              <div class="term-tags"><span class="tag">база</span></div>
+            </div>
+            <p class="term-body">Онлайн-сегмент азартных игр: казино, беттинг, покер, лотереи, fantasy sports и смежные продукты, доступные через веб и приложения.</p>
+          </article>
+          <article class="term" data-keys="online casino онлайн казино оператор brand">
+            <div class="term-head">
+              <div class="term-name">Онлайн-казино</div>
+              <div class="term-en">Online casino</div>
+              <div class="term-tags"><span class="tag">база</span></div>
+            </div>
+            <p class="term-body">Платформа, где игрок регистрируется, депозитит и играет в слоты, live и настольные игры. «Казино» в обзорнике = бренд + сайт + офер игроку.</p>
+          </article>
+          <article class="term" data-keys="operator оператор brand бренд white label">
+            <div class="term-head">
+              <div class="term-name">Оператор</div>
+              <div class="term-en">Operator</div>
+              <div class="term-tags"><span class="tag">база</span></div>
+            </div>
+            <p class="term-body">Компания, которая держит лицензию/бренд, принимает ставки и несёт обязательства перед игроком и регулятором. Может работать на собственном софте или white-label.</p>
+          </article>
+          <article class="term" data-keys="vertical вертикаль casino sportsbook poker">
+            <div class="term-head">
+              <div class="term-name">Вертикаль</div>
+              <div class="term-en">Vertical</div>
+              <div class="term-tags"><span class="tag">база</span></div>
+            </div>
+            <p class="term-body">Направление продукта: casino, sportsbook, poker, lottery, bingo, crash/instant. Один бренд часто совмещает несколько вертикалей.</p>
+          </article>
+          <article class="term" data-keys="ggr ngr revenue оборот hold">
+            <div class="term-head">
+              <div class="term-name">GGR / NGR</div>
+              <div class="term-en">Gross / Net Gaming Revenue</div>
+              <div class="term-tags"><span class="tag money">деньги</span></div>
+            </div>
+            <p class="term-body"><b>GGR</b> — ставки минус выигрыши игроков (валовая игровая выручка). <b>NGR</b> — GGR после бонусов, комиссий, chargeback и части операционных корректировок. База для RevShare.</p>
+            <p class="term-alias">Рядом: <span>turnover</span>, <span>handle</span>, <span>hold %</span></p>
+          </article>
+          <article class="term" data-keys="b2c b2b to-business to-consumer">
+            <div class="term-head">
+              <div class="term-name">B2C / B2B</div>
+              <div class="term-en">Business models</div>
+              <div class="term-tags"><span class="tag">база</span></div>
+            </div>
+            <p class="term-body"><b>B2C</b> — оператор продаёт игру конечному игроку. <b>B2B</b> — провайдеры игр, платёжки, платформы, агрегаторы продают услуги операторам.</p>
+          </article>
+          <article class="term" data-keys="geo рынок market jurisdiction юрисдикция">
+            <div class="term-head">
+              <div class="term-name">Гео / рынок</div>
+              <div class="term-en">Geo / market</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Страна или регион, для которого настроен продукт, платежи, язык, офер и compliance. Один бренд может иметь разные оферы под разные гео.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ACTORS -->
+      <section class="block" id="actors" data-section="actors">
+        <h2><span class="idx">02</span> Роли и участники</h2>
+        <p class="lead">Кто стоит между деньгами игрока и слотом: оператор, провайдер, агрегатор, платёжка, аффилиат.</p>
+        <div class="terms">
+          <article class="term" data-keys="player игрок user user id account">
+            <div class="term-head">
+              <div class="term-name">Игрок</div>
+              <div class="term-en">Player / End user</div>
+              <div class="term-tags"><span class="tag">роль</span></div>
+            </div>
+            <p class="term-body">Конечный пользователь: регистрация → KYC (часто) → депозит → игра → вывод. В аналитике: FTDs, actives, retention cohort.</p>
+          </article>
+          <article class="term" data-keys="provider game provider провайдер студия">
+            <div class="term-head">
+              <div class="term-name">Провайдер игр</div>
+              <div class="term-en">Game provider</div>
+              <div class="term-tags"><span class="tag">роль</span></div>
+            </div>
+            <p class="term-body">Студия/компания, которая разрабатывает слоты и live-игры и отдаёт их операторам по интеграции (прямая или через агрегатор). Примеры моделей: Pragmatic, NetEnt, Evolution, Hacksaw.</p>
+          </article>
+          <article class="term" data-keys="aggregator агрегатор softswiss everyMatrix">
+            <div class="term-head">
+              <div class="term-name">Агрегатор</div>
+              <div class="term-en">Game aggregator</div>
+              <div class="term-tags"><span class="tag tech">tech</span></div>
+            </div>
+            <p class="term-body">Посредник: одна интеграция — доступ к десяткам провайдеров. Упрощает запуск каталога, биллинг провайдерам и сертификацию.</p>
+          </article>
+          <article class="term" data-keys="platform платформа casino platform turnkey">
+            <div class="term-head">
+              <div class="term-name">Платформа казино</div>
+              <div class="term-en">Casino platform</div>
+              <div class="term-tags"><span class="tag tech">tech</span></div>
+            </div>
+            <p class="term-body">Технический стек оператора: аккаунты, кошелёк, бонусы, CRM, back-office, интеграции игр и платежей. Может быть in-house, turnkey или white-label.</p>
+          </article>
+          <article class="term" data-keys="psp payment provider платёжка acquiring">
+            <div class="term-head">
+              <div class="term-name">Платёжный провайдер (PSP)</div>
+              <div class="term-en">Payment service provider</div>
+              <div class="term-tags"><span class="tag money">деньги</span></div>
+            </div>
+            <p class="term-body">Принимает депозиты и проводит выплаты. В gambling часто отдельный risk/MCC, local methods, crypto rails и жёсткий antifraud.</p>
+          </article>
+          <article class="term" data-keys="affiliate аффилиат партнёр publisher">
+            <div class="term-head">
+              <div class="term-name">Аффилиат / паблишер</div>
+              <div class="term-en">Affiliate / Publisher</div>
+              <div class="term-tags"><span class="tag">роль</span></div>
+            </div>
+            <p class="term-body">Сайт или медиа, которое приводит игроков по партнёрской ссылке и получает CPA / RevShare / Hybrid. Обзорник казино — типичный affiliate-продукт.</p>
+          </article>
+          <article class="term" data-keys="regulator регулятор licensing authority">
+            <div class="term-head">
+              <div class="term-name">Регулятор</div>
+              <div class="term-en">Regulator</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Орган, выдающий лицензию и контролирующий оператора: MGA, UKGC, Curacao (исторически), Ontario iGaming, и т.д. Задаёт правила рекламы, RG, отчётности.</p>
+          </article>
+          <article class="term" data-keys="softswiss oracle oddsfeed odds provider">
+            <div class="term-head">
+              <div class="term-name">Odds / data provider</div>
+              <div class="term-en">Odds feed</div>
+              <div class="term-tags"><span class="tag tech">tech</span></div>
+            </div>
+            <p class="term-body">Поставщик котировок и спортивных данных для sportsbook. Не путать с game provider.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- LICENSE -->
+      <section class="block" id="license" data-section="license">
+        <h2><span class="idx">03</span> Лицензии и гео</h2>
+        <p class="lead">Легальность, «серые» рынки, зеркала и то, что проверяют в обзоре казино первым делом.</p>
+        <div class="terms">
+          <article class="term" data-keys="license лицензия mga ukgc curacao">
+            <div class="term-head">
+              <div class="term-name">Лицензия</div>
+              <div class="term-en">Gambling licence</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Разрешение регулятора на приём ставок. Важны: юрисдикция, номер, статус, на кого выдана, какие вертикали покрывает. «Лицензия Curacao» ≠ UKGC по уровню защиты игрока.</p>
+          </article>
+          <article class="term" data-keys="regulated market регулируемый рынок">
+            <div class="term-head">
+              <div class="term-name">Регулируемый рынок</div>
+              <div class="term-en">Regulated market</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Страна с локальной лицензией и жёсткими правилами (UK, SE, NL, Ontario…). Реклама, бонусы и KYC строго ограничены.</p>
+          </article>
+          <article class="term" data-keys="grey market серый рынок offshore">
+            <div class="term-head">
+              <div class="term-name">Серый рынок</div>
+              <div class="term-en">Grey market</div>
+              <div class="term-tags"><span class="tag risk">риск</span></div>
+            </div>
+            <p class="term-body">Рынок без ясной локальной лицензии, где операторы работают с offshore-лицензией. Выше legal/payment risk, ниже барьер входа.</p>
+          </article>
+          <article class="term" data-keys="mirror зеркало domain mirror site">
+            <div class="term-head">
+              <div class="term-name">Зеркало</div>
+              <div class="term-en">Mirror</div>
+              <div class="term-tags"><span class="tag">продукт</span></div>
+            </div>
+            <p class="term-body">Альтернативный домен того же казино при блокировках/фильтрах. В обзорах важно отличать официальное зеркало от фишинга.</p>
+          </article>
+          <article class="term" data-keys="whitelist blacklist белый чёрный список">
+            <div class="term-head">
+              <div class="term-name">Whitelist / Blacklist</div>
+              <div class="term-en">Trust lists</div>
+              <div class="term-tags"><span class="tag risk">риск</span></div>
+            </div>
+            <p class="term-body">Списки доверенных и проблемных брендов у обзорника/коммьюнити. Blacklist обычно за невыплаты, скам, подмену правил.</p>
+          </article>
+          <article class="term" data-keys="geo-block геоблок vpn restricted">
+            <div class="term-head">
+              <div class="term-name">Геоблок</div>
+              <div class="term-en">Geo-restriction</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Ограничение доступа по IP/стране. Обход через VPN часто нарушает T&amp;C и может привести к конфискации выигрыша.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- GAMES -->
+      <section class="block" id="games" data-section="games">
+        <h2><span class="idx">04</span> Игры</h2>
+        <p class="lead">Каталог вертикали casino: слоты, live, настольные, instant/crash и соседние форматы.</p>
+        <div class="terms">
+          <article class="term" data-keys="slot слот автомат online slot">
+            <div class="term-head">
+              <div class="term-name">Слот</div>
+              <div class="term-en">Slot</div>
+              <div class="term-tags"><span class="tag">игры</span></div>
+            </div>
+            <p class="term-body">Игровой автомат с барабанами/сеткой и RNG. Подтипы: classic, video, megaways, cluster, hold &amp; win, bonus buy.</p>
+          </article>
+          <article class="term" data-keys="live casino live dealer живое казино">
+            <div class="term-head">
+              <div class="term-name">Live casino</div>
+              <div class="term-en">Live dealer</div>
+              <div class="term-tags"><span class="tag">игры</span></div>
+            </div>
+            <p class="term-body">Игры с живым дилером и видеопотоком: рулетка, блэкджек, баккара, game shows. Провайдеры: Evolution, Pragmatic Live и др.</p>
+          </article>
+          <article class="term" data-keys="table games настольные blackjack roulette baccarat">
+            <div class="term-head">
+              <div class="term-name">Настольные игры</div>
+              <div class="term-en">Table games</div>
+              <div class="term-tags"><span class="tag">игры</span></div>
+            </div>
+            <p class="term-body">Блэкджек, рулетка, баккара, покер против дома — RNG или live. Ключевой параметр: house edge / RTP.</p>
+          </article>
+          <article class="term" data-keys="crash instant plinko mines dice aviator">
+            <div class="term-head">
+              <div class="term-name">Crash / Instant games</div>
+              <div class="term-en">Crash, Mines, Plinko, Dice</div>
+              <div class="term-tags"><span class="tag">игры</span></div>
+            </div>
+            <p class="term-body">Быстрые игры с коротким раундом. Часто с provably fair. Высокая вовлечённость, простая UX, популярны в crypto-казино.</p>
+          </article>
+          <article class="term" data-keys="jackpot джекпот progressive">
+            <div class="term-head">
+              <div class="term-name">Джекпот</div>
+              <div class="term-en">Jackpot / Progressive</div>
+              <div class="term-tags"><span class="tag money">деньги</span></div>
+            </div>
+            <p class="term-body">Крупный приз. <b>Progressive</b> растёт от ставок сети игроков. Local vs network jackpot.</p>
+          </article>
+          <article class="term" data-keys="bonus buy покупка бонуса feature buy">
+            <div class="term-head">
+              <div class="term-name">Bonus Buy</div>
+              <div class="term-en">Feature / Bonus buy</div>
+              <div class="term-tags"><span class="tag">игры</span></div>
+            </div>
+            <p class="term-body">Покупка входа в бонусный раунд слота за N× ставки. В ряде регуляций запрещён.</p>
+          </article>
+          <article class="term" data-keys="demo демо fun play">
+            <div class="term-head">
+              <div class="term-name">Демо-режим</div>
+              <div class="term-en">Demo / Fun play</div>
+              <div class="term-tags"><span class="tag">игры</span></div>
+            </div>
+            <p class="term-body">Игра на виртуальный баланс без депозита. Удобно для обзоров слотов и обучения механикам.</p>
+          </article>
+          <article class="term" data-keys="sportsbook беттинг betting odds">
+            <div class="term-head">
+              <div class="term-name">Sportsbook</div>
+              <div class="term-en">Sports betting</div>
+              <div class="term-tags"><span class="tag">игры</span></div>
+            </div>
+            <p class="term-body">Приём ставок на спорт/киберспорт. Prematch, live, ординары, экспрессы, маржа букмекера.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- MATH -->
+      <section class="block" id="math" data-section="math">
+        <h2><span class="idx">05</span> Математика игр</h2>
+        <p class="lead">Цифры, которые объясняют «честность» и ощущение игры — без магии «горячий слот».</p>
+        <div class="terms">
+          <article class="term" data-keys="rtp return to player отдача">
+            <div class="term-head">
+              <div class="term-name">RTP</div>
+              <div class="term-en">Return to Player</div>
+              <div class="term-tags"><span class="tag tech">math</span></div>
+            </div>
+            <p class="term-body">Теоретический процент возврата игроку на длинной дистанции. RTP 96% ≈ house edge 4%. У оператора иногда несколько конфигураций RTP одного слота.</p>
+          </article>
+          <article class="term" data-keys="volatility variance волатильность дисперсия">
+            <div class="term-head">
+              <div class="term-name">Волатильность</div>
+              <div class="term-en">Volatility / Variance</div>
+              <div class="term-tags"><span class="tag tech">math</span></div>
+            </div>
+            <p class="term-body">Насколько «рваный» профиль выплат: low — частые мелкие, high — редкие крупные. Влияет на банкролл и ощущение слота сильнее, чем разница RTP 0.5%.</p>
+          </article>
+          <article class="term" data-keys="rng random number generator генератор">
+            <div class="term-head">
+              <div class="term-name">RNG</div>
+              <div class="term-en">Random Number Generator</div>
+              <div class="term-tags"><span class="tag tech">tech</span></div>
+            </div>
+            <p class="term-body">Генератор случайных чисел, определяющий исход спина/раздачи. Сертифицируется лабораториями (GLI, eCOGRA, iTech Labs и др.).</p>
+          </article>
+          <article class="term" data-keys="house edge преимущество казино margin">
+            <div class="term-head">
+              <div class="term-name">House edge</div>
+              <div class="term-en">House edge</div>
+              <div class="term-tags"><span class="tag tech">math</span></div>
+            </div>
+            <p class="term-body">Математическое преимущество дома: 100% − RTP. В беттинге аналог — маржа линии.</p>
+          </article>
+          <article class="term" data-keys="hit frequency частота выигрышей">
+            <div class="term-head">
+              <div class="term-name">Hit frequency</div>
+              <div class="term-en">Hit rate</div>
+              <div class="term-tags"><span class="tag tech">math</span></div>
+            </div>
+            <p class="term-body">Как часто любой выигрыш выпадает относительно спинов. Не равен RTP.</p>
+          </article>
+          <article class="term" data-keys="max win максимальный выигрыш">
+            <div class="term-head">
+              <div class="term-name">Max win</div>
+              <div class="term-en">Maximum win</div>
+              <div class="term-tags"><span class="tag money">деньги</span></div>
+            </div>
+            <p class="term-body">Потолок выигрыша в слоте, обычно в множителях ставки (например ×10 000). Важен вместе с волатильностью.</p>
+          </article>
+          <article class="term" data-keys="provably fair доказуемая честность">
+            <div class="term-head">
+              <div class="term-name">Provably Fair</div>
+              <div class="term-en">Provably fair</div>
+              <div class="term-tags"><span class="tag tech">tech</span></div>
+            </div>
+            <p class="term-body">Криптографическая схема (server/client seed + nonce), позволяющая игроку проверить, что исход не подкручивали после ставки. Типично для crypto/instant.</p>
+          </article>
+          <article class="term" data-keys="gambler's fallacy заблуждение игрока hot cold">
+            <div class="term-head">
+              <div class="term-name">Заблуждение игрока</div>
+              <div class="term-en">Gambler’s fallacy</div>
+              <div class="term-tags"><span class="tag risk">риск</span></div>
+            </div>
+            <p class="term-body">Ошибка мышления «после серии проигрышей должен выпасть выигрыш». У независимого RNG прошлые спины не влияют на следующие.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- BONUS -->
+      <section class="block" id="bonus" data-section="bonus">
+        <h2><span class="idx">06</span> Бонусы и промо</h2>
+        <p class="lead">То, что пишет маркетинг крупно, и то, что спрятано в T&amp;C мелким шрифтом.</p>
+        <div class="terms">
+          <article class="term" data-keys="welcome bonus приветственный бонус">
+            <div class="term-head">
+              <div class="term-name">Welcome-бонус</div>
+              <div class="term-en">Welcome / Sign-up bonus</div>
+              <div class="term-tags"><span class="tag money">бонус</span></div>
+            </div>
+            <p class="term-body">Пакет на первый депозит(ы): % к депозиту, фриспины, иногда free bet. Главные параметры: сумма, вейджер, срок, max bet, game weighting.</p>
+          </article>
+          <article class="term" data-keys="wager вейджер отыгрыш playthrough">
+            <div class="term-head">
+              <div class="term-name">Вейджер / отыгрыш</div>
+              <div class="term-en">Wagering / Playthrough</div>
+              <div class="term-tags"><span class="tag money">бонус</span></div>
+            </div>
+            <p class="term-body">Сколько раз нужно прокрутить бонус (и иногда депозит), прежде чем вывести. Пример: бонус $100 ×35 = $3 500 turnover.</p>
+          </article>
+          <article class="term" data-keys="freespins фриспины free spins">
+            <div class="term-head">
+              <div class="term-name">Фриспины</div>
+              <div class="term-en">Free spins</div>
+              <div class="term-tags"><span class="tag money">бонус</span></div>
+            </div>
+            <p class="term-body">Бесплатные вращения на конкретном слоте/ставке. Выигрыш с FS обычно тоже с вейджером.</p>
+          </article>
+          <article class="term" data-keys="no deposit бездепозитный ndb">
+            <div class="term-head">
+              <div class="term-name">Бездепозитный бонус</div>
+              <div class="term-en">No deposit bonus</div>
+              <div class="term-tags"><span class="tag money">бонус</span></div>
+            </div>
+            <p class="term-body">Бонус без пополнения. Часто жёсткий вейджер, лимит вывода и строгий KYC. Высокий риск абуза → жёсткие правила.</p>
+          </article>
+          <article class="term" data-keys="cashback кешбек">
+            <div class="term-head">
+              <div class="term-name">Кешбек</div>
+              <div class="term-en">Cashback</div>
+              <div class="term-tags"><span class="tag money">бонус</span></div>
+            </div>
+            <p class="term-body">Возврат % от нетто-проигрыша за период. Бывает с вейджером и без (sticky vs real cashback).</p>
+          </article>
+          <article class="term" data-keys="reload reload bonus повторный">
+            <div class="term-head">
+              <div class="term-name">Reload</div>
+              <div class="term-en">Reload bonus</div>
+              <div class="term-tags"><span class="tag money">бонус</span></div>
+            </div>
+            <p class="term-body">Бонус на повторный депозит (день недели, VIP-tier, промокод).</p>
+          </article>
+          <article class="term" data-keys="vip loyalty программа лояльности">
+            <div class="term-head">
+              <div class="term-name">VIP / Loyalty</div>
+              <div class="term-en">VIP program</div>
+              <div class="term-tags"><span class="tag money">бонус</span></div>
+            </div>
+            <p class="term-body">Уровни лояльности по обороту: кешбек, персональный менеджер, лимиты вывода, подарки. Важно смотреть прозрачность правил.</p>
+          </article>
+          <article class="term" data-keys="max bet максимальная ставка бонус">
+            <div class="term-head">
+              <div class="term-name">Max bet (на бонусе)</div>
+              <div class="term-en">Max bet while bonus</div>
+              <div class="term-tags"><span class="tag risk">риск</span></div>
+            </div>
+            <p class="term-body">Лимит ставки во время отыгрыша (часто $5). Превышение = аннуляция бонуса и выигрыша.</p>
+          </article>
+          <article class="term" data-keys="game contribution weighting вклад игр">
+            <div class="term-head">
+              <div class="term-name">Game contribution</div>
+              <div class="term-en">Weighting</div>
+              <div class="term-tags"><span class="tag money">бонус</span></div>
+            </div>
+            <p class="term-body">Какой % ставки идёт в вейджер: слоты 100%, рулетка 10–20%, некоторые игры 0%. Критично читать в T&amp;C.</p>
+          </article>
+          <article class="term" data-keys="bonus abuse бонус хантер multi-accounting">
+            <div class="term-head">
+              <div class="term-name">Bonus abuse</div>
+              <div class="term-en">Bonus hunting / abuse</div>
+              <div class="term-tags"><span class="tag risk">риск</span></div>
+            </div>
+            <p class="term-body">Схема извлечения ценности бонусов в обход правил: мультиакки, низкорисковые ставки, арбитраж. Операторы режут через risk/AML правила.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- PAY -->
+      <section class="block" id="pay" data-section="pay">
+        <h2><span class="idx">07</span> Платежи и KYC</h2>
+        <p class="lead">Деньги входят легко, выходят через правила, лимиты и проверки.</p>
+        <div class="terms">
+          <article class="term" data-keys="deposit депозит пополнение">
+            <div class="term-head">
+              <div class="term-name">Депозит</div>
+              <div class="term-en">Deposit</div>
+              <div class="term-tags"><span class="tag money">деньги</span></div>
+            </div>
+            <p class="term-body">Пополнение игрового баланса. Важны: методы, min/max, комиссии, скорость зачисления, доступность в гео.</p>
+          </article>
+          <article class="term" data-keys="withdrawal вывод payout cashout">
+            <div class="term-head">
+              <div class="term-name">Вывод</div>
+              <div class="term-en">Withdrawal / Payout</div>
+              <div class="term-tags"><span class="tag money">деньги</span></div>
+            </div>
+            <p class="term-body">Запрос выплаты. Смотреть: срок обработки, лимиты в день/месяц, обязательный метод = метод депозита, pending/hold.</p>
+          </article>
+          <article class="term" data-keys="kyc know your customer верификация">
+            <div class="term-head">
+              <div class="term-name">KYC</div>
+              <div class="term-en">Know Your Customer</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Идентификация личности: паспорт, селфи, proof of address, иногда source of funds. Обычно до крупного вывода или по триггеру риска.</p>
+          </article>
+          <article class="term" data-keys="aml anti money laundering противодействие">
+            <div class="term-head">
+              <div class="term-name">AML</div>
+              <div class="term-en">Anti-Money Laundering</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Процедуры против отмывания: мониторинг транзакций, SoF/SoW, санкционные списки, reporting.</p>
+          </article>
+          <article class="term" data-keys="chargeback чарджбек">
+            <div class="term-head">
+              <div class="term-name">Chargeback</div>
+              <div class="term-en">Chargeback</div>
+              <div class="term-tags"><span class="tag risk">риск</span></div>
+            </div>
+            <p class="term-body">Оспаривание платежа через банк. В gambling высокий риск → жёсткие правила верификации и иногда запрет карт.</p>
+          </article>
+          <article class="term" data-keys="crypto cryptocurrency крипта bitcoin usdt">
+            <div class="term-head">
+              <div class="term-name">Crypto-платежи</div>
+              <div class="term-en">Crypto rails</div>
+              <div class="term-tags"><span class="tag money">деньги</span></div>
+            </div>
+            <p class="term-body">BTC, ETH, USDT и др. Быстрые выводы, меньше банковского friction, свои риски: волатильность, необратимость, compliance.</p>
+          </article>
+          <article class="term" data-keys="pending холд обработка">
+            <div class="term-head">
+              <div class="term-name">Pending / Hold</div>
+              <div class="term-en">Pending withdrawal</div>
+              <div class="term-tags"><span class="tag">продукт</span></div>
+            </div>
+            <p class="term-body">Статус «в обработке». Иногда можно отменить и вернуть в баланс (и снова проиграть). В честных брендах срок прозрачен.</p>
+          </article>
+          <article class="term" data-keys="closed loop закрытый контур">
+            <div class="term-head">
+              <div class="term-name">Closed-loop withdrawals</div>
+              <div class="term-en">Same-method payout</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Правило: выводить туда же, откуда депозит — антифрод и AML-требование многих лицензий.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- AFF -->
+      <section class="block" id="aff" data-section="aff">
+        <h2><span class="idx">08</span> Affiliate-маркетинг</h2>
+        <p class="lead">Как обзорник зарабатывает и какие метрики смотрят оператор и паблишер.</p>
+        <div class="terms">
+          <article class="term" data-keys="cpa cost per acquisition стоимость">
+            <div class="term-head">
+              <div class="term-name">CPA</div>
+              <div class="term-en">Cost Per Acquisition</div>
+              <div class="term-tags"><span class="tag money">affiliate</span></div>
+            </div>
+            <p class="term-body">Фикс за квалифицированного игрока (обычно FTD). Высокий чек, но жёсткие QUAL-условия и baseline.</p>
+          </article>
+          <article class="term" data-keys="revshare revenue share процент">
+            <div class="term-head">
+              <div class="term-name">RevShare</div>
+              <div class="term-en">Revenue share</div>
+              <div class="term-tags"><span class="tag money">affiliate</span></div>
+            </div>
+            <p class="term-body">% от NGR (иногда GGR) игроков паблишера, часто lifetime. Важны: negative carryover, admin fee, бонус-дидакты.</p>
+          </article>
+          <article class="term" data-keys="hybrid гибрид cpa revshare">
+            <div class="term-head">
+              <div class="term-name">Hybrid</div>
+              <div class="term-en">CPA + RevShare</div>
+              <div class="term-tags"><span class="tag money">affiliate</span></div>
+            </div>
+            <p class="term-body">Смешанная модель: меньший CPA + меньший % RevShare. Баланс кэша и хвоста.</p>
+          </article>
+          <article class="term" data-keys="ftd first time deposit первый депозит">
+            <div class="term-head">
+              <div class="term-name">FTD</div>
+              <div class="term-en">First Time Deposit</div>
+              <div class="term-tags"><span class="tag money">affiliate</span></div>
+            </div>
+            <p class="term-body">Первый депозит игрока. Ключевая конверсия воронки: click → reg → FTD.</p>
+          </article>
+          <article class="term" data-keys="baseline минимальный депозит qual">
+            <div class="term-head">
+              <div class="term-name">Baseline / Qualification</div>
+              <div class="term-en">Qualifying criteria</div>
+              <div class="term-tags"><span class="tag money">affiliate</span></div>
+            </div>
+            <p class="term-body">Условия оплаты CPA: min депозит, N депозитов, оборот, отсутствие бонус-абуза, страна из allowlist.</p>
+          </article>
+          <article class="term" data-keys="negative carryover минус перенос">
+            <div class="term-head">
+              <div class="term-name">Negative carryover</div>
+              <div class="term-en">NCO</div>
+              <div class="term-tags"><span class="tag money">affiliate</span></div>
+            </div>
+            <p class="term-body">Если когорта в минусе, минус переносится на следующий месяц. Без NCO — «no negative carryover» офер выгоднее паблишеру.</p>
+          </article>
+          <article class="term" data-keys="tracking трекинг subid clickid postback">
+            <div class="term-head">
+              <div class="term-name">Tracking / Postback</div>
+              <div class="term-en">S2S / pixel</div>
+              <div class="term-tags"><span class="tag tech">tech</span></div>
+            </div>
+            <p class="term-body">Привязка клика к регистрации/FTD: click ID, subID, cookie/S2S postback. Без трекинга нет оплаты.</p>
+          </article>
+          <article class="term" data-keys="brand deal media buying media buy">
+            <div class="term-head">
+              <div class="term-name">Brand deal / Media buy</div>
+              <div class="term-en">Direct deals</div>
+              <div class="term-tags"><span class="tag money">affiliate</span></div>
+            </div>
+            <p class="term-body">Прямые размещения (топ-слот, статья, баннер) за фикс или смешанно с CPA. Не путать с чистым performance.</p>
+          </article>
+          <article class="term" data-keys="seo sem ppc трафик">
+            <div class="term-head">
+              <div class="term-name">SEO / SEM трафик</div>
+              <div class="term-en">Organic / Paid</div>
+              <div class="term-tags"><span class="tag">маркетинг</span></div>
+            </div>
+            <p class="term-body">Органика (обзоры, рейтинги, интентные запросы) и платный трафик. Для gambling — жёсткие политики ad networks и локальные запреты рекламы.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- OPS -->
+      <section class="block" id="ops" data-section="ops">
+        <h2><span class="idx">09</span> Оператор и продукт</h2>
+        <p class="lead">Внутренняя кухня казино: лимиты, CRM, hold, поддержка.</p>
+        <div class="terms">
+          <article class="term" data-keys="wallet кошелёк баланс real bonus">
+            <div class="term-head">
+              <div class="term-name">Кошелёк</div>
+              <div class="term-en">Wallet</div>
+              <div class="term-tags"><span class="tag tech">tech</span></div>
+            </div>
+            <p class="term-body">Баланс(ы) игрока: real money, bonus money, locked. Правила списания ставок и приоритет кошельков — часть бонусной логики.</p>
+          </article>
+          <article class="term" data-keys="crm бонусы сегментация">
+            <div class="term-head">
+              <div class="term-name">CRM / Retention</div>
+              <div class="term-en">CRM</div>
+              <div class="term-tags"><span class="tag">продукт</span></div>
+            </div>
+            <p class="term-body">Сегменты, триггерные бонусы, email/push/SMS, VIP-work. Цель — LTV и reactivation.</p>
+          </article>
+          <article class="term" data-keys="support поддержка live chat">
+            <div class="term-head">
+              <div class="term-name">Служба поддержки</div>
+              <div class="term-en">Customer support</div>
+              <div class="term-tags"><span class="tag">продукт</span></div>
+            </div>
+            <p class="term-body">Live chat / email / Telegram. В обзорах: скорость, язык, эскалация по выплатам.</p>
+          </article>
+          <article class="term" data-keys="table limits лимиты min max bet">
+            <div class="term-head">
+              <div class="term-name">Лимиты ставок</div>
+              <div class="term-en">Bet limits</div>
+              <div class="term-tags"><span class="tag">продукт</span></div>
+            </div>
+            <p class="term-body">Min/max ставка на игру или стол. У VIP могут быть выше.</p>
+          </article>
+          <article class="term" data-keys="gamification геймификация missions">
+            <div class="term-head">
+              <div class="term-name">Геймификация</div>
+              <div class="term-en">Missions / Shop</div>
+              <div class="term-tags"><span class="tag">продукт</span></div>
+            </div>
+            <p class="term-body">Миссии, уровни, магазин очков, турниры слотов — механики удержания без «классического» бонуса.</p>
+          </article>
+          <article class="term" data-keys="tournament турнир races">
+            <div class="term-head">
+              <div class="term-name">Турнир / Race</div>
+              <div class="term-en">Tournament</div>
+              <div class="term-tags"><span class="tag">продукт</span></div>
+            </div>
+            <p class="term-body">Соревнование по очкам/множителям на слотах или live. Призовой фонд отдельно от RTP слота.</p>
+          </article>
+          <article class="term" data-keys="white label вайт лейбл turnkey">
+            <div class="term-head">
+              <div class="term-name">White-label</div>
+              <div class="term-en">White label / Turnkey</div>
+              <div class="term-tags"><span class="tag tech">tech</span></div>
+            </div>
+            <p class="term-body">Готовая платформа под чужим брендом. Быстрый запуск, меньше контроля над стеком и иногда над лицензионной обвязкой.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- RISK -->
+      <section class="block" id="risk" data-section="risk">
+        <h2><span class="idx">10</span> Риск и compliance</h2>
+        <p class="lead">Защита игрока, антифрод и то, из‑за чего бренд попадает в блэклист.</p>
+        <div class="terms">
+          <article class="term" data-keys="responsible gambling rg ответственная игра">
+            <div class="term-head">
+              <div class="term-name">Responsible Gambling (RG)</div>
+              <div class="term-en">Safer gambling</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Инструменты защиты: лимиты депозита/проигрыша/времени, reality check, self-exclusion, ссылки на помощь.</p>
+          </article>
+          <article class="term" data-keys="self exclusion самоисключение">
+            <div class="term-head">
+              <div class="term-name">Self-exclusion</div>
+              <div class="term-en">Self-exclusion</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Добровольная блокировка доступа на срок. В регулируемых рынках — через центральные реестры (GamStop и аналоги).</p>
+          </article>
+          <article class="term" data-keys="fraud antifraud фрод multi account">
+            <div class="term-head">
+              <div class="term-name">Antifraud</div>
+              <div class="term-en">Fraud prevention</div>
+              <div class="term-tags"><span class="tag risk">риск</span></div>
+            </div>
+            <p class="term-body">Детект мультиакков, VPN/proxy, device fingerprint, коллазии платежей, бонус-абуза.</p>
+          </article>
+          <article class="term" data-keys="confiscation конфискация void выигрыш">
+            <div class="term-head">
+              <div class="term-name">Конфискация / Void</div>
+              <div class="term-en">Win voiding</div>
+              <div class="term-tags"><span class="tag risk">риск</span></div>
+            </div>
+            <p class="term-body">Аннуляция выигрыша по T&amp;C: нарушен max bet, гео, мультиакк, technical error. Частая причина жалоб в обзорниках.</p>
+          </article>
+          <article class="term" data-keys="dispute жалоба медиация">
+            <div class="term-head">
+              <div class="term-name">Dispute / жалоба</div>
+              <div class="term-en">Player complaint</div>
+              <div class="term-tags"><span class="tag risk">риск</span></div>
+            </div>
+            <p class="term-body">Конфликт игрок↔казино. Каналы: support → лицензиар / ADR → публичные площадки и обзорники.</p>
+          </article>
+          <article class="term" data-keys="underage несовершеннолетние age gate">
+            <div class="term-head">
+              <div class="term-name">Age gate / 18+</div>
+              <div class="term-en">Age verification</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">Запрет несовершеннолетним. В сильных регуляциях — жёсткая age verification до игры.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTENT -->
+      <section class="block" id="content" data-section="content">
+        <h2><span class="idx">11</span> Контент и обзорники</h2>
+        <p class="lead">Словарь редакции: как мы описываем казино и что считается качеством материала.</p>
+        <div class="terms">
+          <article class="term" data-keys="review обзор casino review">
+            <div class="term-head">
+              <div class="term-name">Обзор казино</div>
+              <div class="term-en">Casino review</div>
+              <div class="term-tags"><span class="tag">контент</span></div>
+            </div>
+            <p class="term-body">Структурированная оценка бренда: лицензия, платежи, бонусы, игры, UX, поддержка, риски. Должен помогать решению «играть / не играть».</p>
+          </article>
+          <article class="term" data-keys="rating рейтинг score methodology">
+            <div class="term-head">
+              <div class="term-name">Рейтинг</div>
+              <div class="term-en">Rating / Score</div>
+              <div class="term-tags"><span class="tag">контент</span></div>
+            </div>
+            <p class="term-body">Сводный балл по методике. Прозрачная формула важнее «красивой цифры».</p>
+          </article>
+          <article class="term" data-keys="toc toc offer топ офер cta">
+            <div class="term-head">
+              <div class="term-name">Офер / CTA</div>
+              <div class="term-en">Offer / CTA</div>
+              <div class="term-tags"><span class="tag money">affiliate</span></div>
+            </div>
+            <p class="term-body">Партнёрское предложение в карточке: бонус, кнопка перехода, трекинговая ссылка. Должен совпадать с реальным лендингом.</p>
+          </article>
+          <article class="term" data-keys="eeat экспертность trust">
+            <div class="term-head">
+              <div class="term-name">E-E-A-T сигналы</div>
+              <div class="term-en">Experience, Expertise, Authority, Trust</div>
+              <div class="term-tags"><span class="tag">контент</span></div>
+            </div>
+            <p class="term-body">Доверие к материалу: автор, методика, даты апдейта, источники, честные минусы, пометки рекламы.</p>
+          </article>
+          <article class="term" data-keys="disclaimer дисклеймер 18+">
+            <div class="term-head">
+              <div class="term-name">Дисклеймер</div>
+              <div class="term-en">Disclaimer</div>
+              <div class="term-tags"><span class="tag legal">legal</span></div>
+            </div>
+            <p class="term-body">18+, риски, «реклама/партнёрка», гео-ограничения. Обязательный элемент gambling-контента.</p>
+          </article>
+          <article class="term" data-keys="ugc отзыв user review">
+            <div class="term-head">
+              <div class="term-name">UGC / отзывы игроков</div>
+              <div class="term-en">User reviews</div>
+              <div class="term-tags"><span class="tag">контент</span></div>
+            </div>
+            <p class="term-body">Пользовательский контент. Нужна модерация, антифрод и отделение от редакционного рейтинга.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SCHEMES -->
+      <section class="block" id="schemes" data-section="schemes">
+        <h2><span class="idx">12</span> Схемы взаимодействий</h2>
+        <p class="lead">Кто с кем говорит и куда идут деньги, клики и данные.</p>
+
+        <div class="scheme" data-keys="схема игрок казино депозит вывод">
+          <h3>Путь игрока (B2C)</h3>
+          <p class="desc">От клика по обзору до вывода. На каждом шаге — свои дропы и риск-триггеры.</p>
+          <div class="flow">
+            <div class="flow-node accent"><div class="role">01</div><div class="title">Discovery</div><div class="note">SEO / ads / соцсети → обзорник</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="role">02</div><div class="title">Click-out</div><div class="note">Трекинг-ссылка, subID</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node cyan"><div class="role">03</div><div class="title">Registration</div><div class="note">Email / phone / KYC later</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node amber"><div class="role">04</div><div class="title">FTD</div><div class="note">Депозит + welcome</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node violet"><div class="role">05</div><div class="title">Play</div><div class="note">Ставки, бонус, CRM</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node rose"><div class="role">06</div><div class="title">Withdrawal</div><div class="note">KYC → payout / dispute</div></div>
+          </div>
+        </div>
+
+        <div class="scheme" data-keys="схема affiliate трекинг cpa">
+          <h3>Affiliate-цепочка</h3>
+          <p class="desc">Паблишер продаёт трафик, оператор платит за результат, трекинг связывает клик и FTD.</p>
+          <div class="stack">
+            <div class="lane">
+              <div class="lane-label">Publisher</div>
+              <div class="lane-steps">
+                <span class="chip">Контент / офер</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip soft">Клик</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip">Redirect + click ID</span>
+              </div>
+            </div>
+            <div class="lane">
+              <div class="lane-label">Operator</div>
+              <div class="lane-steps">
+                <span class="chip cyan">Reg</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip amber">FTD / Qual</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip">Postback / Report</span>
+              </div>
+            </div>
+            <div class="lane">
+              <div class="lane-label">Money</div>
+              <div class="lane-steps">
+                <span class="chip amber">CPA</span>
+                <span class="chip amber">RevShare % NGR</span>
+                <span class="chip amber">Hybrid</span>
+                <span class="chip">Brand deal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scheme" data-keys="схема провайдер агрегатор оператор">
+          <h3>Игры: провайдер → агрегатор → казино</h3>
+          <p class="desc">Как слот оказывается в каталоге и как делится GGR.</p>
+          <div class="flow">
+            <div class="flow-node violet"><div class="role">Studio</div><div class="title">Game provider</div><div class="note">Игра + RNG + сертификаты</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node cyan"><div class="role">Hub</div><div class="title">Aggregator</div><div class="note">Одна API, биллинг, geo rules</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent"><div class="role">Brand</div><div class="title">Operator</div><div class="note">Каталог, wallet, бонусы</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node amber"><div class="role">User</div><div class="title">Player</div><div class="note">Спин / ставка</div></div>
+          </div>
+          <p class="desc" style="margin-top:12px;margin-bottom:0">Деньги: ставка → GGR делится operator ↔ provider (часто через агрегатор) по контракту.</p>
+        </div>
+
+        <div class="scheme" data-keys="схема платежи psp kyc">
+          <h3>Платёжный контур</h3>
+          <p class="desc">Депозит и вывод — разные риски и SLA.</p>
+          <div class="flow">
+            <div class="flow-node"><div class="role">In</div><div class="title">Player</div><div class="note">Карта / local / crypto</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node cyan"><div class="role">Rail</div><div class="title">PSP / Acquirer</div><div class="note">Risk · 3DS · KYC flags</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent"><div class="role">Ops</div><div class="title">Casino wallet</div><div class="note">Balance + bonus rules</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node amber"><div class="role">Out</div><div class="title">Withdrawal queue</div><div class="note">Manual review → payout</div></div>
+          </div>
+        </div>
+
+        <div class="scheme" data-keys="схема бонус вейджер">
+          <h3>Жизненный цикл бонуса</h3>
+          <p class="desc">От активации до конвертации в real money или сгорания.</p>
+          <div class="flow">
+            <div class="flow-node amber"><div class="role">01</div><div class="title">Grant</div><div class="note">Депозит / промокод / CRM</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="role">02</div><div class="title">Active bonus</div><div class="note">Max bet · weighting</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node cyan"><div class="role">03</div><div class="title">Wagering</div><div class="note">Оборот × N</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent"><div class="role">04</div><div class="title">Clear / Convert</div><div class="note">В real balance</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node rose"><div class="role">alt</div><div class="title">Expire / Void</div><div class="note">Срок · abuse · breach</div></div>
+          </div>
+        </div>
+
+        <div class="scheme" data-keys="матрица моделей оплаты affiliate">
+          <h3>Модели оплаты паблишера</h3>
+          <p class="desc">Когда что выбирать.</p>
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>Модель</th>
+                <th>Как платят</th>
+                <th>Плюс паблишеру</th>
+                <th>Риск / минус</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CPA</strong></td>
+                <td>Фикс за Qual/FTD</td>
+                <td>Быстрый кэш, предсказуемость</td>
+                <td>Жёсткий baseline, QA отмены</td>
+              </tr>
+              <tr>
+                <td><strong>RevShare</strong></td>
+                <td>% от NGR lifetime</td>
+                <td>Хвост дохода, VIP-ценность</td>
+                <td>NCO, бонусы режут NGR</td>
+              </tr>
+              <tr>
+                <td><strong>Hybrid</strong></td>
+                <td>CPA↓ + RS↓</td>
+                <td>Баланс кэша и LTV</td>
+                <td>Сложнее сверка</td>
+              </tr>
+              <tr>
+                <td><strong>Brand deal</strong></td>
+                <td>Фикс за размещение</td>
+                <td>Гарантия оплаты</td>
+                <td>Не performance; нужен трафик/бренд</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="scheme" data-keys="схема обзорник контент рейтинг">
+          <h3>Контур обзорника (наш продукт)</h3>
+          <p class="desc">Как данные и партнёрка стыкуются с редакцией.</p>
+          <div class="stack">
+            <div class="lane">
+              <div class="lane-label">Data</div>
+              <div class="lane-steps">
+                <span class="chip">Карточка казино</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip cyan">Методика рейтинга</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip">Скор / бейджи</span>
+              </div>
+            </div>
+            <div class="lane">
+              <div class="lane-label">Content</div>
+              <div class="lane-steps">
+                <span class="chip">ТЗ автора</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip soft">Обзор / гайд</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip">SEO-шаблон</span>
+              </div>
+            </div>
+            <div class="lane">
+              <div class="lane-label">Monetize</div>
+              <div class="lane-steps">
+                <span class="chip amber">Офер + трекинг</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip amber">Click → FTD</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip">Отчёт / сверка</span>
+              </div>
+            </div>
+            <div class="lane">
+              <div class="lane-label">Trust</div>
+              <div class="lane-steps">
+                <span class="chip">UGC / жалобы</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip rose">Blacklist / whitelist</span>
+                <span class="arrow-inline">→</span>
+                <span class="chip">Апдейт обзора</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scheme" data-keys="схема регулятор лицензия compliance">
+          <h3>Compliance-контур</h3>
+          <p class="desc">Минимальный набор связей, которые влияют на продукт и маркетинг.</p>
+          <div class="flow">
+            <div class="flow-node violet"><div class="role">Law</div><div class="title">Regulator</div><div class="note">Лицензия · аудит · штрафы</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent"><div class="role">Ops</div><div class="title">Operator</div><div class="note">KYC/AML · RG · reporting</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="role">Market</div><div class="title">Ads &amp; Affiliates</div><div class="note">Правила креативов и дисclaimers</div></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node cyan"><div class="role">User</div><div class="title">Player protection</div><div class="note">Лимиты · self-ex · age gate</div></div>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-note">
+        Локальный справочник команды · не юрконсультация · термины могут отличаться у конкретного оператора/регулятора.
+        Открыть файл: <span style="font-family:var(--mono)">_docs/Глоссарий-iGaming.html</span>
+      </p>
+    </div>
+  </main>
+</div>
+
+<script>
+(function () {
+  const q = document.getElementById("q");
+  const countEl = document.getElementById("count");
+  const empty = document.getElementById("empty");
+  const emptyQ = document.getElementById("empty-q");
+  const pillTerms = document.getElementById("pill-terms");
+  const terms = [...document.querySelectorAll(".term")];
+  const schemes = [...document.querySelectorAll(".scheme")];
+  const blocks = [...document.querySelectorAll("section.block")];
+  const tocLinks = [...document.querySelectorAll("#toc a")];
+
+  function norm(s) {
+    return (s || "").toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
+  }
+
+  function updateSectionCounts() {
+    const map = {};
+    terms.forEach((t) => {
+      if (t.classList.contains("hidden")) return;
+      const sec = t.closest("[data-section]")?.dataset.section;
+      if (!sec) return;
+      map[sec] = (map[sec] || 0) + 1;
+    });
+    document.querySelectorAll("[data-sec]").forEach((el) => {
+      const n = map[el.dataset.sec];
+      el.textContent = n ? n : "";
+    });
+  }
+
+  function highlight(el, query) {
+    const body = el.querySelector(".term-body");
+    const name = el.querySelector(".term-name");
+    if (!body || !name) return;
+    const rawBody = body.dataset.raw || body.textContent;
+    const rawName = name.dataset.raw || name.textContent;
+    body.dataset.raw = rawBody;
+    name.dataset.raw = rawName;
+    if (!query) {
+      body.innerHTML = rawBody;
+      name.textContent = rawName;
+      return;
+    }
+    const re = new RegExp("(" + query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
+    name.innerHTML = rawName.replace(re, "<mark>$1</mark>");
+    // keep simple text highlight in body (strip tags from raw first if we set html once)
+    const tmp = document.createElement("div");
+    tmp.innerHTML = rawBody;
+    const plain = tmp.textContent;
+    body.textContent = plain;
+    body.innerHTML = plain.replace(re, "<mark>$1</mark>");
+  }
+
+  function applyFilter() {
+    const query = q.value.trim();
+    const nq = norm(query);
+    let shownTerms = 0;
+    let shownSchemes = 0;
+
+    terms.forEach((t) => {
+      const hay = norm(
+        (t.dataset.keys || "") + " " + t.textContent
+      );
+      const ok = !nq || hay.includes(nq);
+      t.classList.toggle("hidden", !ok);
+      if (ok) {
+        shownTerms++;
+        highlight(t, query.length >= 2 ? query : "");
+      } else {
+        highlight(t, "");
+      }
+    });
+
+    schemes.forEach((s) => {
+      const hay = norm((s.dataset.keys || "") + " " + s.textContent);
+      const ok = !nq || hay.includes(nq);
+      s.style.display = ok ? "" : "none";
+      if (ok) shownSchemes++;
+    });
+
+    blocks.forEach((b) => {
+      if (b.id === "schemes") {
+        const any = [...b.querySelectorAll(".scheme")].some((s) => s.style.display !== "none");
+        b.style.display = !nq || any ? "" : "none";
+        return;
+      }
+      const any = [...b.querySelectorAll(".term")].some((t) => !t.classList.contains("hidden"));
+      b.style.display = any ? "" : "none";
+    });
+
+    const totalShown = shownTerms + (nq ? shownSchemes : 0);
+    countEl.innerHTML = nq
+      ? "найдено <b>" + shownTerms + "</b> терминов"
+      : "<b>" + terms.length + "</b> терминов";
+    pillTerms.textContent = terms.length + " терминов";
+
+    const nothing = shownTerms === 0 && shownSchemes === 0;
+    empty.classList.toggle("visible", nothing && !!nq);
+    emptyQ.textContent = query ? "«" + query + "»" : "";
+    updateSectionCounts();
+  }
+
+  q.addEventListener("input", applyFilter);
+
+  document.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      q.focus();
+      q.select();
+    }
+    if (e.key === "Escape" && document.activeElement === q) {
+      q.value = "";
+      applyFilter();
+      q.blur();
+    }
+  });
+
+  // Active TOC
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        tocLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+      });
+    },
+    { rootMargin: "-20% 0px -65% 0px", threshold: 0 }
+  );
+  blocks.forEach((b) => obs.observe(b));
+
+  applyFilter();
+})();
+</script>
+</body>
+</html>

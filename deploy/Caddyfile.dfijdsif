@@ -1,5 +1,10 @@
 # Fragment used by casino-portal Caddy for dfijdsif.website
 # Containers share casino-portal_default network (aliases ssaudit-*).
+#
+# Hotfix (until next dashboard image with public/docs + /_fonts_dash):
+#   /srv/ssaudit-fonts  — merged web+dashboard font files
+#   /srv/ssaudit-docs   — countries-110m.json etc.
+# After rebuild: /_fonts_dash* + /docs* can reverse_proxy to ssaudit-dashboard.
 
 dfijdsif.website {
 	encode zstd gzip
@@ -20,8 +25,18 @@ ROBOTS
 		reverse_proxy ssaudit-api:3712
 	}
 
-	# CMS / partner (Nuxt SPA) — assets under /_nuxt_dash/
-	@dash path /admin* /partner* /login /_nuxt_dash* /critical-boot.css
+	# Shared static: fonts (both apps) + glossary GeoJSON
+	handle_path /_fonts/* {
+		root * /srv/ssaudit-fonts
+		file_server
+	}
+	handle_path /docs/* {
+		root * /srv/ssaudit-docs
+		file_server
+	}
+
+	# CMS / partner (Nuxt SPA) — /_nuxt_dash + /_fonts_dash after next image
+	@dash path /admin* /partner* /login /_nuxt_dash* /_fonts_dash* /critical-boot.css
 	handle @dash {
 		reverse_proxy ssaudit-dashboard:3000
 	}

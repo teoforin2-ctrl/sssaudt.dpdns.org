@@ -23,6 +23,7 @@ interface ServerStats {
       freeBytes: number
       usedBytes: number
       usedPercent: number
+      availableBytes?: number
     }
     disk: {
       path: string
@@ -104,8 +105,8 @@ async function tick() {
     const res = await api<ServerStats>('/v1/admin/server-stats')
     stats.value = res
     error.value = null
-    const cpu = res.host.cpuPercent ?? Math.min(100, (res.host.loadAvg.m1 / Math.max(1, res.host.cpuCount)) * 100)
-    historyCpu.value = [...historyCpu.value.slice(-39), Math.round(cpu * 10) / 10]
+    const cpu = res.host.cpuPercent ?? 0
+    historyCpu.value = [...historyCpu.value.slice(-39), Math.round(Number(cpu) * 10) / 10]
     historyRam.value = [...historyRam.value.slice(-39), res.host.memory.usedPercent]
   }
   catch (e: any) {
@@ -150,7 +151,7 @@ onBeforeUnmount(stop)
           Сервер
         </h1>
         <p class="text-sm text-muted-foreground">
-          CPU, RAM и процесс API в реальном времени (admin / developer)
+          Метрики хоста, где запущен API (на проде — VPS; локально — ваш Mac)
         </p>
       </div>
       <div class="flex items-center gap-2">
@@ -254,7 +255,8 @@ onBeforeUnmount(stop)
           </div>
           <p class="mt-2 text-xs text-muted-foreground">
             {{ fmtBytes(stats.host.memory.usedBytes) }} / {{ fmtBytes(stats.host.memory.totalBytes) }}
-            · free {{ fmtBytes(stats.host.memory.freeBytes) }}
+            · avail {{ fmtBytes(stats.host.memory.availableBytes ?? stats.host.memory.freeBytes) }}
+            · {{ stats.host.memory.source }}
           </p>
           <div class="mt-3 h-2 overflow-hidden rounded-full bg-muted">
             <div

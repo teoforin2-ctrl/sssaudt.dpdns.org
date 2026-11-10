@@ -31,9 +31,12 @@ _docs/
 _files/
 _old/
 docs/
+!apps/dashboard/public/docs/
+!apps/dashboard/public/docs/**
 _templates/
 *.md
 *.html
+!apps/dashboard/public/docs/**/*.html
 
 # keep staging robots in repo; prod template stays local-only
 **/robots.txt

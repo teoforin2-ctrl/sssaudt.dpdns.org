@@ -32,6 +32,7 @@ services:
       REDIS_URL: redis://redis:6379
       WEB_PUBLIC_DIR: /data/web-public
       HOST_PROC_ROOT: /host/proc
+      HOST_ROOT: /host/root
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
@@ -41,6 +42,7 @@ services:
       - /var/www/dfijdsif/uploads/brand:/data/web-public/uploads/brand
       - /var/www/dfijdsif/uploads/content:/data/web-public/uploads/content
       - /proc:/host/proc:ro
+      - /:/host/root:ro
     ports:
       - "127.0.0.1:3712:3712"
     depends_on:

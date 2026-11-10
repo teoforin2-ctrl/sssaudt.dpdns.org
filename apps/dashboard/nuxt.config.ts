@@ -71,6 +71,10 @@ export default defineNuxtConfig({
     defaults: {
       weights: [300, 400, 500, 600, 700, 800],
     },
+    // Avoid clash with public web app /_fonts on the same domain
+    assets: {
+      prefix: '/_fonts_dash',
+    },
   },
 
   routeRules: {
