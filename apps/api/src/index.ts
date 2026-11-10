@@ -18,7 +18,12 @@ import { registerPartner } from "./partner.js";
 import { registerKanban } from "./kanban.js";
 import { registerTrust } from "./trust.js";
 import { registerGamification } from "./gamification.js";
-import { rankSearchHits, type HealthResponse, type SearchCandidate } from "@x-reviewer/shared";
+import {
+  decodeStoredText,
+  rankSearchHits,
+  type HealthResponse,
+  type SearchCandidate,
+} from "@x-reviewer/shared";
 
 
 
@@ -984,7 +989,9 @@ app.get("/v1/bonuses", async (req) => {
         minDeposit: b.min_deposit,
         validUntil: b.valid_until,
         checkedAt: b.checked_at,
-        description: lang === "en" ? b.description_en : b.description_ru,
+        description: decodeStoredText(
+          lang === "en" ? b.description_en : b.description_ru,
+        ),
         casinoSlug: b.casino_slug,
         casinoName: (lang === "en" ? b.name_en : b.name_ru) || b.casino_name,
         casinoLogoUrl: b.logo_url,

@@ -25,3 +25,4 @@ export * from "./reward.js";
 export * from "./features.js";
 export * from "./promo.js";
 export * from "./search.js";
+export * from "./text.js";

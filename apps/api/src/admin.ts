@@ -5,6 +5,7 @@ import type { FastifyInstance } from "fastify";
 import type { Redis } from "ioredis";
 import type { Pool } from "pg";
 import { z } from "zod";
+import { decodeStoredText } from "@x-reviewer/shared";
 import { requireStaff, requireAdmin, isAdminRole } from "./auth.js";
 import { bumpCasinoCache } from "./cache.js";
 import { recalcCasinoRatings } from "./reviews.js";
@@ -503,7 +504,14 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
       [id],
     );
     if (!rows[0]) return reply.code(404).send({ error: "not_found" });
-    return { item: rows[0] };
+    const item = rows[0] as Record<string, unknown>;
+    return {
+      item: {
+        ...item,
+        description_ru: decodeStoredText(item.description_ru as string | null),
+        description_en: decodeStoredText(item.description_en as string | null),
+      },
+    };
   });
 
   app.post("/v1/admin/bonuses", async (req, reply) => {
@@ -561,14 +569,21 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
         d.wager ?? null,
         d.min_deposit ?? null,
         d.valid_until || null,
-        d.description_ru ?? null,
-        d.description_en ?? null,
+        decodeStoredText(d.description_ru ?? null),
+        decodeStoredText(d.description_en ?? null),
         d.status,
         d.published,
       ],
     );
     await bumpCasinoCache(redis);
-    return reply.code(201).send({ item: rows[0] });
+    const created = rows[0] as Record<string, unknown>;
+    return reply.code(201).send({
+      item: {
+        ...created,
+        description_ru: decodeStoredText(created.description_ru as string | null),
+        description_en: decodeStoredText(created.description_en as string | null),
+      },
+    });
   });
 
   app.patch("/v1/admin/bonuses/:id", async (req, reply) => {
@@ -599,7 +614,11 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
     const values: unknown[] = [];
     for (const [key, val] of Object.entries(body.data)) {
       if (val === undefined) continue;
-      values.push(val);
+      const stored =
+        key === "description_ru" || key === "description_en"
+          ? decodeStoredText(val as string | null)
+          : val;
+      values.push(stored);
       fields.push(`${key} = $${values.length}`);
       if (key === "checked_by_editor" && val === true) {
         values.push(new Date().toISOString());
@@ -614,7 +633,14 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
     );
     if (!rows[0]) return reply.code(404).send({ error: "not_found" });
     await bumpCasinoCache(redis);
-    return { item: rows[0] };
+    const item = rows[0] as Record<string, unknown>;
+    return {
+      item: {
+        ...item,
+        description_ru: decodeStoredText(item.description_ru as string | null),
+        description_en: decodeStoredText(item.description_en as string | null),
+      },
+    };
   });
 
   app.delete("/v1/admin/bonuses/:id", async (req, reply) => {
