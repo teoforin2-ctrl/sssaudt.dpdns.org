@@ -33,8 +33,11 @@ export function useLazySrc(
 
   watch(
     [el, eager, source, mounted],
-    ([node, isEager, src, isMounted], _prev, onCleanup) => {
-      if (!import.meta.client || !isMounted) return;
+    (_vals, _prev, onCleanup) => {
+      if (!import.meta.client || !mounted.value) return;
+      const isEager = eager.value;
+      const src = source.value;
+      const node = el.value;
       if (isEager || !src) {
         inView.value = Boolean(isEager && src);
         return;

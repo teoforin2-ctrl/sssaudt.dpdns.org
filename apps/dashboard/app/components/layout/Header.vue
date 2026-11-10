@@ -1,9 +1,16 @@
 <script setup lang="ts">
 const route = useRoute()
 
+function homeHref() {
+  if (route.path.startsWith('/partner'))
+    return '/partner'
+  return '/admin'
+}
+
 function setLinks() {
-  if (route.fullPath === '/') {
-    return [{ title: 'Home', href: '/' }]
+  const home = { title: 'Home', href: homeHref() }
+  if (route.path === '/' || route.path === '/admin' || route.path === '/partner') {
+    return [home]
   }
 
   const segments = route.fullPath.split('/').filter(item => item !== '')
@@ -21,7 +28,7 @@ function setLinks() {
     }
   })
 
-  return [{ title: 'Home', href: '/' }, ...breadcrumbs]
+  return [home, ...breadcrumbs]
 }
 
 const links = ref<{

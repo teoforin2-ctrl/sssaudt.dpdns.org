@@ -41,7 +41,7 @@ function handleSelectLink(link: string) {
     <CommandList>
       <CommandEmpty>No results found.</CommandEmpty>
       <CommandGroup heading="Suggestions">
-        <CommandItem value="Home" @select="handleSelectLink('/')">
+        <CommandItem value="Home" @select="handleSelectLink('/admin')">
           Home
           <CommandShortcut>
             <Kbd>G</Kbd>
