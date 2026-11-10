@@ -655,7 +655,7 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   // ── A/B reward Quality Yield report ──────────────────────────────
 
   app.get("/v1/admin/rewards/ab-report", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const q = (req.query ?? {}) as { days?: string };
     const days = Math.min(90, Math.max(1, Number(q.days) || 30));
 
@@ -715,7 +715,7 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
 
   // ── /go/ clicks report ───────────────────────────────────────────
   app.get("/v1/admin/clicks", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const q = (req.query ?? {}) as { days?: string; limit?: string; q?: string };
     const days = Math.min(90, Math.max(1, Number(q.days) || 30));
     const limit = Math.min(200, Math.max(1, Number(q.limit) || 50));
@@ -881,9 +881,9 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
     return collectServerStats();
   });
 
-  /** Lightweight ops snapshot for staff (p4-observability lite). */
+  /** Lightweight ops snapshot (admin / developer). */
   app.get("/v1/admin/ops", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const started = Date.now();
     const counts = async (sql: string) => {
       try {
@@ -1436,7 +1436,7 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
 
   // ── Users ────────────────────────────────────────────────────────
   app.get("/v1/admin/users", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const { q, role, page, limit, offset } = pageParams(req.query);
     const params: unknown[] = [];
     const where: string[] = ["true"];
@@ -1478,7 +1478,7 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   });
 
   app.patch("/v1/admin/users/:id", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const { id } = req.params as { id: string };
     const body = z
       .object({
@@ -1555,7 +1555,7 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   });
 
   app.delete("/v1/admin/users/:id", async (req, reply) => {
-    const staff = requireStaff(req, reply);
+    const staff = requireAdmin(req, reply);
     if (!staff) return;
     const { id } = req.params as { id: string };
     if (staff.id === id) {

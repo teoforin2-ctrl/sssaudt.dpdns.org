@@ -208,7 +208,15 @@ export async function registerSiteSettings(app: FastifyInstance, pool: Pool) {
       return reply.code(400).send({ error: "invalid_body", details: body.error.flatten() });
     }
 
-    if (body.data.reward_settings !== undefined && !requireAdmin(req, reply)) {
+    // Editors may only toggle home section visibility; brand/rewards are admin-only.
+    const adminOnly =
+      body.data.site_name !== undefined
+      || body.data.logo_data_url !== undefined
+      || body.data.favicon_data_url !== undefined
+      || body.data.regenerate_favicon_from_logo !== undefined
+      || body.data.contacts !== undefined
+      || body.data.reward_settings !== undefined;
+    if (adminOnly && !requireAdmin(req, reply)) {
       return;
     }
 

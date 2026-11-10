@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NavGroup, NavLink, NavSectionTitle } from '~/types/nav'
+import { EDITOR_ADMIN_ALLOW_PREFIXES } from '~/constants/editor-access'
 import { navMenu, navMenuBottom } from '~/constants/menus'
 import { partnerNavMenu, partnerNavMenuBottom } from '~/constants/partner-menus'
 
@@ -27,26 +28,42 @@ const canDocs = computed(() =>
   || user.value?.role === 'editor',
 )
 
+const isEditor = computed(() => user.value?.role === 'editor')
+
+const editorAllowed = new Set<string>(EDITOR_ADMIN_ALLOW_PREFIXES)
+
 const activeMenu = computed(() => {
   if (isPartner.value)
     return partnerNavMenu
 
   const hidden = new Set<string>()
-  if (!canKanban.value) {
-    hidden.add('/admin/kanban')
-    hidden.add('/admin/server')
+  if (isEditor.value) {
+    for (const group of navMenu) {
+      for (const item of group.items) {
+        if ('link' in item && !editorAllowed.has(item.link))
+          hidden.add(item.link)
+      }
+    }
   }
-  if (!canDocs.value) {
-    hidden.add('/admin/branding')
-    hidden.add('/admin/glossary')
+  else {
+    if (!canKanban.value) {
+      hidden.add('/admin/kanban')
+      hidden.add('/admin/server')
+    }
+    if (!canDocs.value) {
+      hidden.add('/admin/branding')
+      hidden.add('/admin/glossary')
+    }
   }
   if (!hidden.size)
     return navMenu
 
-  return navMenu.map(group => ({
-    ...group,
-    items: group.items.filter(item => !('link' in item && hidden.has(item.link))),
-  }))
+  return navMenu
+    .map(group => ({
+      ...group,
+      items: group.items.filter(item => !('link' in item && hidden.has(item.link))),
+    }))
+    .filter(group => group.items.length > 0)
 })
 const activeBottom = computed(() => isPartner.value ? partnerNavMenuBottom : navMenuBottom)
 

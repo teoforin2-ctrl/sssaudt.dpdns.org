@@ -1,3 +1,5 @@
+import { isEditorAdminPathAllowed } from '~/constants/editor-access'
+
 const PUBLIC_PREFIXES = [
   '/login',
   '/login-basic',
@@ -37,14 +39,20 @@ export default defineNuxtRouteMiddleware(async (to) => {
   if (to.path.startsWith('/admin')) {
     if (!user.value?.isStaff)
       return navigateTo('/login')
+
+    const role = user.value.role
+    if (role === 'editor') {
+      if (!isEditorAdminPathAllowed(to.path))
+        return navigateTo('/403')
+      return
+    }
+
     if (to.path.startsWith('/admin/kanban') || to.path.startsWith('/admin/server')) {
-      const role = user.value.role
       if (role !== 'admin' && role !== 'developer')
         return navigateTo('/403')
     }
     if (to.path.startsWith('/admin/branding') || to.path.startsWith('/admin/glossary')) {
-      const role = user.value.role
-      if (role !== 'admin' && role !== 'developer' && role !== 'editor')
+      if (role !== 'admin' && role !== 'developer')
         return navigateTo('/403')
     }
     return

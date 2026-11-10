@@ -106,11 +106,13 @@ onMounted(() => {
   })
 })
 
+const isEditor = computed(() => user.value?.role === 'editor')
+
 const kpis = computed(() => {
   const s = stats.value
   if (!s)
     return []
-  return [
+  const items = [
     {
       key: 'clicks',
       label: 'Клики /go/',
@@ -152,6 +154,7 @@ const kpis = computed(() => {
       tone: 'emerald',
     },
   ]
+  return isEditor.value ? items.filter(i => i.key !== 'clicks') : items
 })
 
 const queues = computed(() => {
@@ -207,11 +210,12 @@ const metaStrip = computed(() => {
   const s = stats.value
   if (!s)
     return []
-  return [
+  const items = [
     { label: 'Баннеры', value: s.bannersActive, total: s.banners, to: '/admin/banners', icon: ImageIcon },
     { label: 'Пользователи', value: s.users, total: null as number | null, to: '/admin/users', icon: Users },
     { label: 'Отзывы ok', value: s.reviewsApproved, total: s.reviewsDisplayTotal ?? null, to: '/admin/reviews?status=approved', icon: Star },
   ]
+  return isEditor.value ? items.filter(i => i.to !== '/admin/users') : items
 })
 
 const generatedLabel = computed(() => {

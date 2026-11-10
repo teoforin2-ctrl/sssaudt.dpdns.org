@@ -1,7 +1,7 @@
 import type { FastifyInstance } from "fastify";
 import type { Pool } from "pg";
 import { z } from "zod";
-import { requireStaff, isLawyerRole } from "./auth.js";
+import { requireStaff, requireLawyer, isLawyerRole } from "./auth.js";
 
 
 export async function registerTrust(app: FastifyInstance, pool: Pool) {
@@ -145,9 +145,9 @@ export async function registerTrust(app: FastifyInstance, pool: Pool) {
     return { item: rows[0] };
   });
 
-  // —— Admin: blacklist ——
+  // —— Admin: blacklist (lawyer / admin / developer) ——
   app.get("/v1/admin/blacklist", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireLawyer(req, reply)) return;
     const q = (req.query ?? {}) as { status?: string };
     const params: unknown[] = [];
     let where = "true";
@@ -163,7 +163,7 @@ export async function registerTrust(app: FastifyInstance, pool: Pool) {
   });
 
   app.post("/v1/admin/blacklist", async (req, reply) => {
-    const user = requireStaff(req, reply);
+    const user = requireLawyer(req, reply);
     if (!user) return;
     const body = z
       .object({
@@ -199,7 +199,7 @@ export async function registerTrust(app: FastifyInstance, pool: Pool) {
   });
 
   app.patch("/v1/admin/blacklist/:id", async (req, reply) => {
-    const user = requireStaff(req, reply);
+    const user = requireLawyer(req, reply);
     if (!user) return;
     const { id } = req.params as { id: string };
     const body = z
@@ -248,7 +248,7 @@ export async function registerTrust(app: FastifyInstance, pool: Pool) {
   });
 
   app.delete("/v1/admin/blacklist/:id", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireLawyer(req, reply)) return;
     const { id } = req.params as { id: string };
     const { rowCount } = await pool.query(`delete from blacklist_entries where id = $1`, [id]);
     if (!rowCount) return reply.code(404).send({ error: "not_found" });

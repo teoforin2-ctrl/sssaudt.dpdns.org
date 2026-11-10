@@ -1,7 +1,7 @@
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import type { Pool } from "pg";
 import { z } from "zod";
-import { requireStaff } from "./auth.js";
+import { requireAdmin } from "./auth.js";
 
 function langOf(req: FastifyRequest) {
   const locale = ((req.query as { locale?: string }).locale || "ru").toLowerCase();
@@ -129,7 +129,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.get("/v1/admin/b2b/packages", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const { rows } = await pool.query(
       `select * from b2b_packages order by sort_order asc, created_at asc`,
     );
@@ -137,7 +137,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.post("/v1/admin/b2b/packages", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const parsed = packagePatchSchema
       .extend({
         slug: z.string().trim().min(2).max(80),
@@ -174,7 +174,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.patch("/v1/admin/b2b/packages/:id", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const id = (req.params as { id: string }).id;
     const parsed = packagePatchSchema.safeParse(req.body);
     if (!parsed.success) return reply.code(400).send({ error: "invalid_payload" });
@@ -217,7 +217,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.delete("/v1/admin/b2b/packages/:id", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const id = (req.params as { id: string }).id;
     const { rowCount } = await pool.query(`delete from b2b_packages where id = $1`, [id]);
     if (!rowCount) return reply.code(404).send({ error: "not_found" });
@@ -225,7 +225,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.get("/v1/admin/b2b/cases", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const { rows } = await pool.query(
       `select * from b2b_cases order by sort_order asc, created_at asc`,
     );
@@ -233,7 +233,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.post("/v1/admin/b2b/cases", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const parsed = casePatchSchema
       .extend({
         slug: z.string().trim().min(2).max(80),
@@ -268,7 +268,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.patch("/v1/admin/b2b/cases/:id", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const id = (req.params as { id: string }).id;
     const parsed = casePatchSchema.safeParse(req.body);
     if (!parsed.success) return reply.code(400).send({ error: "invalid_payload" });
@@ -312,7 +312,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.delete("/v1/admin/b2b/cases/:id", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const id = (req.params as { id: string }).id;
     const { rowCount } = await pool.query(`delete from b2b_cases where id = $1`, [id]);
     if (!rowCount) return reply.code(404).send({ error: "not_found" });
@@ -320,7 +320,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.get("/v1/admin/b2b/leads", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const q = (req.query || {}) as { status?: string; page?: string; limit?: string };
     const page = Math.max(1, Number(q.page) || 1);
     const limit = Math.min(100, Math.max(1, Number(q.limit) || 30));
@@ -355,7 +355,7 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
   });
 
   app.patch("/v1/admin/b2b/leads/:id", async (req, reply) => {
-    if (!requireStaff(req, reply)) return;
+    if (!requireAdmin(req, reply)) return;
     const id = (req.params as { id: string }).id;
     const parsed = z
       .object({ status: z.enum(["new", "in_progress", "done", "spam"]) })
