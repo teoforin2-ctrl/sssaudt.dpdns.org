@@ -1,0 +1,419 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-sykaaa/",
+  "slug": "casino-sykaaa",
+  "name": "Онлайн-казино Sykaaa",
+  "og_title": "Казино Sykaaa Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Sykaaa Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/158496/logo-kas-saikaaa-small.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/158496/logo-kas-saikaaa-small.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/158496/logo-kas-saikaaa-small.png",
+      "alt": "Saikaaa Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/relax-grey.png",
+      "alt": "Relax Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ezugi.png",
+      "alt": "Ezugi"
+    }
+  ],
+  "go_url": "https://casino.ru/go/sykaaacasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/sykaaacasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: OGL/2024/604/0267",
+  "info": {
+    "Владелец": "Snowdunes B.V.",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: OGL/2024/604/0267",
+    "Год основания": "2022",
+    "Виды игр": [
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Booming Games",
+      ",",
+      "Microgaming",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "Push Gaming",
+      ",",
+      "Habanero",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "Spinmatic",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "Green Jade",
+      ",",
+      "Gamzix",
+      ",",
+      "AvatarUX",
+      ",",
+      "Peter & Sons",
+      ",",
+      "GameBeat",
+      ",",
+      "InOut Games",
+      ",",
+      "TaDa Gaming",
+      "Количество игр",
+      "5260"
+    ],
+    "Языки": [
+      "Казахский,",
+      "Узбекский,",
+      "Французский,",
+      "Польский,",
+      "Шведский,",
+      "Португальский,",
+      "Немецкий,",
+      "Английский,",
+      "Украинский,",
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Щедрые бонусы",
+      "Да",
+      "Новый бренд",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "50 FS в Gates of Olympus по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта и внести от 599. На отыгрыш даются 7 дней.",
+      "props": {
+        "Мин. депозит": "599",
+        "Вейджер": "45",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "40 FS в Legacy of Dead по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "LEGCOD",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта. FS можно использовать в слоте Legacy of Dead.",
+      "props": {
+        "Вейджер": "40",
+        "Фриспины": "40",
+        "Действителен до": "Бессрочный",
+        "Слот": "Legacy of Dead"
+      }
+    },
+    {
+      "title": "150 FS в Big Bass Bonanza новичкам",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен в течение 7 дней после создания аккаунта. FS предназначены для Big Bass Bonanza.",
+      "props": {
+        "Вейджер": "45",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный",
+        "Слот": "Big Bass Bonanza"
+      }
+    },
+    {
+      "title": "Бонусы для новичков 200 FS и 325%",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Оператор предлагает шесть приветственных бонусов: 50 FS в Gates of Olympus по промокоду, 150 FS в Big Bass Bonanza за создание аккаунта, первый — 100%, второй — 100%, третий — 50%, четвертый — 75%. Вейджер разнится.",
+      "props": {
+        "Макс. сумма": "151 000",
+        "Мин. депозит": "500",
+        "Вейджер": "45",
+        "Фриспины": "200"
+      }
+    },
+    {
+      "title": "Бонусы за достижение уровней",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "За достижение уровней программы лояльности предусмотрены бонусы. Это могут быть определенные суммы либо FS.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-sykaaa/    "
+    },
+    "name": "Saikaaa Casino",
+    "headline": "Saikaaa Casino    ",
+    "datePublished": "2022-11-23T15:15:41+03:00",
+    "dateModified": "2026-10-30T12:12:48+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "179    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:49:47Z",
+  "casino_key": "sykaaa",
+  "logo_local": "images/logos/casino-sykaaa.png"
+}

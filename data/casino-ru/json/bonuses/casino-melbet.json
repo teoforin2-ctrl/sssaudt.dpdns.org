@@ -1,0 +1,258 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-melbet/",
+  "casino_slug": "casino-melbet",
+  "title": "Все бонусы и промокоды в казино Мелбет 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "50% + 30 FS в Juicy Fruits Sunshine Rich от Barbara Bang",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Правила могут меняться, обратитесь к менеджеру на официальном сайте.",
+      "props": {
+        "Фриспины": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "20 FS ко дню рождения",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Правила могут меняться, обратитесь к менеджеру на официальном сайте.",
+      "props": {
+        "Фриспины": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы для новичков до 290 FS и 575%",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Оператор предлагает пять приветственных бонусов:\nПервый 50% бонус  до 10 000 + 30 FS.\nВторой 75% бонус  до 10 000 + 40 FS.\nТретий 100% бонус до 10 000 + 50 FS.\nЧетвертый 150% бонус до 10 000 + 70 FS.\nПятый 200% бонус до 10 000 + 100 FS.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Фриспины": "290"
+      }
+    },
+    {
+      "title": "Бонус 100% до 38 000",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен новичкам, имеющим аккаунт на сайте MelBet.",
+      "props": {
+        "Макс. сумма": "38 000",
+        "Мин. депозит": "100",
+        "Вейджер": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 30% через MoneyGo",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Правила могут меняться, обратитесь к менеджеру на официальном сайте.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Фрибет 30",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Чтобы получить фрибет, пользователь должен заполнить все поля в личном кабинете.",
+      "props": {
+        "Макс. сумма": "30",
+        "Мин. депозит": "30",
+        "Вейджер": "3",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "75% бонус + 40 FS в Juicy Fruits Sunshine Rich от Barbara Bang",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "FS в слоте Juicy Fruits Sunshine Rich от Barbara Bang.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Фриспины": "40"
+      }
+    },
+    {
+      "title": "100% бонус + 50 FS в Juicy Fruits Sunshine Rich от Barbara Bang",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "FS в слоте Juicy Fruits Sunshine Rich от Barbara Bang.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Фриспины": "50"
+      }
+    },
+    {
+      "title": "150% бонус + 70 FS в Juicy Fruits Sunshine Rich от Barbara Bang",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "FS в слоте Juicy Fruits Sunshine Rich от Barbara Bang.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Фриспины": "70"
+      }
+    },
+    {
+      "title": "200% бонус + 100 FS в Juicy Fruits Sunshine Rich от Barbara Bang",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "FS в слоте Juicy Fruits Sunshine Rich от Barbara Bang.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "50% бонус до 100 + 30 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен по пятницам.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "10",
+        "Вейджер": "35",
+        "Фриспины": "30"
+      }
+    },
+    {
+      "title": "100 FS в 27 Eternal Hot по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта. Также требуется подтверждение почты или номера телефона.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "40",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "150 FS в Mummyland Treasures по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для получения нужно создать аккаунт с использованием промокода, подтвердить номер телефона, активировать бонус в разделе «Бонусы». На отыгрыш даются 7 дней.",
+      "props": {
+        "Вейджер": "30",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный",
+        "Слот": "Mummyland Treasures"
+      }
+    },
+    {
+      "title": "50 FS в The Dog House Megaways по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "DOG50",
+      "description": "Необходимо ввести промокод DOG50 в специальное поле на официальном сайте казино при создании аккаунта. FS доступны 48 часов после активации. Срок отыгрыша — 24 часа.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "50",
+        "Фриспины": "50",
+        "Действителен до": "20.04.2027"
+      }
+    },
+    {
+      "title": "Бонус 77% + 27 FS в Sugar Rush 1000 по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации необходимо ввести промокод в специальное поле на официальном сайте казино сразу после создания аккаунта и внести от 600. Бонус действителен 5 дней.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Мин. депозит": "600",
+        "Вейджер": "45",
+        "Фриспины": "27"
+      }
+    },
+    {
+      "title": "Бонус 20 000 без вейджера для всех пользователей по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORUALL",
+      "description": "Бонус доступен ежедневно по промокоду. Вейджера нет.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:51:23Z",
+  "casino_key": "melbet"
+}

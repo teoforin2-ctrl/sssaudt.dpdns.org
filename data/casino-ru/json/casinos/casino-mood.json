@@ -1,0 +1,436 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-mood/",
+  "slug": "casino-mood",
+  "name": "Mood Casino",
+  "og_title": "Казино Mood Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Mood Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/239418/mood-casino.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/239418/mood-casino.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/239418/mood-casino.png",
+      "alt": "Mood Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/1-44h44.png",
+      "alt": "BNG"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ezugi.png",
+      "alt": "Ezugi"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/blueprint-grey.png",
+      "alt": "Blueprint Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    }
+  ],
+  "go_url": "https://casino.ru/go/moodcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/moodcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: AGB-2025-0789",
+  "info": {
+    "Владелец": "Mood N.V., зарегистрированная на о. Анжуан",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: AGB-2025-0789",
+    "Год основания": "2025",
+    "Виды игр": [
+      "Быстрые игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Настольные игры,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "BNG",
+      ",",
+      "Belatra",
+      ",",
+      "Fugaso",
+      ",",
+      "Microgaming",
+      ",",
+      "Playtech",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Platipus",
+      ",",
+      "Swintt",
+      ",",
+      "BF Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "RubyPlay",
+      ",",
+      "Spadegaming",
+      ",",
+      "Onetouch",
+      ",",
+      "KA Gaming",
+      ",",
+      "Fazi",
+      ",",
+      "Nucleus",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "Mascot",
+      ",",
+      "TRUE LABS",
+      ",",
+      "JDB",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "Peter & Sons",
+      ",",
+      "1spin4win",
+      ",",
+      "GameBeat",
+      ",",
+      "Zillion Games",
+      ",",
+      "Turbo Games",
+      ",",
+      "InOut Games",
+      ",",
+      "TaDa Gaming",
+      ",",
+      "Playbro",
+      ",",
+      "Dynabit Gaming",
+      ",",
+      "Urgent Games",
+      ",",
+      "Ebaka Games",
+      ",",
+      "PoggiPlay",
+      "Количество игр",
+      "14 985"
+    ],
+    "Языки": [
+      "Таджикский,",
+      "Киргизский,",
+      "Белорусский,",
+      "Узбекский,",
+      "Азербайджанский,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "300 FS в любом слоте Pragmatic Play по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта.",
+      "props": {
+        "Вейджер": "20",
+        "Фриспины": "300",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "200 FS в любом слоте Pragmatic Play за создание аккаунта",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "На отыгрыш даются 2 дня.",
+      "props": {
+        "Вейджер": "25",
+        "Фриспины": "200",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "30 FS в The Dog House Megaways Mobile за подписку на Telegram",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "На отыгрыш даются 7 дней.",
+      "props": {
+        "Вейджер": "25",
+        "Фриспины": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы на 450% + 740 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Пакет приветственных бонусов для новичков: 300 FS в любом слоте Pragmatic Play по промокоду, 200 FS в любом слоте Pragmatic Play за создание аккаунта, первый — до 200% + 100 FS, второй — до 150% + 70 FS, третий — до 100% + 70 FS.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "30",
+        "Фриспины": "740",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "FS для постоянных пользователей",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонусы можно активировать за очки лояльности. Они начисляются без вейджера.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-mood/    "
+    },
+    "name": "Mood Casino",
+    "headline": "Mood Casino    ",
+    "datePublished": "2026-08-13T15:57:01+03:00",
+    "dateModified": "2026-11-02T16:43:49+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "12    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:48:33Z",
+  "casino_key": "mood",
+  "logo_local": "images/logos/casino-mood.png"
+}

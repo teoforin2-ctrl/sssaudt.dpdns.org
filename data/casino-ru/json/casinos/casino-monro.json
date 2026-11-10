@@ -1,0 +1,431 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-monro/",
+  "slug": "casino-monro",
+  "name": "Онлайн-казино Monro",
+  "og_title": "Казино Monro Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Monro Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/176207/285x70-monro.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/176207/285x70-monro.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/176207/285x70-monro.png",
+      "alt": "Monro Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/relax-grey.png",
+      "alt": "Relax Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/skywind-grey.png",
+      "alt": "Skywind"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gamevy-grey.png",
+      "alt": "Gamevy"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/blueprint-grey.png",
+      "alt": "Blueprint Gaming"
+    }
+  ],
+  "go_url": "https://casino.ru/go/monrocasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/monrocasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: OGL/2024/169/0146",
+  "info": {
+    "Владелец": "Galaktika N.V., зарегистрированная на о. Кюрасао",
+    "Платформа": "Softswiss",
+    "Лицензия": "Curacao: OGL/2024/169/0146",
+    "Год основания": "2023",
+    "Виды игр": [
+      "Краш,",
+      "TV-игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Belatra",
+      ",",
+      "Booming Games",
+      ",",
+      "Playtech",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "Skywind",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Platipus",
+      ",",
+      "Swintt",
+      ",",
+      "Gamomat",
+      ",",
+      "PG SOFT",
+      ",",
+      "RubyPlay",
+      ",",
+      "Spadegaming",
+      ",",
+      "KA Gaming",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Slotfactory",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "4ThePlayer",
+      ",",
+      "TRUE LABS",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "AvatarUX",
+      ",",
+      "Peter & Sons",
+      ",",
+      "1spin4win",
+      ",",
+      "GameBeat",
+      ",",
+      "Zillion Games",
+      ",",
+      "PoggiPlay",
+      "Количество игр",
+      "10 424"
+    ],
+    "Языки": [
+      "Французский,",
+      "Португальский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ",",
+      "iOS",
+      "Новый бренд",
+      "Да",
+      "Криптовалютное",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "100 FS в Savage Buffalo Spirit Megaways для новичков по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "LZPLAY",
+      "description": "Для активации бонуса нужно использовать промокод, заполнить профиль, подтвердить телефон и почту. \nЗапрещены дублирующие аккаунты.",
+      "props": {
+        "Вейджер": "45",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы для новичков на 225% до 45 000 + 500 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "LZPLAY",
+      "description": "Оператор предлагает четыре приветственных бонуса: 100 FS в Savage Buffalo Spirit Megaways по промокоду, 150% бонус для новичков, второй — до 400 FS, третий — 75% до 15 000.",
+      "props": {
+        "Макс. сумма": "45 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "40",
+        "Фриспины": "500"
+      }
+    },
+    {
+      "title": "Reload-бонус 50% до 20 000",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "LZPLAY",
+      "description": "Бонус доступен со второго уровня. \nНеобходимо сделать от 4000 за неделю. \nДействителен в течение 72 часов после активации.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Мин. депозит": "2 000",
+        "Вейджер": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 135 FS в Alien Fruits (BGaming) еженедельно",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "LZPLAY",
+      "description": "Бонус доступен только один раз в неделю. \nНеобходимо сделать от 4000 за 7 дней.",
+      "props": {
+        "Мин. депозит": "2 000",
+        "Вейджер": "40",
+        "Фриспины": "135",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 10% бонус постоянным пользователям",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "LZPLAY",
+      "description": "Бонус доступен каждый четверг. \nРазмер зависит от суммы за неделю: от 50 — 4%, от 101 — 5%, от 251 — 6%, от 501 — 7%, от 1001 — 8%, от 2001 — 9%, от 5001 — 10%. \nВейджер зависит от статуса пользователя: Prestige — х10, Elite — x5, Supreme — x3. \nНа отыгрыш даются 3 дня.",
+      "props": {
+        "Мин. депозит": "50",
+        "Вейджер": "3",
+        "Действителен до": "Бессрочный",
+        "День начисления": "Четверг"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-monro/    "
+    },
+    "name": "Monro Casino",
+    "headline": "Monro Casino    ",
+    "datePublished": "2023-10-23T13:00:03+03:00",
+    "dateModified": "2026-08-12T17:49:52+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "146    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:09:17Z",
+  "casino_key": "monro",
+  "logo_local": "images/logos/casino-monro.png"
+}

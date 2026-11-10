@@ -1,0 +1,25 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/otzyvy-casino-kazilando/",
+  "casino_slug": "casino-kazilando",
+  "title": "Реальные отзывы о казино Casilando",
+  "reviews": [
+    {
+      "author": "Morkov4ik Новичок 11 февраля",
+      "user_rank": "Новичок",
+      "stars": null,
+      "date_text": "11 февраля",
+      "body": "Нигде не нашел возможность выбора валюты счета или функцию ее изменения после регистрации. В казино только евро поддерживаются?"
+    },
+    {
+      "author": "Axel_85 Модератор 11 февраля",
+      "user_rank": "Модератор",
+      "stars": null,
+      "date_text": "11 февраля",
+      "body": "Да, оператор позволяет открывать счета только в евро. Возможности изменить или добавить другие валюты к учетной записи не предусмотрены."
+    }
+  ],
+  "count": 2,
+  "scraped_at": "2026-11-09T08:22:52Z",
+  "casino_key": "kazilando"
+}

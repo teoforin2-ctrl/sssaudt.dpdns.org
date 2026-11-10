@@ -1,0 +1,518 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-dbbet/",
+  "slug": "casino-dbbet",
+  "name": "Онлайн-казино DBbet",
+  "og_title": "Казино DBbet — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино DBbet — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/193401/db-bet.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/193401/db-bet.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/193401/db-bet.png",
+      "alt": "DBbet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/genesis-grey.png",
+      "alt": "Genesis Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redrake-grey.png",
+      "alt": "Red Rake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/skywind-grey.png",
+      "alt": "Skywind"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/rival-grey.png",
+      "alt": "Rival"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/genii-grey.png",
+      "alt": "Genii"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/irondog-grey.png",
+      "alt": "Iron Dog Studio"
+    }
+  ],
+  "go_url": "https://casino.ru/go/dbbetcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/dbbetcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: OGL/2024/574/0913",
+  "info": {
+    "Владелец": "Sport Tech N.V., зарегистрированная на Кюрасао",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: OGL/2024/574/0913",
+    "Год основания": "2018",
+    "Виды игр": [
+      "TV-игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Лотереи,",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Fugaso",
+      ",",
+      "Microgaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Genesis Gaming",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Rake",
+      ",",
+      "Red Tiger",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Skywind",
+      ",",
+      "GameArt",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Platipus",
+      ",",
+      "Felix Gaming",
+      ",",
+      "Leap Gaming",
+      ",",
+      "Apollo Games",
+      ",",
+      "Mr.Slotty",
+      ",",
+      "BF Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "RubyPlay",
+      ",",
+      "Betixon",
+      ",",
+      "Spadegaming",
+      ",",
+      "Zeus",
+      ",",
+      "Onetouch",
+      ",",
+      "MGA",
+      ",",
+      "KA Gaming",
+      ",",
+      "Spinmatic",
+      ",",
+      "Playstar",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Slotfactory",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "TRUE LABS",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Thunderspin",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gaming Corps",
+      ",",
+      "CQ9 Gaming",
+      ",",
+      "AvatarUX",
+      ",",
+      "Manna Play",
+      ",",
+      "Peter & Sons",
+      ",",
+      "1spin4win",
+      ",",
+      "Zillion Games",
+      ",",
+      "NGM Game",
+      ",",
+      "TaDa Gaming",
+      ",",
+      "Dynabit Gaming",
+      ",",
+      "Astriona Games",
+      ",",
+      "PoggiPlay",
+      "Количество игр",
+      "9500"
+    ],
+    "Языки": [
+      "Тамильский,",
+      "Сомалийский,",
+      "Сингальский,",
+      "Синдхи,",
+      "Непальский,",
+      "Афарский,",
+      "Бирманский,",
+      "Чви,",
+      "Урду,",
+      "Амхарский,",
+      "Кхмерский,",
+      "Боснийский,",
+      "Курдский,",
+      "Суахили,",
+      "Бенгальский,",
+      "Эстонский,",
+      "Филиппинский,",
+      "Монгольский,",
+      "Македонский,",
+      "Таджикский,",
+      "Датский,",
+      "Армянский,",
+      "Албанский,",
+      "Малайский,",
+      "Хинди,",
+      "Иврит,",
+      "Персидский,",
+      "Словацкий,",
+      "Индонезийский,",
+      "Казахский,",
+      "Латышский,",
+      "Корейский,",
+      "Тайский,",
+      "Грузинский,",
+      "Узбекский,",
+      "Вьетнамский,",
+      "Сербский,",
+      "Хорватский,",
+      "Греческий,",
+      "Чешский,",
+      "Французский,",
+      "Азербайджанский,",
+      "Венгерский,",
+      "Турецкий,",
+      "Китайский,",
+      "Японский,",
+      "Болгарский,",
+      "Финский,",
+      "Норвежский,",
+      "Польский,",
+      "Шведский,",
+      "Португальский,",
+      "Румынский,",
+      "Арабский,",
+      "Итальянский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Украинский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ",",
+      "iOS",
+      ", Windows",
+      "Криптовалютное",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "100 FS в Gates of Olympus по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "BONUS250",
+      "description": "Для получения бонуса нужно ввести промокод при создании аккаунта, затем перейти во вкладку «Бонусы и подарки», нажать на кнопку «Подарки» и произвести активацию. На отыгрыш даются 3 дня.",
+      "props": {
+        "Вейджер": "25",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный",
+        "Срок действия": "30 дней"
+      }
+    },
+    {
+      "title": "Приветственные бонусы на 200% до 1500 + 250 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Комплект из 5 бонусов для новичков: по промокоду — 100 FS в Gates of Olympus, за первый — 100% до 300 + 30 FS, за второй — 50% до 350 + 35 FS, за третий — 25% до 400 + 40 FS, за четвертый — 25% до 450 + 45 FS.",
+      "props": {
+        "Макс. сумма": "1 500",
+        "Мин. депозит": "10",
+        "Вейджер": "35",
+        "Фриспины": "250"
+      }
+    },
+    {
+      "title": "Приветственные бонусы для спорта на 175% до 255",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Оператор предлагает три приветственных бонуса для спорта: первый — 100% до 130 за создание аккаунта по промокоду (без промокода — бонус 100% до 100), второй — 50% до 75 после отыгрыша первого бонуса, третий — 25% до 50 после отыгрыша второго бонуса. При отыгрыше в каждом экспрессе должно быть не менее 3-х событий. Минимум 3 события в экспрессе должны иметь коэффициенты не ниже 1,40.",
+      "props": {
+        "Макс. сумма": "255",
+        "Мин. депозит": "1",
+        "Вейджер": "5",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 60 запусков Aviator по средам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступен каждую среду. Бонус можно получить до 3 раз в сутки. На отыгрыш даются 7 дней.",
+      "props": {
+        "Мин. депозит": "10",
+        "Фриспины": "60",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 11% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус предоставляется постоянным пользователям. Размер зависит от уровня в программе лояльности: «Медный» — 5%, «Бронза» — 6%, «Серебро» — 7%, «Золото» — 8%, «Рубин» — 9%, «Сапфир» — 10%, «Бриллиант» — 11%, VIP — от 0,05% до 0,25% от размера всех бетов.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-dbbet/    "
+    },
+    "name": "DBbet",
+    "headline": "DBbet    ",
+    "datePublished": "2024-08-23T13:04:45+03:00",
+    "dateModified": "2026-10-30T12:55:33+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "91    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:49:25Z",
+  "casino_key": "dbbet",
+  "logo_local": "images/logos/casino-dbbet.png"
+}

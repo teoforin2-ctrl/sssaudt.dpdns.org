@@ -1,0 +1,436 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/joycasino/",
+  "slug": "joycasino",
+  "name": "Онлайн-казино Joycasino",
+  "og_title": "Казино Joycasino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Joycasino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/77/joycasino-small.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/77/joycasino-small.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/77/joycasino-small.png",
+      "alt": "Joycasino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/elk-grey.png",
+      "alt": "ELK Studios"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/skywind-grey.png",
+      "alt": "Skywind"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/irondog-grey.png",
+      "alt": "Iron Dog Studio"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    }
+  ],
+  "go_url": "https://casino.ru/go/joycasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/joycasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: OGL/2024/863/0412",
+  "info": {
+    "Владелец": "Katch Up N.V.",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: OGL/2024/863/0412",
+    "Год основания": "2014",
+    "Виды игр": [
+      "TV-игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Карточные игры,",
+      "Настольные игры,",
+      "Live-дилер",
+      ",",
+      "Лотереи,",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Booming Games",
+      ",",
+      "Playtech",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "ELK Studios",
+      ",",
+      "Push Gaming",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "Skywind",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "Gamomat",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "RubyPlay",
+      ",",
+      "Onetouch",
+      ",",
+      "KA Gaming",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Mascot",
+      ",",
+      "4ThePlayer",
+      ",",
+      "Caleta Gaming",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "Gaming Corps",
+      ",",
+      "SlotMill",
+      ",",
+      "AvatarUX",
+      ",",
+      "Manna Play",
+      ",",
+      "Turbo Games",
+      ",",
+      "InOut Games",
+      "Количество игр",
+      "2500"
+    ],
+    "Языки": [
+      "Корейский,",
+      "Японский,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ",",
+      "iOS",
+      ", Windows",
+      "Щедрые бонусы",
+      "Да",
+      "Криптовалютное",
+      "Да",
+      "Для хайроллеров",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "30 FS в Wild Bounty Showdown новичкам по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта и внести от 500. Бонус действителен 3 дня.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "30",
+        "Фриспины": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Приветственные бонусы на 425% и 230 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Пакет бонусов для новичков: 30 FS в Wild Bounty Showdown по промокоду, 200 FS в Coin Strike: Hold & Win (по 20 FS ежедневно в течение 10 дней после создания аккаунта), первый — до 200% или до 200 000, второй — 100% до 30 000, третий — 50% до 40 000, четвертый — 50% до 50 000, пятый — 25% до 75 000.",
+      "props": {
+        "Макс. сумма": "395 000",
+        "Мин. депозит": "500",
+        "Вейджер": "25",
+        "Фриспины": "230"
+      }
+    },
+    {
+      "title": "Бонус 500 для live",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Новичкам доступен ваучер на 500 для бетов в Lightning Roulette.",
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "1 000",
+        "Вейджер": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Фрибет-бонус 500",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Можно использовать на любые спортивные мероприятия.",
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "1 000",
+        "Вейджер": "8",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 5000 + 25% лоссбэк + 10% без отыгрыша",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Приветственный бонус для VIP-пользователей: 5000 за прохождение миссий, 25% ежемесячно от проигрышей, 10% новичкам без отыгрыша.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/joycasino/    "
+    },
+    "name": "Joycasino",
+    "headline": "Joycasino    ",
+    "datePublished": "2023-08-22T08:20:41+03:00",
+    "dateModified": "2026-11-06T16:45:46+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "292    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:45:19Z",
+  "casino_key": "joycasino",
+  "logo_local": "images/logos/joycasino.png"
+}

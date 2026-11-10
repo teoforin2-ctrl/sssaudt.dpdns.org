@@ -1,0 +1,427 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-tonplay/",
+  "slug": "casino-tonplay",
+  "name": "Tonplay Casino",
+  "og_title": "Казино Tonplay Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Tonplay Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/219696/tonplay-285h70.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/219696/tonplay-285h70.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/219696/tonplay-285h70.png",
+      "alt": "Tonplay Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/skywind-grey.png",
+      "alt": "Skywind"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ezugi.png",
+      "alt": "Ezugi"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/blueprint-grey.png",
+      "alt": "Blueprint Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/video-gaming-grey.png",
+      "alt": "Vivo Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bf-44x44-grey.png",
+      "alt": "BF Games"
+    }
+  ],
+  "go_url": "https://casino.ru/go/tonplaycasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/tonplaycasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-202508040-FI2",
+  "info": {
+    "Владелец": "Galaxy Byte Lab Sociedad de Responsabilidad Limitada, зарегистрированная в Коста-Рике",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-202508040-FI2",
+    "Год основания": "2025",
+    "Виды игр": [
+      "TV-игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "Belatra",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "Skywind",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Platipus",
+      ",",
+      "BF Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "RubyPlay",
+      ",",
+      "Zeus",
+      ",",
+      "Onetouch",
+      ",",
+      "Triple PG",
+      ",",
+      "KA Gaming",
+      ",",
+      "Nucleus",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "RTG Slots",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "Caleta Gaming",
+      ",",
+      "Triple Cherry",
+      ",",
+      "Iconic",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "Gaming Corps",
+      ",",
+      "Vibra Gaming",
+      ",",
+      "Peter & Sons",
+      ",",
+      "GameBeat",
+      ",",
+      "Turbo Games",
+      ",",
+      "Bullshark Games",
+      "Количество игр",
+      "10 799"
+    ],
+    "Языки": [
+      "Таджикский,",
+      "Индонезийский,",
+      "Казахский,",
+      "Узбекский,",
+      "Азербайджанский,",
+      "Польский,",
+      "Английский,",
+      "Русский",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "20 FS в любом слоте Pragmatic Play для новичков по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта, внести от 500 и повторно ввести промокод в разделе «Бонусы».",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "35",
+        "Фриспины": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 777 в колесе",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Бонус доступен только новичкам.",
+      "props": {
+        "Макс. сумма": "777",
+        "Вейджер": "1",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Приветственные бонусы на 375% до 1400 + 220 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Комплект из пяти приветственных бонусов для новых пользователей: 20 FS по промокоду, первый — 50% до 300, второй — 75% до 300, третий — 100% до 300 + 75 FS, четвертый — до 150% до 500 + до 125 FS.",
+      "props": {
+        "Макс. сумма": "1 400",
+        "Мин. депозит": "5",
+        "Вейджер": "40",
+        "Фриспины": "220"
+      }
+    },
+    {
+      "title": "Криптобонус 7% до 10 000",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Бонус доступен ежедневно за первую транзакцию в криптовалюте.",
+      "props": {
+        "Макс. сумма": "10 000",
+        "Вейджер": "1",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 9,5% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Бонус начисляется каждую неделю по пятницам: 6% — всем, 9,5% — на уровне VIP. Его необходимо активировать в течение 48 часов. Н отыгрыш даются 7 дней.",
+      "props": {
+        "Вейджер": "1",
+        "Действителен до": "Бессрочный",
+        "День начисления": "Пятница"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-tonplay/    "
+    },
+    "name": "Tonplay Casino",
+    "headline": "Tonplay Casino    ",
+    "datePublished": "2025-11-28T12:30:51+03:00",
+    "dateModified": "2026-10-29T11:43:16+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "49    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:50:01Z",
+  "casino_key": "tonplay",
+  "logo_local": "images/logos/casino-tonplay.png"
+}

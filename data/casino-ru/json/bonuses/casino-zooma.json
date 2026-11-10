@@ -1,0 +1,122 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-zooma/",
+  "casino_slug": "casino-zooma",
+  "title": "Все бонусы и промокоды в казино Zooma 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "Бонус 250 для новичков по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте.",
+      "props": {
+        "Макс. сумма": "250",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 10 за привязку аккаунта в Telegram",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для получения бонуса нужно привязать аккаунт Telegram к профилю.",
+      "props": {
+        "Макс. сумма": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 5 за привязку аккаунта ВКонтакте",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для получения бонуса нужно привязать аккаунт ВКонтакте к профилю.",
+      "props": {
+        "Макс. сумма": "5",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы 250 для новичков и 200 FS за активность каждый месяц",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступны 250 для новичков по промокоду и 200 FS только активным пользователям.",
+      "props": {
+        "Макс. сумма": "250",
+        "Фриспины": "200",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "200 FS за активность каждый месяц",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус выдается только активным пользователям.",
+      "props": {
+        "Фриспины": "200",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 15 персональных бонусов ежемесячно",
+      "type_label": "HighRoller",
+      "types": [
+        "highroller",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус выдается пользователям на последнем уровне программы лояльности за активность.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Криптобонус 6,5%",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен многократно. Отыгрыш не требуется.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 12% постоянным пользователям",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен ежемесячно всем пользователям.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:47:31Z",
+  "casino_key": "zooma"
+}

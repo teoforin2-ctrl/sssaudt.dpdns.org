@@ -1,0 +1,395 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-eva/",
+  "slug": "casino-eva",
+  "name": "Онлайн-казино Ева",
+  "og_title": "Казино Казино Ева — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Казино Ева — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/224989/eva-285h70.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/224989/eva-285h70.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/224989/eva-285h70.png",
+      "alt": "Казино Ева"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ezugi.png",
+      "alt": "Ezugi"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/wazdan-grey.png",
+      "alt": "Wazdan"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/pg-44x44-grey.png",
+      "alt": "PG SOFT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ka-gaming-44x44-grey.png",
+      "alt": "KA Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/hacksaw-44x44-grey.png",
+      "alt": "Hacksaw Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ct-44x44-grey.png",
+      "alt": "CT Interactive"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mascot-44x44-grey.png",
+      "alt": "Mascot"
+    }
+  ],
+  "go_url": "https://casino.ru/go/evacasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/evacasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-202510054-FI2",
+  "info": {
+    "Владелец": "3-102-937610 SRL, зарегистрированная в Коста-Рике",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-202510054-FI2",
+    "Год основания": "2026",
+    "Виды игр": [
+      "Краш,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Belatra",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "PG SOFT",
+      ",",
+      "KA Gaming",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "Gaming Corps",
+      ",",
+      "AvatarUX",
+      ",",
+      "GameBeat",
+      ",",
+      "InOut Games",
+      "Количество игр",
+      "7289"
+    ],
+    "Языки": [
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Новый бренд",
+      "Да",
+      "Криптовалютное",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "50 FS в Big Bass Splash Mobile за создание аккаунта по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для получения необходимо ввести промокод при создании аккаунта. На активацию и отыгрыш бонуса даются 24 часа.",
+      "props": {
+        "Макс. сумма": "50",
+        "Вейджер": "15",
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Приветственные бонусы на 250% до 1500 + 900 FS по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Для получения бонуса необходимо ввести промокод при создании аккаунта. Улучшенный пакет включает следующие бонусы: первый — 125% и до 400 FS, второй — 75% и до 200 FS, третий — 50% и до 300 FS. Вейджер для FS составляет х40, а для остальной части бонуса — х50.",
+      "props": {
+        "Макс. сумма": "1 500",
+        "Мин. депозит": "15",
+        "Вейджер": "40",
+        "Фриспины": "900"
+      }
+    },
+    {
+      "title": "Приветственные бонусы на 225% до 1500 + 950 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "4 приветственных бонуса для новых пользователей казино: по промокоду —  50 FS в Big Bass Splash Mobile, первый — 100% + 400 FS, второй — 75% + 200 FS, третий — 50% + 300 FS. Вейджер для FS составляет х15 и х40, а для остальной части бонуса — х50.",
+      "props": {
+        "Макс. сумма": "1 500",
+        "Мин. депозит": "15",
+        "Вейджер": "40",
+        "Фриспины": "950"
+      }
+    },
+    {
+      "title": "Бонус 100% до 400 + 300 FS",
+      "type_label": "HighRoller",
+      "types": [
+        "highroller",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен 1 раз после любой из первых четырех транзакций. Вейджер для FS — x25, для основного бонуса — х30.",
+      "props": {
+        "Макс. сумма": "400",
+        "Мин. депозит": "300",
+        "Вейджер": "30",
+        "Фриспины": "300"
+      }
+    },
+    {
+      "title": "20 FS по средам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Еженедельный бонус доступен по средам.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "5",
+        "Вейджер": "3",
+        "Фриспины": "20"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-eva/    "
+    },
+    "name": "Казино Ева",
+    "headline": "Казино Ева    ",
+    "datePublished": "2026-03-10T16:30:46+03:00",
+    "dateModified": "2026-10-28T10:13:24+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "36    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:59:21Z",
+  "casino_key": "eva",
+  "logo_local": "images/logos/casino-eva.png"
+}

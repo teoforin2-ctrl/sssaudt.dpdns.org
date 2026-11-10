@@ -1,0 +1,401 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/azino777-casino/",
+  "slug": "azino777-casino",
+  "name": "Онлайн-казино Азино777",
+  "og_title": "Казино Азино777 — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Азино777 — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/azino777/azino777.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/azino777/azino777.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/azino777/azino777.png",
+      "alt": "Азино777"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igt-gray-1.png",
+      "alt": "IGT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/apollo-gaming-44x44-grey.png",
+      "alt": "Apollo Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/pg-44x44-grey.png",
+      "alt": "PG SOFT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/44x44-spribe-grey.png",
+      "alt": "Spribe"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/kajot-44x44-gray.png",
+      "alt": "Kajot"
+    }
+  ],
+  "go_url": "https://casino.ru/go/7kcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/azino777/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-202504035-FI2",
+  "info": {
+    "Владелец": "Rainglow Limitada, зарегистрированная в Коста-Рике",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-202504035-FI2",
+    "Год основания": "2011",
+    "Виды игр": [
+      "Быстрые игры,",
+      "Краш,",
+      "Покер",
+      ",",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "Fugaso",
+      ",",
+      "Microgaming",
+      ",",
+      "IGT",
+      ",",
+      "Playtech",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Play'n GO",
+      ",",
+      "Push Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Platipus",
+      ",",
+      "Apollo Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "Kajot",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Mascot",
+      ",",
+      "TRUE LABS",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Triple Cherry",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Gamzix",
+      ",",
+      "1spin4win",
+      ",",
+      "Zillion Games",
+      ",",
+      "Turbo Games",
+      ",",
+      "InOut Games",
+      ",",
+      "TaDa Gaming",
+      "Количество игр",
+      "6000"
+    ],
+    "Языки": [
+      "Казахский,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Криптовалютное",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "277 FS в Gates of Olympus Super Scatter и бонус 277% по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо перейти на сайт казино, нажать на кнопку создания аккаунта, указать email/телефон, пароль, валюту, ввести промокод в специальное поле и подтвердить согласие с правилами. Промокод активируется автоматически, бонус будет начислен после первой транзакции от 1000.",
+      "props": {
+        "Макс. сумма": "1 000 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "40",
+        "Фриспины": "277"
+      }
+    },
+    {
+      "title": "100 FS в Supreme Hot новичкам",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус начисляется сразу после создания аккаунта. На отыгрыш даются 7 дней.",
+      "props": {
+        "Вейджер": "35",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный",
+        "Слот": "Supreme Hot"
+      }
+    },
+    {
+      "title": "Приветственные бонусы на 944% и 944 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Пакет бонусов для новичков: 100 FS в Gates of Olympus Super Scatter за создание аккаунта, первый по промокоду — 277 FS в Gates of Olympus Super Scatter и 277% (без промокода — 110% и 110 FS в Gates of Olympus), второй — 120% и 120 FS в Sweet Bonanza, третий — 130% и 130 FS в Big Bass Bonanza, четвертый — 140% и 140 FS в Sugar Rush, пятый — 177% и 177 FS в Starlight Princess 1000, седьмой — 100%.",
+      "props": {
+        "Макс. сумма": "1 388 880",
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "944"
+      }
+    },
+    {
+      "title": "Бонус до 12% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Регулярный бонус. Предоставляется раз в неделю по четвергам. Составляет от 7% до 12%.",
+      "props": {
+        "Действителен до": "Бессрочный",
+        "День начисления": "Четверг"
+      }
+    },
+    {
+      "title": "Первый бонус 110% и 110 FS в Gates of Olympus",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен только 1 раз. Для получения FS необходимо внести от 1777. На отыгрыш даются 7 дней.",
+      "props": {
+        "Макс. сумма": "777",
+        "Мин. депозит": "777",
+        "Вейджер": "35",
+        "Фриспины": "110"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/azino777-casino/    "
+    },
+    "name": "Азино777",
+    "headline": "Азино777    ",
+    "datePublished": "2019-10-25T14:59:29+03:00",
+    "dateModified": "2026-10-30T16:14:53+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "65    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:49:18Z",
+  "casino_key": "azino777-casino",
+  "logo_local": "images/logos/azino777-casino.png"
+}

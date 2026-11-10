@@ -1,0 +1,400 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-kush/",
+  "slug": "casino-kush",
+  "name": "Kush Casino",
+  "og_title": "Казино Kush Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Kush Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/210337/kush.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/210337/kush.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/210337/kush.png",
+      "alt": "Kush Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/relax-grey.png",
+      "alt": "Relax Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ezugi.png",
+      "alt": "Ezugi"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/blueprint-grey.png",
+      "alt": "Blueprint Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/wazdan-grey.png",
+      "alt": "Wazdan"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    }
+  ],
+  "go_url": "https://casino.ru/go/kushcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/kushcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-202510054-FI2",
+  "info": {
+    "Владелец": "3-102-937610 SRL",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-202510054-FI2",
+    "Год основания": "2025",
+    "Виды игр": [
+      "Краш,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Wazdan",
+      ",",
+      "Platipus",
+      ",",
+      "PG SOFT",
+      ",",
+      "KA Gaming",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "Gaming Corps",
+      ",",
+      "AvatarUX",
+      ",",
+      "GameBeat",
+      ",",
+      "Zillion Games",
+      ",",
+      "Turbo Games",
+      ",",
+      "InOut Games",
+      "Количество игр",
+      "8901"
+    ],
+    "Языки": [
+      "Русский",
+      "Приложение",
+      "Android",
+      ", Windows",
+      "Новый бренд",
+      "Да",
+      "Криптовалютное",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Приветственные бонусы на 250% до 1500 + до 900 FS по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для получения бонуса необходимо ввести промокод при создании аккаунта. Улучшенный пакет включает следующие бонусы: первый — 125% и до 400 FS, второй — 75% и до 200 FS, третий — 50% и до 300 FS. Вейджер для FS составляет х40, а для остальной части бонуса — х50.",
+      "props": {
+        "Макс. сумма": "1 500",
+        "Мин. депозит": "15",
+        "Вейджер": "40",
+        "Фриспины": "900"
+      }
+    },
+    {
+      "title": "100 FS в слоте на выбор за создание аккаунта по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Для получения бонуса необходимо ввести промокод при создании аккаунта. FS доступны в Zeus vs Hades — Gods of War, Big Bass Splash или Big Bass Bonanza. На активацию и отыгрыш бонуса даются 24 часа.",
+      "props": {
+        "Вейджер": "35",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Приветственные бонусы на 225% до 1100 + до 1000 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Казино предлагает новым пользователям приветственные бонусы: 100 FS в слоте на выбор по промокоду, первый — 100% и до 400 FS, второй — 75% и до 200 FS, третий — 50% и до 300 FS. Вейджер для FS составляет х40, а для остальной части бонуса — х50.",
+      "props": {
+        "Макс. сумма": "1 100",
+        "Мин. депозит": "15",
+        "Вейджер": "40",
+        "Фриспины": "1000"
+      }
+    },
+    {
+      "title": "До 500 FS за переход на новый уровень",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Размер бонуса зависит от уровня, на который перешел пользователь: 2 — 20 FS, 3 — 35 FS, 4 — 70 FS, 5 — 100 FS, 6 — 125 FS, 7 — 150 FS, 8 — 200 FS, 9 — 250 FS, 10 — 500 FS.",
+      "props": {
+        "Вейджер": "35",
+        "Фриспины": "500",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы для VIP-пользователей",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": "CAS1NORU",
+      "description": "Вид и размер бонусов определяется индивидуально.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-kush/    "
+    },
+    "name": "Kush Casino",
+    "headline": "Kush Casino    ",
+    "datePublished": "2025-08-20T15:18:28+03:00",
+    "dateModified": "2026-11-02T13:49:51+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "52    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:48:53Z",
+  "casino_key": "kush",
+  "logo_local": "images/logos/casino-kush.png"
+}

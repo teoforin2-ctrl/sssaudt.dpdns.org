@@ -1,0 +1,201 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-limoplej/",
+  "casino_slug": "casino-limoplej",
+  "title": "Все бонусы и промокоды в казино Limoplay 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "100% бонус до 100 и 25 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для автомата Fruit Zen.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Фриспины": "25"
+      }
+    },
+    {
+      "title": "120 FS от 100",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Мин. депозит": "100",
+        "Вейджер": "50",
+        "Фриспины": "120",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100% бонус до 1000",
+      "type_label": "HighRoller",
+      "types": [
+        "highroller",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новичкам.",
+      "props": {
+        "Макс. сумма": "1 000",
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50% Reload-бонус до 50",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "50",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50% бонус до 100 и 25 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Фриспины": "25"
+      }
+    },
+    {
+      "title": "50% бонус до 100 и 25 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Фриспины": "25"
+      }
+    },
+    {
+      "title": "100% бонус до 100 и 25 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для автомата Fruit Zen.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Фриспины": "25"
+      }
+    },
+    {
+      "title": "100 FS в 27 Eternal Hot по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта. Также требуется подтверждение почты или номера телефона.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "40",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "150 FS в Mummyland Treasures по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для получения нужно создать аккаунт с использованием промокода, подтвердить номер телефона, активировать бонус в разделе «Бонусы». На отыгрыш даются 7 дней.",
+      "props": {
+        "Вейджер": "30",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный",
+        "Слот": "Mummyland Treasures"
+      }
+    },
+    {
+      "title": "50 FS в The Dog House Megaways по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "DOG50",
+      "description": "Необходимо ввести промокод DOG50 в специальное поле на официальном сайте казино при создании аккаунта. FS доступны 48 часов после активации. Срок отыгрыша — 24 часа.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "50",
+        "Фриспины": "50",
+        "Действителен до": "20.04.2027"
+      }
+    },
+    {
+      "title": "Бонус 77% + 27 FS в Sugar Rush 1000 по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации необходимо ввести промокод в специальное поле на официальном сайте казино сразу после создания аккаунта и внести от 600. Бонус действителен 5 дней.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Мин. депозит": "600",
+        "Вейджер": "45",
+        "Фриспины": "27"
+      }
+    },
+    {
+      "title": "Бонус 20 000 без вейджера для всех пользователей по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORUALL",
+      "description": "Бонус доступен ежедневно по промокоду. Вейджера нет.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:51:31Z",
+  "casino_key": "limoplej"
+}

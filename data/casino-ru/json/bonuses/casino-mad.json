@@ -1,0 +1,239 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-mad/",
+  "casino_slug": "casino-mad",
+  "title": "Все бонусы и промокоды в Mad Casino 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "Бонус 100% и 100 FS для новичков по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино. FS начисляются в Gates of Olympus Super Scatter.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "30",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "30 FS в 1000 Olympus Rivals за установку приложения",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Необходимо установить мобильное приложение казино. На отыгрыш даются 3 дня.",
+      "props": {
+        "Вейджер": "45",
+        "Фриспины": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "30 FS в Olympus Rivals за подписку на Telegram-бот",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Необходимо подписаться на Telegram-бот казино. На отыгрыш даются 3 дня.",
+      "props": {
+        "Вейджер": "45",
+        "Фриспины": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "30 FS в Fruit Invaders за подтверждение номера телефона",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Необходимо подтвердить номер телефона. На отыгрыш даются 3 дня.",
+      "props": {
+        "Вейджер": "45",
+        "Фриспины": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "20 FS в Fortune Bags за подтверждение почты",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Необходимо подтвердить электронную почту. На отыгрыш даются 3 дня.",
+      "props": {
+        "Вейджер": "45",
+        "Фриспины": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы на 555% и 555 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Приветственный пакет бонусов: 100% и 100 FS по промокоду, 30 FS в 1000 Olympus Rivals за установку приложения, 30 FS в Olympus Rivals за подписку на Telegram-бот, 30 FS в Fruit Invaders за подтверждение номера телефона, 20 FS в Fortune Bags за подтверждение почты, первый — 150% или 115 FS, второй — 150% или 115 FS, третий — 155% или 115 FS.",
+      "props": {
+        "Мин. депозит": "800",
+        "Вейджер": "45",
+        "Фриспины": "555",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 30 000 за достижение уровня",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Размер бонуса зависит от ступени программы лояльности, на которую перешел пользователь: Bronze — 20 FS в Sweet Bonanza, Silver — 30 FS в Gates of Olympus, Gold — 40 FS в Sugar Rush 1000, Platinum — 50 FS в Wild Beach Party, Inferno — 75 FS в Elemental Gems Megaways, Diamond — 100 FS в Buffalo King Megaways, Master — 115 FS в Gates of Olympus 1000, Grandmaster — 10 000, Elite — 15 000, Hero — 25 000, Challenger — 30 000.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Криптобонус 5%",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен многократно.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "1",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Еженедельный бонус до 15% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Размер бонуса зависит от статуса пользователя в программе лояльности: Bronze и Silver — 3%; Gold, Platinum и Inferno — 6%; Diamond, Master и Grandmaster — 9%; Elite и Hero — 12%; Challenger — 15%.",
+      "props": {
+        "Вейджер": "5",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Первый бонус до 150%",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Первый бонус доступен новичкам после создания аккаунта.",
+      "props": {
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Первый бонус до 115 FS в Sweet Bonanza",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Альтернативный первый бонус доступен новичкам только 1 раз.",
+      "props": {
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Фриспины": "115",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Второй бонус до 150%",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Второй бонус доступен новичкам после использования первого.",
+      "props": {
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Второй бонус до 115 FS в The Dog House",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Альтернативный второй бонус доступен новичкам только 1 раз.",
+      "props": {
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Фриспины": "115",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Третий бонус до 155%",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Третий бонус доступен новичкам после использования второго.",
+      "props": {
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Третий бонус до 115 FS в Big Bass Bonanza 1000",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Альтернативный третий бонус доступен новичкам только 1 раз.",
+      "props": {
+        "Мин. депозит": "800",
+        "Вейджер": "40",
+        "Фриспины": "115",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:39:34Z",
+  "casino_key": "mad"
+}

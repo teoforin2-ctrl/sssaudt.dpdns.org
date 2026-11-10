@@ -1,0 +1,67 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-bitz/",
+  "casino_slug": "casino-bitz",
+  "title": "Все бонусы и промокоды в Bitz Casino 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "500 монет для новичков по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы за переход на новый уровень",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "За переход на каждый новый уровень доступны запуск колеса Фортуны и бонус.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 100% до 250 000 и 500 монет для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Пакет бонусов для новичков: 500 монет по промокоду и бонус 100% для новичков. Доступен 1 раз.",
+      "props": {
+        "Макс. сумма": "250 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 15% постоянным пользователям",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Размер зависит от статуса пользователя: Steel — 3%, Silver — 4%, Gold, Platinum — 5%, Palladium, Titanium — 6%, Ruby, Sapphire — 7%, Emerald, Diamond — 8%, Black Diamond, Obsidian — 9%, Meteorite — 10%, Uranium — 11%, Rhodium — 12%, Astatine — 13%, Antimatter — 14%, Mythril — 15%.",
+      "props": {
+        "Действителен до": "Бессрочный",
+        "День начисления": "Пятница"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:39:39Z",
+  "casino_key": "bitz"
+}

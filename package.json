@@ -1,0 +1,27 @@
+{
+  "name": "x-reviewer",
+  "private": true,
+  "packageManager": "pnpm@10.10.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter @x-reviewer/web --filter @x-reviewer/api --filter @x-reviewer/dashboard dev",
+    "dev:web": "pnpm --filter @x-reviewer/web dev",
+    "dev:api": "pnpm --filter @x-reviewer/api dev",
+    "dev:dashboard": "pnpm --filter @x-reviewer/dashboard dev",
+    "build": "pnpm -r --filter @x-reviewer/shared --filter @x-reviewer/api --filter @x-reviewer/web --filter @x-reviewer/dashboard build",
+    "typecheck": "pnpm -r --filter @x-reviewer/shared --filter @x-reviewer/api --filter @x-reviewer/web typecheck",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f --tail=100",
+    "docker:ps": "docker compose ps",
+    "backup:pg": "bash scripts/backup-postgres.sh"
+
+  },
+  "pnpm": {
+    "overrides": {
+      "nuxt": "4.1.3"
+    }
+  }
+}

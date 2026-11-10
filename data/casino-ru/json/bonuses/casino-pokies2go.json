@@ -1,0 +1,246 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-pokies2go/",
+  "casino_slug": "casino-pokies2go",
+  "title": "Все бонусы и промокоды в казино Pokies2go 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "100% бонус для новичков до 500 + 100 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус дают только для новичков.\nFS начисляют для слота Unicorn.",
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "20",
+        "Вейджер": "30",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "200 FS",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только по средам.\nБонус нужно запрашивать в службе поддержки.",
+      "props": {
+        "Мин. депозит": "20",
+        "Фриспины": "200",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50 FS в слоте Mayan Magic Wildfire",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только по понедельникам.\nFS начисляют для слота Mayan Magic Wildfire.",
+      "props": {
+        "Мин. депозит": "30",
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный",
+        "Слот": "Mayan Magic Wildfire"
+      }
+    },
+    {
+      "title": "55% Reload-бонус до 300 + 55 FS",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен один раз в неделю.\nДля его активации требуется использовать криптовалюты Bitcoin, Ethereum, Litecoin, Bitcoin Cash или Tether.\nFS начисляют без вейджера для слота Mystic Hive.",
+      "props": {
+        "Макс. сумма": "300",
+        "Мин. депозит": "20",
+        "Вейджер": "15",
+        "Фриспины": "55"
+      }
+    },
+    {
+      "title": "50% Reload-бонус до 300 + 20 FS",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен один раз в неделю.\nFS начисляют для слота Mystic Hive.",
+      "props": {
+        "Макс. сумма": "300",
+        "Мин. депозит": "20",
+        "Вейджер": "20",
+        "Фриспины": "20"
+      }
+    },
+    {
+      "title": "40% Reload-бонус до 300",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только по четвергам.\nВейджер х15.",
+      "props": {
+        "Макс. сумма": "300",
+        "Мин. депозит": "20",
+        "Вейджер": "15",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "30% Reload-бонус до 300 + 100 FS",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только по вторникам.\nFS начисляют без вейджера для слота San Quentin xWays.",
+      "props": {
+        "Макс. сумма": "300",
+        "Мин. депозит": "100",
+        "Вейджер": "15",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "25% Reload-бонус до 300 + 25 FS",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен один раз в день.\nДля его активации требуется использовать криптовалюты Bitcoin, Ethereum, Litecoin, Bitcoin Cash или Tether.\nFS начисляют без вейджера для слота Power of Gods: Egypt.",
+      "props": {
+        "Макс. сумма": "300",
+        "Мин. депозит": "20",
+        "Вейджер": "15",
+        "Фриспины": "25"
+      }
+    },
+    {
+      "title": "20% Reload-бонус до 300 + 15 FS",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен один раз в день.\nFS начисляют для слота Power of Gods: Egypt.\nВейджер х15.",
+      "props": {
+        "Макс. сумма": "300",
+        "Мин. депозит": "20",
+        "Вейджер": "15",
+        "Фриспины": "15"
+      }
+    },
+    {
+      "title": "15% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только по пятницам.\nЗапросить его активацию можно через лайв-чат.",
+      "props": {
+        "Мин. депозит": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100 FS в 27 Eternal Hot по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта. Также требуется подтверждение почты или номера телефона.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "40",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "150 FS в Mummyland Treasures по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для получения нужно создать аккаунт с использованием промокода, подтвердить номер телефона, активировать бонус в разделе «Бонусы». На отыгрыш даются 7 дней.",
+      "props": {
+        "Вейджер": "30",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный",
+        "Слот": "Mummyland Treasures"
+      }
+    },
+    {
+      "title": "50 FS в The Dog House Megaways по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "DOG50",
+      "description": "Необходимо ввести промокод DOG50 в специальное поле на официальном сайте казино при создании аккаунта. FS доступны 48 часов после активации. Срок отыгрыша — 24 часа.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "50",
+        "Фриспины": "50",
+        "Действителен до": "20.04.2027"
+      }
+    },
+    {
+      "title": "Бонус 77% + 27 FS в Sugar Rush 1000 по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации необходимо ввести промокод в специальное поле на официальном сайте казино сразу после создания аккаунта и внести от 600. Бонус действителен 5 дней.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Мин. депозит": "600",
+        "Вейджер": "45",
+        "Фриспины": "27"
+      }
+    },
+    {
+      "title": "Бонус 20 000 без вейджера для всех пользователей по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORUALL",
+      "description": "Бонус доступен ежедневно по промокоду. Вейджера нет.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:49:35Z",
+  "casino_key": "pokies2go"
+}

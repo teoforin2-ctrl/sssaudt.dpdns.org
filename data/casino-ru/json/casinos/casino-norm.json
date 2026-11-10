@@ -1,0 +1,407 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-norm/",
+  "slug": "casino-norm",
+  "name": "Norm Casino",
+  "og_title": "Казино Norm Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Norm Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/235349/normcasino-285h70.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/235349/normcasino-285h70.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/235349/normcasino-285h70.png",
+      "alt": "Norm Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/habanero-grey.png",
+      "alt": "Habanero"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/relax-grey.png",
+      "alt": "Relax Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/skywind-grey.png",
+      "alt": "Skywind"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/pg-44x44-grey.png",
+      "alt": "PG SOFT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ruby-44x44-grey.png",
+      "alt": "RubyPlay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/spade-44x44-grey.png",
+      "alt": "Spadegaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/onetouch-44x44-grey.png",
+      "alt": "Onetouch"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ka-gaming-44x44-grey.png",
+      "alt": "KA Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/fazi-44x44-grey.png",
+      "alt": "Fazi"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/hacksaw-44x44-grey.png",
+      "alt": "Hacksaw Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/smartsoft-44x44-grey.png",
+      "alt": "SmartSoft Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/caleta-gray.png",
+      "alt": "Caleta Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/5-men-44x44-gray.png",
+      "alt": "5MEN"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/7mojos-44x44-grey.png",
+      "alt": "7 Mojos"
+    }
+  ],
+  "go_url": "https://casino.ru/go/normcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/normcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-202604015-FI1",
+  "info": {
+    "Владелец": "Velmora Ltd, зарегистрированная на о. Невис",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-202604015-FI1",
+    "Год основания": "2026",
+    "Виды игр": [
+      "TV-игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Amusnet",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Amatic",
+      ",",
+      "Fugaso",
+      ",",
+      "Microgaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Habanero",
+      ",",
+      "Nolimit City",
+      ",",
+      "Skywind",
+      ",",
+      "GameArt",
+      ",",
+      "Spinomenal",
+      ",",
+      "PG SOFT",
+      ",",
+      "RubyPlay",
+      ",",
+      "Spadegaming",
+      ",",
+      "Onetouch",
+      ",",
+      "KA Gaming",
+      ",",
+      "Fazi",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "Caleta Gaming",
+      ",",
+      "5MEN",
+      ",",
+      "7 Mojos",
+      ",",
+      "Spearhead",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gaming Corps",
+      ",",
+      "CQ9 Gaming",
+      ",",
+      "AvatarUX",
+      ",",
+      "InOut Games",
+      ",",
+      "TaDa Gaming",
+      "Количество игр",
+      "8000"
+    ],
+    "Языки": [
+      "Русский",
+      "Приложение",
+      "Android",
+      ",",
+      "iOS",
+      "Надежное казино",
+      "Да",
+      "Много бонусов",
+      "Да",
+      "Бренд месяца",
+      "Да",
+      "Новый бренд",
+      "Да",
+      "Криптовалютное",
+      "Да",
+      "Для хайроллеров",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "120 FS в Big Bass Bonanza 1000 по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта и внести от 1200. На отыгрыш дается 1 день.",
+      "props": {
+        "Макс. сумма": "10 000",
+        "Мин. депозит": "1 200",
+        "Вейджер": "20",
+        "Фриспины": "120"
+      }
+    },
+    {
+      "title": "Бонусы на 225% до 25 000 + до 1120 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Пакет приветственных бонусов для новичков: 120 FS в Big Bass Bonanza 1000 по промокоду, первый — 100% до 10 000 + до 300 FS, второй — 75% до 10 000 + до 200 FS, третий — до 300 FS, четвертый — 50% до 5000 + до 200 FS.",
+      "props": {
+        "Макс. сумма": "25 000",
+        "Мин. депозит": "999",
+        "Вейджер": "40",
+        "Фриспины": "1120"
+      }
+    },
+    {
+      "title": "Бонус 30% до 7000 по понедельникам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен каждый понедельник. На отыгрыш дается 1 день.",
+      "props": {
+        "Макс. сумма": "7 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 120 FS в Big Bass Splash по вторникам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен каждый вторник. Количество FS зависит от суммы: от 500 — 20 шт., от 950 — 50, от 1500 — 75, от 3000 — 120. На отыгрыш дается 1 день.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Фриспины": "120",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 120 FS в The Dog House Multihold по средам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен каждый вторник. Количество FS зависит от суммы: от 500 — 20 шт., от 950 — 50, от 1500 — 75, от 3000 — 120. На отыгрыш дается 1 день.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Фриспины": "120",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-norm/    "
+    },
+    "name": "Norm Casino",
+    "headline": "Norm Casino    ",
+    "datePublished": "2026-06-11T16:03:50+03:00",
+    "dateModified": "2026-11-02T11:59:42+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "35    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:49:08Z",
+  "casino_key": "norm",
+  "logo_local": "images/logos/casino-norm.png"
+}

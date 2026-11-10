@@ -1,0 +1,350 @@
+/* Inlined into <head> — tokens + shell so first paint isn't unstyled */
+
+:root,
+[data-theme="dark"] {
+  --bg-canvas: #080b10;
+  --bg-base: #0d1219;
+  --bg-elev-1: #141b24;
+  --bg-elev-2: #1a2330;
+  --bg-elev-3: #222d3d;
+  --bg-overlay: rgba(8, 11, 16, 0.72);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-focus: #3dff8a;
+  --text-primary: #f3f6fa;
+  --text-secondary: #9aa8b8;
+  --text-tertiary: #6b7a8c;
+  --text-inverse: #0b1220;
+  --accent-cta: #3dff8a;
+  --accent-cta-hover: #62ff9f;
+  --accent-cta-pressed: #2ad872;
+  --accent-cta-soft: rgba(61, 255, 138, 0.12);
+  --accent-violet: #8b5cff;
+  --accent-violet-soft: rgba(139, 92, 255, 0.16);
+  --accent-amber: #f5a524;
+  --accent-amber-soft: rgba(245, 165, 36, 0.14);
+  --accent-rose: #ff4d6d;
+  --accent-rose-soft: rgba(255, 77, 109, 0.14);
+  --accent-cyan: #3ec7ff;
+  --accent-gold: #f0b429;
+  --success: #3dff8a;
+  --warning: #f5a524;
+  --danger: #ff4d6d;
+  --info: #3ec7ff;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+  --shadow-1: 0 1px 0 rgba(255, 255, 255, 0.04), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --glow-cta: 0 0 0 1px rgba(61, 255, 138, 0.25), 0 0 28px rgba(61, 255, 138, 0.18);
+  --glow-violet: 0 0 24px rgba(139, 92, 255, 0.28);
+  --font-display: "Unbounded", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-ui: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --header-h: 64px;
+  --container: 1480px;
+  --ease: cubic-bezier(0.22, 0.68, 0, 1.2);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+  --bg-canvas: #eef2f6;
+  --bg-base: #f7f9fc;
+  --bg-elev-1: #ffffff;
+  --bg-elev-2: #f1f5f9;
+  --bg-elev-3: #e8eef5;
+  --bg-overlay: rgba(247, 249, 252, 0.8);
+  --border-subtle: rgba(15, 23, 42, 0.06);
+  --border-default: rgba(15, 23, 42, 0.1);
+  --border-strong: rgba(15, 23, 42, 0.16);
+  --border-focus: #0a7a45;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #475569;
+  --text-inverse: #ffffff;
+  --accent-cta: #0a7a45;
+  --accent-cta-hover: #086b3c;
+  --accent-cta-pressed: #065c34;
+  --accent-cta-soft: rgba(10, 122, 69, 0.12);
+  --accent-amber: #b45309;
+  --accent-amber-soft: rgba(180, 83, 9, 0.12);
+  --accent-cyan: #0369a1;
+  --accent-gold: #a16207;
+  --accent-violet: #6d28d9;
+  --accent-violet-soft: rgba(109, 40, 217, 0.12);
+  --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-2: 0 16px 40px rgba(15, 23, 42, 0.1);
+  --glow-cta: 0 0 0 1px rgba(10, 122, 69, 0.22), 0 8px 20px rgba(10, 122, 69, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--font-ui);
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+body {
+  background:
+    radial-gradient(1000px 520px at 8% -12%, rgba(139, 92, 255, 0.14), transparent 55%),
+    radial-gradient(820px 420px at 100% 0%, rgba(61, 255, 138, 0.08), transparent 48%),
+    var(--bg-canvas);
+}
+
+html[data-theme="light"] body {
+  background:
+    radial-gradient(900px 480px at 8% -12%, rgba(139, 92, 255, 0.08), transparent 55%),
+    radial-gradient(720px 400px at 100% 0%, rgba(18, 183, 106, 0.08), transparent 48%),
+    var(--bg-canvas);
+}
+
+#__nuxt {
+  min-height: 100vh;
+}
+
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: min(100% - 40px, var(--container));
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 24px, var(--container));
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a:not(.btn) {
+  color: var(--accent-cta);
+  text-decoration: none;
+}
+
+/*
+ * Hide SSR/app chrome until real Vite/Nuxt CSS is ready.
+ * Critical tokens stay applied (dark bg), so first paint is a blank canvas — not unstyled HTML.
+ */
+html:not(.css-ready) #__nuxt {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+html.css-ready #__nuxt {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Age-gate overlay is outside #__nuxt and stays visible */
+html.age-gate-pending:not(.css-ready) #__nuxt {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Age gate pending (before Vue) */
+html.age-gate-pending,
+html.age-gate-pending body {
+  background: #080b10;
+}
+html.age-gate-pending #__nuxt {
+  filter: blur(10px);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.35;
+  /* still reserve space but stay unreadable until gate */
+  visibility: visible;
+}
+.age-gate-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.age-gate-boot__blur {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 11, 16, 0.72);
+  backdrop-filter: blur(14px) saturate(0.75);
+  -webkit-backdrop-filter: blur(14px) saturate(0.75);
+}
+.age-gate-boot__card {
+  position: relative;
+  z-index: 1;
+  width: min(440px, 100%);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, #1a2330, #141b24);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  padding: 24px 22px 20px;
+  color: #f3f6fa;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+.age-gate-boot__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.age-gate-boot__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0b1220;
+  background: #3dff8a;
+}
+.age-gate-boot__langs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #222d3d;
+}
+.age-gate-boot__lang {
+  min-width: 44px;
+  height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #9aa8b8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.age-gate-boot__lang.on {
+  background: #141b24;
+  color: #f3f6fa;
+}
+.age-gate-boot__title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.age-gate-boot__lead {
+  margin: 0 0 14px;
+  color: #9aa8b8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.age-gate-boot__points {
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.age-gate-boot__points li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #f3f6fa;
+}
+.age-gate-boot__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f5a524;
+  box-shadow: 0 0 0 3px rgba(245, 165, 36, 0.14);
+}
+.age-gate-boot__note {
+  margin: 0 0 18px;
+  font-size: 12px;
+  color: #6b7a8c;
+  line-height: 1.45;
+}
+.age-gate-boot__link {
+  color: #3dff8a;
+  text-underline-offset: 2px;
+}
+.age-gate-boot__actions {
+  display: grid;
+  gap: 8px;
+}
+.age-gate-boot__ok,
+.age-gate-boot__leave {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.age-gate-boot__ok {
+  border: 0;
+  background: #3dff8a;
+  color: #0b1220;
+}
+.age-gate-boot__leave {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: #9aa8b8;
+}
+html[data-theme="light"].age-gate-pending,
+html[data-theme="light"].age-gate-pending body {
+  background: #eef2f6;
+}
+html[data-theme="light"] .age-gate-boot__card {
+  background: linear-gradient(180deg, #ffffff, #f1f5f9);
+  border-color: rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+}
+html[data-theme="light"] .age-gate-boot__lead,
+html[data-theme="light"] .age-gate-boot__leave,
+html[data-theme="light"] .age-gate-boot__note,
+html[data-theme="light"] .age-gate-boot__lang {
+  color: #475569;
+}
+html[data-theme="light"] .age-gate-boot__points li {
+  color: #0f172a;
+}
+html[data-theme="light"] .age-gate-boot__langs {
+  background: #e8eef5;
+  border-color: rgba(15, 23, 42, 0.1);
+}
+html[data-theme="light"] .age-gate-boot__lang.on {
+  background: #ffffff;
+  color: #0f172a;
+}
+html[data-theme="light"] .age-gate-boot__blur {
+  background: rgba(247, 249, 252, 0.78);
+}

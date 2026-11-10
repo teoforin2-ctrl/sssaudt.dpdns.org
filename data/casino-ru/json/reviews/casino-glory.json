@@ -1,0 +1,18 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/otzyvy-casino-glory/",
+  "casino_slug": "casino-glory",
+  "title": "Реальные отзывы о казино Glory Casino",
+  "reviews": [
+    {
+      "author": "Псих за Новичок 18 июля",
+      "user_rank": "Новичок",
+      "stars": 1.0,
+      "date_text": "18 июля",
+      "body": "Не как не могу вывести деньги, вечно кидает в отклонено выплату. Денег постоянно у них не хватка для вывода. Моя оценка 1 зведа."
+    }
+  ],
+  "count": 1,
+  "scraped_at": "2026-11-09T08:36:39Z",
+  "casino_key": "glory"
+}

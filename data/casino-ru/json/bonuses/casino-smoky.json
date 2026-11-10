@@ -1,0 +1,156 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-smoky/",
+  "casino_slug": "casino-smoky",
+  "title": "Все бонусы и промокоды в Smoky Casino 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "100 FS в Sweet Bonanza по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для получения бонуса необходимо ввести промокод при создании аккаунта. FS доступны в слоте Sweet Bonanza.",
+      "props": {
+        "Вейджер": "35",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный",
+        "Слот": "Sweet Bonanza"
+      }
+    },
+    {
+      "title": "100 FS в Gates of Olympus за подписку на Telegram-канал",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо подписаться на Telegram-канал. Бонус доступен один раз.",
+      "props": {
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50 FS в The Wild Gang за подписку на VK",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус для новичков. Для активации необходимо подписаться на страницу казино в VK.",
+      "props": {
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50 FS в Gates of Hades за привязку Telegram",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен один раз за привязку аккаунта Telegram к учетной записи казино.",
+      "props": {
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 30 за активацию уведомлений",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус для новичков доступен за активацию уведомлений.",
+      "props": {
+        "Макс. сумма": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 5000 + 800 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Приветственный пакет бонусов для новых пользователей: до 5000 + 500 FS, 100 FS в Sweet Bonanza по промокоду, 100 FS за подписку на Telegram-канал, 50 FS за подписку на VK, 50 FS за привязку Telegram.",
+      "props": {
+        "Макс. сумма": "5 000",
+        "Мин. депозит": "5 000",
+        "Вейджер": "35",
+        "Фриспины": "800"
+      }
+    },
+    {
+      "title": "Бонусы до 10 000 за достижение уровней",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "За достижение уровней программы лояльности предусмотрены однократные бонусы: New Blood — 100, Made Man — 300, Capo Bastone — 1000, Caporegime — 2000, Don Supremo — 3000, Grand Don — 5000, The Godfather — 7000, Capo dei Capi — 10 000.",
+      "props": {
+        "Макс. сумма": "10 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус по воскресеньям",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен каждую неделю. Для этого пользователь должен заполнить специальную шкалу.",
+      "props": {
+        "Мин. депозит": "5 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Ежедневный бонус до 100",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Ежедневный бонус для постоянных пользователей от 10 до 100.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "500",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 10% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус предназначен для постоянных пользователей казино. Начисляется каждую неделю по четвергам. Размер зависит от ранга: New Blood — 1%, Made Man — 2%, Capo Bastone — 3%, Caporegime — 4%, Don Supremo — 5%, Grand Don — 6%, The Godfather — 7%, Capo dei Capi — 10%.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:39:03Z",
+  "casino_key": "smoky"
+}

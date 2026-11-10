@@ -1,0 +1,219 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-money-x/",
+  "casino_slug": "casino-money-x",
+  "title": "Все бонусы и промокоды в казино Money X 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "Бонус 250% + 50 FS в Original Slot по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации необходимо ввести промокод в специальное поле при создании аккаунта и нажать на кнопку «Применить», а затем внести от 1000. Бонус действителен 30 дней.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 30 за привязку Telegram",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Необходимо привязать Telegram к профилю казино.",
+      "props": {
+        "Макс. сумма": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы на 1150% + 50 FS и 30 для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонусы для новичков: 30 за привязку Telegram, 250% + 50 FS в Original Slot по промокоду (без промокода — 250%), второй — 200%, третий — 300%, четвертый — 400%.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 5000 в колесе",
+      "type_label": "Акция",
+      "types": [
+        "playup",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Акция доступна пользователям на 3 ранге и выше.",
+      "props": {
+        "Макс. сумма": "5 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Raffle",
+      "type_label": "Акция",
+      "types": [
+        "playup",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "При совершении транзакций начисляются билеты, которые дают возможность участия во всех розыгрышах Raffle.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 10 000 каждый месяц",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "В конце каждого месяца есть возможность забрать бонус, начиная с красного ранга.",
+      "props": {
+        "Макс. сумма": "10 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 100 000 за переход на следующий ранг",
+      "type_label": "VIP",
+      "types": [
+        "vip_bonus",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Размер одноразового бонуса зависит от ранга, на который перешел пользователь.",
+      "props": {
+        "Макс. сумма": "100 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 2 каждые 24 часа",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Нужно быть подписанным на Telegram-канал и группу VK. Размер зависит от статуса пользователя.",
+      "props": {
+        "Макс. сумма": "2",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 0,5 каждые 20 минут",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Нужно быть подписанным на Telegram-канал и группу VK. Размер зависит от статуса пользователя.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 0,1 каждые 5 минут",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Нужно быть подписанным на группу VK.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 10% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Начисляется еженедельно. Активировать бонус можно в разделе «Бонусы».",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Первый бонус 250%",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен только 1 раз.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Второй бонус 200%",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен только 1 раз.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Третий бонус 300%",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен только 1 раз.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Четвертый бонус 400%",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен только 1 раз.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:39:40Z",
+  "casino_key": "money-x"
+}

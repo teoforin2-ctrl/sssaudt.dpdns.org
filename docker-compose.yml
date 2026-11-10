@@ -1,0 +1,126 @@
+# Casino review / x-reviewer
+# Default ports (host): web 3710 · dashboard 3711 · api 3712 · postgres 5435 · redis 6382
+# Avoids busy locals: 3000/3001/4000/5432/5433/6379/6380/8000/8080
+name: xreviewer
+
+x-node-app: &node-app
+  image: node:22-bookworm-slim
+  working_dir: /app
+  env_file: .env
+  volumes:
+    - .:/app
+    - xreviewer_node_modules:/app/node_modules
+    - xreviewer_pnpm_store:/pnpm/store
+  environment:
+    PNPM_HOME: /pnpm
+    PATH: /pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  entrypoint: ["bash", "-lc"]
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: xreviewer-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-xreviewer}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-xreviewer}
+      POSTGRES_DB: ${POSTGRES_DB:-xreviewer}
+    ports:
+      - "${POSTGRES_PORT:-5435}:5432"
+    volumes:
+      - xreviewer_pg:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-xreviewer} -d ${POSTGRES_DB:-xreviewer}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  redis:
+    image: redis:7-alpine
+    container_name: xreviewer-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6382}:6379"
+    volumes:
+      - xreviewer_redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  # --- apps (profile: apps) ---
+  api:
+    <<: *node-app
+    container_name: xreviewer-api
+    profiles: ["apps"]
+    environment:
+      API_PORT: "3712"
+      API_HOST: 0.0.0.0
+      DATABASE_URL: postgresql://${POSTGRES_USER:-xreviewer}:${POSTGRES_PASSWORD:-xreviewer}@postgres:5432/${POSTGRES_DB:-xreviewer}
+      REDIS_URL: redis://redis:6379
+      PNPM_HOME: /pnpm
+      PATH: /pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    ports:
+      - "${API_PORT:-3712}:3712"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command:
+      - |
+        corepack enable
+        corepack prepare pnpm@10.10.0 --activate
+        pnpm config set store-dir /pnpm/store
+        pnpm install
+        pnpm --filter @x-reviewer/shared build
+        pnpm --filter @x-reviewer/api exec tsx watch src/index.ts
+
+  web:
+    <<: *node-app
+    container_name: xreviewer-web
+    profiles: ["apps"]
+    environment:
+      WEB_PORT: "3710"
+      NUXT_PUBLIC_API_BASE: http://host.docker.internal:${API_PORT:-3712}
+      PNPM_HOME: /pnpm
+      PATH: /pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    ports:
+      - "${WEB_PORT:-3710}:3710"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - api
+    command:
+      - |
+        corepack enable
+        corepack prepare pnpm@10.10.0 --activate
+        pnpm config set store-dir /pnpm/store
+        pnpm install
+        pnpm --filter @x-reviewer/web exec nuxt dev --host 0.0.0.0 --port 3710
+
+  dashboard:
+    <<: *node-app
+    container_name: xreviewer-dashboard
+    profiles: ["apps", "dashboard"]
+    environment:
+      DASHBOARD_PORT: "3711"
+      PNPM_HOME: /pnpm
+      PATH: /pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    ports:
+      - "${DASHBOARD_PORT:-3711}:3711"
+    command:
+      - |
+        corepack enable
+        corepack prepare pnpm@10.10.0 --activate
+        pnpm config set store-dir /pnpm/store
+        pnpm install
+        pnpm --filter @x-reviewer/dashboard exec nuxt dev --host 0.0.0.0 --port 3711
+
+volumes:
+  xreviewer_pg:
+  xreviewer_redis:
+  xreviewer_node_modules:
+  xreviewer_pnpm_store:

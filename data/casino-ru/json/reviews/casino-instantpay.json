@@ -1,0 +1,18 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/otzyvy-casino-instantpay/",
+  "casino_slug": "casino-instantpay",
+  "title": "Реальные отзывы о казино Instantpay",
+  "reviews": [
+    {
+      "author": "Рахматов Истам Новичок 4 июля",
+      "user_rank": "Новичок",
+      "stars": null,
+      "date_text": "4 июля",
+      "body": "👍"
+    }
+  ],
+  "count": 1,
+  "scraped_at": "2026-11-09T08:27:00Z",
+  "casino_key": "instantpay"
+}

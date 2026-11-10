@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./ui.css";
+
+@theme {
+  --color-canvas: var(--bg-canvas);
+  --color-base: var(--bg-base);
+  --color-elev-1: var(--bg-elev-1);
+  --color-elev-2: var(--bg-elev-2);
+  --color-elev-3: var(--bg-elev-3);
+  --color-cta: var(--accent-cta);
+  --color-cta-hover: var(--accent-cta-hover);
+  --color-violet: var(--accent-violet);
+  --color-amber: var(--accent-amber);
+  --color-gold: var(--accent-gold);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --color-fg: var(--text-primary);
+  --color-fg-muted: var(--text-secondary);
+  --color-fg-subtle: var(--text-tertiary);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-ui);
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-pill: var(--radius-pill);
+  --shadow-panel: var(--shadow-1);
+  --max-width-content: 1120px;
+}

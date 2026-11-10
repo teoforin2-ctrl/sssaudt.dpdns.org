@@ -1,0 +1,37 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-crystalslot/",
+  "casino_slug": "casino-crystalslot",
+  "title": "Все бонусы и промокоды в казино CrystalSlot 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "До 30% всем пользователям",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Размер бонуса зависит от суммы: до 5000 — 5%, до 25 000 — 10%, до 50 000 — 15%, до 75 000 — 20%, до 150 000 — 25%, от 150 000 — 30%.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Криптобонус 10%",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус начисляется за каждую транзакцию криптовалютой. Вейджера нет.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:39:35Z",
+  "casino_key": "crystalslot"
+}

@@ -1,0 +1,280 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-vip-club/",
+  "casino_slug": "casino-vip-club",
+  "title": "Все бонусы и промокоды в казино Vip Club 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "100% бонус для новичков + 50% для постоянных пользователей и 333 FS",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS в видеослотах от Pragmatic Play и Playson.\nСрок действия 3 дня.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "333",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100% бонус для новичков до 3000",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Срок отыгрыша бонуса - 60 дней с момента активации.\nДля отыгрыша разрешается запускать слоты любого провайдера, кроме Play’n Go, Endorphina и Amatic.",
+      "props": {
+        "Макс. сумма": "3 000",
+        "Мин. депозит": "300",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50 FS в слоте Brazil Bomba",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для видеослота Brazil Bomba от Yggdrasil.\nКроме Amatic и Endorphina.\nМаксимальный бет — 1.\nБонус доступен 2 дня с момента активации.",
+      "props": {
+        "Мин. депозит": "2 500",
+        "Вейджер": "35",
+        "Фриспины": "50",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "40 FS в слоте Mongol Treasure",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для видеослота Mongol Treasure.\nКроме Amatic и Endorphina.\nСрок отыгрыша — 2 дня.\nМаксимальный бет — 1.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "40",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "35 FS в слоте USSR Grocery",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для видеослота USSR Grocery Slot от Evoplay Entertainment.\nКроме Amatic и Endorphina.\nМаксимальный бет — 1.\nБонус доступен 2 дня с момента активации.",
+      "props": {
+        "Мин. депозит": "1 500",
+        "Вейджер": "35",
+        "Фриспины": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "20 FS в слоте Jade Valley",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для видеослота Jade Valley от Platipus Gaming.\nКроме Amatic и Endorphina.\nМаксимальный бет — 1.\nБонус доступен 2 дня с момента активации.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "20",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 FS для новичков",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для слота Tesla Incredible Machine.\nСрок отыгрыша - 2 недели с момента активации.",
+      "props": {
+        "Мин. депозит": "100",
+        "Вейджер": "35",
+        "Фриспины": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "5 FS в слоте Gold Rush",
+      "type_label": "FS",
+      "types": [
+        "freespins",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS для видеослота Gold Rush от Habanero.\nКроме Amatic и Endorphina.\nМаксимальный бет — 1.\nБонус доступен 2 дня с момента активации.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "35",
+        "Фриспины": "5",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "75% бонус + 222 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS в видеослотах от Pragmatic Play и Playson.\nСрок действия 3 дня.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "222",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "50% бонус + 111 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "FS в видеослотах от Pragmatic Play и Playson.\nСрок действия 3 дня.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "111",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "200% бонус",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Ежедневный бонус.\nМаксимальный бет — 5.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100% бонус + 100 FS",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": null,
+      "description": "Срок отыгрыша - 3 дня.\nFS для видеослотов от Pragmatic Play.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "35",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100 FS в 27 Eternal Hot по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации бонуса необходимо ввести промокод в специальное поле на официальном сайте казино при создании аккаунта. Также требуется подтверждение почты или номера телефона.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "40",
+        "Фриспины": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "150 FS в Mummyland Treasures по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для получения нужно создать аккаунт с использованием промокода, подтвердить номер телефона, активировать бонус в разделе «Бонусы». На отыгрыш даются 7 дней.",
+      "props": {
+        "Вейджер": "30",
+        "Фриспины": "150",
+        "Действителен до": "Бессрочный",
+        "Слот": "Mummyland Treasures"
+      }
+    },
+    {
+      "title": "50 FS в The Dog House Megaways по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "DOG50",
+      "description": "Необходимо ввести промокод DOG50 в специальное поле на официальном сайте казино при создании аккаунта. FS доступны 48 часов после активации. Срок отыгрыша — 24 часа.",
+      "props": {
+        "Мин. депозит": "500",
+        "Вейджер": "50",
+        "Фриспины": "50",
+        "Действителен до": "20.04.2027"
+      }
+    },
+    {
+      "title": "Бонус 77% + 27 FS в Sugar Rush 1000 по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Для активации необходимо ввести промокод в специальное поле на официальном сайте казино сразу после создания аккаунта и внести от 600. Бонус действителен 5 дней.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Мин. депозит": "600",
+        "Вейджер": "45",
+        "Фриспины": "27"
+      }
+    },
+    {
+      "title": "Бонус 20 000 без вейджера для всех пользователей по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORUALL",
+      "description": "Бонус доступен ежедневно по промокоду. Вейджера нет.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:41:05Z",
+  "casino_key": "vip-club"
+}

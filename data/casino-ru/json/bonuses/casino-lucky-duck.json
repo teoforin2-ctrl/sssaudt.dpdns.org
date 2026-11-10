@@ -1,0 +1,153 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-casino-lucky-duck/",
+  "casino_slug": "casino-lucky-duck",
+  "title": "Все бонусы и промокоды в Lucky Duck Casino 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "Бонус 50% для новичков по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Необходимо использовать промокод в Личном кабинете. На отыгрыш даются 3 дня.",
+      "props": {
+        "Макс. сумма": "25 000",
+        "Мин. депозит": "100",
+        "Вейджер": "30",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "100 за отзыв в группе VK",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступен после публикации поста о своих достижениях в группе казино VK. Вейджер не установлен.",
+      "props": {
+        "Макс. сумма": "100",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "25 за репост записи в группе VK",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступен после репоста закрепленного сообщения в группе VK. \nВейджер не установлен.",
+      "props": {
+        "Макс. сумма": "25",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 за вступление в группу VK",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступен после вступления в группу VK. \nВейджер не установлен.",
+      "props": {
+        "Макс. сумма": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 за подписку на уведомления от группы VK",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступен после подписки на уведомления от группы VK. \nВейджер не установлен.",
+      "props": {
+        "Макс. сумма": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 за подписку на Telegram-бот",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступен после подписки на Telegram-бот. \nВейджер не установлен.",
+      "props": {
+        "Макс. сумма": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 за подписку на Telegram-канал",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступен после подписки на Telegram-канал. \nВейджер не установлен.",
+      "props": {
+        "Макс. сумма": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 10 в рулетке за сутки",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Каждый день доступны 10 запусков рулетки.\nС одного можно получить максимум 1.",
+      "props": {
+        "Макс. сумма": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "10 для новичков за создание аккаунта",
+      "type_label": "Новичкам",
+      "types": [
+        "no_deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Доступен новичкам после создания аккаунта по реферальной ссылке. \nВейджер не установлен.",
+      "props": {
+        "Макс. сумма": "10",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Приветственные бонусы 50% и 185 за выполнение задач для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Пакет бонусов для новичков: 50% по промокоду и 185 за выполнение различных заданий.",
+      "props": {
+        "Макс. сумма": "185",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:39:37Z",
+  "casino_key": "lucky-duck"
+}

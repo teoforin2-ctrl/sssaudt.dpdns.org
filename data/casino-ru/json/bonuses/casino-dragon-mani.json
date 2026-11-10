@@ -1,0 +1,82 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-dragon-mani/",
+  "casino_slug": "casino-dragon-mani",
+  "title": "Все бонусы и промокоды в казино Драгон Мани 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "Криптобонус 5000 без вейджера для VIP-пользователей по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORUVIP",
+      "description": "Бонус доступен ежедневно по промокоду. Вейджера нет.",
+      "props": {
+        "Макс. сумма": "5 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 20 000 без вейджера для всех пользователей по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORUALL",
+      "description": "Бонус доступен ежедневно по промокоду. Вейджера нет.",
+      "props": {
+        "Макс. сумма": "20 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус до 100 000 без вейджера новичкам по промокоду",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус для нового пользователя.",
+      "props": {
+        "Макс. сумма": "100 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 30 000 без вейджера в мобильном приложении еженедельно",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен только в мобильном приложении.",
+      "props": {
+        "Макс. сумма": "30 000",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 10% постоянным пользователям по воскресеньям",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус начисляется за проигрыши за прошедшие 7 дней. Вейджер — x3.",
+      "props": {
+        "Вейджер": "3",
+        "Действителен до": "Бессрочный",
+        "День начисления": "Воскресенье"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T07:45:48Z",
+  "casino_key": "dragon-mani"
+}

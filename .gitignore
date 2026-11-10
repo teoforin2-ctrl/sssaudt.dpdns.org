@@ -1,0 +1,45 @@
+node_modules
+.DS_Store
+dist
+.output
+.nuxt
+.data
+.cache
+coverage
+*.log
+.env
+.env.local
+.env.*.local
+docker-data
+backups/
+apps/api/dist
+
+apps/*/node_modules
+packages/*/node_modules
+packages/*/dist
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+apps/dashboard/.data
+# scraped migration dumps (large)
+data/casino-ru/raw/
+data/casino-ru/images/
+data/casino-ru/scrape.log
+
+_docs/
+_files/
+_old/
+docs/
+_templates/
+*.md
+*.html
+# robots — not for the private repo / staging
+**/robots.txt
+deploy/robots*.txt
+robots.txt
+
+# local secrets / server notes
+info.txt
+*.pem
+*.key

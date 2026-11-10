@@ -1,0 +1,99 @@
+{
+  "source": "casino.ru",
+  "source_url": "https://casino.ru/bonusy-lootrun/",
+  "casino_slug": "casino-lootrun",
+  "title": "Все бонусы и промокоды в казино ЛУТРАН 2026",
+  "og_description": null,
+  "bonuses": [
+    {
+      "title": "200 FS в The Dog House по промокоду",
+      "type_label": "Эксклюзивный",
+      "types": [
+        "exclusive",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Необходимо использовать промокод при создании аккаунта.\nСрок действия — 10 дней с момента получения.",
+      "props": {
+        "Вейджер": "45",
+        "Фриспины": "200",
+        "Действителен до": "Бессрочный",
+        "Слот": "The Dog House"
+      }
+    },
+    {
+      "title": "Бонус 500% и 200 FS в The Dog House для новичков",
+      "type_label": "Приветственный",
+      "types": [
+        "welcome",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Новичкам доступны: 200 FS в The Dog House по промокоду и бонус 500% с постепенным отыгрышем.",
+      "props": {
+        "Мин. депозит": "1 000",
+        "Вейджер": "40",
+        "Фриспины": "200",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "До 80 FS каждую неделю",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "В неделю можно получать до 80 FS. Обнуление лимита происходит каждый вторник в 03:00 по МСК. Срок действия — 6 часов после активации.",
+      "props": {
+        "Мин. депозит": "3 000",
+        "Фриспины": "80",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Криптобонус 3%",
+      "type_label": "Reload",
+      "types": [
+        "reload",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус за транзакции криптовалютой.",
+      "props": {
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Еженедельный бонус 5%",
+      "type_label": "Постоянным",
+      "types": [
+        "cashback",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Бонус доступен каждую неделю.",
+      "props": {
+        "Вейджер": "1",
+        "Действителен до": "Бессрочный"
+      }
+    },
+    {
+      "title": "Бонус 1000 за приглашенного друга",
+      "type_label": "Зарегистрированным",
+      "types": [
+        "deposit",
+        "additional-button"
+      ],
+      "promo_code": "CASINORU",
+      "description": "Требуется верификация обоих пользователей. Другу необходимо создать аккаунт по ссылке и сделать транзакций на 2000.",
+      "props": {
+        "Макс. сумма": "1 000",
+        "Действителен до": "Бессрочный"
+      }
+    }
+  ],
+  "scraped_at": "2026-11-09T08:39:47Z",
+  "casino_key": "lootrun"
+}
