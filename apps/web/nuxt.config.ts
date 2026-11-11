@@ -120,7 +120,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "SS Audit",
+      title: process.env.NUXT_PUBLIC_SITE_NAME || "SS Audit",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "description", content: "Online casino reviews — SS Audit" },

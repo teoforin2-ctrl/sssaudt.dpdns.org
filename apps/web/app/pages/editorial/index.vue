@@ -2,6 +2,7 @@
 const { t } = useI18n();
 const localePath = useLocalePath();
 const config = useRuntimeConfig();
+const { siteName } = useSiteSettings();
 
 usePageSeo({
   title: () => t("catalog.editorial.title"),
@@ -14,7 +15,7 @@ useJsonLd(() => ({
   name: t("catalog.editorial.title"),
   description: t("catalog.editorial.lead"),
   url: `${config.public.siteUrl}${localePath("/editorial")}`,
-  isPartOf: { "@type": "WebSite", name: config.public.siteName },
+  isPartOf: { "@type": "WebSite", name: siteName.value },
 }));
 </script>
 

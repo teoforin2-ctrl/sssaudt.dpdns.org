@@ -8,6 +8,7 @@ const localePath = useLocalePath();
 const route = useRoute();
 const { theme, toggle, init } = useTheme();
 const { user, fetchMe, logout, goDestination } = useAuth();
+const { siteName } = useSiteSettings();
 
 const drawer = ref(false);
 const searchOpen = ref(false);
@@ -210,7 +211,7 @@ const openSection = computed(() => siteNav.find((s) => s.id === openId.value && 
     @mouseleave="scheduleClose"
   >
     <div class="top-inner container">
-      <NuxtLink :to="localePath('/')" class="brand" :aria-label="t('brand')">
+      <NuxtLink :to="localePath('/')" class="brand" :aria-label="siteName">
         <BrandMark />
       </NuxtLink>
 

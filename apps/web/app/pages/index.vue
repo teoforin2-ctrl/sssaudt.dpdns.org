@@ -4,7 +4,7 @@ import { isFeatureEnabled } from "@x-reviewer/shared";
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
-const { homeSections } = useSiteSettings();
+const { homeSections, siteName } = useSiteSettings();
 
 /** Admin home_sections override shared feature flags when present. */
 function sectionOn(key: string, featureFallback?: boolean) {
@@ -321,7 +321,7 @@ usePageSeo({
 useJsonLd(() => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "SS Audit",
+  name: siteName.value,
   url: `${config.public.siteUrl}${localePath("/")}`,
   potentialAction: {
     "@type": "SearchAction",

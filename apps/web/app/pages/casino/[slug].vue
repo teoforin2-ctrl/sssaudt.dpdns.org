@@ -3,6 +3,7 @@ const config = useRuntimeConfig();
 const route = useRoute();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
+const { siteName } = useSiteSettings();
 const slug = computed(() => String(route.params.slug));
 
 type Review = {
@@ -155,7 +156,7 @@ useJsonLd(() => {
       name: c.value.name,
       image: c.value.logoUrl || undefined,
     },
-    author: { "@type": "Organization", name: "SS Audit" },
+    author: { "@type": "Organization", name: siteName.value },
     reviewRating: {
       "@type": "Rating",
       ratingValue: c.value.editorialScore,
