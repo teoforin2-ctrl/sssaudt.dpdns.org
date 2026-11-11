@@ -25,8 +25,21 @@ export function useAuth() {
     return 'account'
   }
 
+  function safeRedirectPath(raw: unknown): string | null {
+    if (typeof raw !== 'string')
+      return null
+    const path = raw.trim()
+    // Only same-origin relative paths — no protocol-relative or absolute URLs.
+    if (!path.startsWith('/') || path.startsWith('//') || path.includes('://'))
+      return null
+    return path
+  }
+
   async function goDestination(dest: AuthDestination) {
     const localePath = useLocalePath()
+    const route = useRoute()
+    const redirect = safeRedirectPath(route.query.redirect)
+
     if (dest === 'admin') {
       if (import.meta.client)
         window.location.href = `${dashboardUrl.replace(/\/$/, '')}/admin`
@@ -37,7 +50,10 @@ export function useAuth() {
         window.location.href = `${dashboardUrl.replace(/\/$/, '')}/partner`
       return
     }
-    await navigateTo(localePath('/account'))
+    if (redirect)
+      await navigateTo(redirect)
+    else
+      await navigateTo(localePath('/account'))
   }
 
   async function fetchMe(force = false) {

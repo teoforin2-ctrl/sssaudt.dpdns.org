@@ -13,7 +13,7 @@ useSeoMeta({
 onMounted(async () => {
   await fetchMe(true)
   if (!user.value) {
-    await navigateTo(localePath('/login'))
+    await navigateTo({ path: localePath('/login'), query: { redirect: localePath('/account') } })
     return
   }
   if (user.value.isStaff || user.value.role === 'partner_rep')

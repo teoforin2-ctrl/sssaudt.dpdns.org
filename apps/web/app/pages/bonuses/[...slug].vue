@@ -72,44 +72,32 @@ const items = computed(() => {
   return all.filter(filter.value.test);
 });
 
-function checkedLabel(iso?: string | null) {
-  if (!iso) return null;
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toLocaleDateString(locale.value === "en" ? "en-GB" : "ru-RU", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-}
+const hubTabs = computed(() =>
+  [
+    { key: "all", label: t("catalog.hub.all"), to: localePath("/bonuses") },
+    { key: "welcome", label: t("catalog.hub.welcomeTitle"), to: localePath("/bonuses/welcome") },
+    { key: "no-deposit", label: t("catalog.hub.noDepositTitle"), to: localePath("/bonuses/no-deposit") },
+    { key: "free-spins", label: t("catalog.hub.freeSpinsTitle"), to: localePath("/bonuses/free-spins") },
+    { key: "codes", label: t("catalog.hub.codesTitle"), to: localePath("/bonuses/codes") },
+  ].map((tab) => ({ ...tab, active: tab.key === (leaf.value || "all") })),
+);
 
-useHead(() => ({
-  title: `${title.value}`,
-  meta: [
-    {
-      name: "description",
-      content: filter.value ? t(filter.value.leadKey) : t("catalog.bonusesLead"),
-    },
-  ],
-}));
+usePageSeo({
+  title: () => title.value,
+  description: () => (filter.value ? t(filter.value.leadKey) : t("catalog.bonusesLead")),
+});
 </script>
 
 <template>
-  <section class="page">
-    <header class="intro">
-      <p class="eyebrow">{{ t("catalog.bonusesTitle") }}</p>
-      <h1 class="page-title">{{ title }}</h1>
-      <p class="lead">{{ filter ? t(filter.leadKey) : t("catalog.bonusesLead") }}</p>
-      <p class="count">{{ t("catalog.count", { n: items.length }) }}</p>
-    </header>
+  <section class="container-wide page">
+    <PublicPageHero
+      :eyebrow="t('catalog.bonusesTitle')"
+      :title="title"
+      :lead="filter ? t(filter.leadKey) : t('catalog.bonusesLead')"
+      :count="t('catalog.count', { n: items.length })"
+    />
 
-    <div class="tabs">
-      <NuxtLink :to="localePath('/bonuses')" class="tab">{{ t("catalog.hub.all") }}</NuxtLink>
-      <NuxtLink :to="localePath('/bonuses/welcome')" class="tab">{{ t("catalog.hub.welcomeTitle") }}</NuxtLink>
-      <NuxtLink :to="localePath('/bonuses/no-deposit')" class="tab">{{ t("catalog.hub.noDepositTitle") }}</NuxtLink>
-      <NuxtLink :to="localePath('/bonuses/free-spins')" class="tab">{{ t("catalog.hub.freeSpinsTitle") }}</NuxtLink>
-      <NuxtLink :to="localePath('/bonuses/codes')" class="tab">{{ t("catalog.hub.codesTitle") }}</NuxtLink>
-    </div>
+    <PublicSegmentedTabs :tabs="hubTabs" sticky />
 
     <SkeletonBonusCards v-if="pending" :count="6" />
     <UiEmptyState v-else-if="error" :title="t('home.apiDown')">
@@ -117,164 +105,45 @@ useHead(() => ({
     </UiEmptyState>
     <UiEmptyState v-else-if="!items.length" :title="t('catalog.empty')" />
     <div v-else class="grid">
-      <article v-for="b in items" :key="b.id" class="card">
-        <div class="head">
-          <NuxtLink class="logo-link" :to="localePath(`/casino/${b.casinoSlug}`)">
-            <CasinoLogo :name="b.casinoName" :src="b.casinoLogoUrl" />
-          </NuxtLink>
-          <div>
-            <p class="casino">
-              <NuxtLink class="name-link" :to="localePath(`/casino/${b.casinoSlug}`)">
-                {{ b.casinoName }}
-              </NuxtLink>
-            </p>
-            <div class="chips">
-              <UiBadge v-if="b.type" tone="top">{{ b.type }}</UiBadge>
-              <span v-if="b.wager">{{ t("catalog.wager", { x: b.wager }) }}</span>
-            </div>
-          </div>
-        </div>
-        <h2>
-          <NuxtLink class="name-link" :to="localePath(`/casino/${b.casinoSlug}`)">
-            {{ b.title }}
-          </NuxtLink>
-        </h2>
-        <p class="meta">
-          <span v-if="b.amountOrPercent">{{ b.amountOrPercent }}</span>
-          <span v-if="b.minDeposit"> · min {{ b.minDeposit }}</span>
-          <span v-if="checkedLabel(b.checkedAt)">
-            · {{ t("catalog.checked", { d: checkedLabel(b.checkedAt) }) }}
-          </span>
-        </p>
-        <div class="actions">
-          <UiCopyButton v-if="b.promoCode" :value="b.promoCode" />
-          <UiButton
-            size="sm"
-            variant="primary"
-            :href="`${config.public.apiBase}/go/${b.casinoSlug}?locale=${locale}`"
-            external
-          >
-            {{ t("home.play") }}
-          </UiButton>
-          <NuxtLink :to="localePath(`/casino/${b.casinoSlug}`)">
-            {{ t("catalog.openCasino") }}
-          </NuxtLink>
-        </div>
-      </article>
+      <PublicBonusCard
+        v-for="b in items"
+        :key="b.id"
+        :title="b.title"
+        :type="b.type"
+        :wager="b.wager"
+        :min-deposit="b.minDeposit"
+        :promo-code="b.promoCode"
+        :checked-at="b.checkedAt"
+        :casino-slug="b.casinoSlug"
+        :casino-name="b.casinoName"
+        :casino-logo-url="b.casinoLogoUrl"
+      />
     </div>
   </section>
 </template>
 
 <style scoped>
 .page {
-  max-width: 1100px;
-}
-.eyebrow {
-  margin: 0 0 8px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent-cta);
-  font-weight: 750;
-}
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
-}
-.lead {
-  margin: 0 0 8px;
-  color: var(--text-secondary);
-  font-size: 15px;
-  max-width: 62ch;
-}
-.count {
-  margin: 0 0 14px;
-  font-size: 13px;
-  color: var(--text-tertiary);
-}
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-.tab {
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border-default);
-  background: var(--bg-elev-1);
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--text-secondary);
-}
-.tab.router-link-active {
-  border-color: color-mix(in srgb, var(--accent-cta) 45%, var(--border-default));
-  background: var(--accent-cta-soft);
-  color: var(--text-primary);
+  padding-bottom: 8px;
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
-.card {
-  display: grid;
-  gap: 10px;
-  padding: 14px;
-  border-radius: 14px;
-  border: 1px solid var(--border-default);
-  background: var(--bg-elev-1);
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
-.head {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
-.logo-link {
-  display: inline-flex;
-  line-height: 0;
-  text-decoration: none;
-}
-.casino {
-  margin: 0;
-  font-weight: 750;
-  font-size: 13px;
-}
-.name-link {
-  color: inherit;
-  text-decoration: none;
-}
-.name-link:hover {
-  color: var(--accent-cta);
-}
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  font-size: 12px;
-  color: var(--text-tertiary);
-}
-h2 {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.35;
-}
-.meta {
-  margin: 0;
-  font-size: 12px;
-  color: var(--text-tertiary);
-}
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-}
-.actions a {
-  font-size: 13px;
-  font-weight: 700;
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

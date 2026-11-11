@@ -1,11 +1,25 @@
 <script setup lang="ts">
-import { forumAgo, forumFmt, forumInitials, forumParagraphs, forumTags } from "~/utils/forum";
+import { forumAgo, forumFmt, forumInitials, forumParagraphs, forumReplyLabel, forumTags } from "~/utils/forum";
 
 const config = useRuntimeConfig();
 const route = useRoute();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
+const { user, fetchMe } = useAuth();
 const slug = computed(() => String(route.params.slug));
+
+onMounted(() => {
+  void fetchMe();
+});
+
+const loginRedirect = computed(() => ({
+  path: localePath("/login"),
+  query: { redirect: route.fullPath },
+}));
+const registerRedirect = computed(() => ({
+  path: localePath("/register"),
+  query: { redirect: route.fullPath },
+}));
 
 type Post = {
   id: string;
@@ -108,7 +122,7 @@ useHead(() => ({
   meta: [{
     name: "description",
     content: data.value?.topic
-      ? `${data.value.topic.title}. ${data.value.topic.postsCount} ${locale.value === "en" ? "replies" : "ответов"}.`
+      ? `${data.value.topic.title}. ${forumReplyLabel(data.value.topic.postsCount, locale.value)}.`
       : t("pages.forum.lead"),
   }],
 }));
@@ -147,7 +161,7 @@ useHead(() => ({
             {{ locale === "en" ? "Opened by" : "Открыто" }}
             {{ data.topic.authorName }}
             · {{ forumAgo(data.topic.createdAt, locale) }}
-            · {{ forumFmt(data.topic.postsCount, locale) }} {{ locale === "en" ? "replies" : "ответов" }}
+            · {{ forumReplyLabel(data.topic.postsCount, locale) }}
             · {{ forumFmt(data.topic.viewsCount, locale) }} {{ locale === "en" ? "views" : "просмотров" }}
             <span v-if="data.topic.isLocked"> · 🔒</span>
           </p>
@@ -199,7 +213,7 @@ useHead(() => ({
             <p v-if="data.topic.isLocked" class="locked">
               {{ locale === "en" ? "This topic is locked." : "Тема закрыта для новых ответов." }}
             </p>
-            <template v-else>
+            <template v-else-if="user">
               <div v-if="quote" class="quote-preview">
                 <span>{{ quote.author }}</span>
                 <p>{{ quote.text }}</p>
@@ -208,19 +222,31 @@ useHead(() => ({
               <textarea
                 v-model="reply"
                 rows="5"
-                :placeholder="locale === 'en' ? 'Sign in to reply…' : 'Войдите, чтобы ответить…'"
+                :placeholder="locale === 'en' ? 'Write your reply…' : 'Напишите ответ…'"
                 :disabled="sending"
               />
               <div class="row">
                 <UiButton size="sm" :loading="sending" :disabled="sending || !reply.trim()" @click="submitReply">
                   {{ locale === "en" ? "Send reply" : "Отправить ответ" }}
                 </UiButton>
-                <UiButton size="sm" variant="secondary" :href="localePath('/login')">
-                  {{ locale === "en" ? "Log in & reply" : "Войти и ответить" }}
-                </UiButton>
                 <span v-if="sendErr" class="err">{{ sendErr }}</span>
               </div>
             </template>
+            <div v-else class="guest-reply">
+              <p>
+                {{ locale === "en"
+                  ? "Sign in to reply to this topic."
+                  : "Войдите, чтобы ответить в этой теме." }}
+              </p>
+              <div class="row">
+                <NuxtLink class="btn btn-primary btn-sm" :to="loginRedirect">
+                  {{ locale === "en" ? "Log in" : "Войти" }}
+                </NuxtLink>
+                <NuxtLink class="btn btn-secondary btn-sm" :to="registerRedirect">
+                  {{ locale === "en" ? "Sign up" : "Регистрация" }}
+                </NuxtLink>
+              </div>
+            </div>
           </section>
         </div>
 
@@ -235,7 +261,7 @@ useHead(() => ({
             >
               <span>{{ topic.title }}</span>
               <small>
-                {{ topic.posts_count }} {{ locale === "en" ? "replies" : "ответов" }}
+                {{ forumReplyLabel(topic.posts_count, locale) }}
                 · {{ forumAgo(topic.last_post_at, locale) }}
               </small>
             </NuxtLink>
@@ -414,6 +440,11 @@ useHead(() => ({
   border-radius: 14px;
   border: 1px solid var(--border-default);
   background: var(--bg-elev-1);
+}
+.guest-reply p {
+  margin: 0 0 12px;
+  color: var(--text-secondary);
+  font-size: 14px;
 }
 .reply h2, .side h3 {
   margin: 0 0 12px;

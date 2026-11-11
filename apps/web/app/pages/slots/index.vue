@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
-const localePath = useLocalePath();
+const route = useRoute();
+const router = useRouter();
 
 type SlotItem = {
   slug: string;
@@ -14,9 +15,14 @@ type SlotItem = {
   hasBonus?: boolean;
   demoUrl?: string | null;
   description?: string | null;
+  coverUrl?: string | null;
 };
 
-const filter = ref("all");
+const filter = ref(String(route.query.filter || "all"));
+const q = ref(String(route.query.q || ""));
+const sort = ref(String(route.query.sort || "popular"));
+const visibleCount = ref(24);
+
 const filters = [
   { id: "all", label: "home.slots.filters.all" },
   { id: "new", label: "home.slots.filters.new" },
@@ -29,32 +35,68 @@ const { data, pending, error, refresh } = await useAsyncData(
   () => `slots-catalog-${locale.value}`,
   () =>
     $fetch<{ items: SlotItem[] }>(`${config.public.apiBase}/v1/slots`, {
-      query: { locale: locale.value, limit: 96 },
+      query: { locale: locale.value, limit: 200 },
     }),
   { watch: [locale] },
 );
 
 const items = computed(() => {
-  let list = data.value?.items ?? [];
+  let list = [...(data.value?.items ?? [])];
   if (filter.value === "new") list = list.filter((s) => s.isNew);
   else if (filter.value === "highRtp") list = list.filter((s) => (s.rtp || 0) >= 96.5);
   else if (filter.value === "bonusBuy") list = list.filter((s) => s.mechanics?.includes("bonus-buy"));
   else if (filter.value === "megaways") list = list.filter((s) => s.mechanics?.includes("megaways"));
+  const query = q.value.trim().toLowerCase();
+  if (query) {
+    list = list.filter(
+      (s) =>
+        s.title.toLowerCase().includes(query)
+        || (s.providerName || "").toLowerCase().includes(query),
+    );
+  }
+  if (sort.value === "rtp") list.sort((a, b) => (b.rtp || 0) - (a.rtp || 0));
+  else if (sort.value === "az") list.sort((a, b) => a.title.localeCompare(b.title, locale.value));
+  else if (sort.value === "new") list.sort((a, b) => Number(b.isNew) - Number(a.isNew));
   return list;
 });
 
-useHead(() => ({
-  title: `${t("catalog.slotsTitle")}`,
-  meta: [{ name: "description", content: t("catalog.slotsLead") }],
-}));
+const visible = computed(() => items.value.slice(0, visibleCount.value));
+
+const providers = computed(() => {
+  const map = new Map<string, number>();
+  for (const s of data.value?.items ?? []) {
+    if (!s.providerName) continue;
+    map.set(s.providerName, (map.get(s.providerName) || 0) + 1);
+  }
+  return [...map.entries()]
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 12);
+});
+
+watch([filter, q, sort], () => {
+  visibleCount.value = 24;
+  const query: Record<string, string> = {};
+  if (filter.value !== "all") query.filter = filter.value;
+  if (q.value.trim()) query.q = q.value.trim();
+  if (sort.value !== "popular") query.sort = sort.value;
+  router.replace({ query });
+});
+
+usePageSeo({
+  title: () => t("catalog.slotsTitle"),
+  description: () => t("catalog.slotsLead"),
+});
 </script>
 
 <template>
-  <section class="page">
-    <header class="intro">
-      <h1 class="page-title">{{ t("catalog.slotsTitle") }}</h1>
-      <p class="lead">{{ t("catalog.slotsLead") }}</p>
-    </header>
+  <section class="container-wide page">
+    <PublicPageHero
+      :eyebrow="t('catalog.slotsTitle')"
+      :title="t('catalog.slotsTitle')"
+      :lead="t('catalog.slotsLead')"
+      :count="t('catalog.count', { n: items.length })"
+    />
 
     <div class="toolbar">
       <div class="chips">
@@ -67,60 +109,70 @@ useHead(() => ({
           {{ t(f.label) }}
         </UiChip>
       </div>
-      <p class="count">{{ t("catalog.count", { n: items.length }) }}</p>
+      <div class="right">
+        <label class="search">
+          <input v-model="q" type="search" :placeholder="t('home.search.placeholder')" >
+        </label>
+        <UiSelect
+          v-model="sort"
+          class="sort"
+          size="sm"
+          :block="false"
+          :options="[
+            { value: 'popular', label: t('home.sort.rating') },
+            { value: 'rtp', label: 'RTP ↓' },
+            { value: 'new', label: t('home.sort.new') },
+            { value: 'az', label: 'A–Я' },
+          ]"
+        />
+      </div>
+    </div>
+
+    <div v-if="providers.length" class="providers" aria-label="Providers">
+      <button
+        v-for="p in providers"
+        :key="p.name"
+        type="button"
+        class="prov"
+        @click="q = p.name"
+      >
+        {{ p.name }}
+        <span class="tabular-nums">{{ p.count }}</span>
+      </button>
     </div>
 
     <SkeletonSlotGrid v-if="pending" :count="8" />
     <UiEmptyState v-else-if="error" :title="t('home.apiDown')">
       <UiButton size="sm" variant="secondary" @click="refresh()">{{ t("home.retry") }}</UiButton>
     </UiEmptyState>
-    <UiEmptyState v-else-if="!items.length" :title="t('catalog.empty')" />
+    <UiEmptyState v-else-if="!items.length" :title="t('catalog.nothingFound')" />
     <div v-else class="grid">
-      <article v-for="s in items" :key="s.slug" class="card">
-        <NuxtLink :to="localePath(`/slots/${s.slug}`)" class="cover">
-          <SlotCover :title="s.title" :theme="s.theme" :slug="s.slug" />
-        </NuxtLink>
-        <div class="meta">
-          <UiBadge v-if="s.isNew" tone="new">{{ t("home.new") }}</UiBadge>
-          <span v-if="s.rtp != null">{{ t("catalog.rtp", { n: s.rtp }) }}</span>
-          <span v-if="s.providerName">{{ s.providerName }}</span>
-        </div>
-        <h2>
-          <NuxtLink :to="localePath(`/slots/${s.slug}`)">{{ s.title }}</NuxtLink>
-        </h2>
-        <p v-if="s.description" class="desc">{{ s.description }}</p>
-        <div class="actions">
-          <UiButton
-            v-if="s.demoUrl"
-            size="sm"
-            variant="secondary"
-            :href="s.demoUrl"
-            external
-          >
-            {{ t("catalog.demo") }}
-          </UiButton>
-          <NuxtLink class="more" :to="localePath(`/slots/${s.slug}`)">→</NuxtLink>
-        </div>
-      </article>
+      <PublicSlotCard
+        v-for="s in visible"
+        :key="s.slug"
+        :slug="s.slug"
+        :title="s.title"
+        :theme="s.theme"
+        :rtp="s.rtp"
+        :provider-name="s.providerName"
+        :is-new="s.isNew"
+        :mechanics="s.mechanics"
+        :demo-url="s.demoUrl"
+        :cover-src="s.coverUrl"
+      />
+    </div>
+
+    <div v-if="visibleCount < items.length" class="more">
+      <UiButton variant="secondary" size="sm" @click="visibleCount += 24">
+        {{ t("catalog.showMoreN", { n: Math.min(24, items.length - visibleCount) }) }}
+      </UiButton>
     </div>
   </section>
 </template>
 
 <style scoped>
-.intro {
-  margin-bottom: 18px;
-}
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
-}
-.lead {
-  margin: 0;
-  max-width: 62ch;
-  color: var(--text-secondary);
-  font-size: 15px;
+.page {
+  padding-bottom: 8px;
 }
 .toolbar {
   display: flex;
@@ -128,75 +180,80 @@ useHead(() => ({
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
-.chips {
+.chips,
+.right {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-items: center;
 }
-.count {
-  margin: 0;
+.search input {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elev-1);
+  color: var(--text-primary);
+  font: inherit;
   font-size: 13px;
+  width: min(220px, 100%);
+}
+.sort {
+  min-width: 140px;
+}
+.providers {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+  padding-bottom: 2px;
+  scroll-snap-type: x mandatory;
+}
+.prov {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elev-2);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.prov span {
   color: var(--text-tertiary);
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
 }
-.card {
-  display: grid;
-  gap: 8px;
-  align-content: start;
-  padding: 12px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-default);
-  background: var(--bg-elev-1);
-}
-.cover {
-  display: block;
-  border-radius: 12px;
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-}
-.cover :deep(.cover) {
-  height: 100%;
-}
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  font-size: 12px;
-  color: var(--text-tertiary);
-}
-h2 {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.3;
-}
-h2 a {
-  color: inherit;
-  text-decoration: none;
-}
-.desc {
-  margin: 0;
-  font-size: 13px;
-  color: var(--text-secondary);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
 .more {
-  font-weight: 750;
-  color: var(--accent-cta);
-  text-decoration: none;
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 </style>

@@ -45,3 +45,21 @@ export function forumAgo(iso: string | null | undefined, locale: string): string
 export function forumFmt(n: number, locale: string): string {
   return n.toLocaleString(locale.startsWith("en") ? "en-GB" : "ru-RU");
 }
+
+/** posts_count includes the OP — replies = max(0, posts - 1). */
+export function forumReplyCount(postsCount: number | null | undefined): number {
+  const n = Number(postsCount) || 0;
+  return Math.max(0, n - 1);
+}
+
+export function forumReplyLabel(postsCount: number | null | undefined, locale: string): string {
+  const n = forumReplyCount(postsCount);
+  const en = locale.startsWith("en");
+  if (en) return n === 1 ? "1 reply" : `${forumFmt(n, locale)} replies`;
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  let word = "ответов";
+  if (mod10 === 1 && mod100 !== 11) word = "ответ";
+  else if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) word = "ответа";
+  return `${forumFmt(n, locale)} ${word}`;
+}

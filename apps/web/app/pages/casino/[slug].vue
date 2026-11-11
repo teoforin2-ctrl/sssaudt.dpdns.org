@@ -169,8 +169,13 @@ useJsonLd(() => {
 
 
 <template>
-  <div>
-    <NuxtLink class="back-link" :to="localePath('/')">← {{ t("card.back") }}</NuxtLink>
+  <div class="container-wide">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <NuxtLink :to="localePath('/rating')">{{ t("catalog.ratingTitle") }}</NuxtLink>
+      <span aria-hidden="true">/</span>
+      <span>{{ c?.name || "…" }}</span>
+    </nav>
+    <NuxtLink class="back-link mobile-only" :to="localePath('/rating')">← {{ t("card.back") }}</NuxtLink>
 
     <div v-if="pending" class="stack">
       <UiSkeleton height="220px" radius="20px" />
@@ -225,17 +230,24 @@ useJsonLd(() => {
         <h2>{{ t("card.bonuses") }}</h2>
         <div v-if="!c.bonuses.length" class="empty">{{ t("home.offerFallback") }}</div>
         <div v-else class="grid-2">
-          <BonusCard
+          <PublicBonusCard
             v-for="b in c.bonuses.slice(0, 6)"
             :key="b.id"
+            compact
             :title="b.title"
             :type="b.type"
-            :amount-or-percent="b.amountOrPercent"
             :wager="b.wager"
             :promo-code="b.promoCode"
-            :href="`${config.public.apiBase}/go/${c.slug}?locale=${locale}`"
+            :casino-slug="c.slug"
+            :casino-name="c.name"
+            :casino-logo-url="c.logoUrl"
           />
         </div>
+        <p v-if="c.bonuses.length" class="all-bonuses">
+          <NuxtLink :to="localePath('/bonuses')">
+            {{ t("card.bonuses") }} ({{ c.bonuses.length }}) →
+          </NuxtLink>
+        </p>
       </section>
 
       <section id="reviews" class="section-block">
@@ -309,6 +321,39 @@ useJsonLd(() => {
 </template>
 
 <style scoped>
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+.crumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 650;
+}
+.crumbs a:hover {
+  color: var(--accent-cta);
+}
+.mobile-only {
+  display: none;
+}
+@media (max-width: 900px) {
+  .mobile-only {
+    display: inline-flex;
+  }
+  .crumbs {
+    display: none;
+  }
+}
+.all-bonuses {
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 750;
+}
 .stack {
   display: grid;
   gap: 12px;

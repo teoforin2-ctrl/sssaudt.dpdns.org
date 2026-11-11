@@ -12,11 +12,10 @@ const props = withDefaults(defineProps<{
 
 const { setOpenMobile } = useSidebar()
 
-/** Full page nav for absolute URLs and public site root (not dashboard SPA routes). */
+/** Absolute / protocol-relative URLs leave the dashboard SPA. */
 const external = computed(() => {
   const link = props.item.link
-  return link === '/'
-    || link.startsWith('http://')
+  return link.startsWith('http://')
     || link.startsWith('https://')
     || link.startsWith('//')
 })

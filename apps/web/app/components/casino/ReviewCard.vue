@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { sanitizeReviewText } from "~/utils/format";
+
 const props = defineProps<{
   authorName?: string | null;
   authorRank?: string | null;
@@ -12,17 +14,25 @@ const props = defineProps<{
 
 const { t } = useI18n();
 
+const rankLabel = computed(() => {
+  const r = (props.authorRank || "").trim();
+  if (!r || /^seed$/i.test(r)) return null;
+  return r;
+});
+
 const author = computed(() => {
   const raw = (props.authorName || "").trim();
   if (!raw) return { name: "Player", meta: props.dateText || "" };
   const parts = raw.split(/\s+/);
   return {
     name: parts[0] || "Player",
-    meta: [props.authorRank, props.dateText, parts.slice(1).join(" ")].filter(Boolean).join(" · "),
+    meta: [rankLabel.value, props.dateText, parts.slice(1).join(" ")].filter(Boolean).join(" · "),
   };
 });
 
 const initials = computed(() => author.value.name.slice(0, 2).toUpperCase());
+const cleanBody = computed(() => sanitizeReviewText(props.body));
+const cleanReply = computed(() => sanitizeReviewText(props.replyBody));
 </script>
 
 <template>
@@ -41,10 +51,10 @@ const initials = computed(() => author.value.name.slice(0, 2).toUpperCase());
       <UiBadge v-if="editorial" tone="neutral">{{ t("card.editorialReview") }}</UiBadge>
       <UiBadge v-if="rewarded" tone="new">{{ t("card.rewardedReview") }}</UiBadge>
     </div>
-    <p class="body">{{ body }}</p>
-    <div v-if="replyBody" class="reply">
+    <p class="body">{{ cleanBody }}</p>
+    <div v-if="cleanReply" class="reply">
       <strong>{{ t("card.officialReply") }}</strong>
-      <p>{{ replyBody }}</p>
+      <p>{{ cleanReply }}</p>
     </div>
   </article>
 </template>

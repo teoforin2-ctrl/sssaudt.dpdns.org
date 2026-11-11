@@ -77,7 +77,20 @@ const activeMenu = computed(() => {
     }))
     .filter(group => group.items.length > 0)
 })
-const activeBottom = computed(() => isPartner.value ? partnerNavMenuBottom : navMenuBottom)
+const config = useRuntimeConfig()
+const siteOrigin = String(config.public.siteUrl || 'http://127.0.0.1:3710').replace(/\/$/, '')
+
+const activeBottom = computed(() => {
+  const items = isPartner.value ? partnerNavMenuBottom : navMenuBottom
+  return items.map((item) => {
+    if (!('link' in item))
+      return item
+    // "/" was resolving to the dashboard itself — send users to the public site.
+    if (item.link === '/' || item.link === '/ru' || item.title === 'Открыть сайт')
+      return { ...item, link: `${siteOrigin}/ru` }
+    return item
+  })
+})
 
 const sidebarUser = computed(() => ({
   name: user.value?.displayName || user.value?.email || 'Staff',

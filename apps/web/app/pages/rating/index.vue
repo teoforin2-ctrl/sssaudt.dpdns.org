@@ -21,6 +21,7 @@ type CasinoListItem = {
   bonusWager?: string | null;
   bonusPromo?: string | null;
   bonusCheckedAt?: string | null;
+  license?: string | null;
 };
 
 type FilterKey = "all" | "top" | "hot" | "new";
@@ -45,10 +46,48 @@ const items = computed(() => {
   else if (filter.value === "new") list = list.filter((c) => c.isNew);
   return list;
 });
-const visible = computed(() => items.value.slice(0, visibleCount.value));
+const visible = computed(() =>
+  items.value.slice(0, visibleCount.value).map((c, i) => ({
+    ...c,
+    displayRank: i + 1,
+  })),
+);
+
+const licensedCount = computed(() => all.value.filter((c) => !!c.license).length);
+const avgScore = computed(() => {
+  if (!all.value.length) return null;
+  const sum = all.value.reduce((a, c) => a + (c.rating || 0), 0);
+  return (sum / all.value.length).toFixed(1);
+});
 
 watch(filter, () => {
   visibleCount.value = 20;
+});
+
+const hubTabs = computed(() => [
+  { key: "all", label: t("catalog.hub.all"), to: localePath("/rating"), active: true },
+  { key: "new", label: t("catalog.hub.newCasinosTitle"), to: localePath("/rating/new") },
+  { key: "licensed", label: t("catalog.hub.licensedTitle"), to: localePath("/rating/licensed") },
+  { key: "crypto", label: t("catalog.hub.cryptoTitle"), to: localePath("/rating/crypto") },
+  { key: "payments", label: t("catalog.hub.paymentsTitle"), to: localePath("/rating/payments") },
+  { key: "blacklist", label: t("catalog.hub.blacklistTitle"), to: localePath("/rating/blacklist") },
+]);
+
+const filterChips: { key: FilterKey; label: string }[] = [
+  { key: "all", label: t("home.filters.all") },
+  { key: "top", label: t("home.filters.top") },
+  { key: "hot", label: t("home.filters.hot") },
+  { key: "new", label: t("home.filters.new") },
+];
+
+const stats = computed(() => {
+  const out: { label: string; value: string | number; href?: string }[] = [
+    { label: t("catalog.ratingTitle"), value: all.value.length },
+  ];
+  if (avgScore.value) out.push({ label: t("catalog.compare.rating"), value: avgScore.value });
+  if (licensedCount.value) out.push({ label: t("catalog.hub.licensedTitle"), value: licensedCount.value });
+  out.push({ label: t("catalog.methodology.title"), value: "→", href: localePath("/methodology") });
+  return out;
 });
 
 usePageSeo({
@@ -57,23 +96,34 @@ usePageSeo({
 });
 </script>
 
-
 <template>
-  <section class="page">
-    <header class="intro">
-      <h1 class="page-title">{{ t("catalog.ratingTitle") }}</h1>
-      <p class="lead">{{ t("catalog.ratingLead") }}</p>
-    </header>
+  <section class="container-wide page">
+    <PublicPageHero
+      :eyebrow="t('catalog.ratingTitle')"
+      :title="t('catalog.ratingTitle')"
+      :lead="t('catalog.ratingLead')"
+      :count="t('catalog.count', { n: items.length })"
+    />
+
+    <PublicSegmentedTabs :tabs="hubTabs" sticky />
+
+    <PublicStatStrip :items="stats" />
 
     <div class="toolbar">
       <div class="chips">
-        <UiChip :active="filter === 'all'" @click="filter = 'all'">{{ t("home.filters.all") }}</UiChip>
-        <UiChip :active="filter === 'top'" @click="filter = 'top'">{{ t("home.filters.top") }}</UiChip>
-        <UiChip :active="filter === 'hot'" @click="filter = 'hot'">{{ t("home.filters.hot") }}</UiChip>
-        <UiChip :active="filter === 'new'" @click="filter = 'new'">{{ t("home.filters.new") }}</UiChip>
+        <UiChip
+          v-for="chip in filterChips"
+          :key="chip.key"
+          :active="filter === chip.key"
+          @click="filter = chip.key"
+        >
+          {{ chip.label }}
+        </UiChip>
       </div>
       <div class="right">
-        <p class="count">{{ t("catalog.count", { n: items.length }) }}</p>
+        <p class="shown tabular-nums">
+          {{ t("catalog.shownOf", { shown: visible.length, total: items.length }) }}
+        </p>
         <HomeViewToggle v-model="viewMode" />
       </div>
     </div>
@@ -85,36 +135,20 @@ usePageSeo({
     <UiEmptyState v-else-if="!items.length" :title="t('catalog.empty')" />
     <div v-else :class="viewMode === 'grid' ? 'grid' : 'list'">
       <CasinoTile v-if="viewMode === 'grid'" v-for="c in visible" :key="c.id" :casino="c" />
-      <CasinoRow v-else v-for="c in visible" :key="c.id" :casino="c" />
+      <PublicCasinoRow v-else v-for="c in visible" :key="c.id" :casino="c" />
     </div>
 
     <div v-if="visibleCount < items.length" class="more">
       <UiButton variant="secondary" size="sm" @click="visibleCount += 20">
-        {{ t("home.showMore") }}
+        {{ t("catalog.showMoreN", { n: Math.min(20, items.length - visibleCount) }) }}
       </UiButton>
     </div>
-
-    <p class="home-link">
-      <NuxtLink :to="localePath('/')">{{ t("stub.toLiveRating") }}</NuxtLink>
-    </p>
   </section>
 </template>
 
 <style scoped>
-.intro {
-  margin-bottom: 18px;
-}
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
-}
-.lead {
-  margin: 0;
-  max-width: 62ch;
-  color: var(--text-secondary);
-  font-size: 15px;
+.page {
+  padding-bottom: 8px;
 }
 .toolbar {
   display: flex;
@@ -131,12 +165,11 @@ usePageSeo({
   gap: 8px;
   flex-wrap: wrap;
 }
-.count {
+.shown {
   margin: 0;
   font-size: 13px;
   color: var(--text-tertiary);
 }
-.stack,
 .list {
   display: grid;
   gap: 10px;
@@ -150,12 +183,5 @@ usePageSeo({
   margin-top: 18px;
   display: flex;
   justify-content: center;
-}
-.home-link {
-  margin-top: 18px;
-}
-.home-link a {
-  font-weight: 750;
-  font-size: 14px;
 }
 </style>

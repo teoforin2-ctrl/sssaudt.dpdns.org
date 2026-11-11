@@ -64,6 +64,12 @@ const { data, pending, error, refresh } = await useAsyncData(
 
 const pick = ref("");
 
+const pickOptions = computed(() =>
+  options.value
+    .filter((x) => !selected.value.includes(x.slug))
+    .map((x) => ({ value: x.slug, label: x.name })),
+);
+
 async function syncQuery(next: string[]) {
   selected.value = next;
   await router.replace({
@@ -99,18 +105,14 @@ usePageSeo({
     </header>
 
     <form class="picker" @submit.prevent="addCasino">
-      <select v-model="pick" class="select">
-        <option value="">
-          {{ t("catalog.compare.pick") }}
-        </option>
-        <option
-          v-for="o in options.filter((x) => !selected.includes(x.slug))"
-          :key="o.slug"
-          :value="o.slug"
-        >
-          {{ o.name }}
-        </option>
-      </select>
+      <UiSelect
+        v-model="pick"
+        class="select"
+        size="sm"
+        :placeholder="t('catalog.compare.pick')"
+        :options="pickOptions"
+        :disabled="selected.length >= 3"
+      />
       <UiButton type="submit" variant="secondary" size="sm" :disabled="!pick || selected.length >= 3">
         {{ t("catalog.compare.cta") }}
       </UiButton>
@@ -208,14 +210,9 @@ usePageSeo({
 .lead { margin: 0; color: var(--text-secondary); font-size: 15px; max-width: 60ch; }
 .picker { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .select {
+  flex: 1 1 240px;
   min-width: min(280px, 100%);
-  height: 36px;
-  border-radius: 10px;
-  border: 1px solid var(--border-default);
-  background: var(--bg-elev-2);
-  color: var(--text-primary);
-  padding: 0 10px;
-  font: inherit;
+  max-width: 420px;
 }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
 .chip {

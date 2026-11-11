@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const localePath = useLocalePath()
+const route = useRoute()
 const { login, goDestination, user, fetchMe } = useAuth()
 
 definePageMeta({ layout: 'default' })
@@ -15,6 +16,11 @@ const password = ref('')
 const loading = ref(false)
 const error = ref<string | null>(null)
 
+const registerTo = computed(() => {
+  const q = route.query.redirect ? { redirect: String(route.query.redirect) } : undefined
+  return { path: localePath('/register'), query: q }
+})
+
 onMounted(async () => {
   await fetchMe()
   if (user.value)
@@ -26,6 +32,7 @@ async function onSubmit() {
   loading.value = true
   try {
     const res = await login(email.value.trim(), password.value)
+    password.value = ''
     await goDestination(res.destination)
   }
   catch (e: unknown) {
@@ -33,6 +40,7 @@ async function onSubmit() {
     error.value = status === 401
       ? t('auth.invalidCredentials')
       : t('auth.loginFailed')
+    password.value = ''
   }
   finally {
     loading.value = false
@@ -41,30 +49,40 @@ async function onSubmit() {
 </script>
 
 <template>
-  <div class="auth-page container">
-    <h1 class="page-title">{{ t('auth.loginTitle') }}</h1>
-    <p class="lead">{{ t('auth.loginLead') }}</p>
-
+  <div class="container-auth auth-page">
     <form class="card" @submit.prevent="onSubmit">
+      <h1 class="title">{{ t('auth.loginTitle') }}</h1>
+      <p class="lead">{{ t('auth.loginLead') }}</p>
+
       <p v-if="error" class="err" role="alert">{{ error }}</p>
 
       <label class="field">
         <span>{{ t('auth.email') }}</span>
-        <input v-model="email" type="email" required autocomplete="email" />
+        <input
+          v-model="email"
+          type="email"
+          required
+          autocomplete="email"
+          inputmode="email"
+          autocapitalize="off"
+          spellcheck="false"
+          autofocus
+        >
       </label>
 
-      <label class="field">
-        <span>{{ t('auth.password') }}</span>
-        <input v-model="password" type="password" required minlength="1" autocomplete="current-password" />
-      </label>
+      <PublicPasswordField
+        v-model="password"
+        :label="t('auth.password')"
+        autocomplete="current-password"
+      />
 
-      <UiButton type="submit" :disabled="loading">
+      <UiButton type="submit" block :disabled="loading" :loading="loading">
         {{ loading ? t('auth.loggingIn') : t('auth.login') }}
       </UiButton>
 
       <p class="switch">
         {{ t('auth.noAccount') }}
-        <NuxtLink :to="localePath('/register')">{{ t('auth.register') }}</NuxtLink>
+        <NuxtLink :to="registerTo">{{ t('auth.register') }}</NuxtLink>
       </p>
     </form>
   </div>
@@ -72,12 +90,20 @@ async function onSubmit() {
 
 <style scoped>
 .auth-page {
-  max-width: 420px;
   padding-block: 48px 72px;
+  min-height: calc(100vh - var(--header-h, 64px) - 160px);
+  display: grid;
+  align-content: center;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 30px);
+  letter-spacing: -0.03em;
 }
 .lead {
   color: var(--text-secondary);
-  margin: 8px 0 24px;
+  margin: 8px 0 4px;
   font-size: 14px;
 }
 .card {
@@ -102,11 +128,15 @@ async function onSubmit() {
   color: var(--text-primary);
   padding: 0 12px;
   font: inherit;
+  font-size: 16px;
 }
 .err {
   color: var(--danger, #e5484d);
   font-size: 13px;
   margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--accent-rose-soft);
 }
 .switch {
   text-align: center;

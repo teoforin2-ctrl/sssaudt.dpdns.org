@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { forumAgo, forumFmt, forumTags } from "~/utils/forum";
+import { forumAgo, forumFmt, forumReplyLabel, forumTags } from "~/utils/forum";
 
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
+const { user, fetchMe } = useAuth();
+
+onMounted(() => {
+  void fetchMe();
+});
 
 type Category = {
   slug: string;
@@ -145,8 +150,7 @@ useHead(() => ({
                 </div>
               </div>
               <div class="topic-side">
-                <strong>{{ topic.posts_count }}</strong>
-                <small>{{ locale === "en" ? "replies" : "ответов" }}</small>
+                <strong>{{ forumReplyLabel(topic.posts_count, locale) }}</strong>
               </div>
             </NuxtLink>
           </div>
@@ -167,7 +171,7 @@ useHead(() => ({
           </NuxtLink>
         </div>
 
-        <div class="panel cta">
+        <div v-if="!user" class="panel cta">
           <h3>{{ locale === "en" ? "Sign up" : "Зарегистрируйтесь" }}</h3>
           <p>
             {{ locale === "en"

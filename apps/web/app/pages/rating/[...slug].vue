@@ -31,7 +31,9 @@ type CasinoListItem = {
   isNew?: boolean;
   hasRepresentative?: boolean;
   bonusLabel?: string | null;
+  bonusWager?: string | null;
   bonusPromo?: string | null;
+  bonusCheckedAt?: string | null;
   license?: string | null;
   crypto?: boolean;
 };
@@ -87,7 +89,8 @@ const { data: paymentData, pending: paymentPending } = await useAsyncData(
       }>(`${config.public.apiBase}/v1/payments/${paymentCode.value}`, {
         query: { locale: locale.value },
       });
-    } catch {
+    }
+    catch {
       return null;
     }
   },
@@ -107,7 +110,6 @@ const { data: blacklistData, pending: blacklistPending } = await useAsyncData(
   },
   { watch: [isBlacklist, locale] },
 );
-
 
 const title = computed(() => {
   if (isPaymentsIndex.value) return t("catalog.hub.paymentsTitle");
@@ -145,6 +147,18 @@ const items = computed(() => {
   return filtered;
 });
 
+const visibleCount = ref(20);
+watch(leaf, () => {
+  visibleCount.value = 20;
+});
+
+const visible = computed(() =>
+  items.value.slice(0, visibleCount.value).map((c, i) => ({
+    ...c,
+    displayRank: i + 1,
+  })),
+);
+
 const knownHub = computed(
   () =>
     !!hub.value ||
@@ -152,6 +166,46 @@ const knownHub = computed(
     isPaymentsIndex.value ||
     !!paymentData.value?.payment,
 );
+
+const activeKey = computed(() => {
+  if (isPaymentsIndex.value || paymentCode.value) return "payments";
+  if (leaf.value === "blacklist") return "blacklist";
+  return leaf.value || "all";
+});
+
+const hubTabs = computed(() =>
+  [
+    { key: "all", label: t("catalog.hub.all"), to: localePath("/rating") },
+    { key: "new", label: t("catalog.hub.newCasinosTitle"), to: localePath("/rating/new") },
+    { key: "licensed", label: t("catalog.hub.licensedTitle"), to: localePath("/rating/licensed") },
+    { key: "crypto", label: t("catalog.hub.cryptoTitle"), to: localePath("/rating/crypto") },
+    { key: "payments", label: t("catalog.hub.paymentsTitle"), to: localePath("/rating/payments") },
+    { key: "blacklist", label: t("catalog.hub.blacklistTitle"), to: localePath("/rating/blacklist") },
+  ].map((tab) => ({ ...tab, active: tab.key === activeKey.value })),
+);
+
+const paymentGroups = computed(() => {
+  const list = paymentsData.value?.items || [];
+  const cards = ["visa", "mastercard", "mc"];
+  const crypto = ["usdt", "btc", "bitcoin", "eth", "ethereum", "crypto"];
+  const fast = ["sbp", "qiwi", "yoomoney"];
+  const groups: { key: string; title: string; items: PaymentItem[] }[] = [
+    { key: "cards", title: t("catalog.hub.payGroupCards") || "Карты", items: [] },
+    { key: "crypto", title: t("catalog.hub.payGroupCrypto") || "Криптовалюты", items: [] },
+    { key: "fast", title: t("catalog.hub.payGroupFast") || "Быстрые платежи", items: [] },
+    { key: "other", title: t("catalog.hub.payGroupOther") || "Другие", items: [] },
+  ];
+  const max = Math.max(...list.map((p) => p.casinosCount), 1);
+  for (const p of list) {
+    const code = p.code.toLowerCase();
+    const enriched = { ...p, share: p.casinosCount / max };
+    if (cards.some((c) => code.includes(c))) groups[0]!.items.push(enriched as PaymentItem);
+    else if (p.crypto || crypto.some((c) => code.includes(c))) groups[1]!.items.push(enriched as PaymentItem);
+    else if (fast.some((c) => code.includes(c))) groups[2]!.items.push(enriched as PaymentItem);
+    else groups[3]!.items.push(enriched as PaymentItem);
+  }
+  return groups.filter((g) => g.items.length);
+});
 
 usePageSeo({
   title: () => title.value,
@@ -166,40 +220,45 @@ usePageSeo({
 </script>
 
 <template>
-  <section class="page">
-    <header class="intro">
-      <p class="eyebrow">{{ t("catalog.ratingTitle") }}</p>
-      <h1 class="page-title">{{ title }}</h1>
-      <p class="lead">
-        {{
-          isPaymentsIndex || paymentCode
-            ? t("catalog.hub.paymentsLead")
-            : hub
-              ? t(hub.leadKey)
-              : t("catalog.ratingLead")
-        }}
-      </p>
-      <p v-if="leaf !== 'blacklist' && !isPaymentsIndex" class="count">
-        {{ t("catalog.count", { n: items.length }) }}
-      </p>
-    </header>
+  <section :class="isBlacklist || isPaymentsIndex ? 'container-narrow' : 'container-wide'" class="page">
+    <PublicPageHero
+      :eyebrow="t('catalog.ratingTitle')"
+      :title="title"
+      :lead="
+        isPaymentsIndex || paymentCode
+          ? t('catalog.hub.paymentsLead')
+          : hub
+            ? t(hub.leadKey)
+            : t('catalog.ratingLead')
+      "
+      :count="leaf !== 'blacklist' && !isPaymentsIndex ? t('catalog.count', { n: items.length }) : null"
+    />
 
-    <div class="tabs">
-      <NuxtLink :to="localePath('/rating')" class="tab">{{ t("catalog.hub.all") }}</NuxtLink>
-      <NuxtLink :to="localePath('/rating/new')" class="tab">{{ t("catalog.hub.newCasinosTitle") }}</NuxtLink>
-      <NuxtLink :to="localePath('/rating/licensed')" class="tab">{{ t("catalog.hub.licensedTitle") }}</NuxtLink>
-      <NuxtLink :to="localePath('/rating/crypto')" class="tab">{{ t("catalog.hub.cryptoTitle") }}</NuxtLink>
-      <NuxtLink :to="localePath('/rating/payments')" class="tab">{{ t("catalog.hub.paymentsTitle") }}</NuxtLink>
-      <NuxtLink :to="localePath('/rating/blacklist')" class="tab">{{ t("catalog.hub.blacklistTitle") }}</NuxtLink>
-    </div>
+    <PublicSegmentedTabs :tabs="hubTabs" sticky />
 
-    <div v-if="leaf === 'blacklist'" class="panel bl">
-      <p>{{ t("catalog.hub.blacklistBody") }}</p>
-      <ul>
-        <li>{{ t("catalog.hub.blacklistLi1") }}</li>
-        <li>{{ t("catalog.hub.blacklistLi2") }}</li>
-        <li>{{ t("catalog.hub.blacklistLi3") }}</li>
-      </ul>
+    <div v-if="leaf === 'blacklist'" class="bl">
+      <div v-if="!blacklistData?.items?.length && !blacklistPending" class="empty-bl">
+        <div class="shield" aria-hidden="true">🛡</div>
+        <h2>{{ t("catalog.hub.blacklistEmpty") }}</h2>
+        <p>{{ t("catalog.hub.blacklistBody") }}</p>
+      </div>
+      <p v-else class="bl-body">{{ t("catalog.hub.blacklistBody") }}</p>
+
+      <div class="criteria">
+        <article class="crit">
+          <span class="ico" aria-hidden="true">👥</span>
+          <p>{{ t("catalog.hub.blacklistLi1") }}</p>
+        </article>
+        <article class="crit">
+          <span class="ico" aria-hidden="true">🎁</span>
+          <p>{{ t("catalog.hub.blacklistLi2") }}</p>
+        </article>
+        <article class="crit">
+          <span class="ico" aria-hidden="true">⚠</span>
+          <p>{{ t("catalog.hub.blacklistLi3") }}</p>
+        </article>
+      </div>
+
       <UiSkeleton v-if="blacklistPending" height="120px" radius="12px" style="margin-top: 14px" />
       <ul v-else-if="blacklistData?.items?.length" class="bl-list">
         <li v-for="b in blacklistData.items" :key="b.id">
@@ -207,28 +266,36 @@ usePageSeo({
           <p>{{ b.reason }}</p>
         </li>
       </ul>
-      <p v-else class="note" style="margin-top: 14px">
-        {{ t("catalog.hub.blacklistEmpty") }}
-      </p>
-      <p class="note">
-        {{ t("catalog.hub.blacklistNote") }}
-        <NuxtLink :to="localePath('/complaints')">{{ t("catalog.hub.complaintCta") }}</NuxtLink>
-        ·
-        <NuxtLink :to="localePath('/b2b')">{{ t("pages.b2b.title") }}</NuxtLink>
-      </p>
-    </div>
 
+      <div class="bl-actions">
+        <NuxtLink class="btn btn-primary btn-sm" :to="localePath('/complaints')">
+          {{ t("catalog.hub.complaintCta") }}
+        </NuxtLink>
+        <NuxtLink class="btn btn-secondary btn-sm" :to="localePath('/b2b')">
+          {{ t("pages.b2b.title") }}
+        </NuxtLink>
+      </div>
+      <p class="note">{{ t("catalog.hub.blacklistNote") }}</p>
+    </div>
 
     <template v-else-if="isPaymentsIndex">
       <UiSkeleton v-if="paymentsPending" height="180px" radius="14px" />
-      <ul v-else class="pay">
-        <li v-for="p in paymentsData?.items || []" :key="p.code">
-          <NuxtLink :to="localePath(`/rating/payments/${p.code}`)">
-            <span>{{ p.name }}</span>
-            <b>{{ p.casinosCount }}</b>
-          </NuxtLink>
-        </li>
-      </ul>
+      <div v-else class="pay-groups">
+        <section v-for="g in paymentGroups" :key="g.key" class="pay-group">
+          <h2>{{ g.title }}</h2>
+          <ul class="pay">
+            <li v-for="p in g.items" :key="p.code">
+              <NuxtLink :to="localePath(`/rating/payments/${p.code}`)">
+                <span class="pay-name">{{ p.name }}</span>
+                <span class="pay-bar" aria-hidden="true">
+                  <i :style="{ width: `${Math.max(8, ((p as any).share || 0) * 100)}%` }" />
+                </span>
+                <b class="tabular-nums">{{ p.casinosCount }}</b>
+              </NuxtLink>
+            </li>
+          </ul>
+        </section>
+      </div>
     </template>
 
     <template v-else>
@@ -238,80 +305,106 @@ usePageSeo({
       </UiEmptyState>
       <UiEmptyState v-else-if="!items.length" :title="t('catalog.empty')" />
       <div v-else class="list">
-        <CasinoRow
-          v-for="c in items.slice(0, 40)"
-          :key="c.id"
-          :casino="c"
-        />
+        <PublicCasinoRow v-for="c in visible" :key="c.id" :casino="c" />
       </div>
+      <div v-if="visibleCount < items.length" class="more">
+        <UiButton variant="secondary" size="sm" @click="visibleCount += 20">
+          {{ t("catalog.showMoreN", { n: Math.min(20, items.length - visibleCount) }) }}
+        </UiButton>
+      </div>
+      <p v-if="items.length" class="shown tabular-nums">
+        {{ t("catalog.shownOf", { shown: visible.length, total: items.length }) }}
+      </p>
     </template>
   </section>
 </template>
 
 <style scoped>
-.page { max-width: 960px; }
-.eyebrow {
-  margin: 0 0 8px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent-cta);
-  font-weight: 750;
+.page {
+  padding-bottom: 8px;
 }
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
+.list {
+  display: grid;
+  gap: 10px;
 }
-.lead {
-  margin: 0 0 8px;
+.more {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+.shown {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+.bl-body {
+  margin: 0 0 16px;
   color: var(--text-secondary);
   font-size: 15px;
-  max-width: 62ch;
+  line-height: 1.6;
 }
-.count { margin: 0 0 14px; font-size: 13px; color: var(--text-tertiary); }
-.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-.tab {
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border-default);
-  background: var(--bg-elev-1);
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--text-secondary);
-}
-.tab.router-link-active {
-  border-color: color-mix(in srgb, var(--accent-cta) 45%, var(--border-default));
-  background: var(--accent-cta-soft);
-  color: var(--text-primary);
-}
-.list { display: grid; gap: 10px; }
-.pay { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.pay a {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid var(--border-default);
-  background: var(--bg-elev-1);
-  text-decoration: none;
-  color: inherit;
-  font-weight: 650;
-}
-.bl {
-  padding: 22px;
+.empty-bl {
+  text-align: center;
+  padding: 28px 16px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-default);
   background: var(--bg-elev-1);
+  margin-bottom: 16px;
 }
-.bl p, .bl li { color: var(--text-secondary); font-size: 15px; line-height: 1.6; }
-.bl ul { margin: 14px 0; padding-left: 1.2rem; }
+.shield {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 12px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  background: var(--accent-cta-soft);
+  box-shadow: var(--glow-cta);
+}
+.empty-bl h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 20px;
+}
+.empty-bl p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+.criteria {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.crit {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elev-1);
+}
+.crit .ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: var(--bg-elev-3);
+}
+.crit p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
 .bl-list {
   list-style: none;
-  margin: 14px 0 0;
+  margin: 0 0 16px;
   padding: 0;
   display: grid;
   gap: 10px;
@@ -320,10 +413,92 @@ usePageSeo({
   padding: 12px 14px;
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
-  background: var(--bg-elev-2, var(--bg-elev-1));
+  background: var(--bg-elev-2);
 }
-.bl-list strong { display: block; margin-bottom: 4px; color: var(--text-primary); }
-.bl-list p { margin: 0; font-size: 14px; }
-.note { margin-top: 16px !important; font-size: 13px !important; color: var(--text-tertiary) !important; }
+.bl-list strong {
+  display: block;
+  margin-bottom: 4px;
+}
+.bl-list p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.bl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.note {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+.pay-groups {
+  display: grid;
+  gap: 20px;
+}
+.pay-group h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-family: var(--font-display);
+}
+.pay {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.pay a {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elev-1);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.pay a:hover {
+  border-color: color-mix(in srgb, var(--accent-cta) 40%, var(--border-default));
+  transform: translateY(-1px);
+}
+.pay-name {
+  font-weight: 750;
+  font-size: 14px;
+}
+.pay-bar {
+  display: block;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--bg-elev-3);
+  overflow: hidden;
+}
+.pay-bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent-cta);
+  border-radius: inherit;
+}
+.pay b {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: 700;
+}
+@media (max-width: 900px) {
+  .criteria {
+    grid-template-columns: 1fr;
+  }
+  .pay {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .pay {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
-

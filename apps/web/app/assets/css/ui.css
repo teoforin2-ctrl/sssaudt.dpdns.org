@@ -3,6 +3,68 @@
   margin-inline: auto;
 }
 
+/* Public UI v2 page containers — left-aligned to match header logo edge */
+.container-wide {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: 0;
+}
+.container-narrow {
+  width: 100%;
+  max-width: 960px;
+  margin-inline: 0;
+}
+.container-content {
+  width: 100%;
+  max-width: 820px;
+  margin-inline: 0;
+}
+.container-form {
+  width: 100%;
+  max-width: 680px;
+  margin-inline: 0;
+}
+.container-prose {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: 0;
+}
+.container-auth {
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+.page-content {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.page-content > * + * {
+  margin-top: 0.85em;
+}
+.page-content ul,
+.page-content ol {
+  padding-left: 1.25rem;
+  margin: 0.75em 0;
+}
+.page-content ul {
+  list-style: disc;
+}
+.page-content ol {
+  list-style: decimal;
+}
+.page-content li + li {
+  margin-top: 0.35em;
+}
+.page-content a {
+  color: var(--accent-cta);
+  text-underline-offset: 3px;
+}
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
 @media (max-width: 640px) {
   .container {
     width: min(100% - 24px, var(--container));

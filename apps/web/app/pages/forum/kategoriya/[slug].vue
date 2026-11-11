@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { forumAgo, forumFmt, forumTags } from "~/utils/forum";
+import { forumAgo, forumFmt, forumReplyLabel, forumTags } from "~/utils/forum";
 
 const config = useRuntimeConfig();
 const route = useRoute();
@@ -88,7 +88,7 @@ useHead(() => ({
                 :key="tag"
                 class="chip"
               >{{ tag }}</span>
-              <span>· {{ forumAgo(topic.last_post_at, locale) }} · {{ topic.posts_count }} {{ locale === "en" ? "replies" : "ответов" }}</span>
+              <span>· {{ forumAgo(topic.last_post_at, locale) }} · {{ forumReplyLabel(topic.posts_count, locale) }}</span>
             </div>
           </div>
         </NuxtLink>
