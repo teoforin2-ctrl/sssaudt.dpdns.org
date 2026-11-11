@@ -36,6 +36,17 @@ ROBOTS
 		header Cache-Control "public, max-age=31536000, immutable"
 		reverse_proxy ssaudit-dashboard:3000
 	}
+
+	# Runtime admin uploads — serve from host bind (Nitro misses post-build files).
+	# Mount on Caddy: /var/www/dfijdsif/uploads -> /srv/ssaudit-uploads
+	@mutableUploads path /uploads/articles/* /uploads/banners/* /uploads/brand/* /uploads/content/*
+	handle @mutableUploads {
+		header Cache-Control "public, max-age=2592000, stale-while-revalidate=86400"
+		uri strip_prefix /uploads
+		root * /srv/ssaudit-uploads
+		file_server
+	}
+
 	@staticMedia path /img/* /uploads/*
 	handle @staticMedia {
 		header Cache-Control "public, max-age=2592000, stale-while-revalidate=86400"

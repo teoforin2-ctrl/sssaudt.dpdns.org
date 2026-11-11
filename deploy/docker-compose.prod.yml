@@ -71,6 +71,7 @@ services:
       PORT: "3000"
       NITRO_HOST: 0.0.0.0
       NITRO_PORT: "3000"
+      WEB_UPLOADS_ROOT: /app/.output/public/uploads
       NUXT_PUBLIC_API_BASE: ${NUXT_PUBLIC_API_BASE:-https://dfijdsif.website}
       NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://dfijdsif.website}
       NUXT_PUBLIC_DASHBOARD_URL: ${NUXT_PUBLIC_DASHBOARD_URL:-https://dfijdsif.website}
