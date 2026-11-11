@@ -2,8 +2,8 @@ import type { SiteSettings } from "~/composables/useSiteSettings";
 
 export default defineNuxtPlugin({
   name: "site-settings",
-  // Before seo-defaults / pages so title + i18n brand use admin siteName on SSR
-  enforce: "pre",
+  // Must run after @nuxtjs/i18n — enforce:pre made $i18n undefined and 500'd SSR
+  dependsOn: ["i18n:plugin"],
   async setup(nuxtApp) {
     const config = useRuntimeConfig();
     const state = useState<SiteSettings | null>("site-settings", () => null);
@@ -20,11 +20,12 @@ export default defineNuxtPlugin({
     }
 
     const { siteName, faviconUrl, favicon32Url, appleTouchIconUrl } = useSiteSettings();
-    const i18n = nuxtApp.$i18n as {
-      mergeLocaleMessage: (locale: string, message: Record<string, unknown>) => void;
-    };
+    const i18n = nuxtApp.$i18n as
+      | { mergeLocaleMessage?: (locale: string, message: Record<string, unknown>) => void }
+      | undefined;
 
     function syncBrandMessages(name: string) {
+      if (typeof i18n?.mergeLocaleMessage !== "function") return;
       const n = String(name || "").trim() || "SS Audit";
       const patch = { brand: n, footer: { rights: n } };
       i18n.mergeLocaleMessage("ru", patch);
