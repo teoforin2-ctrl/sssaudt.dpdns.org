@@ -235,22 +235,22 @@ function toggleLabel(id: string) {
           <div class="grid grid-cols-2 gap-3">
             <div>
               <Label>Приоритет</Label>
-              <select v-model="draft.priority" class="mt-1 flex h-9 w-full rounded-md border bg-transparent px-2 text-sm">
-                <option v-for="p in (['none', 'low', 'med', 'high', 'urgent'] as const)" :key="p" :value="p">
-                  {{ priorityLabel(p) }}
-                </option>
-              </select>
+              <AdminSelect
+                v-model="draft.priority"
+                class="mt-1"
+                :options="(['none', 'low', 'med', 'high', 'urgent'] as const).map(p => ({ value: p, label: priorityLabel(p) }))"
+              />
             </div>
             <div>
               <Label>Спринт</Label>
-              <select v-model="draft.sprintId" class="mt-1 flex h-9 w-full rounded-md border bg-transparent px-2 text-sm">
-                <option value="">
-                  —
-                </option>
-                <option v-for="s in sprints" :key="s.id" :value="s.id" :disabled="s.status === 'closed'">
-                  {{ s.name }} ({{ s.status }})
-                </option>
-              </select>
+              <AdminSelect
+                v-model="draft.sprintId"
+                class="mt-1"
+                :options="[
+                  { value: '', label: '—' },
+                  ...sprints.map(s => ({ value: s.id, label: `${s.name} (${s.status})`, disabled: s.status === 'closed' })),
+                ]"
+              />
             </div>
             <div>
               <Label>Start</Label>
@@ -329,7 +329,7 @@ function toggleLabel(id: string) {
               </div>
               <ul class="space-y-1">
                 <li v-for="it in ch.items" :key="it.id" class="flex items-center gap-2 text-sm">
-                  <input type="checkbox" :checked="it.done" @change="toggleItem(it)">
+                  <Checkbox :checked="it.done" @update:checked="() => toggleItem(it)" />
                   <span :class="it.done ? 'line-through text-muted-foreground' : ''">{{ it.title }}</span>
                   <button type="button" class="ml-auto text-xs text-muted-foreground" @click="removeItem(it.id)">
                     del

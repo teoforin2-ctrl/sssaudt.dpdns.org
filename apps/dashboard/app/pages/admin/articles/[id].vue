@@ -2,8 +2,20 @@
 definePageMeta({ layout: 'default' })
 
 const { api } = useApi()
+const config = useRuntimeConfig()
+const webOrigin = (config.public.siteUrl as string) || 'http://127.0.0.1:3710'
 const route = useRoute()
 const id = computed(() => String(route.params.id))
+
+function coverDisplaySrc(path: string | null | undefined) {
+  if (!path)
+    return ''
+  if (path.startsWith('data:') || path.startsWith('http://') || path.startsWith('https://'))
+    return path
+  if (path.startsWith('/'))
+    return `${webOrigin}${path}`
+  return `${webOrigin}/uploads/articles/${path}`
+}
 
 interface Article {
   id: string
@@ -184,31 +196,25 @@ async function removeArticle() {
         </div>
         <div class="grid gap-2">
           <Label>Статус</Label>
-          <select v-model="form.status" class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm">
-            <option value="draft">
-              draft
-            </option>
-            <option value="published">
-              published
-            </option>
-            <option value="hidden">
-              hidden
-            </option>
-          </select>
+          <AdminSelect
+            v-model="form.status"
+            :options="[
+              { value: 'draft', label: 'draft' },
+              { value: 'published', label: 'published' },
+              { value: 'hidden', label: 'hidden' },
+            ]"
+          />
         </div>
         <div class="grid gap-2">
           <Label>Kind</Label>
-          <select v-model="form.kind" class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm">
-            <option value="guide">
-              guide
-            </option>
-            <option value="news">
-              news
-            </option>
-            <option value="analytics">
-              analytics
-            </option>
-          </select>
+          <AdminSelect
+            v-model="form.kind"
+            :options="[
+              { value: 'guide', label: 'guide' },
+              { value: 'news', label: 'news' },
+              { value: 'analytics', label: 'analytics' },
+            ]"
+          />
         </div>
         <div class="grid gap-2">
           <Label>Topic</Label>
@@ -230,9 +236,7 @@ async function removeArticle() {
           <div class="h-28 w-44 overflow-hidden rounded-lg border bg-muted">
             <img
               v-if="coverPreview"
-              :src="coverPreview.startsWith('data:') || coverPreview.startsWith('http')
-                ? coverPreview
-                : `http://127.0.0.1:3710${coverPreview}`"
+              :src="coverDisplaySrc(coverPreview)"
               alt="cover"
               class="h-full w-full object-cover"
             >

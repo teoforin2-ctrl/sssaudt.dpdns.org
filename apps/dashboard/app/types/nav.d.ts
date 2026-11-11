@@ -3,6 +3,8 @@ export interface NavLink {
   link: string
   icon?: string
   new?: boolean
+  /** Queue / attention counter shown in sidebar */
+  badge?: number | string | null
 }
 
 export interface NavSectionTitle {

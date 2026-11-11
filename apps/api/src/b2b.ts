@@ -321,36 +321,65 @@ export async function registerB2b(app: FastifyInstance, pool: Pool) {
 
   app.get("/v1/admin/b2b/leads", async (req, reply) => {
     if (!requireAdmin(req, reply)) return;
-    const q = (req.query || {}) as { status?: string; page?: string; limit?: string };
+    const q = (req.query || {}) as { status?: string; page?: string; limit?: string; hide_test?: string };
     const page = Math.max(1, Number(q.page) || 1);
     const limit = Math.min(100, Math.max(1, Number(q.limit) || 30));
     const offset = (page - 1) * limit;
     const status = (q.status || "").trim();
+    const hideTest = q.hide_test === "1" || q.hide_test === "true";
     const params: unknown[] = [];
-    let where = "";
+    const whereParts: string[] = [];
     if (status) {
       params.push(status);
-      where = `where status = $${params.length}`;
+      whereParts.push(`status = $${params.length}`);
     }
-    const countRes = await pool.query<{ n: string }>(
-      `select count(*)::text as n from b2b_leads ${where}`,
-      params,
-    );
-    params.push(limit, offset);
-    const { rows } = await pool.query(
-      `
-      select * from b2b_leads
-      ${where}
-      order by created_at desc
-      limit $${params.length - 1} offset $${params.length}
-      `,
-      params,
-    );
+    if (hideTest) {
+      whereParts.push(`(coalesce(name,'') not ilike '%smoke%' and coalesce(message,'') not ilike '%smoke%')`);
+    }
+    const where = whereParts.length ? `where ${whereParts.join(" and ")}` : "";
+    const [countRes, listRes, summaryRes] = await Promise.all([
+      pool.query<{ n: string }>(
+        `select count(*)::text as n from b2b_leads ${where}`,
+        params,
+      ),
+      pool.query(
+        `
+        select * from b2b_leads
+        ${where}
+        order by created_at desc
+        limit $${params.length + 1} offset $${params.length + 2}
+        `,
+        [...params, limit, offset],
+      ),
+      pool.query<{
+        total: string
+        new_n: string
+        in_progress: string
+        done_n: string
+        spam_n: string
+      }>(`
+        select
+          count(*)::text as total,
+          count(*) filter (where status = 'new')::text as new_n,
+          count(*) filter (where status = 'in_progress')::text as in_progress,
+          count(*) filter (where status = 'done')::text as done_n,
+          count(*) filter (where status = 'spam')::text as spam_n
+        from b2b_leads
+      `).catch(() => ({ rows: [] as any[] })),
+    ]);
+    const s = summaryRes.rows[0];
     return {
-      items: rows,
+      items: listRes.rows,
       total: Number(countRes.rows[0]?.n || 0),
       page,
       limit,
+      summary: {
+        total: Number(s?.total ?? 0),
+        new: Number(s?.new_n ?? 0),
+        inProgress: Number(s?.in_progress ?? 0),
+        done: Number(s?.done_n ?? 0),
+        spam: Number(s?.spam_n ?? 0),
+      },
     };
   });
 

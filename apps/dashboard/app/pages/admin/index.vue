@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { AdminTone } from '~/components/admin/ui/types'
 import NumberFlow, { NumberFlowGroup } from '@number-flow/vue'
 import {
   ArrowUpRight,
@@ -112,12 +113,23 @@ const kpis = computed(() => {
   const s = stats.value
   if (!s)
     return []
-  const items = [
+  const items: Array<{
+    key: string
+    label: string
+    value: number
+    delta: number | null
+    isNew?: boolean
+    hint: string
+    to: string
+    icon: typeof Star
+    tone: AdminTone
+  }> = [
     {
       key: 'clicks',
       label: 'Клики /go/',
       value: s.trends.clicks7d,
-      delta: s.trends.clicksDeltaPct,
+      delta: s.trends.clicksPrev7d === 0 && s.trends.clicks7d > 0 ? null : s.trends.clicksDeltaPct,
+      isNew: s.trends.clicksPrev7d === 0 && s.trends.clicks7d > 0,
       hint: 'за 7 дней',
       to: '/admin/clicks',
       icon: MousePointerClick,
@@ -127,7 +139,8 @@ const kpis = computed(() => {
       key: 'reviews',
       label: 'Новые отзывы',
       value: s.trends.reviews7d,
-      delta: s.trends.reviewsDeltaPct,
+      delta: s.trends.reviewsPrev7d === 0 && s.trends.reviews7d > 0 ? null : s.trends.reviewsDeltaPct,
+      isNew: s.trends.reviewsPrev7d === 0 && s.trends.reviews7d > 0,
       hint: `${s.reviewsPending} на модерации`,
       to: '/admin/reviews?status=pending',
       icon: Star,
@@ -137,7 +150,7 @@ const kpis = computed(() => {
       key: 'casinos',
       label: 'Казино на сайте',
       value: s.casinosPublished,
-      delta: null as number | null,
+      delta: null,
       hint: `${s.casinos} всего`,
       to: '/admin/casinos',
       icon: Building2,
@@ -147,7 +160,7 @@ const kpis = computed(() => {
       key: 'bonuses',
       label: 'Активные бонусы',
       value: s.bonusesPublished,
-      delta: null as number | null,
+      delta: null,
       hint: `${s.bonuses} в базе`,
       to: '/admin/bonuses',
       icon: Gift,
@@ -197,14 +210,28 @@ const chartData = computed(() => stats.value?.series || [])
 const mixData = computed(() => (stats.value?.mix || []).filter(i => i.value > 0))
 const maxTopClicks = computed(() => Math.max(1, ...(stats.value?.topCasinos.map(c => c.clicks) || [1])))
 
-function deltaLabel(n: number | null) {
-  if (n == null)
-    return null
-  const capped = Math.max(-999, Math.min(999, n))
-  const sign = capped > 0 ? '+' : ''
-  const suffix = Math.abs(n) > 999 ? '+' : ''
-  return `${sign}${capped}${suffix}%`
-}
+const colorMode = useColorMode()
+const isDarkUi = computed(() => colorMode.value === 'dark')
+const activityColors = computed(() =>
+  isDarkUi.value
+    ? ['oklch(0.72 0.14 220)', 'oklch(0.78 0.15 70)']
+    : ['oklch(0.48 0.14 240)', 'oklch(0.55 0.16 55)'],
+)
+const mixColors = computed(() =>
+  isDarkUi.value
+    ? [
+        'oklch(0.68 0.16 290)',
+        'oklch(0.72 0.14 220)',
+        'oklch(0.75 0.13 150)',
+        'oklch(0.78 0.14 50)',
+      ]
+    : [
+        'oklch(0.48 0.16 290)',
+        'oklch(0.45 0.13 240)',
+        'oklch(0.48 0.12 150)',
+        'oklch(0.55 0.15 50)',
+      ],
+)
 
 const metaStrip = computed(() => {
   const s = stats.value
@@ -236,44 +263,30 @@ function xFmt(i: number) {
 
 <template>
   <div class="space-y-6">
-    <div class="flex flex-wrap items-start justify-between gap-3">
-      <div class="space-y-1">
-        <div class="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground">
-          <span class="relative flex size-2">
-            <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-            <span class="relative inline-flex size-2 rounded-full bg-emerald-500" />
-          </span>
-          Live · {{ user?.role }}
-        </div>
-        <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">
-          {{ greeting }}, {{ user?.displayName || 'команда' }}
-        </h1>
-        <p class="text-sm text-muted-foreground">
-          Сводка по контенту, кликам и очередям модерации
-        </p>
-      </div>
-      <div class="flex flex-wrap items-center gap-2">
-        <select
-          v-model.number="rangeDays"
-          class="flex h-9 rounded-md border bg-transparent px-3 text-sm"
-        >
-          <option :value="7">
-            7 дней
-          </option>
-          <option :value="30">
-            30 дней
-          </option>
-          <option :value="90">
-            90 дней
-          </option>
-        </select>
-        <AdminSectionHelp section="dashboard" />
-        <Button variant="outline" size="sm" :disabled="pending || refreshing" @click="onRefresh">
-          <RefreshCw class="size-4" :class="refreshing || pending ? 'animate-spin' : ''" />
-          Обновить
-        </Button>
-      </div>
-    </div>
+    <AdminPageHeader
+      live
+      :eyebrow="`Live · ${user?.role}`"
+      :title="`${greeting}, ${user?.displayName || 'команда'}`"
+      description="Сводка по контенту, кликам и очередям модерации"
+      help="dashboard"
+    >
+      <template #actions>
+        <AdminSelect
+          v-model="rangeDays"
+          number
+          class="w-[140px]"
+          :options="[
+            { value: '7', label: '7 дней' },
+            { value: '30', label: '30 дней' },
+            { value: '90', label: '90 дней' },
+          ]"
+        />
+      </template>
+      <Button variant="outline" size="sm" :disabled="pending || refreshing" @click="onRefresh">
+        <RefreshCw class="size-4" :class="refreshing || pending ? 'animate-spin' : ''" />
+        Обновить
+      </Button>
+    </AdminPageHeader>
 
     <p v-if="error" class="rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive">
       Не удалось загрузить статистику. Проверьте API.
@@ -283,69 +296,30 @@ function xFmt(i: number) {
 
     <template v-else-if="stats">
       <NumberFlowGroup>
-        <!-- KPI -->
-        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <NuxtLink
+        <AdminUiAdminStatGrid>
+          <AdminUiAdminStatCard
             v-for="(card, i) in kpis"
             :key="card.key"
+            :label="card.label"
+            :value="card.value"
+            :delta="card.delta"
+            :is-new="card.isNew"
+            :hint="card.hint"
             :to="card.to"
-            class="group relative overflow-hidden rounded-2xl border bg-card p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-            :class="ready ? 'animate-in fade-in slide-in-from-bottom-2' : 'opacity-0'"
-            :style="{ animationDelay: `${i * 60}ms`, animationFillMode: 'both' }"
-          >
-            <div
-              class="pointer-events-none absolute -right-6 -top-6 size-24 rounded-full opacity-20 blur-2xl transition-opacity group-hover:opacity-40"
-              :class="{
-                'bg-cyan-400': card.tone === 'cyan',
-                'bg-amber-400': card.tone === 'amber',
-                'bg-violet-400': card.tone === 'violet',
-                'bg-emerald-400': card.tone === 'emerald',
-              }"
-            />
-            <div class="flex items-start justify-between gap-3">
-              <div
-                class="grid size-10 place-items-center rounded-xl border bg-background/80 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
-              >
-                <component
-                  :is="card.icon"
-                  class="size-5 transition-colors"
-                  :class="{
-                    'text-cyan-600': card.tone === 'cyan',
-                    'text-amber-600': card.tone === 'amber',
-                    'text-violet-600': card.tone === 'violet',
-                    'text-emerald-600': card.tone === 'emerald',
-                  }"
-                />
-              </div>
-              <Badge
-                v-if="deltaLabel(card.delta)"
-                variant="outline"
-                class="tabular-nums"
-                :class="(card.delta || 0) >= 0 ? 'text-emerald-600' : 'text-rose-600'"
-              >
-                {{ deltaLabel(card.delta) }}
-              </Badge>
-            </div>
-            <p class="mt-4 text-sm text-muted-foreground">
-              {{ card.label }}
-            </p>
-            <p class="mt-1 text-3xl font-semibold tracking-tight tabular-nums">
-              <NumberFlow :value="ready ? card.value : 0" locales="ru-RU" />
-            </p>
-            <p class="mt-1 text-xs text-muted-foreground">
-              {{ card.hint }}
-            </p>
-          </NuxtLink>
-        </div>
+            :icon="card.icon"
+            :tone="card.tone"
+            :ready="ready"
+            :index="i"
+          />
+        </AdminUiAdminStatGrid>
 
-        <!-- Charts row -->
         <div class="grid gap-4 xl:grid-cols-[1.6fr_1fr]">
-          <Card class="overflow-hidden">
+          <Card class="overflow-hidden rounded-2xl">
             <CardHeader class="pb-2">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <CardTitle class="flex items-center gap-2 text-base">
-                    <Sparkles class="size-4 text-amber-500 animate-pulse" />
+                    <Sparkles class="size-4 animate-pulse text-amber-500" />
                     Активность
                   </CardTitle>
                   <CardDescription>
@@ -354,10 +328,10 @@ function xFmt(i: number) {
                 </div>
                 <div class="flex gap-3 text-xs text-muted-foreground">
                   <span class="inline-flex items-center gap-1.5">
-                    <span class="size-2 rounded-full bg-[oklch(0.65_0.15_220)]" /> клики
+                    <span class="size-2 rounded-full" :style="{ background: activityColors[0] }" /> клики
                   </span>
                   <span class="inline-flex items-center gap-1.5">
-                    <span class="size-2 rounded-full bg-[oklch(0.7_0.16_70)]" /> отзывы
+                    <span class="size-2 rounded-full" :style="{ background: activityColors[1] }" /> отзывы
                   </span>
                 </div>
               </div>
@@ -369,17 +343,19 @@ function xFmt(i: number) {
                 :data="chartData"
                 index="date"
                 :categories="['clicks', 'reviews']"
-                :colors="['oklch(0.65 0.15 220)', 'oklch(0.7 0.16 70)']"
+                :colors="activityColors"
                 :show-legend="false"
                 :x-formatter="(_t, i) => xFmt(i)"
               />
-              <p v-else class="py-16 text-center text-sm text-muted-foreground">
-                Пока нет точек за период
-              </p>
+              <AdminUiAdminEmptyState
+                v-else
+                title="Пока нет точек за период"
+                description="Данные появятся после кликов /go/ и новых отзывов"
+              />
             </CardContent>
           </Card>
 
-          <Card>
+          <Card class="rounded-2xl">
             <CardHeader class="pb-2">
               <CardTitle class="text-base">
                 Контент на сайте
@@ -396,12 +372,7 @@ function xFmt(i: number) {
                 index="name"
                 category="value"
                 :show-legend="false"
-                :colors="[
-                  'oklch(0.62 0.18 290)',
-                  'oklch(0.65 0.15 220)',
-                  'oklch(0.7 0.14 150)',
-                  'oklch(0.72 0.16 50)',
-                ]"
+                :colors="mixColors"
                 :value-formatter="(n) => Number(n).toLocaleString('ru-RU')"
               />
               <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
@@ -410,8 +381,8 @@ function xFmt(i: number) {
                   :key="item.name"
                   class="flex items-center justify-between rounded-lg border px-2.5 py-1.5"
                 >
-                  <span class="text-muted-foreground">{{ item.name }}</span>
-                  <span class="font-semibold tabular-nums">
+                  <span class="font-medium text-foreground/70">{{ item.name }}</span>
+                  <span class="font-semibold tabular-nums text-foreground">
                     <NumberFlow :value="ready ? item.value : 0" locales="ru-RU" />
                   </span>
                 </div>
@@ -420,9 +391,8 @@ function xFmt(i: number) {
           </Card>
         </div>
 
-        <!-- Queues + top -->
         <div class="grid gap-4 lg:grid-cols-2">
-          <Card>
+          <Card class="rounded-2xl">
             <CardHeader class="pb-2">
               <CardTitle class="text-base">
                 Очереди и разделы
@@ -440,7 +410,7 @@ function xFmt(i: number) {
               >
                 <div
                   class="grid size-9 place-items-center rounded-lg border bg-background transition-transform group-hover:scale-105"
-                  :class="q.urgent ? 'border-amber-500/40 text-amber-600' : 'text-muted-foreground'"
+                  :class="q.urgent ? 'border-amber-500/40 text-amber-600 dark:text-amber-400' : 'text-muted-foreground'"
                 >
                   <component :is="q.icon" class="size-4" :class="q.urgent ? 'animate-pulse' : ''" />
                 </div>
@@ -449,7 +419,10 @@ function xFmt(i: number) {
                     {{ q.label }}
                   </p>
                 </div>
-                <span class="text-lg font-semibold tabular-nums">
+                <span
+                  class="text-lg font-semibold tabular-nums"
+                  :class="q.urgent ? 'text-amber-600 dark:text-amber-400' : ''"
+                >
                   <NumberFlow :value="ready ? q.value : 0" locales="ru-RU" />
                 </span>
                 <ArrowUpRight class="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
@@ -457,7 +430,7 @@ function xFmt(i: number) {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card class="rounded-2xl">
             <CardHeader class="pb-2">
               <CardTitle class="text-base">
                 Топ казино по кликам
@@ -475,7 +448,7 @@ function xFmt(i: number) {
               >
                 <div class="flex items-center justify-between gap-2 text-sm">
                   <span class="truncate font-medium">
-                    <span class="mr-2 text-muted-foreground tabular-nums">{{ idx + 1 }}.</span>
+                    <span class="mr-2 tabular-nums text-muted-foreground">{{ idx + 1 }}.</span>
                     {{ c.name }}
                   </span>
                   <span class="shrink-0 tabular-nums text-muted-foreground">
@@ -489,40 +462,19 @@ function xFmt(i: number) {
                   />
                 </div>
               </NuxtLink>
-              <p v-if="!stats.topCasinos.length" class="py-8 text-center text-sm text-muted-foreground">
-                Кликов за период ещё нет
-              </p>
+              <AdminUiAdminEmptyState
+                v-if="!stats.topCasinos.length"
+                title="Кликов за период ещё нет"
+                description="Клики появятся после трафика на /go/"
+                :icon="MousePointerClick"
+                to="/admin/clicks"
+                cta="Открыть клики"
+              />
             </CardContent>
           </Card>
         </div>
 
-        <!-- Meta strip -->
-        <div class="grid gap-3 sm:grid-cols-3">
-          <NuxtLink
-            v-for="(m, i) in metaStrip"
-            :key="m.label"
-            :to="m.to"
-            class="group flex items-center gap-3 rounded-2xl border bg-card/60 px-4 py-3 transition-all hover:bg-card hover:shadow-md"
-            :class="ready ? 'animate-in fade-in slide-in-from-bottom-1' : 'opacity-0'"
-            :style="{ animationDelay: `${320 + i * 50}ms`, animationFillMode: 'both' }"
-          >
-            <div class="grid size-9 place-items-center rounded-lg border bg-background text-muted-foreground transition-transform group-hover:scale-110">
-              <component :is="m.icon" class="size-4" />
-            </div>
-            <div class="min-w-0 flex-1">
-              <p class="text-xs text-muted-foreground">
-                {{ m.label }}
-              </p>
-              <p class="text-lg font-semibold tabular-nums">
-                <NumberFlow :value="ready ? m.value : 0" locales="ru-RU" />
-                <span v-if="m.total != null" class="ml-1 text-xs font-normal text-muted-foreground">
-                  / {{ m.total }}
-                </span>
-              </p>
-            </div>
-            <ArrowUpRight class="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
-          </NuxtLink>
-        </div>
+        <AdminUiAdminKpiStrip :items="metaStrip" :ready="ready" />
 
         <p class="text-center text-[11px] text-muted-foreground">
           Обновлено {{ generatedLabel }}

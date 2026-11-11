@@ -32,6 +32,13 @@ const isEditor = computed(() => user.value?.role === 'editor')
 
 const editorAllowed = new Set<string>(EDITOR_ADMIN_ALLOW_PREFIXES)
 
+const { reviewsPending, complaintsOpen } = useAdminQueueBadges()
+
+const badgeByLink = computed<Record<string, number>>(() => ({
+  '/admin/reviews': reviewsPending.value,
+  '/admin/complaints': complaintsOpen.value,
+}))
+
 const activeMenu = computed(() => {
   if (isPartner.value)
     return partnerNavMenu
@@ -55,13 +62,18 @@ const activeMenu = computed(() => {
       hidden.add('/admin/glossary')
     }
   }
-  if (!hidden.size)
-    return navMenu
 
   return navMenu
     .map(group => ({
       ...group,
-      items: group.items.filter(item => !('link' in item && hidden.has(item.link))),
+      items: group.items
+        .filter(item => !('link' in item && hidden.has(item.link)))
+        .map((item) => {
+          if (!('link' in item))
+            return item
+          const badge = badgeByLink.value[item.link]
+          return badge ? { ...item, badge } : item
+        }),
     }))
     .filter(group => group.items.length > 0)
 })

@@ -102,18 +102,14 @@ async function create() {
           placeholder="Поиск казино по имени / slug"
           @keyup.enter="refreshCasinos()"
         />
-        <select
+        <AdminSelect
           v-model="fields.casino_id"
-          required
-          class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm"
-        >
-          <option value="" disabled>
-            {{ casinosPending ? 'Загрузка…' : 'Выберите казино' }}
-          </option>
-          <option v-for="c in casinosData?.items || []" :key="c.id" :value="c.id">
-            {{ c.name }} ({{ c.slug }})
-          </option>
-        </select>
+          :placeholder="casinosPending ? 'Загрузка…' : 'Выберите казино'"
+          :options="[
+            { value: '', label: casinosPending ? 'Загрузка…' : 'Выберите казино', disabled: true },
+            ...(casinosData?.items || []).map(c => ({ value: c.id, label: `${c.name} (${c.slug})` })),
+          ]"
+        />
       </div>
 
       <div class="grid gap-4 sm:grid-cols-2">
@@ -155,14 +151,13 @@ async function create() {
         </div>
         <div class="grid gap-2">
           <Label>Status</Label>
-          <select v-model="fields.status" class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm">
-            <option value="active">
-              active
-            </option>
-            <option value="hidden">
-              hidden
-            </option>
-          </select>
+          <AdminSelect
+            v-model="fields.status"
+            :options="[
+              { value: 'active', label: 'active' },
+              { value: 'hidden', label: 'hidden' },
+            ]"
+          />
         </div>
         <div class="grid gap-2 sm:col-span-2">
           <Label>Описание RU</Label>
@@ -174,10 +169,9 @@ async function create() {
         </div>
       </div>
 
-      <label class="inline-flex items-center gap-2 text-sm">
-        <input v-model="fields.published" type="checkbox" class="size-4">
+      <AdminCheckbox v-model:checked="fields.published">
         Показывать на сайте
-      </label>
+      </AdminCheckbox>
 
       <div class="flex flex-wrap items-center gap-3">
         <Button

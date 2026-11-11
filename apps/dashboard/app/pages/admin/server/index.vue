@@ -97,6 +97,42 @@ function spark(points: number[]) {
     .join(' ')
 }
 
+function thresholdClass(pct: number | null | undefined) {
+  const n = Number(pct)
+  if (!Number.isFinite(n))
+    return 'bg-muted-foreground'
+  if (n > 85)
+    return 'bg-rose-500'
+  if (n > 70)
+    return 'bg-amber-500'
+  return 'bg-emerald-500'
+}
+
+function thresholdText(pct: number | null | undefined) {
+  const n = Number(pct)
+  if (!Number.isFinite(n))
+    return ''
+  if (n > 85)
+    return 'text-rose-600 dark:text-rose-400'
+  if (n > 70)
+    return 'text-amber-600 dark:text-amber-400'
+  return 'text-emerald-600 dark:text-emerald-400'
+}
+
+const envBadge = computed(() => {
+  const host = stats.value?.host.hostname || ''
+  if (/mac|darwin|localhost|edward/i.test(host) || stats.value?.host.platform === 'darwin')
+    return { label: 'local', class: 'border-cyan-500/40 text-cyan-700 dark:text-cyan-400' }
+  return { label: 'production', class: 'border-emerald-500/40 text-emerald-700 dark:text-emerald-400' }
+})
+
+const heapPct = computed(() => {
+  const p = stats.value?.process
+  if (!p?.heapTotalBytes)
+    return 0
+  return Math.round((p.heapUsedBytes / p.heapTotalBytes) * 1000) / 10
+})
+
 async function tick() {
   if (!allowed.value)
     return
@@ -144,19 +180,20 @@ onBeforeUnmount(stop)
 </script>
 
 <template>
-  <div class="space-y-4">
-    <div class="flex flex-wrap items-start justify-between gap-3">
-      <div>
-        <h1 class="text-2xl font-bold tracking-tight">
-          Сервер
-        </h1>
-        <p class="text-sm text-muted-foreground">
-          Метрики хоста, где запущен API (на проде — VPS; локально — ваш Mac)
-        </p>
-      </div>
-      <div class="flex items-center gap-2">
+  <div class="space-y-6">
+    <AdminPageHeader
+      :live="live"
+      :eyebrow="stats ? `${stats.host.hostname} · обновлено ${new Date(stats.ts).toLocaleTimeString()}` : 'Метрики API-хоста'"
+      title="Сервер"
+      description="На проде — VPS; локально — ваш Mac. Не путайте окружения."
+      help="server"
+    >
+      <template #actions>
+        <Badge v-if="stats" variant="outline" :class="envBadge.class">
+          {{ envBadge.label }}
+        </Badge>
         <Button
-          variant="secondary"
+          variant="outline"
           size="sm"
           :disabled="pending"
           @click="tick()"
@@ -170,9 +207,8 @@ onBeforeUnmount(stop)
         >
           {{ live ? 'Live on' : 'Live off' }}
         </Button>
-        <AdminSectionHelp section="server" />
-      </div>
-    </div>
+      </template>
+    </AdminPageHeader>
 
     <div
       v-if="!allowed"
@@ -190,24 +226,25 @@ onBeforeUnmount(stop)
 
     <template v-else-if="stats">
       <p class="text-xs text-muted-foreground">
-        {{ stats.host.hostname }} · {{ stats.host.platform }}/{{ stats.host.arch }} · обновлено {{ new Date(stats.ts).toLocaleTimeString() }}
+        {{ stats.host.platform }}/{{ stats.host.arch }} · uptime {{ fmtUptime(stats.host.uptimeSec) }}
       </p>
 
       <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <div class="rounded-xl border bg-card p-4">
+        <div class="rounded-2xl border bg-card p-4">
           <div class="flex items-start justify-between gap-2">
             <div>
               <p class="text-xs text-muted-foreground">
                 CPU
               </p>
-              <p class="mt-1 text-3xl font-semibold tabular-nums">
+              <p class="mt-1 text-3xl font-semibold tabular-nums" :class="thresholdText(stats.host.cpuPercent)">
                 {{ stats.host.cpuPercent != null ? `${stats.host.cpuPercent}%` : '—' }}
               </p>
             </div>
             <svg
               width="120"
               height="36"
-              class="text-primary opacity-80"
+              class="opacity-80"
+              :class="thresholdText(stats.host.cpuPercent)"
               aria-hidden="true"
             >
               <path
@@ -217,6 +254,13 @@ onBeforeUnmount(stop)
                 stroke-width="2"
               />
             </svg>
+          </div>
+          <div class="mt-3 h-2 overflow-hidden rounded-full bg-muted">
+            <div
+              class="h-full rounded-full transition-all"
+              :class="thresholdClass(stats.host.cpuPercent)"
+              :style="{ width: `${Math.min(100, stats.host.cpuPercent ?? 0)}%` }"
+            />
           </div>
           <p class="mt-2 text-xs text-muted-foreground">
             {{ stats.host.cpuCount }} cores · load {{ stats.host.loadAvg.m1 }} / {{ stats.host.loadAvg.m5 }} / {{ stats.host.loadAvg.m15 }}
@@ -229,20 +273,21 @@ onBeforeUnmount(stop)
           </p>
         </div>
 
-        <div class="rounded-xl border bg-card p-4">
+        <div class="rounded-2xl border bg-card p-4">
           <div class="flex items-start justify-between gap-2">
             <div>
               <p class="text-xs text-muted-foreground">
                 RAM
               </p>
-              <p class="mt-1 text-3xl font-semibold tabular-nums">
+              <p class="mt-1 text-3xl font-semibold tabular-nums" :class="thresholdText(stats.host.memory.usedPercent)">
                 {{ stats.host.memory.usedPercent }}%
               </p>
             </div>
             <svg
               width="120"
               height="36"
-              class="text-primary opacity-80"
+              class="opacity-80"
+              :class="thresholdText(stats.host.memory.usedPercent)"
               aria-hidden="true"
             >
               <path
@@ -260,17 +305,18 @@ onBeforeUnmount(stop)
           </p>
           <div class="mt-3 h-2 overflow-hidden rounded-full bg-muted">
             <div
-              class="h-full rounded-full bg-primary transition-all"
+              class="h-full rounded-full transition-all"
+              :class="thresholdClass(stats.host.memory.usedPercent)"
               :style="{ width: `${Math.min(100, stats.host.memory.usedPercent)}%` }"
             />
           </div>
         </div>
 
-        <div class="rounded-xl border bg-card p-4">
+        <div class="rounded-2xl border bg-card p-4">
           <p class="text-xs text-muted-foreground">
             Диск /
           </p>
-          <p class="mt-1 text-3xl font-semibold tabular-nums">
+          <p class="mt-1 text-3xl font-semibold tabular-nums" :class="thresholdText(stats.host.disk?.usedPercent)">
             {{ stats.host.disk ? `${stats.host.disk.usedPercent}%` : '—' }}
           </p>
           <p
@@ -284,13 +330,14 @@ onBeforeUnmount(stop)
             class="mt-3 h-2 overflow-hidden rounded-full bg-muted"
           >
             <div
-              class="h-full rounded-full bg-primary transition-all"
+              class="h-full rounded-full transition-all"
+              :class="thresholdClass(stats.host.disk.usedPercent)"
               :style="{ width: `${Math.min(100, stats.host.disk.usedPercent)}%` }"
             />
           </div>
         </div>
 
-        <div class="rounded-xl border bg-card p-4">
+        <div class="rounded-2xl border bg-card p-4">
           <p class="text-xs text-muted-foreground">
             Uptime
           </p>
@@ -303,7 +350,7 @@ onBeforeUnmount(stop)
         </div>
       </div>
 
-      <div class="rounded-xl border bg-card p-4">
+      <div class="rounded-2xl border bg-card p-4">
         <h2 class="text-sm font-semibold">
           Процесс API
         </h2>
@@ -339,6 +386,19 @@ onBeforeUnmount(stop)
             <p class="font-medium tabular-nums">
               {{ fmtBytes(stats.process.heapTotalBytes) }}
             </p>
+          </div>
+        </div>
+        <div class="mt-4 space-y-1.5">
+          <div class="flex items-center justify-between text-xs text-muted-foreground">
+            <span>Heap</span>
+            <span class="tabular-nums" :class="thresholdText(heapPct)">{{ heapPct }}%</span>
+          </div>
+          <div class="h-2 overflow-hidden rounded-full bg-muted">
+            <div
+              class="h-full rounded-full transition-all"
+              :class="thresholdClass(heapPct)"
+              :style="{ width: `${Math.min(100, heapPct)}%` }"
+            />
           </div>
         </div>
       </div>

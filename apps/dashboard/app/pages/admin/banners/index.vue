@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Eye, EyeOff, GripVertical, Pencil, Plus } from 'lucide-vue-next'
+import type { AdminTone } from '~/components/admin/ui/types'
+import { GripVertical, ImageIcon, Pencil, Plus } from 'lucide-vue-next'
 import draggable from 'vuedraggable'
 
 definePageMeta({ layout: 'default' })
@@ -22,14 +23,31 @@ interface Row {
   active: boolean
 }
 
+interface ListRes {
+  items: Row[]
+  summary?: {
+    total: number
+    active: number
+    inactive: number
+    byPlacement: Array<{ placement: string, count: number }>
+  }
+}
+
 const placement = ref('')
 const { data, pending, refresh } = await useAsyncData(
   () => `admin-banners-${placement.value || 'all'}`,
-  () => api<{ items: Row[] }>('/v1/admin/banners', {
+  () => api<ListRes>('/v1/admin/banners', {
     query: { placement: placement.value || undefined },
   }),
   { watch: [placement] },
 )
+
+const ready = ref(false)
+onMounted(() => {
+  requestAnimationFrame(() => {
+    ready.value = true
+  })
+})
 
 const rows = ref<Row[]>([])
 watch(
@@ -39,6 +57,17 @@ watch(
   },
   { immediate: true },
 )
+
+const summary = computed(() => data.value?.summary)
+const kpiCards = computed(() => {
+  const s = summary.value
+  return [
+    { label: 'Всего', value: s?.total ?? rows.value.length, hint: 'баннеров', tone: 'violet' as AdminTone },
+    { label: 'Активные', value: s?.active ?? 0, hint: 'on', tone: 'emerald' as AdminTone },
+    { label: 'Выключенные', value: s?.inactive ?? 0, hint: 'off', tone: 'amber' as AdminTone },
+    { label: 'Placements', value: s?.byPlacement?.length ?? 0, hint: (s?.byPlacement || []).map(p => p.placement).join(' · ') || '—', tone: 'cyan' as AdminTone },
+  ]
+})
 
 function assetUrl(path: string | null | undefined) {
   if (!path)
@@ -207,43 +236,69 @@ async function onReorder() {
 </script>
 
 <template>
-  <div class="space-y-4">
-    <div class="flex flex-wrap items-start justify-between gap-3">
-      <div>
-        <h1 class="text-2xl font-bold tracking-tight">
-          Баннеры
-        </h1>
-        <p class="text-sm text-muted-foreground">
-          Создание, загрузка картинок, порядок drag-and-drop
-        </p>
-      </div>
-      <div class="flex flex-wrap items-center gap-2">
-        <AdminSectionHelp section="banners" />
+  <div class="space-y-6">
+    <AdminPageHeader
+      title="Баннеры"
+      description="Создание, загрузка картинок, порядок drag-and-drop"
+      help="banners"
+    >
+      <template #actions>
         <Button size="sm" @click="openCreate">
           <Plus class="size-4" />
           Добавить
         </Button>
-      </div>
-    </div>
+      </template>
+    </AdminPageHeader>
 
-    <div class="flex flex-wrap gap-2 items-center">
-      <select
-        v-model="placement"
-        class="flex h-9 rounded-md border bg-transparent px-3 text-sm"
+    <AdminUiAdminStatGrid :cols="4">
+      <AdminUiAdminStatCard
+        v-for="(card, i) in kpiCards"
+        :key="card.label"
+        :label="card.label"
+        :value="card.value"
+        :hint="card.hint"
+        :icon="ImageIcon"
+        :tone="card.tone"
+        :ready="ready && !pending"
+        :index="i"
+      />
+    </AdminUiAdminStatGrid>
+
+    <div class="flex flex-wrap items-center gap-1.5 rounded-2xl border bg-card/40 p-3">
+      <button
+        type="button"
+        class="rounded-full border px-3 py-1 text-xs font-medium transition-colors"
+        :class="!placement
+          ? 'border-foreground/20 bg-foreground text-background'
+          : 'border-border bg-background text-muted-foreground hover:text-foreground'"
+        @click="placement = ''"
       >
-        <option value="">
-          Все placements
-        </option>
-        <option v-for="p in placements" :key="p.value" :value="p.value">
-          {{ p.label }}
-        </option>
-      </select>
-      <span v-if="reorderBusy" class="text-xs text-muted-foreground">Сохраняю порядок…</span>
+        Все
+      </button>
+      <button
+        v-for="p in placements"
+        :key="p.value"
+        type="button"
+        class="rounded-full border px-3 py-1 text-xs font-medium transition-colors"
+        :class="placement === p.value
+          ? 'border-foreground/20 bg-foreground text-background'
+          : 'border-border bg-background text-muted-foreground hover:text-foreground'"
+        @click="placement = p.value"
+      >
+        {{ p.value }}
+        <span
+          v-if="summary?.byPlacement?.find(x => x.placement === p.value)"
+          class="ml-1 tabular-nums opacity-70"
+        >
+          {{ summary.byPlacement.find(x => x.placement === p.value)!.count }}
+        </span>
+      </button>
+      <span v-if="reorderBusy" class="ml-auto text-xs text-muted-foreground">Сохраняю порядок…</span>
     </div>
 
     <AdminTableSkeleton v-if="pending && !data" :cols="4" />
-    <div v-else class="rounded-xl border overflow-hidden">
-      <div class="grid grid-cols-[28px_88px_1fr_auto] gap-3 border-b bg-muted/40 px-3 py-2 text-xs font-medium text-muted-foreground">
+    <div v-else class="overflow-hidden rounded-2xl border">
+      <div class="grid grid-cols-[28px_120px_1fr_auto] gap-3 border-b bg-muted/40 px-3 py-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
         <span />
         <span>Превью</span>
         <span>Баннер</span>
@@ -258,7 +313,7 @@ async function onReorder() {
         @end="onReorder"
       >
         <template #item="{ element: row }">
-          <div class="grid grid-cols-[28px_88px_1fr_auto] items-center gap-3 px-3 py-2.5 bg-background">
+          <div class="grid grid-cols-[28px_120px_1fr_auto] items-center gap-3 px-3 py-2.5 transition-colors hover:bg-muted/30">
             <button
               type="button"
               class="drag-handle cursor-grab text-muted-foreground hover:text-foreground"
@@ -266,9 +321,19 @@ async function onReorder() {
             >
               <GripVertical class="size-4" />
             </button>
-            <div class="flex gap-1">
-              <img :src="assetUrl(row.image_ru)" alt="" class="h-12 w-10 rounded object-cover border">
-              <img :src="assetUrl(row.image_en)" alt="" class="h-12 w-10 rounded object-cover border opacity-80">
+            <div class="flex gap-1.5">
+              <div class="relative">
+                <Badge class="absolute -left-1 -top-1 z-10 px-1 py-0 text-[9px]" variant="secondary">
+                  RU
+                </Badge>
+                <img :src="assetUrl(row.image_ru)" alt="" class="h-12 w-12 rounded-lg border object-cover transition-transform hover:scale-105">
+              </div>
+              <div class="relative">
+                <Badge class="absolute -left-1 -top-1 z-10 px-1 py-0 text-[9px]" variant="secondary">
+                  EN
+                </Badge>
+                <img :src="assetUrl(row.image_en)" alt="" class="h-12 w-12 rounded-lg border object-cover opacity-90 transition-transform hover:scale-105">
+              </div>
             </div>
             <div class="min-w-0">
               <div class="truncate font-medium">
@@ -278,14 +343,10 @@ async function onReorder() {
                 {{ row.placement }} · #{{ row.sort_order }} · {{ row.slug }}
               </div>
             </div>
-            <div class="inline-flex items-center justify-end gap-0.5">
-              <Badge :variant="row.active ? 'default' : 'secondary'" class="mr-1">
-                {{ row.active ? 'on' : 'off' }}
-              </Badge>
-              <AdminIconButton
-                :tooltip="row.active ? 'Выключить' : 'Включить'"
-                :icon="row.active ? EyeOff : Eye"
-                @click="toggleActive(row)"
+            <div class="inline-flex items-center justify-end gap-2">
+              <Switch
+                :model-value="row.active"
+                @update:model-value="toggleActive(row)"
               />
               <AdminIconButton
                 tooltip="Редактировать"
@@ -302,9 +363,16 @@ async function onReorder() {
           </div>
         </template>
       </draggable>
-      <p v-if="!rows.length" class="px-3 py-10 text-center text-sm text-muted-foreground">
-        Баннеров нет — нажмите «Добавить»
-      </p>
+      <AdminUiAdminEmptyState
+        v-if="!rows.length"
+        title="Баннеров нет"
+        description="Нажмите «Добавить», чтобы создать первый"
+        :icon="ImageIcon"
+      >
+        <Button size="sm" class="mt-2" @click="openCreate">
+          Добавить
+        </Button>
+      </AdminUiAdminEmptyState>
     </div>
 
     <Dialog :open="creating || !!editing" @update:open="(v) => { if (!v) closeEditor() }">
@@ -318,11 +386,10 @@ async function onReorder() {
           <div class="grid gap-3 sm:grid-cols-2">
             <div class="grid gap-2">
               <Label>Placement</Label>
-              <select v-model="fields.placement" class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm">
-                <option v-for="p in placements" :key="p.value" :value="p.value">
-                  {{ p.label }}
-                </option>
-              </select>
+              <AdminSelect
+                v-model="fields.placement"
+                :options="placements.map(p => ({ value: p.value, label: p.label }))"
+              />
             </div>
             <div v-if="creating" class="grid gap-2">
               <Label>Slug (опционально)</Label>
@@ -366,10 +433,9 @@ async function onReorder() {
             </div>
           </div>
 
-          <label class="inline-flex items-center gap-2 text-sm">
-            <input v-model="fields.active" type="checkbox" class="size-4">
+          <AdminCheckbox v-model:checked="fields.active">
             Показывать на сайте
-          </label>
+          </AdminCheckbox>
 
           <p v-if="saveErr" class="text-sm text-destructive">
             {{ saveErr }}

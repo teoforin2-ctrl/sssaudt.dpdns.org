@@ -87,26 +87,47 @@ export async function registerTrust(app: FastifyInstance, pool: Pool) {
       params.push(q.status);
       where = `status = $${params.length}`;
     }
-    const { rows: countRows } = await pool.query<{ n: string }>(
-      `select count(*)::text as n from complaints where ${where}`,
-      params,
-    );
-    params.push(limit, offset);
-    const { rows } = await pool.query(
-      `
-      select *
-      from complaints
-      where ${where}
-      order by created_at desc
-      limit $${params.length - 1} offset $${params.length}
-      `,
-      params,
-    );
+    const [{ rows: countRows }, { rows }, summaryRes] = await Promise.all([
+      pool.query<{ n: string }>(
+        `select count(*)::text as n from complaints where ${where}`,
+        params,
+      ),
+      pool.query(
+        `
+        select *
+        from complaints
+        where ${where}
+        order by created_at desc
+        limit $${params.length + 1} offset $${params.length + 2}
+        `,
+        [...params, limit, offset],
+      ),
+      pool.query<{
+        total: string
+        open_n: string
+        in_progress: string
+        resolved: string
+      }>(`
+        select
+          count(*)::text as total,
+          count(*) filter (where status in ('new','in_review','need_info'))::text as open_n,
+          count(*) filter (where status = 'in_review')::text as in_progress,
+          count(*) filter (where status = 'resolved')::text as resolved
+        from complaints
+      `).catch(() => ({ rows: [] as any[] })),
+    ]);
+    const s = summaryRes.rows[0];
     return {
       items: rows,
       total: Number(countRows[0]?.n || 0),
       page,
       limit,
+      summary: {
+        total: Number(s?.total ?? 0),
+        open: Number(s?.open_n ?? 0),
+        inProgress: Number(s?.in_progress ?? 0),
+        resolved: Number(s?.resolved ?? 0),
+      },
     };
   });
 

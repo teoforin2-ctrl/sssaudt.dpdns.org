@@ -74,14 +74,11 @@ function tagClass(tag: string) {
               placeholder="Поиск: RTP, вейджер, CPA, KYC…"
               class="h-9 max-w-md"
             />
-            <select
+            <AdminSelect
               v-model="activeSection"
-              class="flex h-9 rounded-md border bg-transparent px-3 text-sm"
-            >
-              <option v-for="s in sectionOptions" :key="s.id" :value="s.id">
-                {{ s.title }}
-              </option>
-            </select>
+              class="w-[220px]"
+              :options="sectionOptions.map(s => ({ value: s.id, label: s.title }))"
+            />
             <Badge variant="secondary" class="tabular-nums">
               {{ visibleCount }} найдено
             </Badge>

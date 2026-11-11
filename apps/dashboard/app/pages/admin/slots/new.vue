@@ -139,28 +139,26 @@ async function create() {
         </div>
         <div class="grid gap-2">
           <Label>Статус (показ на сайте)</Label>
-          <select v-model="slot.status" class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm">
-            <option value="draft">
-              draft — скрыт
-            </option>
-            <option value="published">
-              published — на сайте
-            </option>
-            <option value="hidden">
-              hidden — скрыт
-            </option>
-          </select>
+          <AdminSelect
+            :model-value="slot.status"
+            :options="[
+              { value: 'draft', label: 'draft — скрыт' },
+              { value: 'published', label: 'published — на сайте' },
+              { value: 'hidden', label: 'hidden — скрыт' },
+            ]"
+            @update:model-value="(v) => setField('status', String(v ?? 'draft'))"
+          />
         </div>
         <div class="grid gap-2">
           <Label>Провайдер</Label>
-          <select v-model="slot.provider_id" class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm">
-            <option value="">
-              — без провайдера —
-            </option>
-            <option v-for="p in providersData?.items || []" :key="p.id" :value="p.id">
-              {{ p.name }}
-            </option>
-          </select>
+          <AdminSelect
+            :model-value="slot.provider_id"
+            :options="[
+              { value: '', label: '— без провайдера —' },
+              ...(providersData?.items || []).map(p => ({ value: p.id, label: p.name })),
+            ]"
+            @update:model-value="(v) => setField('provider_id', String(v ?? ''))"
+          />
         </div>
         <div class="grid gap-2">
           <Label>Тема</Label>
@@ -171,17 +169,15 @@ async function create() {
         </div>
         <div class="grid gap-2">
           <Label>Волатильность</Label>
-          <select v-model="slot.volatility" class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm">
-            <option value="low">
-              low
-            </option>
-            <option value="medium">
-              medium
-            </option>
-            <option value="high">
-              high
-            </option>
-          </select>
+          <AdminSelect
+            :model-value="slot.volatility"
+            :options="[
+              { value: 'low', label: 'low' },
+              { value: 'medium', label: 'medium' },
+              { value: 'high', label: 'high' },
+            ]"
+            @update:model-value="(v) => setField('volatility', String(v ?? 'medium'))"
+          />
         </div>
         <div class="grid gap-2">
           <Label>RTP %</Label>

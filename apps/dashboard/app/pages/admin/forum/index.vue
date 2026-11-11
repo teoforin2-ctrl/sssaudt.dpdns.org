@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Eye, EyeOff, Lock, LockOpen, MessagesSquare } from 'lucide-vue-next'
+import type { AdminTone } from '~/components/admin/ui/types'
+import { Eye, EyeOff, Lock, LockOpen, MessageSquare, MessagesSquare } from 'lucide-vue-next'
 
 definePageMeta({ layout: 'default' })
 
@@ -32,7 +33,16 @@ interface Row {
   last_post_at: string
 }
 
-interface ListRes { items: Row[], total: number }
+interface ListRes {
+  items: Row[]
+  total: number
+  summary?: {
+    topics: number
+    posts: number
+    hidden: number
+    locked: number
+  }
+}
 
 const { data, pending, refresh } = await useAsyncData(
   'admin-forum-topics',
@@ -46,6 +56,34 @@ const { data, pending, refresh } = await useAsyncData(
   }),
   { watch: [page, status] },
 )
+
+const ready = ref(false)
+onMounted(() => {
+  requestAnimationFrame(() => {
+    ready.value = true
+  })
+})
+
+const summary = computed(() => data.value?.summary)
+const kpiCards = computed(() => {
+  const s = summary.value
+  return [
+    { label: 'Тем', value: s?.topics ?? data.value?.total ?? 0, hint: 'всего', tone: 'violet' as AdminTone, icon: MessagesSquare },
+    { label: 'Постов', value: s?.posts ?? 0, hint: 'сообщений', tone: 'cyan' as AdminTone, icon: MessageSquare },
+    { label: 'Скрытых', value: s?.hidden ?? 0, hint: 'тем', tone: 'amber' as AdminTone, icon: EyeOff },
+    { label: 'Закрытых', value: s?.locked ?? 0, hint: 'locked', tone: 'rose' as AdminTone, icon: Lock },
+  ]
+})
+
+function relativeTime(iso: string) {
+  if (!iso)
+    return '—'
+  const diff = Date.now() - new Date(iso).getTime()
+  const hours = Math.floor(diff / 3600000)
+  if (hours < 48)
+    return `${hours} ч`
+  return new Date(iso).toLocaleDateString('ru-RU')
+}
 
 async function search() {
   page.value = 1
@@ -104,62 +142,71 @@ async function setPostStatus(id: string, next: 'published' | 'hidden' | 'deleted
 </script>
 
 <template>
-  <div class="space-y-4">
-    <div class="flex flex-wrap items-start justify-between gap-3">
-      <div>
-        <h1 class="text-2xl font-bold tracking-tight">
-          Модерация форума
-        </h1>
-        <p class="text-sm text-muted-foreground">
-          {{ data?.total ?? 0 }} тем · скрытие / закрытие / удаление
-        </p>
-      </div>
-      <AdminSectionHelp section="forum" />
-    </div>
+  <div class="space-y-6">
+    <AdminPageHeader
+      title="Модерация форума"
+      :description="`${data?.total ?? 0} тем · скрытие / закрытие / удаление`"
+      help="forum"
+    />
 
-    <div class="flex flex-wrap items-center gap-2">
-      <select
-        v-model="status"
-        class="flex h-9 rounded-md border bg-transparent px-3 text-sm"
-        @change="page = 1"
-      >
-        <option value="">
-          Все статусы
-        </option>
-        <option value="published">
-          published
-        </option>
-        <option value="hidden">
-          hidden
-        </option>
-        <option value="deleted">
-          deleted
-        </option>
-      </select>
-      <Input v-model="q" class="max-w-sm" placeholder="Тема / автор / slug" @keyup.enter="search" />
+    <AdminUiAdminStatGrid>
+      <AdminUiAdminStatCard
+        v-for="(card, i) in kpiCards"
+        :key="card.label"
+        :label="card.label"
+        :value="card.value"
+        :hint="card.hint"
+        :icon="card.icon"
+        :tone="card.tone"
+        :ready="ready && !pending"
+        :index="i"
+      />
+    </AdminUiAdminStatGrid>
+
+    <div class="flex flex-col gap-3 rounded-2xl border bg-card/40 p-3 sm:flex-row sm:flex-wrap sm:items-center">
+      <div class="flex flex-wrap gap-1.5">
+        <button
+          v-for="chip in [
+            { id: '', label: 'Все' },
+            { id: 'published', label: 'Published' },
+            { id: 'hidden', label: 'Hidden' },
+            { id: 'deleted', label: 'Deleted' },
+          ]"
+          :key="chip.id || 'all'"
+          type="button"
+          class="rounded-full border px-3 py-1 text-xs font-medium transition-colors"
+          :class="status === chip.id
+            ? 'border-foreground/20 bg-foreground text-background'
+            : 'border-border bg-background text-muted-foreground hover:text-foreground'"
+          @click="status = chip.id; page = 1"
+        >
+          {{ chip.label }}
+        </button>
+      </div>
+      <Input v-model="q" class="max-w-sm flex-1" placeholder="Тема / автор / slug" @keyup.enter="search" />
       <Button variant="secondary" :disabled="pending" @click="search">
         Найти
       </Button>
     </div>
 
     <AdminTableSkeleton v-if="pending && !data" :cols="5" />
-    <div v-else class="overflow-x-auto rounded-xl border">
+    <div v-else class="overflow-x-auto rounded-2xl border">
       <table class="w-full text-sm">
-        <thead class="bg-muted/50 text-left">
-          <tr>
-            <th class="px-3 py-2 font-medium">
+        <thead class="sticky top-0 bg-muted/80 text-left backdrop-blur">
+          <tr class="text-xs uppercase tracking-wide text-muted-foreground">
+            <th class="px-3 py-2.5 font-medium">
               Тема
             </th>
-            <th class="px-3 py-2 font-medium">
+            <th class="px-3 py-2.5 font-medium">
               Автор
             </th>
-            <th class="px-3 py-2 font-medium">
+            <th class="px-3 py-2.5 font-medium">
               Посты
             </th>
-            <th class="px-3 py-2 font-medium">
+            <th class="px-3 py-2.5 font-medium">
               Статус
             </th>
-            <th class="px-3 py-2 font-medium text-right">
+            <th class="px-3 py-2.5 font-medium text-right">
               Действия
             </th>
           </tr>
@@ -172,21 +219,27 @@ async function setPostStatus(id: string, next: 'published' | 'hidden' | 'deleted
                   {{ row.title }}
                 </div>
                 <div class="text-xs text-muted-foreground">
-                  {{ row.category_title }} · {{ row.slug }}
-                  <span v-if="row.is_locked"> · 🔒</span>
-                  <span v-if="row.is_pinned"> · 📌</span>
+                  <Badge variant="outline" class="mr-1 font-normal">
+                    {{ row.category_title }}
+                  </Badge>
+                  {{ row.slug }}
+                  <span v-if="row.is_locked"> · locked</span>
+                  <span v-if="row.is_pinned"> · pinned</span>
                 </div>
               </td>
               <td class="px-3 py-2">
-                {{ row.author_name }}
+                <div class="font-medium">
+                  {{ row.author_name }}
+                </div>
+                <div class="text-xs text-muted-foreground" :title="row.last_post_at ? new Date(row.last_post_at).toLocaleString('ru-RU') : ''">
+                  {{ relativeTime(row.last_post_at) }}
+                </div>
               </td>
-              <td class="px-3 py-2">
+              <td class="px-3 py-2 tabular-nums">
                 {{ row.posts_count }}
               </td>
               <td class="px-3 py-2">
-                <Badge :variant="row.status === 'published' ? 'default' : 'secondary'">
-                  {{ row.status }}
-                </Badge>
+                <AdminUiAdminStatusBadge :status="row.status" />
               </td>
               <td class="px-3 py-2">
                 <div class="inline-flex items-center justify-end gap-0.5">

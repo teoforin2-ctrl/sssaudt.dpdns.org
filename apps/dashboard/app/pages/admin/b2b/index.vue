@@ -1,11 +1,19 @@
 <script setup lang="ts">
-import { Eye, EyeOff, Sparkles } from 'lucide-vue-next'
+import type { AdminTone } from '~/components/admin/ui/types'
+import {
+  BriefcaseBusiness,
+  CheckCircle2,
+  Inbox,
+  Sparkles,
+} from 'lucide-vue-next'
 
 definePageMeta({ layout: 'default' })
 
 const { api } = useApi()
 const tab = ref<'leads' | 'packages' | 'cases'>('leads')
 const leadStatus = ref('')
+const leadView = ref<'table' | 'funnel'>('table')
+const hideTest = ref(true)
 const busyId = ref<string | null>(null)
 const msg = ref<string | null>(null)
 
@@ -49,12 +57,28 @@ interface CaseRow {
   published: boolean
 }
 
+interface LeadsRes {
+  items: Lead[]
+  total: number
+  summary?: {
+    total: number
+    new: number
+    inProgress: number
+    done: number
+    spam: number
+  }
+}
+
 const { data: leadsData, pending: leadsPending, refresh: refreshLeads } = await useAsyncData(
   'admin-b2b-leads',
-  () => api<{ items: Lead[], total: number }>('/v1/admin/b2b/leads', {
-    query: { status: leadStatus.value || undefined, limit: 50 },
+  () => api<LeadsRes>('/v1/admin/b2b/leads', {
+    query: {
+      status: leadStatus.value || undefined,
+      hide_test: hideTest.value ? '1' : undefined,
+      limit: 50,
+    },
   }),
-  { watch: [leadStatus] },
+  { watch: [leadStatus, hideTest] },
 )
 
 const { data: packagesData, pending: packagesPending, refresh: refreshPackages } = await useAsyncData(
@@ -66,6 +90,47 @@ const { data: casesData, pending: casesPending, refresh: refreshCases } = await 
   'admin-b2b-cases',
   () => api<{ items: CaseRow[] }>('/v1/admin/b2b/cases'),
 )
+
+const ready = ref(false)
+onMounted(() => {
+  requestAnimationFrame(() => {
+    ready.value = true
+  })
+})
+
+const summary = computed(() => leadsData.value?.summary)
+const kpiCards = computed(() => {
+  const s = summary.value
+  return [
+    { label: 'Лидов', value: s?.total ?? leadsData.value?.total ?? 0, hint: 'всего', tone: 'violet' as AdminTone, icon: BriefcaseBusiness },
+    { label: 'Новые', value: s?.new ?? 0, hint: 'new', tone: 'amber' as AdminTone, icon: Inbox },
+    { label: 'В работе', value: s?.inProgress ?? 0, hint: 'in_progress', tone: 'cyan' as AdminTone, icon: BriefcaseBusiness },
+    { label: 'Закрыто', value: s?.done ?? 0, hint: 'done', tone: 'emerald' as AdminTone, icon: CheckCircle2 },
+  ]
+})
+
+const funnelCols = computed(() => {
+  const items = leadsData.value?.items || []
+  const pick = (st: string) => items.filter(i => i.status === st)
+  return [
+    { id: 'new', label: 'New', items: pick('new'), tone: 'border-amber-500/40' },
+    { id: 'in_progress', label: 'In progress', items: pick('in_progress'), tone: 'border-cyan-500/40' },
+    { id: 'done', label: 'Done', items: pick('done'), tone: 'border-emerald-500/40' },
+    { id: 'spam', label: 'Spam / lost', items: pick('spam'), tone: 'border-rose-500/40' },
+  ]
+})
+
+function isTestLead(row: Lead) {
+  return /smoke/i.test(`${row.name} ${row.message || ''}`)
+}
+
+function relativeTime(iso: string) {
+  const diff = Date.now() - new Date(iso).getTime()
+  const hours = Math.floor(diff / 3600000)
+  if (hours < 24)
+    return `${hours} ч`
+  return new Date(iso).toLocaleDateString('ru-RU')
+}
 
 const packageForm = reactive({
   slug: '',
@@ -219,29 +284,42 @@ async function removeCase(id: string) {
 </script>
 
 <template>
-  <div class="space-y-4">
-    <div class="flex flex-wrap items-start justify-between gap-3">
-      <div>
-        <h1 class="text-2xl font-bold tracking-tight">
-          B2B / казино под ключ
-        </h1>
-        <p class="text-sm text-muted-foreground">
-          Лиды, пакеты и кейсы для публичной страницы /b2b
-        </p>
-      </div>
-      <AdminSectionHelp section="b2b" />
-    </div>
+  <div class="space-y-6">
+    <AdminPageHeader
+      title="B2B / казино под ключ"
+      description="Лиды, пакеты и кейсы для публичной страницы /b2b"
+      help="b2b"
+    />
 
-    <div class="flex flex-wrap gap-2">
-      <Button :variant="tab === 'leads' ? 'default' : 'secondary'" @click="tab = 'leads'">
-        Лиды ({{ leadsData?.total ?? 0 }})
-      </Button>
-      <Button :variant="tab === 'packages' ? 'default' : 'secondary'" @click="tab = 'packages'">
-        Пакеты
-      </Button>
-      <Button :variant="tab === 'cases' ? 'default' : 'secondary'" @click="tab = 'cases'">
-        Кейсы
-      </Button>
+    <AdminUiAdminStatGrid>
+      <AdminUiAdminStatCard
+        v-for="(card, i) in kpiCards"
+        :key="card.label"
+        :label="card.label"
+        :value="card.value"
+        :hint="card.hint"
+        :icon="card.icon"
+        :tone="card.tone"
+        :ready="ready && !leadsPending"
+        :index="i"
+      />
+    </AdminUiAdminStatGrid>
+
+    <div class="inline-flex rounded-xl border bg-card/40 p-1">
+      <button
+        v-for="t in [
+          { id: 'leads', label: `Лиды (${leadsData?.total ?? 0})` },
+          { id: 'packages', label: `Пакеты (${packagesData?.items?.length ?? 0})` },
+          { id: 'cases', label: `Кейсы (${casesData?.items?.length ?? 0})` },
+        ]"
+        :key="t.id"
+        type="button"
+        class="rounded-lg px-3 py-1.5 text-sm font-medium transition-colors"
+        :class="tab === t.id ? 'bg-foreground text-background' : 'text-muted-foreground hover:text-foreground'"
+        @click="tab = t.id as typeof tab"
+      >
+        {{ t.label }}
+      </button>
     </div>
 
     <p v-if="msg" class="text-sm text-muted-foreground">
@@ -249,92 +327,180 @@ async function removeCase(id: string) {
     </p>
 
     <template v-if="tab === 'leads'">
-      <div class="flex flex-wrap gap-2">
-        <select v-model="leadStatus" class="rounded-md border bg-background px-3 py-2 text-sm">
-          <option value="">
-            Все статусы
-          </option>
-          <option value="new">
-            new
-          </option>
-          <option value="in_progress">
-            in_progress
-          </option>
-          <option value="done">
-            done
-          </option>
-          <option value="spam">
-            spam
-          </option>
-        </select>
+      <div class="flex flex-wrap items-center gap-2 rounded-2xl border bg-card/40 p-3">
+        <div class="flex flex-wrap gap-1.5">
+          <button
+            v-for="chip in [
+              { id: '', label: 'Все' },
+              { id: 'new', label: 'New' },
+              { id: 'in_progress', label: 'In progress' },
+              { id: 'done', label: 'Done' },
+              { id: 'spam', label: 'Spam' },
+            ]"
+            :key="chip.id || 'all'"
+            type="button"
+            class="rounded-full border px-3 py-1 text-xs font-medium transition-colors"
+            :class="leadStatus === chip.id
+              ? 'border-foreground/20 bg-foreground text-background'
+              : 'border-border bg-background text-muted-foreground hover:text-foreground'"
+            @click="leadStatus = chip.id"
+          >
+            {{ chip.label }}
+          </button>
+        </div>
+        <div class="ml-auto flex flex-wrap items-center gap-2">
+          <AdminCheckbox v-model:checked="hideTest">
+            Скрыть test/smoke
+          </AdminCheckbox>
+          <div class="inline-flex rounded-lg border p-0.5">
+            <button
+              type="button"
+              class="rounded-md px-2 py-1 text-xs"
+              :class="leadView === 'table' ? 'bg-muted font-medium' : 'text-muted-foreground'"
+              @click="leadView = 'table'"
+            >
+              Таблица
+            </button>
+            <button
+              type="button"
+              class="rounded-md px-2 py-1 text-xs"
+              :class="leadView === 'funnel' ? 'bg-muted font-medium' : 'text-muted-foreground'"
+              @click="leadView = 'funnel'"
+            >
+              Воронка
+            </button>
+          </div>
+        </div>
       </div>
+
       <AdminTableSkeleton v-if="leadsPending && !leadsData" :cols="6" />
-      <div v-else class="overflow-x-auto rounded-xl border">
+
+      <div v-else-if="leadView === 'funnel'" class="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        <div
+          v-for="col in funnelCols"
+          :key="col.id"
+          class="rounded-2xl border bg-card/40 p-3"
+          :class="col.tone"
+        >
+          <div class="mb-3 flex items-center justify-between text-sm font-medium">
+            <span>{{ col.label }}</span>
+            <span class="tabular-nums text-muted-foreground">{{ col.items.length }}</span>
+          </div>
+          <div class="space-y-2">
+            <div
+              v-for="row in col.items"
+              :key="row.id"
+              class="rounded-xl border bg-background p-2.5 text-sm"
+            >
+              <div class="flex items-start justify-between gap-2">
+                <div class="min-w-0">
+                  <p class="truncate font-medium">
+                    {{ row.name }}
+                  </p>
+                  <p class="truncate text-xs text-muted-foreground">
+                    {{ row.contact }}
+                  </p>
+                </div>
+                <Badge v-if="isTestLead(row)" variant="outline" class="shrink-0 text-[10px]">
+                  test
+                </Badge>
+              </div>
+              <p class="mt-1 text-xs text-muted-foreground">
+                {{ row.budget || 'бюджет —' }} · {{ relativeTime(row.created_at) }}
+              </p>
+              <AdminSelect
+                size="sm"
+                class="mt-2 w-full"
+                :model-value="row.status"
+                :disabled="busyId === row.id"
+                :options="[
+                  { value: 'new', label: 'new' },
+                  { value: 'in_progress', label: 'in_progress' },
+                  { value: 'done', label: 'done' },
+                  { value: 'spam', label: 'spam' },
+                ]"
+                @update:model-value="(v) => setLeadStatus(row.id, String(v ?? ''))"
+              />
+            </div>
+            <p v-if="!col.items.length" class="py-6 text-center text-xs text-muted-foreground">
+              Пусто
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div v-else class="overflow-x-auto rounded-2xl border">
         <table class="w-full text-sm">
-          <thead class="bg-muted/50 text-left">
-            <tr>
-              <th class="px-3 py-2 font-medium">
+          <thead class="sticky top-0 bg-muted/80 text-left backdrop-blur">
+            <tr class="text-xs uppercase tracking-wide text-muted-foreground">
+              <th class="px-3 py-2.5 font-medium">
                 Контакт
               </th>
-              <th class="px-3 py-2 font-medium">
+              <th class="px-3 py-2.5 font-medium">
                 Тип
               </th>
-              <th class="px-3 py-2 font-medium">
+              <th class="px-3 py-2.5 font-medium">
                 Бюджет
               </th>
-              <th class="px-3 py-2 font-medium">
+              <th class="px-3 py-2.5 font-medium">
                 Сообщение
               </th>
-              <th class="px-3 py-2 font-medium">
+              <th class="px-3 py-2.5 font-medium">
                 Статус
               </th>
-              <th class="px-3 py-2 font-medium">
+              <th class="px-3 py-2.5 font-medium">
                 Дата
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="row in leadsData?.items || []" :key="row.id" class="border-t align-top">
-              <td class="px-3 py-2">
+            <tr v-for="row in leadsData?.items || []" :key="row.id" class="border-t align-top transition-colors hover:bg-muted/40">
+              <td class="px-3 py-2.5">
                 <div class="font-medium">
                   {{ row.name }}
+                  <Badge v-if="isTestLead(row)" variant="outline" class="ml-1 text-[10px]">
+                    test
+                  </Badge>
                 </div>
                 <div class="text-muted-foreground">
                   {{ row.contact }}
                 </div>
               </td>
-              <td class="px-3 py-2">
+              <td class="px-3 py-2.5">
                 {{ row.project_type }}
               </td>
-              <td class="px-3 py-2">
+              <td class="px-3 py-2.5">
                 {{ row.budget || '—' }}
               </td>
-              <td class="max-w-xs px-3 py-2 text-muted-foreground">
+              <td class="max-w-xs px-3 py-2.5 text-muted-foreground">
                 {{ row.message || '—' }}
               </td>
-              <td class="px-3 py-2">
-                <select
-                  class="rounded-md border bg-background px-2 py-1 text-xs"
-                  :value="row.status"
+              <td class="px-3 py-2.5">
+                <AdminSelect
+                  size="sm"
+                  class="w-[130px]"
+                  :model-value="row.status"
                   :disabled="busyId === row.id"
-                  @change="setLeadStatus(row.id, ($event.target as HTMLSelectElement).value)"
-                >
-                  <option value="new">
-                    new
-                  </option>
-                  <option value="in_progress">
-                    in_progress
-                  </option>
-                  <option value="done">
-                    done
-                  </option>
-                  <option value="spam">
-                    spam
-                  </option>
-                </select>
+                  :options="[
+                    { value: 'new', label: 'new' },
+                    { value: 'in_progress', label: 'in_progress' },
+                    { value: 'done', label: 'done' },
+                    { value: 'spam', label: 'spam' },
+                  ]"
+                  @update:model-value="(v) => setLeadStatus(row.id, String(v ?? ''))"
+                />
               </td>
-              <td class="px-3 py-2 whitespace-nowrap text-muted-foreground">
-                {{ new Date(row.created_at).toLocaleString('ru-RU') }}
+              <td class="whitespace-nowrap px-3 py-2.5 text-muted-foreground" :title="new Date(row.created_at).toLocaleString('ru-RU')">
+                {{ relativeTime(row.created_at) }}
+              </td>
+            </tr>
+            <tr v-if="!(leadsData?.items?.length)">
+              <td colspan="6" class="px-3 py-2">
+                <AdminUiAdminEmptyState
+                  title="Лидов нет"
+                  description="Новые заявки появятся с /b2b"
+                  :icon="Inbox"
+                />
               </td>
             </tr>
           </tbody>
@@ -343,29 +509,35 @@ async function removeCase(id: string) {
     </template>
 
     <template v-else-if="tab === 'packages'">
-      <form class="grid gap-3 rounded-xl border p-4 md:grid-cols-2" @submit.prevent="createPackage">
+      <form class="grid gap-3 rounded-2xl border bg-card/40 p-4 md:grid-cols-2" @submit.prevent="createPackage">
         <Input v-model="packageForm.slug" placeholder="slug" required />
         <Input v-model.number="packageForm.sort_order" type="number" placeholder="sort" />
         <Input v-model="packageForm.title_ru" placeholder="title RU" required />
         <Input v-model="packageForm.title_en" placeholder="title EN" required />
         <Input v-model="packageForm.price_label_ru" placeholder="цена RU" />
         <Input v-model="packageForm.price_label_en" placeholder="price EN" />
-        <textarea v-model="packageForm.features_ru" class="min-h-24 rounded-md border bg-background px-3 py-2 text-sm" placeholder="фичи RU (по строке)" />
-        <textarea v-model="packageForm.features_en" class="min-h-24 rounded-md border bg-background px-3 py-2 text-sm" placeholder="features EN (one per line)" />
-        <label class="flex items-center gap-2 text-sm">
-          <input v-model="packageForm.highlight" type="checkbox"> Highlight
-        </label>
-        <label class="flex items-center gap-2 text-sm">
-          <input v-model="packageForm.published" type="checkbox"> Published
-        </label>
+        <Textarea v-model="packageForm.features_ru" class="min-h-24" placeholder="фичи RU (по строке)" />
+        <Textarea v-model="packageForm.features_en" class="min-h-24" placeholder="features EN (one per line)" />
+        <AdminCheckbox v-model:checked="packageForm.highlight">
+          Highlight
+        </AdminCheckbox>
+        <AdminCheckbox v-model:checked="packageForm.published">
+          Published
+        </AdminCheckbox>
         <Button type="submit" class="md:col-span-2">
           Добавить пакет
         </Button>
       </form>
 
       <AdminTableSkeleton v-if="packagesPending && !packagesData" :cols="5" />
+      <AdminUiAdminEmptyState
+        v-else-if="!(packagesData?.items?.length)"
+        title="Пакетов пока нет"
+        description="Создайте первый пакет выше"
+        :icon="BriefcaseBusiness"
+      />
       <div v-else class="space-y-3">
-        <div v-for="row in packagesData?.items || []" :key="row.id" class="rounded-xl border p-4">
+        <div v-for="row in packagesData?.items || []" :key="row.id" class="rounded-2xl border bg-card/40 p-4">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <div>
               <div class="font-medium">
@@ -376,12 +548,11 @@ async function removeCase(id: string) {
                 {{ row.price_label_ru }} · sort {{ row.sort_order }}
               </div>
             </div>
-            <div class="inline-flex items-center gap-0.5">
-              <AdminIconButton
-                :tooltip="row.published ? 'Скрыть' : 'Опубликовать'"
-                :icon="row.published ? EyeOff : Eye"
+            <div class="inline-flex items-center gap-2">
+              <Switch
+                :model-value="row.published"
                 :disabled="busyId === row.id"
-                @click="patchPackage(row.id, { published: !row.published })"
+                @update:model-value="(v: boolean) => patchPackage(row.id, { published: v })"
               />
               <AdminIconButton
                 :tooltip="row.highlight ? 'Убрать highlight' : 'Highlight'"
@@ -408,27 +579,33 @@ async function removeCase(id: string) {
     </template>
 
     <template v-else>
-      <form class="grid gap-3 rounded-xl border p-4 md:grid-cols-2" @submit.prevent="createCase">
+      <form class="grid gap-3 rounded-2xl border bg-card/40 p-4 md:grid-cols-2" @submit.prevent="createCase">
         <Input v-model="caseForm.slug" placeholder="slug" required />
         <Input v-model.number="caseForm.sort_order" type="number" placeholder="sort" />
         <Input v-model="caseForm.title_ru" placeholder="title RU" required />
         <Input v-model="caseForm.title_en" placeholder="title EN" required />
         <Input v-model="caseForm.summary_ru" placeholder="summary RU" />
         <Input v-model="caseForm.summary_en" placeholder="summary EN" />
-        <textarea v-model="caseForm.metrics_ru" class="min-h-24 rounded-md border bg-background px-3 py-2 text-sm" placeholder="метрики RU (по строке)" />
-        <textarea v-model="caseForm.metrics_en" class="min-h-24 rounded-md border bg-background px-3 py-2 text-sm" placeholder="metrics EN (one per line)" />
+        <Textarea v-model="caseForm.metrics_ru" class="min-h-24" placeholder="метрики RU (по строке)" />
+        <Textarea v-model="caseForm.metrics_en" class="min-h-24" placeholder="metrics EN (one per line)" />
         <Input v-model="caseForm.cover_url" class="md:col-span-2" placeholder="cover URL (optional)" />
-        <label class="flex items-center gap-2 text-sm">
-          <input v-model="caseForm.published" type="checkbox"> Published
-        </label>
+        <AdminCheckbox v-model:checked="caseForm.published">
+          Published
+        </AdminCheckbox>
         <Button type="submit">
           Добавить кейс
         </Button>
       </form>
 
       <AdminTableSkeleton v-if="casesPending && !casesData" :cols="4" />
+      <AdminUiAdminEmptyState
+        v-else-if="!(casesData?.items?.length)"
+        title="Кейсов пока нет"
+        description="Добавьте первый кейс выше"
+        :icon="BriefcaseBusiness"
+      />
       <div v-else class="space-y-3">
-        <div v-for="row in casesData?.items || []" :key="row.id" class="rounded-xl border p-4">
+        <div v-for="row in casesData?.items || []" :key="row.id" class="rounded-2xl border bg-card/40 p-4">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <div>
               <div class="font-medium">
@@ -438,12 +615,11 @@ async function removeCase(id: string) {
                 {{ row.summary_ru }}
               </div>
             </div>
-            <div class="inline-flex items-center gap-0.5">
-              <AdminIconButton
-                :tooltip="row.published ? 'Скрыть' : 'Опубликовать'"
-                :icon="row.published ? EyeOff : Eye"
+            <div class="inline-flex items-center gap-2">
+              <Switch
+                :model-value="row.published"
                 :disabled="busyId === row.id"
-                @click="patchCase(row.id, { published: !row.published })"
+                @update:model-value="(v: boolean) => patchCase(row.id, { published: v })"
               />
               <AdminConfirmDelete
                 entity="кейс"

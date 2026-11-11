@@ -41,6 +41,32 @@ const showLabelForm = ref(false)
 const labelForm = reactive({ name: '', color: '#6b4ea8' })
 const renamingCol = ref<string | null>(null)
 const renameValue = ref('')
+const boardScrollEl = ref<HTMLElement | null>(null)
+
+/** Nested column overflow-y eats trackpad swipes — forward horizontal intent to the board. */
+function onBoardWheel(e: WheelEvent) {
+  const el = boardScrollEl.value
+  if (!el)
+    return
+  const absX = Math.abs(e.deltaX)
+  const absY = Math.abs(e.deltaY)
+  if (!(absX > absY || e.shiftKey))
+    return
+  const dx = (e.shiftKey && absX <= absY) ? e.deltaY : e.deltaX
+  if (!dx)
+    return
+  const prev = el.scrollLeft
+  el.scrollLeft += dx
+  if (el.scrollLeft !== prev)
+    e.preventDefault()
+}
+
+watch(boardScrollEl, (el, _prev, onCleanup) => {
+  if (!el)
+    return
+  el.addEventListener('wheel', onBoardWheel, { passive: false })
+  onCleanup(() => el.removeEventListener('wheel', onBoardWheel))
+})
 
 async function refresh() {
   pending.value = true
@@ -253,45 +279,46 @@ function wipWarn(col: KanbanColumn) {
     <!-- Filters -->
     <div class="flex shrink-0 flex-wrap items-center gap-2 rounded-xl border p-3">
       <Input v-model="q" class="max-w-xs" placeholder="Поиск…" />
-      <select v-model="filterAssignee" class="h-9 rounded-md border bg-transparent px-2 text-sm">
-        <option value="">
-          Assignee
-        </option>
-        <option v-for="u in staff" :key="u.id" :value="u.id">
-          {{ u.displayName || u.email }}
-        </option>
-      </select>
-      <select v-model="filterLabel" class="h-9 rounded-md border bg-transparent px-2 text-sm">
-        <option value="">
-          Label
-        </option>
-        <option v-for="l in labels" :key="l.id" :value="l.id">
-          {{ l.name }}
-        </option>
-      </select>
-      <select v-model="filterPriority" class="h-9 rounded-md border bg-transparent px-2 text-sm">
-        <option value="">
-          Priority
-        </option>
-        <option v-for="p in ['none', 'low', 'med', 'high', 'urgent']" :key="p" :value="p">
-          {{ p }}
-        </option>
-      </select>
-      <select v-model="filterSprint" class="h-9 rounded-md border bg-transparent px-2 text-sm">
-        <option value="">
-          Sprint
-        </option>
-        <option value="none">
-          Без спринта
-        </option>
-        <option v-for="s in sprints" :key="s.id" :value="s.id">
-          {{ s.name }}
-        </option>
-      </select>
-      <label class="inline-flex items-center gap-1 text-sm">
-        <input v-model="filterMine" type="checkbox">
+      <AdminSelect
+        v-model="filterAssignee"
+        class="w-[160px]"
+        placeholder="Assignee"
+        :options="[
+          { value: '', label: 'Assignee' },
+          ...staff.map(u => ({ value: u.id, label: u.displayName || u.email })),
+        ]"
+      />
+      <AdminSelect
+        v-model="filterLabel"
+        class="w-[140px]"
+        placeholder="Label"
+        :options="[
+          { value: '', label: 'Label' },
+          ...labels.map(l => ({ value: l.id, label: l.name })),
+        ]"
+      />
+      <AdminSelect
+        v-model="filterPriority"
+        class="w-[130px]"
+        placeholder="Priority"
+        :options="[
+          { value: '', label: 'Priority' },
+          ...['none', 'low', 'med', 'high', 'urgent'].map(p => ({ value: p, label: p })),
+        ]"
+      />
+      <AdminSelect
+        v-model="filterSprint"
+        class="w-[150px]"
+        placeholder="Sprint"
+        :options="[
+          { value: '', label: 'Sprint' },
+          { value: 'none', label: 'Без спринта' },
+          ...sprints.map(s => ({ value: s.id, label: s.name })),
+        ]"
+      />
+      <AdminCheckbox v-model:checked="filterMine">
         Мои
-      </label>
+      </AdminCheckbox>
     </div>
 
     <div v-if="showSprintForm" class="shrink-0 space-y-2 rounded-xl border p-3">
@@ -300,17 +327,15 @@ function wipWarn(col: KanbanColumn) {
         <Input v-model="sprintForm.goal" placeholder="Цель" class="max-w-xs" />
         <Input v-model="sprintForm.startsOn" type="date" class="w-auto" />
         <Input v-model="sprintForm.endsOn" type="date" class="w-auto" />
-        <select v-model="sprintForm.status" class="h-9 rounded-md border bg-transparent px-2 text-sm">
-          <option value="planned">
-            planned
-          </option>
-          <option value="active">
-            active
-          </option>
-          <option value="closed">
-            closed
-          </option>
-        </select>
+        <AdminSelect
+          v-model="sprintForm.status"
+          class="w-[130px]"
+          :options="[
+            { value: 'planned', label: 'planned' },
+            { value: 'active', label: 'active' },
+            { value: 'closed', label: 'closed' },
+          ]"
+        />
         <Button size="sm" @click="createSprint">
           Создать
         </Button>
@@ -353,7 +378,10 @@ function wipWarn(col: KanbanColumn) {
 
     <!-- BOARD VIEW -->
     <div v-else-if="view === 'board'" class="flex min-h-0 flex-1 flex-col gap-2 overflow-hidden">
-      <div class="min-h-0 flex-1 overflow-x-auto overflow-y-hidden">
+      <div
+        ref="boardScrollEl"
+        class="min-h-0 flex-1 overflow-x-auto overflow-y-hidden overscroll-x-contain"
+      >
         <div class="flex h-full min-w-min items-stretch gap-3">
           <draggable
             v-model="columns"
@@ -398,7 +426,7 @@ function wipWarn(col: KanbanColumn) {
                   v-model="col.cards"
                   group="kanban-cards"
                   item-key="id"
-                  class="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto overscroll-contain p-2"
+                  class="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto overflow-x-hidden overscroll-y-contain p-2"
                   ghost-class="opacity-40"
                   @change="(e: any) => onCardListChange(col, e)"
                 >

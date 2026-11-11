@@ -170,17 +170,14 @@ async function removeCasino() {
         </div>
         <div class="grid gap-2">
           <Label>Статус</Label>
-          <select v-model="form.status" class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm">
-            <option value="draft">
-              draft
-            </option>
-            <option value="review">
-              review
-            </option>
-            <option value="published">
-              published
-            </option>
-          </select>
+          <AdminSelect
+            v-model="form.status"
+            :options="[
+              { value: 'draft', label: 'draft' },
+              { value: 'review', label: 'review' },
+              { value: 'published', label: 'published' },
+            ]"
+          />
         </div>
         <div class="grid gap-2">
           <Label>License</Label>
@@ -246,14 +243,12 @@ async function removeCasino() {
       </div>
 
       <div class="flex flex-wrap gap-4 text-sm items-center">
-        <label class="inline-flex items-center gap-2">
-          <input v-model="form.hot" type="checkbox" class="size-4">
+        <AdminCheckbox v-model:checked="form.hot">
           HOT
-        </label>
-        <label class="inline-flex items-center gap-2">
-          <input v-model="form.has_representative" type="checkbox" class="size-4">
+        </AdminCheckbox>
+        <AdminCheckbox v-model:checked="form.has_representative">
           Есть представитель
-        </label>
+        </AdminCheckbox>
         <span
           v-if="data?.item?.representative_requested_at && !form.has_representative"
           class="text-xs text-amber-600"

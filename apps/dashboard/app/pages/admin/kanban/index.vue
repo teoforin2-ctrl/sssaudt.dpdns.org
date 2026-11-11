@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import type { AdminTone } from '~/components/admin/ui/types'
 import type { KanbanBoard } from '~/composables/useKanban'
+import { AlertTriangle, Kanban, ListTodo } from 'lucide-vue-next'
 
 definePageMeta({ layout: 'default' })
 
@@ -20,6 +22,43 @@ const { data, pending, refresh } = await useAsyncData(
 
 const { data: mine, refresh: refreshMine } = await useAsyncData('kanban-my-cards', () => myCards())
 const { data: notif, refresh: refreshNotif } = await useAsyncData('kanban-notif', () => notifications(true))
+
+const ready = ref(false)
+onMounted(() => {
+  requestAnimationFrame(() => {
+    ready.value = true
+  })
+})
+
+const overdueMine = computed(() =>
+  (mine.value?.items || []).filter((c) => {
+    if (!c.dueAt)
+      return false
+    return new Date(c.dueAt).getTime() < Date.now()
+  }).length,
+)
+
+const totalCards = computed(() =>
+  (data.value?.items || []).reduce((sum, b) => sum + (b.cardsCount || 0), 0),
+)
+
+const kpiCards = computed(() => [
+  { label: 'Досок', value: data.value?.items?.length ?? 0, hint: showArchived.value ? 'с архивом' : 'активные', tone: 'violet' as AdminTone, icon: Kanban },
+  { label: 'Карточек', value: totalCards.value, hint: 'на досках', tone: 'cyan' as AdminTone, icon: ListTodo },
+  { label: 'Мои задачи', value: mine.value?.items?.length ?? 0, hint: 'назначенные вам', tone: 'amber' as AdminTone, icon: ListTodo },
+  { label: 'Просрочено', value: overdueMine.value, hint: 'среди моих', tone: 'rose' as AdminTone, icon: AlertTriangle },
+])
+
+function progress(b: KanbanBoard) {
+  const total = b.cardsCount || 0
+  if (!total)
+    return 0
+  // doneApprox not always available — use columns heuristic if present
+  const done = (b as KanbanBoard & { doneCount?: number }).doneCount
+  if (typeof done === 'number')
+    return Math.round((done / total) * 100)
+  return Math.min(100, Math.round(((b.columnsCount || 1) / Math.max(1, total)) * 20))
+}
 
 async function create() {
   if (!form.title.trim())
@@ -63,33 +102,36 @@ async function markNotifRead() {
 </script>
 
 <template>
-  <div class="space-y-5">
-    <div class="flex flex-wrap items-start justify-between gap-3">
-      <div>
-        <h1 class="text-2xl font-bold tracking-tight">
-          Канбан
-        </h1>
-        <p class="text-sm text-muted-foreground">
-          Доски задач · только admin / developer
-        </p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <AdminSectionHelp section="kanban" />
-        <Button variant="outline" size="sm" @click="tab = 'boards'; refresh()">
-          Доски
-        </Button>
-        <Button variant="outline" size="sm" @click="tab = 'mine'; refreshMine()">
-          Мои задачи
-        </Button>
+  <div class="space-y-6">
+    <AdminPageHeader
+      title="Канбан"
+      description="Доски задач · только admin / developer"
+      help="kanban"
+    >
+      <template #actions>
         <Button size="sm" @click="creating = !creating">
           {{ creating ? 'Отмена' : 'Новая доска' }}
         </Button>
-      </div>
-    </div>
+      </template>
+    </AdminPageHeader>
+
+    <AdminUiAdminStatGrid>
+      <AdminUiAdminStatCard
+        v-for="(card, i) in kpiCards"
+        :key="card.label"
+        :label="card.label"
+        :value="card.value"
+        :hint="card.hint"
+        :icon="card.icon"
+        :tone="card.tone"
+        :ready="ready"
+        :index="i"
+      />
+    </AdminUiAdminStatGrid>
 
     <div
       v-if="notif?.items?.length"
-      class="rounded-xl border border-amber-500/40 bg-amber-500/5 p-3 text-sm"
+      class="rounded-2xl border border-amber-500/40 bg-amber-500/5 p-3 text-sm"
     >
       <div class="mb-2 flex items-center justify-between gap-2">
         <strong>Уведомления ({{ notif.items.length }})</strong>
@@ -111,7 +153,26 @@ async function markNotifRead() {
       </ul>
     </div>
 
-    <div v-if="creating" class="space-y-3 rounded-xl border p-4">
+    <div class="inline-flex rounded-xl border bg-card/40 p-1">
+      <button
+        type="button"
+        class="rounded-lg px-3 py-1.5 text-sm font-medium transition-colors"
+        :class="tab === 'boards' ? 'bg-foreground text-background' : 'text-muted-foreground'"
+        @click="tab = 'boards'; refresh()"
+      >
+        Доски
+      </button>
+      <button
+        type="button"
+        class="rounded-lg px-3 py-1.5 text-sm font-medium transition-colors"
+        :class="tab === 'mine' ? 'bg-foreground text-background' : 'text-muted-foreground'"
+        @click="tab = 'mine'; refreshMine()"
+      >
+        Мои задачи
+      </button>
+    </div>
+
+    <div v-if="creating" class="space-y-3 rounded-2xl border bg-card/40 p-4">
       <Input v-model="form.title" placeholder="Название доски" />
       <Textarea v-model="form.description" placeholder="Описание (опционально)" rows="2" />
       <div class="flex items-center gap-2">
@@ -127,22 +188,28 @@ async function markNotifRead() {
     </div>
 
     <template v-if="tab === 'boards'">
-      <label class="inline-flex items-center gap-2 text-sm text-muted-foreground">
-        <input v-model="showArchived" type="checkbox" class="accent-primary">
+      <AdminCheckbox v-model:checked="showArchived" label-class="text-muted-foreground">
         Показать архив
-      </label>
+      </AdminCheckbox>
 
       <AdminCardsSkeleton v-if="pending && !data" />
-      <div v-else-if="!data?.items?.length" class="rounded-xl border border-dashed p-10 text-center text-sm text-muted-foreground">
-        Пока нет досок. Создайте первую.
-      </div>
+      <AdminUiAdminEmptyState
+        v-else-if="!data?.items?.length"
+        title="Пока нет досок"
+        description="Создайте первую доску"
+        :icon="Kanban"
+      >
+        <Button size="sm" class="mt-2" @click="creating = true">
+          Новая доска
+        </Button>
+      </AdminUiAdminEmptyState>
       <div v-else class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="b in data.items"
           :key="b.id"
-          class="group relative overflow-hidden rounded-xl border bg-card transition hover:shadow-md"
+          class="group relative overflow-hidden rounded-2xl border bg-card transition hover:shadow-md"
         >
-          <div class="h-2" :style="{ background: b.color }" />
+          <div class="h-1.5" :style="{ background: b.color }" />
           <div class="space-y-3 p-4">
             <div>
               <NuxtLink :to="`/admin/kanban/${b.id}`" class="text-lg font-semibold hover:underline">
@@ -152,32 +219,41 @@ async function markNotifRead() {
                 {{ b.description }}
               </p>
             </div>
-            <div class="flex items-center justify-between text-xs text-muted-foreground">
-              <span>{{ b.columnsCount ?? 0 }} кол. · {{ b.cardsCount ?? 0 }} карт.</span>
-              <div class="flex gap-1 opacity-0 transition group-hover:opacity-100">
-                <Button
-                  v-if="!showArchived"
-                  size="sm"
-                  variant="ghost"
-                  @click="archive(b, true)"
-                >
-                  Архив
-                </Button>
-                <Button
-                  v-else
-                  size="sm"
-                  variant="ghost"
-                  @click="archive(b, false)"
-                >
-                  Вернуть
-                </Button>
-                <AdminConfirmDelete
-                  entity="доску"
-                  :label="b.title"
-                  mode="button"
-                  @confirm="remove(b)"
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-xs text-muted-foreground">
+                <span>{{ b.columnsCount ?? 0 }} кол. · {{ b.cardsCount ?? 0 }} карт.</span>
+                <span class="tabular-nums">{{ progress(b) }}%</span>
+              </div>
+              <div class="h-1.5 overflow-hidden rounded-full bg-muted">
+                <div
+                  class="h-full rounded-full transition-all"
+                  :style="{ width: `${progress(b)}%`, background: b.color }"
                 />
               </div>
+            </div>
+            <div class="flex items-center justify-end gap-1 opacity-0 transition group-hover:opacity-100">
+              <Button
+                v-if="!showArchived"
+                size="sm"
+                variant="ghost"
+                @click="archive(b, true)"
+              >
+                Архив
+              </Button>
+              <Button
+                v-else
+                size="sm"
+                variant="ghost"
+                @click="archive(b, false)"
+              >
+                Вернуть
+              </Button>
+              <AdminConfirmDelete
+                entity="доску"
+                :label="b.title"
+                mode="button"
+                @confirm="remove(b)"
+              />
             </div>
           </div>
         </div>
@@ -185,14 +261,17 @@ async function markNotifRead() {
     </template>
 
     <template v-else>
-      <div v-if="!mine?.items?.length" class="rounded-xl border border-dashed p-10 text-center text-sm text-muted-foreground">
-        Нет назначенных задач
-      </div>
-      <ul v-else class="divide-y rounded-xl border">
+      <AdminUiAdminEmptyState
+        v-if="!mine?.items?.length"
+        title="Нет назначенных задач"
+        description="Карточки появятся, когда вас назначат исполнителем"
+        :icon="ListTodo"
+      />
+      <ul v-else class="divide-y overflow-hidden rounded-2xl border">
         <li
           v-for="c in mine.items"
           :key="c.id"
-          class="flex flex-wrap items-center justify-between gap-2 px-4 py-3 text-sm"
+          class="flex flex-wrap items-center justify-between gap-2 px-4 py-3 text-sm transition-colors hover:bg-muted/40"
         >
           <div>
             <NuxtLink class="font-medium hover:underline" :to="`/admin/kanban/${c.boardId}?card=${c.id}`">
@@ -200,10 +279,15 @@ async function markNotifRead() {
             </NuxtLink>
             <div class="text-xs text-muted-foreground">
               {{ c.boardTitle }} · {{ c.columnTitle }}
-              <span v-if="c.dueAt"> · до {{ new Date(c.dueAt).toLocaleDateString() }}</span>
+              <span
+                v-if="c.dueAt"
+                :class="new Date(c.dueAt).getTime() < Date.now() ? 'text-rose-600 dark:text-rose-400' : ''"
+              >
+                · до {{ new Date(c.dueAt).toLocaleDateString('ru-RU') }}
+              </span>
             </div>
           </div>
-          <Badge variant="secondary">
+          <Badge variant="outline">
             {{ c.priority }}
           </Badge>
         </li>

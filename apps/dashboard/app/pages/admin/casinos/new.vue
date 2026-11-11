@@ -116,17 +116,14 @@ async function create() {
         </div>
         <div class="grid gap-2">
           <Label>Статус</Label>
-          <select v-model="fields.status" class="flex h-9 w-full rounded-md border bg-transparent px-3 text-sm">
-            <option value="draft">
-              draft
-            </option>
-            <option value="review">
-              review
-            </option>
-            <option value="published">
-              published
-            </option>
-          </select>
+          <AdminSelect
+            v-model="fields.status"
+            :options="[
+              { value: 'draft', label: 'draft' },
+              { value: 'review', label: 'review' },
+              { value: 'published', label: 'published' },
+            ]"
+          />
         </div>
         <div class="grid gap-2">
           <Label>License</Label>
@@ -192,14 +189,12 @@ async function create() {
       </div>
 
       <div class="flex flex-wrap gap-4 text-sm items-center">
-        <label class="inline-flex items-center gap-2">
-          <input v-model="fields.hot" type="checkbox" class="size-4">
+        <AdminCheckbox v-model:checked="fields.hot">
           HOT
-        </label>
-        <label class="inline-flex items-center gap-2">
-          <input v-model="fields.has_representative" type="checkbox" class="size-4">
+        </AdminCheckbox>
+        <AdminCheckbox v-model:checked="fields.has_representative">
           Есть представитель
-        </label>
+        </AdminCheckbox>
       </div>
 
       <div class="flex flex-wrap items-center gap-3">

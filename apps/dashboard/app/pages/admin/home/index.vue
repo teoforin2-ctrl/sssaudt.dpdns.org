@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Eye, EyeOff, GripVertical, Pencil } from 'lucide-vue-next'
+import { GripVertical, Pencil } from 'lucide-vue-next'
 import draggable from 'vuedraggable'
 
 definePageMeta({ layout: 'default' })
@@ -28,25 +28,47 @@ interface BannerRow {
   active: boolean
 }
 
-const sectionMeta: { key: string, label: string }[] = [
-  { key: 'heroStats', label: 'Статистика в герое' },
-  { key: 'heroBanners', label: 'Слайдер баннеров' },
-  { key: 'listing', label: 'Рейтинг / список казино' },
-  { key: 'aside', label: 'Правая колонка (отзывы / новинки)' },
-  { key: 'slots', label: 'Карусель слотов' },
-  { key: 'promoBanner', label: 'Промо-баннер' },
-  { key: 'newSlots', label: 'Новые слоты' },
-  { key: 'articles', label: 'Статьи' },
-  { key: 'guides', label: 'Хабы для новичков' },
-  { key: 'partnerBrands', label: 'Партнёрские бренды (выкл. пока нет detail)' },
-  { key: 'homeBonuses', label: 'Лучшие бонусы на главной' },
-  { key: 'homeForum', label: 'Тизер форума на главной' },
-  { key: 'homeB2b', label: 'Баннер B2B / казино под ключ' },
-  { key: 'expert', label: 'Эксперт' },
-  { key: 'trust', label: 'Блок доверия' },
-  { key: 'communityStats', label: 'Лента фактов / community stats' },
-  { key: 'method', label: 'Методика и disclosure' },
+const sectionGroups: { title: string, items: { key: string, label: string, hint: string }[] }[] = [
+  {
+    title: 'Hero и баннеры',
+    items: [
+      { key: 'heroStats', label: 'Статистика в герое', hint: 'Цифры над слайдером' },
+      { key: 'heroBanners', label: 'Слайдер баннеров', hint: 'Hero-карусель RU/EN' },
+      { key: 'promoBanner', label: 'Промо-баннер', hint: 'Отдельный promo-блок' },
+    ],
+  },
+  {
+    title: 'Рейтинги и списки',
+    items: [
+      { key: 'listing', label: 'Рейтинг / список казино', hint: 'Основной каталог' },
+      { key: 'aside', label: 'Правая колонка', hint: 'Отзывы / новинки' },
+      { key: 'slots', label: 'Карусель слотов', hint: 'Горизонтальная лента' },
+      { key: 'newSlots', label: 'Новые слоты', hint: 'Свежие релизы' },
+      { key: 'homeBonuses', label: 'Лучшие бонусы', hint: 'Подборка на главной' },
+    ],
+  },
+  {
+    title: 'Контент',
+    items: [
+      { key: 'articles', label: 'Статьи', hint: 'Лента материалов' },
+      { key: 'guides', label: 'Хабы для новичков', hint: 'Онбординг-гайды' },
+      { key: 'homeForum', label: 'Тизер форума', hint: 'Активность сообщества' },
+      { key: 'homeB2b', label: 'Баннер B2B', hint: 'Казино под ключ' },
+      { key: 'partnerBrands', label: 'Партнёрские бренды', hint: 'Выкл. пока нет detail' },
+    ],
+  },
+  {
+    title: 'Доверие и SEO',
+    items: [
+      { key: 'expert', label: 'Эксперт', hint: 'Авторский блок' },
+      { key: 'trust', label: 'Блок доверия', hint: 'Лицензии / гарантии' },
+      { key: 'communityStats', label: 'Community stats', hint: 'Лента фактов' },
+      { key: 'method', label: 'Методика', hint: 'Disclosure и методология' },
+    ],
+  },
 ]
+
+const sectionMeta = computed(() => sectionGroups.flatMap(g => g.items))
 
 const { data: settingsData, pending: settingsPending, refresh: refreshSettings } = await useAsyncData(
   'admin-home-settings',
@@ -59,13 +81,33 @@ const { data: bannersData, pending: bannersPending, refresh: refreshBanners } = 
 )
 
 const sections = reactive<HomeSections>({})
+const savedSnapshot = ref<string>('')
+
+function applySectionsFromServer(s?: HomeSections | null) {
+  for (const key of Object.keys(sections)) delete sections[key]
+  for (const meta of sectionMeta.value) {
+    sections[meta.key] = s?.[meta.key] ?? false
+  }
+  if (s) {
+    for (const [key, val] of Object.entries(s)) {
+      if (typeof val === 'boolean')
+        sections[key] = val
+    }
+  }
+  savedSnapshot.value = JSON.stringify({ ...sections })
+}
+
 watch(
   () => settingsData.value?.settings?.homeSections,
-  (s) => {
-    for (const key of Object.keys(sections)) delete sections[key]
-    Object.assign(sections, s || {})
-  },
+  s => applySectionsFromServer(s),
   { immediate: true },
+)
+
+const sectionsDirty = computed(() => JSON.stringify({ ...sections }) !== savedSnapshot.value)
+const enabledCount = computed(() => Object.values(sections).filter(Boolean).length)
+const totalSections = computed(() => sectionMeta.value.length)
+const enabledPct = computed(() =>
+  totalSections.value ? Math.round((enabledCount.value / totalSections.value) * 100) : 0,
 )
 
 const sectionSaving = ref(false)
@@ -91,6 +133,17 @@ async function saveSections() {
   finally {
     sectionSaving.value = false
   }
+}
+
+function resetSections() {
+  try {
+    applySectionsFromServer(JSON.parse(savedSnapshot.value) as HomeSections)
+  }
+  catch {
+    applySectionsFromServer(settingsData.value?.settings?.homeSections)
+  }
+  sectionMsg.value = null
+  sectionErr.value = null
 }
 
 const banners = ref<BannerRow[]>([])
@@ -259,64 +312,90 @@ async function removeBanner(row: BannerRow) {
 </script>
 
 <template>
-  <div class="max-w-5xl space-y-8">
-    <div class="flex flex-wrap items-start justify-between gap-3">
-      <div>
-        <h1 class="text-2xl font-bold tracking-tight">
-          Главная страница
-        </h1>
-        <p class="text-sm text-muted-foreground">
-          Видимость блоков и баннеры hero (RU / EN)
-        </p>
-      </div>
-      <AdminSectionHelp section="home" />
-    </div>
+  <div class="max-w-5xl space-y-8 pb-24">
+    <AdminPageHeader
+      title="Главная страница"
+      description="Видимость блоков и баннеры hero (RU / EN)"
+      help="home"
+    />
 
-    <section class="space-y-4 rounded-xl border p-4">
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-          Разделы
-        </h2>
-        <Button size="sm" :disabled="sectionSaving" @click="saveSections">
-          {{ sectionSaving ? 'Сохранение…' : 'Сохранить разделы' }}
-        </Button>
+    <section class="space-y-5 rounded-2xl border bg-card/40 p-4">
+      <div class="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h2 class="text-base font-semibold">
+            Разделы
+          </h2>
+          <p class="text-xs text-muted-foreground">
+            Включено {{ enabledCount }} из {{ totalSections }} блоков
+          </p>
+        </div>
+        <div class="h-2 w-40 overflow-hidden rounded-full bg-muted">
+          <div
+            class="h-full rounded-full bg-emerald-500 transition-all"
+            :style="{ width: `${enabledPct}%` }"
+          />
+        </div>
       </div>
+
       <AdminFormSkeleton v-if="settingsPending && !settingsData" :fields="4" />
-      <div v-else class="grid gap-2 sm:grid-cols-2">
-        <label
-          v-for="s in sectionMeta"
-          :key="s.key"
-          class="flex items-center gap-2 rounded-lg border px-3 py-2 text-sm"
-        >
-          <input v-model="sections[s.key]" type="checkbox" class="size-4 rounded border">
-          {{ s.label }}
-        </label>
+      <div v-else class="space-y-6">
+        <div v-for="group in sectionGroups" :key="group.title" class="space-y-3">
+          <h3 class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            {{ group.title }}
+          </h3>
+          <div class="grid gap-2 sm:grid-cols-2">
+            <label
+              v-for="s in group.items"
+              :key="s.key"
+              class="flex cursor-pointer items-start gap-3 rounded-xl border bg-background/60 px-3 py-3 transition-colors hover:bg-muted/40"
+              :class="sections[s.key] ? 'border-emerald-500/30' : ''"
+            >
+              <div class="min-w-0 flex-1">
+                <p class="text-sm font-medium">
+                  {{ s.label }}
+                </p>
+                <p class="text-xs text-muted-foreground">
+                  {{ s.hint }}
+                </p>
+              </div>
+              <Switch v-model="sections[s.key]" />
+            </label>
+          </div>
+        </div>
       </div>
-      <p v-if="sectionMsg" class="text-sm text-emerald-600">
-        {{ sectionMsg }}
-      </p>
-      <p v-if="sectionErr" class="text-sm text-destructive">
-        {{ sectionErr }}
-      </p>
     </section>
 
-    <section class="space-y-4 rounded-xl border p-4">
+    <AdminUiAdminStickySaveBar
+      :dirty="sectionsDirty"
+      :saving="sectionSaving"
+      :message="sectionMsg"
+      :error="sectionErr"
+      @save="saveSections"
+      @reset="resetSections"
+    />
+
+    <section class="space-y-4 rounded-2xl border bg-card/40 p-4">
       <div class="flex flex-wrap items-center justify-between gap-3">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-          Баннеры hero
-        </h2>
+        <div>
+          <h2 class="text-base font-semibold">
+            Баннеры hero
+          </h2>
+          <p class="text-xs text-muted-foreground">
+            {{ reorderBusy ? 'Сохраняю порядок…' : 'Перетащите за ручку · RU/EN превью' }}
+          </p>
+        </div>
         <Button size="sm" @click="openCreate">
           + Баннер
         </Button>
       </div>
 
       <AdminTableSkeleton v-if="bannersPending && !bannersData" :cols="5" />
-      <div v-else class="overflow-hidden rounded-lg border">
-        <div class="grid grid-cols-[28px_96px_1fr_auto] gap-3 border-b bg-muted/40 px-3 py-2 text-xs font-medium text-muted-foreground">
+      <div v-else class="overflow-hidden rounded-xl border">
+        <div class="grid grid-cols-[28px_120px_1fr_auto] gap-3 border-b bg-muted/40 px-3 py-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
           <span />
           <span>Превью</span>
           <span>Баннер</span>
-          <span class="text-right">{{ reorderBusy ? 'Сохраняю…' : 'Действия' }}</span>
+          <span class="text-right">Действия</span>
         </div>
         <draggable
           v-model="banners"
@@ -327,13 +406,23 @@ async function removeBanner(row: BannerRow) {
           @end="onBannerReorder"
         >
           <template #item="{ element: row }">
-            <div class="grid grid-cols-[28px_96px_1fr_auto] items-center gap-3 px-3 py-2.5">
+            <div class="grid grid-cols-[28px_120px_1fr_auto] items-center gap-3 px-3 py-2.5 transition-colors hover:bg-muted/30">
               <button type="button" class="drag-handle cursor-grab text-muted-foreground" aria-label="Перетащить">
                 <GripVertical class="size-4" />
               </button>
-              <div class="flex gap-1">
-                <img :src="assetUrl(row.image_ru)" alt="" class="h-12 w-10 rounded object-cover border">
-                <img :src="assetUrl(row.image_en)" alt="" class="h-12 w-10 rounded object-cover border opacity-80">
+              <div class="flex gap-1.5">
+                <div class="relative">
+                  <Badge class="absolute -left-1 -top-1 z-10 px-1 py-0 text-[9px]" variant="secondary">
+                    RU
+                  </Badge>
+                  <img :src="assetUrl(row.image_ru)" alt="" class="h-12 w-12 rounded-lg border object-cover">
+                </div>
+                <div class="relative">
+                  <Badge class="absolute -left-1 -top-1 z-10 px-1 py-0 text-[9px]" variant="secondary">
+                    EN
+                  </Badge>
+                  <img :src="assetUrl(row.image_en)" alt="" class="h-12 w-12 rounded-lg border object-cover opacity-90">
+                </div>
               </div>
               <div class="min-w-0">
                 <div class="truncate font-medium">
@@ -343,14 +432,11 @@ async function removeBanner(row: BannerRow) {
                   {{ row.slug }} · #{{ row.sort_order }}
                 </div>
               </div>
-              <div class="inline-flex items-center justify-end gap-0.5">
-                <Badge :variant="row.active ? 'default' : 'secondary'" class="mr-1">
-                  {{ row.active ? 'on' : 'off' }}
-                </Badge>
-                <AdminIconButton
-                  :tooltip="row.active ? 'Выключить показ' : 'Включить показ'"
-                  :icon="row.active ? EyeOff : Eye"
-                  @click="toggleBanner(row)"
+              <div class="inline-flex items-center justify-end gap-2">
+                <Switch
+                  :model-value="row.active"
+                  :aria-label="row.active ? 'Выключить' : 'Включить'"
+                  @update:model-value="toggleBanner(row)"
                 />
                 <AdminIconButton
                   tooltip="Редактировать"
@@ -418,10 +504,9 @@ async function removeBanner(row: BannerRow) {
             <Label>Sort order</Label>
             <Input v-model.number="form.sort_order" type="number" />
           </div>
-          <label class="inline-flex items-center gap-2 text-sm">
-            <input v-model="form.active" type="checkbox" class="size-4">
+          <AdminCheckbox v-model:checked="form.active">
             Active
-          </label>
+          </AdminCheckbox>
           <div class="flex flex-wrap items-center gap-3">
             <Button :disabled="bannerSaving" @click="saveBanner">
               {{ bannerSaving ? 'Сохранение…' : 'Сохранить' }}

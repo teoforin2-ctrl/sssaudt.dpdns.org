@@ -1,1 +1,30 @@
-html,body{background:#09090b;color:#fafafa;margin:0;min-height:100%}
+/* FOUC guard — must follow color-mode class / system preference (never hardcode dark). */
+:root {
+  --boot-bg: #ffffff;
+  --boot-fg: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --boot-bg: #09090b;
+    --boot-fg: #fafafa;
+  }
+}
+
+html.dark {
+  --boot-bg: #09090b;
+  --boot-fg: #fafafa;
+}
+
+html.light {
+  --boot-bg: #ffffff;
+  --boot-fg: #171717;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--boot-bg);
+  color: var(--boot-fg);
+}

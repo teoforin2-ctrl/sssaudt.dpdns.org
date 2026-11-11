@@ -271,38 +271,97 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   app.get("/v1/admin/casinos", async (req, reply) => {
     if (!requireStaff(req, reply)) return;
     const { page, limit, offset, q } = pageParams(req.query);
+    const query = req.query as {
+      status?: string
+      hot?: string
+      sort?: string
+    };
     const params: unknown[] = [];
-    let where = "true";
+    const whereParts: string[] = ["true"];
     if (q) {
       params.push(`%${q}%`);
-      where = `(c.slug ilike $1 or c.name ilike $1 or coalesce(c.name_ru,'') ilike $1)`;
+      whereParts.push(`(c.slug ilike $${params.length} or c.name ilike $${params.length} or coalesce(c.name_ru,'') ilike $${params.length})`);
     }
+    if (query.status === "published" || query.status === "draft" || query.status === "hidden") {
+      params.push(query.status);
+      whereParts.push(`c.status = $${params.length}`);
+    }
+    if (query.hot === "1" || query.hot === "true") {
+      whereParts.push("c.hot = true");
+    }
+    const where = whereParts.join(" and ");
     params.push(limit, offset);
     const lim = `$${params.length - 1}`;
     const off = `$${params.length}`;
+    const countParams = params.slice(0, -2);
 
-    const { rows: countRows } = await pool.query<{ n: string }>(
-      `select count(*)::text as n from casinos c where ${where}`,
-      q ? [params[0]] : [],
-    );
-    const { rows } = await pool.query(
-      `
-      select c.id, c.slug, c.name, c.name_ru, c.name_en, c.status, c.hot,
-             c.has_representative, c.final_rating, c.editorial_score,
-             c.logo_url, c.partner_url, c.updated_at, c.sort_order
-      from casinos c
-      where ${where}
-      order by c.sort_order asc nulls last, c.updated_at desc nulls last, c.name
-      limit ${lim} offset ${off}
-      `,
-      params,
-    );
+    const sort = query.sort === "rating"
+      ? "coalesce(c.final_rating, c.editorial_score, 0) desc nulls last, c.name"
+      : query.sort === "name"
+        ? "c.name asc"
+        : query.sort === "clicks"
+          ? "clicks_7d desc nulls last, c.name"
+          : "c.sort_order asc nulls last, c.updated_at desc nulls last, c.name";
 
+    const [{ rows: countRows }, { rows }, summaryRes] = await Promise.all([
+      pool.query<{ n: string }>(
+        `select count(*)::text as n from casinos c where ${where}`,
+        countParams,
+      ),
+      pool.query(
+        `
+        select c.id, c.slug, c.name, c.name_ru, c.name_en, c.status, c.hot,
+               c.has_representative, c.final_rating, c.editorial_score,
+               c.logo_url, c.partner_url, c.updated_at, c.sort_order,
+               coalesce((
+                 select count(*)::int from bonuses b where b.casino_id = c.id
+               ), 0) as bonus_count,
+               coalesce((
+                 select count(*)::int from reviews r where r.casino_id = c.id
+               ), 0) as review_count,
+               coalesce((
+                 select count(*)::int from go_clicks g
+                 where g.casino_id = c.id and g.created_at >= now() - interval '7 days'
+               ), 0) as clicks_7d
+        from casinos c
+        where ${where}
+        order by ${sort}
+        limit ${lim} offset ${off}
+        `,
+        params,
+      ),
+      pool.query<{
+        total: string
+        published: string
+        hot: string
+        avg_rating: string | null
+      }>(`
+        select
+          count(*)::text as total,
+          count(*) filter (where status = 'published')::text as published,
+          count(*) filter (where hot = true)::text as hot,
+          round(avg(coalesce(final_rating, editorial_score))::numeric, 2)::text as avg_rating
+        from casinos
+      `).catch(() => ({ rows: [] as { total: string, published: string, hot: string, avg_rating: string | null }[] })),
+    ]);
+
+    const s = summaryRes.rows[0];
     return {
-      items: rows,
+      items: rows.map((r) => ({
+        ...r,
+        bonus_count: Number(r.bonus_count ?? 0),
+        review_count: Number(r.review_count ?? 0),
+        clicks_7d: Number(r.clicks_7d ?? 0),
+      })),
       total: Number(countRows[0]?.n ?? 0),
       page,
       limit,
+      summary: {
+        total: Number(s?.total ?? 0),
+        published: Number(s?.published ?? 0),
+        hot: Number(s?.hot ?? 0),
+        avgRating: s?.avg_rating != null ? Number(s.avg_rating) : null,
+      },
     };
   });
 
@@ -461,34 +520,123 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   app.get("/v1/admin/bonuses", async (req, reply) => {
     if (!requireStaff(req, reply)) return;
     const { page, limit, offset, q } = pageParams(req.query);
+    const query = req.query as {
+      published?: string
+      has_promo?: string
+      casino?: string
+      status?: string
+    };
     const params: unknown[] = [];
-    let where = "true";
+    const whereParts: string[] = ["true"];
     if (q) {
       params.push(`%${q}%`);
-      where = `(b.title ilike $1 or coalesce(b.title_ru,'') ilike $1 or coalesce(b.promo_code,'') ilike $1 or c.slug ilike $1)`;
+      whereParts.push(`(b.title ilike $${params.length} or coalesce(b.title_ru,'') ilike $${params.length} or coalesce(b.promo_code,'') ilike $${params.length} or c.slug ilike $${params.length} or c.name ilike $${params.length})`);
     }
+    if (query.published === "1" || query.published === "true") {
+      whereParts.push("b.published = true and b.status = 'active'");
+    } else if (query.published === "0" || query.published === "false") {
+      whereParts.push("(b.published = false or b.status <> 'active')");
+    }
+    if (query.has_promo === "1" || query.has_promo === "true") {
+      whereParts.push("coalesce(nullif(trim(b.promo_code), ''), null) is not null");
+    }
+    if (query.status === "active" || query.status === "hidden") {
+      params.push(query.status);
+      whereParts.push(`b.status = $${params.length}`);
+    }
+    if (query.casino) {
+      params.push(query.casino);
+      whereParts.push(`c.slug = $${params.length}`);
+    }
+    const where = whereParts.join(" and ");
     params.push(limit, offset);
     const lim = `$${params.length - 1}`;
     const off = `$${params.length}`;
+    const countParams = params.slice(0, -2);
 
-    const { rows: countRows } = await pool.query<{ n: string }>(
-      `select count(*)::text as n from bonuses b join casinos c on c.id = b.casino_id where ${where}`,
-      q ? [params[0]] : [],
-    );
-    const { rows } = await pool.query(
-      `
-      select b.id, b.title, b.title_ru, b.title_en, b.promo_code, b.type,
-             b.status, b.published, b.wager, b.amount_or_percent, b.checked_by_editor,
-             b.casino_id, c.slug as casino_slug, c.name as casino_name, b.created_at
-      from bonuses b
-      join casinos c on c.id = b.casino_id
-      where ${where}
-      order by b.created_at desc
-      limit ${lim} offset ${off}
-      `,
-      params,
-    );
-    return { items: rows, total: Number(countRows[0]?.n ?? 0), page, limit };
+    const [{ rows: countRows }, { rows }, summaryRes] = await Promise.all([
+      pool.query<{ n: string }>(
+        `select count(*)::text as n from bonuses b join casinos c on c.id = b.casino_id where ${where}`,
+        countParams,
+      ),
+      pool.query(
+        `
+        select b.id, b.title, b.title_ru, b.title_en, b.promo_code, b.type,
+               b.status, b.published, b.wager, b.amount_or_percent, b.checked_by_editor,
+               b.casino_id, c.slug as casino_slug, c.name as casino_name, b.created_at
+        from bonuses b
+        join casinos c on c.id = b.casino_id
+        where ${where}
+        order by b.created_at desc
+        limit ${lim} offset ${off}
+        `,
+        params,
+      ),
+      pool.query<{
+        total: string
+        active: string
+        with_promo: string
+        top_casino: string | null
+        top_casino_n: string | null
+        w_none: string
+        w_20_30: string
+        w_30_40: string
+        w_40p: string
+      }>(`
+        select
+          count(*)::text as total,
+          count(*) filter (where published = true and status = 'active')::text as active,
+          count(*) filter (where coalesce(nullif(trim(promo_code), ''), null) is not null)::text as with_promo,
+          (
+            select c.name from bonuses b2
+            join casinos c on c.id = b2.casino_id
+            group by c.name order by count(*) desc limit 1
+          ) as top_casino,
+          (
+            select count(*)::text from bonuses b2
+            join casinos c on c.id = b2.casino_id
+            where c.name = (
+              select c2.name from bonuses b3
+              join casinos c2 on c2.id = b3.casino_id
+              group by c2.name order by count(*) desc limit 1
+            )
+          ) as top_casino_n,
+          count(*) filter (where nullif(regexp_replace(coalesce(wager,''), '[^0-9.]', '', 'g'), '') is null)::text as w_none,
+          count(*) filter (
+            where nullif(regexp_replace(coalesce(wager,''), '[^0-9.]', '', 'g'), '')::numeric >= 20
+              and nullif(regexp_replace(coalesce(wager,''), '[^0-9.]', '', 'g'), '')::numeric < 30
+          )::text as w_20_30,
+          count(*) filter (
+            where nullif(regexp_replace(coalesce(wager,''), '[^0-9.]', '', 'g'), '')::numeric >= 30
+              and nullif(regexp_replace(coalesce(wager,''), '[^0-9.]', '', 'g'), '')::numeric < 40
+          )::text as w_30_40,
+          count(*) filter (
+            where nullif(regexp_replace(coalesce(wager,''), '[^0-9.]', '', 'g'), '')::numeric >= 40
+          )::text as w_40p
+        from bonuses
+      `).catch(() => ({ rows: [] as any[] })),
+    ]);
+
+    const s = summaryRes.rows[0];
+    return {
+      items: rows,
+      total: Number(countRows[0]?.n ?? 0),
+      page,
+      limit,
+      summary: {
+        total: Number(s?.total ?? 0),
+        active: Number(s?.active ?? 0),
+        withPromo: Number(s?.with_promo ?? 0),
+        topCasino: s?.top_casino ?? null,
+        topCasinoCount: Number(s?.top_casino_n ?? 0),
+        wagerBuckets: [
+          { label: 'без вейджера', value: Number(s?.w_none ?? 0) },
+          { label: 'x20–30', value: Number(s?.w_20_30 ?? 0) },
+          { label: 'x30–40', value: Number(s?.w_30_40 ?? 0) },
+          { label: 'x40+', value: Number(s?.w_40p ?? 0) },
+        ],
+      },
+    };
   });
 
   app.get("/v1/admin/bonuses/:id", async (req, reply) => {
@@ -808,26 +956,101 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
     const off = `$${params.length}`;
 
     const countParams = params.slice(0, params.length - 2);
-    const { rows: countRows } = await pool.query<{ n: string }>(
-      `select count(*)::text as n from reviews rv join casinos c on c.id = rv.casino_id where ${where}`,
-      countParams,
-    );
-    const { rows } = await pool.query(
-      `
-      select rv.id, rv.rating, rv.body, rv.status, rv.author_name, rv.origin,
-             rv.created_at, rv.published_at, rv.casino_id,
-             c.slug as casino_slug, c.name as casino_name
-      from reviews rv
-      join casinos c on c.id = rv.casino_id
-      where ${where}
-      order by
-        case when rv.status = 'pending' then 0 else 1 end,
-        rv.created_at desc
-      limit ${lim} offset ${off}
-      `,
-      params,
-    );
-    return { items: rows, total: Number(countRows[0]?.n ?? 0), page, limit };
+    const [{ rows: countRows }, { rows }, summaryRes, seriesRes] = await Promise.all([
+      pool.query<{ n: string }>(
+        `select count(*)::text as n from reviews rv join casinos c on c.id = rv.casino_id where ${where}`,
+        countParams,
+      ),
+      pool.query(
+        `
+        select rv.id, rv.rating, rv.body, rv.status, rv.author_name, rv.origin,
+               rv.created_at, rv.published_at, rv.casino_id,
+               c.slug as casino_slug, c.name as casino_name,
+               (
+                 select count(*)::int from reviews d
+                 where d.body = rv.body and d.id <> rv.id
+               ) as duplicate_count
+        from reviews rv
+        join casinos c on c.id = rv.casino_id
+        where ${where}
+        order by
+          case when rv.status = 'pending' then 0 else 1 end,
+          rv.created_at desc
+        limit ${lim} offset ${off}
+        `,
+        params,
+      ),
+      pool.query<{
+        total: string
+        pending: string
+        approved: string
+        rejected: string
+        avg_rating: string | null
+        r1: string
+        r2: string
+        r3: string
+        r4: string
+        r5: string
+      }>(`
+        select
+          count(*)::text as total,
+          count(*) filter (where status = 'pending')::text as pending,
+          count(*) filter (where status = 'approved')::text as approved,
+          count(*) filter (where status = 'rejected')::text as rejected,
+          round(avg(rating)::numeric, 2)::text as avg_rating,
+          count(*) filter (where rating = 1)::text as r1,
+          count(*) filter (where rating = 2)::text as r2,
+          count(*) filter (where rating = 3)::text as r3,
+          count(*) filter (where rating = 4)::text as r4,
+          count(*) filter (where rating = 5)::text as r5
+        from reviews
+      `).catch(() => ({ rows: [] as any[] })),
+      pool.query<{ day: string, n: string }>(`
+        with days as (
+          select generate_series(
+            (current_date - 29)::timestamp,
+            current_date::timestamp,
+            interval '1 day'
+          )::date as day
+        )
+        select to_char(d.day, 'YYYY-MM-DD') as day,
+               coalesce(r.n, 0)::text as n
+        from days d
+        left join (
+          select date_trunc('day', created_at)::date as day, count(*)::int as n
+          from reviews
+          where created_at >= current_date - 29
+          group by 1
+        ) r on r.day = d.day
+        order by d.day
+      `).catch(() => ({ rows: [] as { day: string, n: string }[] })),
+    ]);
+
+    const s = summaryRes.rows[0];
+    return {
+      items: rows.map((r) => ({
+        ...r,
+        duplicate_count: Number(r.duplicate_count ?? 0),
+      })),
+      total: Number(countRows[0]?.n ?? 0),
+      page,
+      limit,
+      summary: {
+        total: Number(s?.total ?? 0),
+        pending: Number(s?.pending ?? 0),
+        approved: Number(s?.approved ?? 0),
+        rejected: Number(s?.rejected ?? 0),
+        avgRating: s?.avg_rating != null ? Number(s.avg_rating) : null,
+        ratingBars: [
+          { star: 1, value: Number(s?.r1 ?? 0) },
+          { star: 2, value: Number(s?.r2 ?? 0) },
+          { star: 3, value: Number(s?.r3 ?? 0) },
+          { star: 4, value: Number(s?.r4 ?? 0) },
+          { star: 5, value: Number(s?.r5 ?? 0) },
+        ],
+        series: seriesRes.rows.map(r => ({ date: r.day, reviews: Number(r.n) })),
+      },
+    };
   });
 
   app.patch("/v1/admin/reviews/:id", async (req, reply) => {
@@ -940,31 +1163,77 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   app.get("/v1/admin/articles", async (req, reply) => {
     if (!requireStaff(req, reply)) return;
     const { page, limit, offset, q } = pageParams(req.query);
+    const query = req.query as { status?: string, kind?: string };
     const params: unknown[] = [];
-    let where = "true";
+    const whereParts: string[] = ["true"];
     if (q) {
       params.push(`%${q}%`);
-      where = `(a.slug ilike $1 or a.title_ru ilike $1 or a.title_en ilike $1)`;
+      whereParts.push(`(a.slug ilike $${params.length} or a.title_ru ilike $${params.length} or a.title_en ilike $${params.length})`);
     }
+    if (query.status === "published" || query.status === "draft") {
+      params.push(query.status);
+      whereParts.push(`a.status = $${params.length}`);
+    }
+    if (query.kind) {
+      params.push(query.kind);
+      whereParts.push(`a.kind = $${params.length}`);
+    }
+    const where = whereParts.join(" and ");
     params.push(limit, offset);
     const lim = `$${params.length - 1}`;
     const off = `$${params.length}`;
-    const { rows: countRows } = await pool.query<{ n: string }>(
-      `select count(*)::text as n from articles a where ${where}`,
-      q ? [params[0]] : [],
-    );
-    const { rows } = await pool.query(
-      `
-      select a.id, a.slug, a.kind, a.title_ru, a.title_en, a.status,
-             a.published_at, a.updated_at, a.reading_minutes
-      from articles a
-      where ${where}
-      order by a.updated_at desc
-      limit ${lim} offset ${off}
-      `,
-      params,
-    );
-    return { items: rows, total: Number(countRows[0]?.n ?? 0), page, limit };
+    const countParams = params.slice(0, -2);
+    const [{ rows: countRows }, { rows }, summaryRes] = await Promise.all([
+      pool.query<{ n: string }>(
+        `select count(*)::text as n from articles a where ${where}`,
+        countParams,
+      ),
+      pool.query(
+        `
+        select a.id, a.slug, a.kind, a.title_ru, a.title_en, a.status,
+               a.published_at, a.updated_at, a.reading_minutes, a.cover_url
+        from articles a
+        where ${where}
+        order by a.updated_at desc
+        limit ${lim} offset ${off}
+        `,
+        params,
+      ),
+      pool.query<{
+        total: string
+        published: string
+        draft: string
+        guide: string
+        news: string
+        analytics: string
+      }>(`
+        select
+          count(*)::text as total,
+          count(*) filter (where status = 'published')::text as published,
+          count(*) filter (where status = 'draft')::text as draft,
+          count(*) filter (where kind = 'guide')::text as guide,
+          count(*) filter (where kind = 'news')::text as news,
+          count(*) filter (where kind = 'analytics')::text as analytics
+        from articles
+      `).catch(() => ({ rows: [] as any[] })),
+    ]);
+    const s = summaryRes.rows[0];
+    return {
+      items: rows,
+      total: Number(countRows[0]?.n ?? 0),
+      page,
+      limit,
+      summary: {
+        total: Number(s?.total ?? 0),
+        published: Number(s?.published ?? 0),
+        draft: Number(s?.draft ?? 0),
+        byKind: [
+          { name: 'guide', value: Number(s?.guide ?? 0) },
+          { name: 'news', value: Number(s?.news ?? 0) },
+          { name: 'analytics', value: Number(s?.analytics ?? 0) },
+        ].filter(i => i.value > 0),
+      },
+    };
   });
 
   app.get("/v1/admin/articles/:id", async (req, reply) => {
@@ -1099,32 +1368,98 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   app.get("/v1/admin/slots", async (req, reply) => {
     if (!requireStaff(req, reply)) return;
     const { page, limit, offset, q } = pageParams(req.query);
+    const query = req.query as {
+      status?: string
+      volatility?: string
+      provider?: string
+    };
     const params: unknown[] = [];
-    let where = "true";
+    const whereParts: string[] = ["true"];
     if (q) {
       params.push(`%${q}%`);
-      where = `(s.slug ilike $1 or s.title ilike $1)`;
+      whereParts.push(`(s.slug ilike $${params.length} or s.title ilike $${params.length})`);
     }
+    if (query.status === "published" || query.status === "draft" || query.status === "hidden") {
+      params.push(query.status);
+      whereParts.push(`s.status = $${params.length}`);
+    }
+    if (query.volatility) {
+      params.push(query.volatility);
+      whereParts.push(`s.volatility = $${params.length}`);
+    }
+    if (query.provider) {
+      params.push(query.provider);
+      whereParts.push(`gp.slug = $${params.length}`);
+    }
+    const where = whereParts.join(" and ");
     params.push(limit, offset);
     const lim = `$${params.length - 1}`;
     const off = `$${params.length}`;
-    const { rows: countRows } = await pool.query<{ n: string }>(
-      `select count(*)::text as n from slots s where ${where}`,
-      q ? [params[0]] : [],
-    );
-    const { rows } = await pool.query(
-      `
-      select s.id, s.slug, s.title, s.theme, s.volatility, s.rtp, s.status,
-             s.created_at, gp.name as provider_name
-      from slots s
-      left join game_providers gp on gp.id = s.provider_id
-      where ${where}
-      order by s.created_at desc
-      limit ${lim} offset ${off}
-      `,
-      params,
-    );
-    return { items: rows, total: Number(countRows[0]?.n ?? 0), page, limit };
+    const countParams = params.slice(0, -2);
+
+    const [{ rows: countRows }, { rows }, summaryRes, providersRes] = await Promise.all([
+      pool.query<{ n: string }>(
+        `
+        select count(*)::text as n
+        from slots s
+        left join game_providers gp on gp.id = s.provider_id
+        where ${where}
+        `,
+        countParams,
+      ),
+      pool.query(
+        `
+        select s.id, s.slug, s.title, s.theme, s.volatility, s.rtp, s.status,
+               s.created_at, gp.name as provider_name, gp.slug as provider_slug
+        from slots s
+        left join game_providers gp on gp.id = s.provider_id
+        where ${where}
+        order by s.created_at desc
+        limit ${lim} offset ${off}
+        `,
+        params,
+      ),
+      pool.query<{
+        total: string
+        published: string
+        providers: string
+        avg_rtp: string | null
+      }>(`
+        select
+          count(*)::text as total,
+          count(*) filter (where status = 'published')::text as published,
+          count(distinct provider_id)::text as providers,
+          round(avg(rtp) filter (where rtp is not null)::numeric, 2)::text as avg_rtp
+        from slots
+      `).catch(() => ({ rows: [] as { total: string, published: string, providers: string, avg_rtp: string | null }[] })),
+      pool.query<{ slug: string, name: string, n: string }>(`
+        select gp.slug, gp.name, count(*)::text as n
+        from slots s
+        join game_providers gp on gp.id = s.provider_id
+        group by gp.slug, gp.name
+        order by count(*) desc
+        limit 6
+      `).catch(() => ({ rows: [] as { slug: string, name: string, n: string }[] })),
+    ]);
+
+    const s = summaryRes.rows[0];
+    return {
+      items: rows,
+      total: Number(countRows[0]?.n ?? 0),
+      page,
+      limit,
+      summary: {
+        total: Number(s?.total ?? 0),
+        published: Number(s?.published ?? 0),
+        providers: Number(s?.providers ?? 0),
+        avgRtp: s?.avg_rtp != null ? Number(s.avg_rtp) : null,
+        topProviders: providersRes.rows.map(r => ({
+          slug: r.slug,
+          name: r.name,
+          count: Number(r.n),
+        })),
+      },
+    };
   });
 
   app.get("/v1/admin/game-providers", async (req, reply) => {
@@ -1288,17 +1623,45 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
       params.push(placement);
       where = `placement = $1`;
     }
-    const { rows } = await pool.query(
-      `
-      select id, slug, placement, title_ru, title_en, image_ru, image_en,
-             href_ru, href_en, sort_order, active, updated_at
-      from banners
-      where ${where}
-      order by placement, sort_order, slug
-      `,
-      params,
-    );
-    return { items: rows };
+    const [{ rows }, summaryRes] = await Promise.all([
+      pool.query(
+        `
+        select id, slug, placement, title_ru, title_en, image_ru, image_en,
+               href_ru, href_en, sort_order, active, updated_at
+        from banners
+        where ${where}
+        order by placement, sort_order, slug
+        `,
+        params,
+      ),
+      pool.query<{
+        total: string
+        active: string
+        inactive: string
+      }>(`
+        select
+          count(*)::text as total,
+          count(*) filter (where active = true)::text as active,
+          count(*) filter (where active = false)::text as inactive
+        from banners
+      `).catch(() => ({ rows: [] as any[] })),
+    ]);
+    const byPlacement = await pool.query<{ placement: string, n: string }>(`
+      select placement, count(*)::text as n from banners group by placement order by count(*) desc
+    `).catch(() => ({ rows: [] as { placement: string, n: string }[] }));
+    const s = summaryRes.rows[0];
+    return {
+      items: rows,
+      summary: {
+        total: Number(s?.total ?? 0),
+        active: Number(s?.active ?? 0),
+        inactive: Number(s?.inactive ?? 0),
+        byPlacement: byPlacement.rows.map(r => ({
+          placement: r.placement,
+          count: Number(r.n),
+        })),
+      },
+    };
   });
 
   app.post("/v1/admin/banners", async (req, reply) => {

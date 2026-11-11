@@ -1,0 +1,36 @@
+/* SS Audit admin design tokens — match dashboard visual language */
+:root {
+  --admin-accent-cyan: oklch(0.72 0.12 220);
+  --admin-accent-amber: oklch(0.78 0.14 70);
+  --admin-accent-violet: oklch(0.65 0.16 290);
+  --admin-accent-emerald: oklch(0.7 0.14 155);
+  --admin-accent-rose: oklch(0.65 0.18 25);
+  --admin-card-radius: 1rem; /* rounded-2xl */
+  --admin-control-radius: 0.5rem; /* rounded-lg */
+}
+
+.dark {
+  --admin-accent-cyan: oklch(0.75 0.12 220);
+  --admin-accent-amber: oklch(0.8 0.14 70);
+  --admin-accent-violet: oklch(0.72 0.14 290);
+  --admin-accent-emerald: oklch(0.75 0.13 155);
+  --admin-accent-rose: oklch(0.7 0.16 25);
+}
+
+@theme inline {
+  --color-admin-cyan: var(--admin-accent-cyan);
+  --color-admin-amber: var(--admin-accent-amber);
+  --color-admin-violet: var(--admin-accent-violet);
+  --color-admin-emerald: var(--admin-accent-emerald);
+  --color-admin-rose: var(--admin-accent-rose);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .animate-ping,
+  .animate-pulse,
+  .animate-spin {
+    animation: none !important;
+    transition: none !important;
+  }
+}

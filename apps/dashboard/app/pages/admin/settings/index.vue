@@ -73,6 +73,50 @@ watch(
 const saving = ref(false)
 const saveMsg = ref<string | null>(null)
 const saveErr = ref<string | null>(null)
+const savedSnapshot = ref('')
+
+watch(
+  () => data.value?.settings,
+  (s) => {
+    if (!s)
+      return
+    nextTick(() => {
+      savedSnapshot.value = JSON.stringify({
+        siteName: fields.value.siteName,
+        contacts: fields.value.contacts,
+        logo: logoDataUrl.value,
+        favicon: faviconDataUrl.value,
+      })
+    })
+  },
+  { immediate: true },
+)
+
+const dirty = computed(() => {
+  if (!savedSnapshot.value)
+    return false
+  const now = JSON.stringify({
+    siteName: fields.value.siteName,
+    contacts: fields.value.contacts,
+    logo: logoDataUrl.value,
+    favicon: faviconDataUrl.value,
+  })
+  return now !== savedSnapshot.value
+})
+
+function resetForm() {
+  const s = data.value?.settings
+  if (!s)
+    return
+  fields.value.siteName = s.siteName || 'SS Audit'
+  fields.value.contacts = { ...emptyContacts(), ...s.contacts }
+  logoPreview.value = s.logoUrl
+  faviconPreview.value = s.favicon32Url || s.faviconUrl
+  logoDataUrl.value = null
+  faviconDataUrl.value = null
+  saveMsg.value = null
+  saveErr.value = null
+}
 
 function assetUrl(path: string | null | undefined) {
   if (!path)
@@ -174,7 +218,7 @@ async function save() {
 </script>
 
 <template>
-  <div class="max-w-3xl space-y-6">
+  <div class="max-w-3xl space-y-6 pb-24">
     <AdminPageHeader
       title="Настройки сайта"
       description="Название, логотип, фавикон и контакты публичного сайта"
@@ -222,10 +266,9 @@ async function save() {
               <span v-else class="text-xs text-muted-foreground">нет логотипа</span>
             </div>
             <Input type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" @change="onLogoPick" />
-            <label class="flex items-center gap-2 text-sm">
-              <input v-model="fields.regenerateFromLogo" type="checkbox" class="size-4 rounded border">
+            <AdminCheckbox v-model:checked="fields.regenerateFromLogo">
               Перегенерировать фавикон из логотипа
-            </label>
+            </AdminCheckbox>
           </div>
           <div class="grid gap-2">
             <Label>Фавикон (исходник)</Label>
@@ -327,15 +370,15 @@ async function save() {
           </div>
         </div>
       </section>
-
-      <div class="flex flex-wrap items-center gap-3">
-        <Button type="submit" :disabled="saving">
-          {{ saving ? 'Сохранение…' : 'Сохранить' }}
-        </Button>
-        <span v-if="saving" class="text-sm text-muted-foreground">Отправка…</span>
-        <span v-else-if="saveMsg" class="text-sm text-emerald-600">{{ saveMsg }}</span>
-        <span v-else-if="saveErr" class="text-sm text-destructive">{{ saveErr }}</span>
-      </div>
     </form>
+
+    <AdminUiAdminStickySaveBar
+      :dirty="dirty"
+      :saving="saving"
+      :message="saveMsg"
+      :error="saveErr"
+      @save="save"
+      @reset="resetForm"
+    />
   </div>
 </template>

@@ -351,24 +351,51 @@ export async function registerForum(app: FastifyInstance, pool: Pool) {
     params.push(limit, offset);
     const lim = `$${params.length - 1}`;
     const off = `$${params.length}`;
-    const { rows: countRows } = await pool.query<{ n: string }>(
-      `select count(*)::text as n from forum_topics t where ${where.join(" and ")}`,
-      params.slice(0, -2),
-    );
-    const { rows } = await pool.query(
-      `
-      select t.id, t.slug, t.title, t.author_name, t.posts_count, t.views_count,
-             t.is_locked, t.is_pinned, t.status, t.created_at, t.last_post_at,
-             c.slug as category_slug, c.title_ru as category_title
-      from forum_topics t
-      join forum_categories c on c.id = t.category_id
-      where ${where.join(" and ")}
-      order by t.last_post_at desc
-      limit ${lim} offset ${off}
-      `,
-      params,
-    );
-    return { items: rows, total: Number(countRows[0]?.n || 0), page, limit };
+    const countParams = params.slice(0, -2);
+    const [{ rows: countRows }, { rows }, summaryRes] = await Promise.all([
+      pool.query<{ n: string }>(
+        `select count(*)::text as n from forum_topics t where ${where.join(" and ")}`,
+        countParams,
+      ),
+      pool.query(
+        `
+        select t.id, t.slug, t.title, t.author_name, t.posts_count, t.views_count,
+               t.is_locked, t.is_pinned, t.status, t.created_at, t.last_post_at,
+               c.slug as category_slug, c.title_ru as category_title
+        from forum_topics t
+        join forum_categories c on c.id = t.category_id
+        where ${where.join(" and ")}
+        order by t.last_post_at desc
+        limit ${lim} offset ${off}
+        `,
+        params,
+      ),
+      pool.query<{
+        topics: string
+        posts: string
+        hidden: string
+        locked: string
+      }>(`
+        select
+          (select count(*)::text from forum_topics) as topics,
+          (select count(*)::text from forum_posts) as posts,
+          (select count(*)::text from forum_topics where status = 'hidden') as hidden,
+          (select count(*)::text from forum_topics where is_locked = true) as locked
+      `).catch(() => ({ rows: [] as any[] })),
+    ]);
+    const s = summaryRes.rows[0];
+    return {
+      items: rows,
+      total: Number(countRows[0]?.n || 0),
+      page,
+      limit,
+      summary: {
+        topics: Number(s?.topics ?? 0),
+        posts: Number(s?.posts ?? 0),
+        hidden: Number(s?.hidden ?? 0),
+        locked: Number(s?.locked ?? 0),
+      },
+    };
   });
 
   app.get("/v1/admin/forum/topics/:id/posts", async (req, reply) => {
