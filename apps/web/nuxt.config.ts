@@ -71,6 +71,35 @@ export default defineNuxtConfig({
     },
   },
 
+  // Public pages: short edge/browser cache for HTML; long cache for hashed assets.
+  routeRules: {
+    "/_nuxt/**": {
+      headers: {
+        "cache-control": "public, max-age=31536000, immutable",
+      },
+    },
+    "/img/**": {
+      headers: {
+        "cache-control": "public, max-age=2592000, stale-while-revalidate=86400",
+      },
+    },
+    "/uploads/**": {
+      headers: {
+        "cache-control": "public, max-age=604800, stale-while-revalidate=86400",
+      },
+    },
+    "/ru": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=60, stale-while-revalidate=300",
+      },
+    },
+    "/en": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=60, stale-while-revalidate=300",
+      },
+    },
+  },
+
   i18n: {
     locales: [
       { code: "ru", language: "ru-RU", name: "Русский", file: "ru.json" },
@@ -121,14 +150,17 @@ export default defineNuxtConfig({
         {
           src: "/theme-boot.js",
           tagPriority: -19,
+          // Keep sync — sets data-theme before paint
         },
         {
           src: "/age-gate-boot.js",
+          defer: true,
           tagPriority: -18,
         },
         {
           // Reveal #__nuxt once Vite/app CSS is present
           src: "/css-ready-boot.js",
+          defer: true,
           tagPriority: 20,
         },
       ],

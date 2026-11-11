@@ -86,6 +86,8 @@
     root.id = "age-gate-boot";
     root.setAttribute("role", "dialog");
     root.setAttribute("aria-modal", "true");
+    root.setAttribute("aria-labelledby", "age-gate-boot-title");
+    root.setAttribute("aria-label", copy.title);
 
     var blur = el("div", "age-gate-boot__blur");
     blur.setAttribute("aria-hidden", "true");
@@ -111,7 +113,9 @@
     top.appendChild(langs);
     card.appendChild(top);
 
-    card.appendChild(el("h2", "age-gate-boot__title", copy.title));
+    var titleEl = el("h2", "age-gate-boot__title", copy.title);
+    titleEl.id = "age-gate-boot-title";
+    card.appendChild(titleEl);
     card.appendChild(el("p", "age-gate-boot__lead", copy.lead));
 
     var list = el("ul", "age-gate-boot__points");

@@ -277,9 +277,10 @@ export async function registerAuth(app: FastifyInstance, pool: Pool) {
     return { ok: true };
   });
 
-  app.get("/v1/auth/me", async (req, reply) => {
+  app.get("/v1/auth/me", async (req) => {
+    // Guests get 200 + null (avoids noisy 401s in PageSpeed / console).
     if (!req.staffUser) {
-      return reply.code(401).send({ error: "unauthorized" });
+      return { user: null, destination: null };
     }
     return {
       user: req.staffUser,

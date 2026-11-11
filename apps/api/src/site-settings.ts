@@ -7,6 +7,7 @@ import sharp from "sharp";
 import { z } from "zod";
 import { mergeRewardSettings, type RewardSettings } from "@x-reviewer/shared";
 import { requireAdmin, requireStaff } from "./auth.js";
+import { parseImageDataUrl, saveRasterAsWebp } from "./images.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WEB_PUBLIC =
@@ -106,23 +107,22 @@ function mapRow(row: Record<string, unknown>): SiteSettings {
   };
 }
 
-function parseDataUrl(dataUrl: string): { ext: string; buf: Buffer } | null {
-  const m = /^data:(image\/(png|jpeg|jpg|webp|gif|svg\+xml));base64,(.+)$/i.exec(dataUrl);
-  if (!m) return null;
-  let ext = m[2].toLowerCase();
-  if (ext === "jpeg") ext = "jpg";
-  if (ext === "svg+xml") ext = "svg";
-  const buf = Buffer.from(m[3], "base64");
-  if (!buf.length || buf.length > 8_000_000) return null;
-  return { ext, buf };
-}
-
-async function saveLogo(buf: Buffer, ext: string): Promise<string> {
+async function saveLogoSvg(buf: Buffer): Promise<string> {
   await mkdir(BRAND_DIR, { recursive: true });
   const stamp = Date.now().toString(36);
-  const filename = `logo-${stamp}.${ext === "svg" ? "svg" : ext}`;
+  const filename = `logo-${stamp}.svg`;
   await writeFile(path.join(BRAND_DIR, filename), buf);
   return `/uploads/brand/${filename}`;
+}
+
+async function saveLogoWebp(buf: Buffer): Promise<string> {
+  const stamp = Date.now().toString(36);
+  return saveRasterAsWebp({
+    dir: BRAND_DIR,
+    basename: `logo-${stamp}`,
+    buf,
+    publicPathPrefix: "/uploads/brand",
+  });
 }
 
 async function regenerateFavicons(source: Buffer): Promise<{
@@ -173,7 +173,7 @@ export async function registerSiteSettings(app: FastifyInstance, pool: Pool) {
       return {
         settings: mapRow({
           site_name: "SS Audit",
-          logo_url: "/img/brand/logo.png",
+          logo_url: "/img/brand/logo.webp",
           favicon_url: "/favicon.png",
           favicon_32_url: "/favicon-32.png",
           apple_touch_icon_url: "/apple-touch-icon.png",
@@ -231,10 +231,10 @@ export async function registerSiteSettings(app: FastifyInstance, pool: Pool) {
     let logoBuf: Buffer | null = null;
 
     if (body.data.logo_data_url) {
-      const parsed = parseDataUrl(body.data.logo_data_url);
+      const parsed = parseImageDataUrl(body.data.logo_data_url);
       if (!parsed) return reply.code(400).send({ error: "invalid_logo" });
       if (parsed.ext === "svg") {
-        logoUrl = await saveLogo(parsed.buf, "svg");
+        logoUrl = await saveLogoSvg(parsed.buf);
         // rasterize svg for favicon via sharp if possible
         try {
           logoBuf = await sharp(parsed.buf).png().toBuffer();
@@ -243,13 +243,17 @@ export async function registerSiteSettings(app: FastifyInstance, pool: Pool) {
         }
       } else {
         logoBuf = parsed.buf;
-        logoUrl = await saveLogo(parsed.buf, parsed.ext);
+        try {
+          logoUrl = await saveLogoWebp(parsed.buf);
+        } catch {
+          return reply.code(400).send({ error: "invalid_logo" });
+        }
       }
     }
 
     let faviconSource: Buffer | null = null;
     if (body.data.favicon_data_url) {
-      const parsed = parseDataUrl(body.data.favicon_data_url);
+      const parsed = parseImageDataUrl(body.data.favicon_data_url);
       if (!parsed) return reply.code(400).send({ error: "invalid_favicon" });
       if (parsed.ext === "svg") {
         try {

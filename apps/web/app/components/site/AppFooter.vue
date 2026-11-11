@@ -97,7 +97,7 @@ const socials = computed(() => {
   padding: 40px 0 28px;
   overflow: hidden;
   background-color: #07090f;
-  background-image: url("/img/footer_bg.png");
+  background-image: url("/img/footer_bg.webp");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
@@ -117,7 +117,7 @@ const socials = computed(() => {
 }
 [data-theme="light"] .foot {
   background-color: #eef1f6;
-  background-image: url("/img/footer_bg.png");
+  background-image: url("/img/footer_bg.webp");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;

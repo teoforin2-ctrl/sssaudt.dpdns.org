@@ -28,6 +28,7 @@ export function useTheme() {
       document.documentElement.setAttribute("data-theme", mode);
       try {
         localStorage.setItem(STORAGE_KEY, mode);
+        document.cookie = `${STORAGE_KEY}=${mode};path=/;max-age=31536000;samesite=lax`;
       } catch {
         /* ignore */
       }

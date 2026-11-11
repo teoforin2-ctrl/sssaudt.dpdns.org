@@ -47,6 +47,13 @@ function bannerTo(href?: string | null) {
   return localePath(href);
 }
 
+/** Prefer *-sm.webp under ~960px CSS width when the asset exists next to the full banner. */
+function bannerSrcSet(url: string) {
+  if (!url || !/\.webp$/i.test(url) || url.includes("-sm.")) return undefined;
+  const sm = url.replace(/\.webp$/i, "-sm.webp");
+  return `${sm} 960w, ${url} 1672w`;
+}
+
 watch(
   () => props.banners.length,
   () => {
@@ -93,6 +100,8 @@ onBeforeUnmount(stop);
         :key="`${current.id}-${locale}-${current.imageUrl}`"
         class="banner-img"
         :src="current.imageUrl"
+        :srcset="bannerSrcSet(current.imageUrl)"
+        sizes="(max-width: 960px) 100vw, 1672px"
         :alt="current.title || t('home.hero.bannerAlt')"
         width="1672"
         height="941"
@@ -166,18 +175,37 @@ onBeforeUnmount(stop);
   pointer-events: auto;
 }
 .dot {
-  width: 8px;
-  height: 8px;
+  /* Visual 10px; hit area ≥44px via padding for a11y target-size */
+  box-sizing: content-box;
+  width: 10px;
+  height: 10px;
+  padding: 17px 10px;
+  margin: -17px -10px;
   border-radius: 999px;
   border: 0;
-  background: rgba(255, 255, 255, 0.4);
+  background: transparent;
   cursor: pointer;
-  padding: 0;
+  position: relative;
   transition:
     width 0.2s var(--ease, ease),
     background 0.2s var(--ease, ease);
 }
+.dot::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+}
 .dot.on {
+  width: 22px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: -4px;
+  margin-right: -4px;
+}
+.dot.on::before {
   width: 22px;
   background: var(--accent-cta);
   box-shadow: var(--glow-cta);

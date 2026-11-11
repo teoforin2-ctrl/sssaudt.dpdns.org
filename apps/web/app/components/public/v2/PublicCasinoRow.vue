@@ -73,7 +73,11 @@ const checkedLabel = computed(() => formatDate(props.casino.bonusCheckedAt, loca
     data-track="row"
   >
     <div class="badge-rank" :class="rankClass(place)">{{ place }}</div>
-    <NuxtLink class="logo-link" :to="localePath(`/casino/${casino.slug}`)">
+    <NuxtLink
+      class="logo-link"
+      :to="localePath(`/casino/${casino.slug}`)"
+      :aria-label="displayName(casino.name)"
+    >
       <CasinoLogo :name="casino.name" :src="casino.logoUrl" variant="v2" />
     </NuxtLink>
     <div class="main">
@@ -197,7 +201,7 @@ const checkedLabel = computed(() => formatDate(props.casino.bonusCheckedAt, loca
 }
 .rating-line {
   font-size: 12px;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
 }
 .offer {
   font-size: 13.5px;

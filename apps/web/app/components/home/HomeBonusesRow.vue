@@ -85,7 +85,7 @@ const list = computed(() => props.items.slice(0, 6));
       color-mix(in srgb, var(--bg-base) 94%, transparent),
       color-mix(in srgb, var(--bg-base) 86%, transparent)
     ),
-    url("/img/sections/bg-home-bonuses.jpg") center / cover no-repeat;
+    url("/img/sections/bg-home-bonuses.webp") center / cover no-repeat;
   pointer-events: none;
 }
 html[data-theme="light"] .bg {
@@ -95,7 +95,7 @@ html[data-theme="light"] .bg {
       color-mix(in srgb, var(--bg-base) 97%, transparent),
       color-mix(in srgb, var(--bg-canvas) 92%, transparent)
     ),
-    url("/img/sections/bg-home-bonuses.jpg") center / cover no-repeat;
+    url("/img/sections/bg-home-bonuses.webp") center / cover no-repeat;
 }
 .inner {
   position: relative;

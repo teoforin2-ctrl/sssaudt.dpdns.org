@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { catIcon } from "~/data/nav-icons";
+
 defineProps<{
   modelValue: string;
 }>();
@@ -7,11 +9,11 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 
 const cats = [
-  { id: "all", icon: "/img/cats/cat-casinos.png", label: "home.filters.all" },
-  { id: "top", icon: "/img/cats/cat-jackpot.png", label: "home.filters.top" },
-  { id: "hot", icon: "/img/cats/cat-bonus.png", label: "home.filters.hot" },
-  { id: "crypto", icon: "/img/cats/cat-crypto.png", label: "home.filters.crypto" },
-  { id: "new", icon: "/img/cats/cat-newyear.png", label: "home.filters.new" },
+  { id: "all", icon: catIcon("casinos", 48), label: "home.filters.all" },
+  { id: "top", icon: catIcon("jackpot", 48), label: "home.filters.top" },
+  { id: "hot", icon: catIcon("bonus", 48), label: "home.filters.hot" },
+  { id: "crypto", icon: catIcon("crypto", 48), label: "home.filters.crypto" },
+  { id: "new", icon: catIcon("newyear", 48), label: "home.filters.new" },
 ];
 </script>
 

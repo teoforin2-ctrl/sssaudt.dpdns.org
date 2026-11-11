@@ -60,11 +60,11 @@ export function useAuth() {
     if (loaded.value && !force)
       return user.value
     try {
-      const res = await $fetch<{ user: AuthUser }>('/v1/auth/me', {
+      const res = await $fetch<{ user: AuthUser | null }>('/v1/auth/me', {
         baseURL: apiBase,
         credentials: 'include',
       })
-      user.value = res.user
+      user.value = res.user ?? null
     }
     catch {
       user.value = null

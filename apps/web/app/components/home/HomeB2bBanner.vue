@@ -43,7 +43,7 @@ const localePath = useLocalePath();
       color-mix(in srgb, var(--bg-base) 82%, transparent) 55%,
       color-mix(in srgb, var(--bg-base) 70%, transparent) 100%
     ),
-    url("/img/sections/bg-home-b2b.jpg") center / cover no-repeat;
+    url("/img/sections/bg-home-b2b.webp") center / cover no-repeat;
   pointer-events: none;
 }
 html[data-theme="light"] .bg {
@@ -54,7 +54,7 @@ html[data-theme="light"] .bg {
       color-mix(in srgb, var(--bg-canvas) 92%, transparent) 55%,
       color-mix(in srgb, var(--bg-canvas) 88%, transparent) 100%
     ),
-    url("/img/sections/bg-home-b2b.jpg") center / cover no-repeat;
+    url("/img/sections/bg-home-b2b.webp") center / cover no-repeat;
 }
 .copy {
   position: relative;

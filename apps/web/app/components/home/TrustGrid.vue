@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { catIcon } from "~/data/nav-icons";
+
 const { t } = useI18n();
 const cards = [
-  { key: "content", icon: "/img/cats/cat-guides.png" },
-  { key: "reviews", icon: "/img/cats/cat-reviews.png" },
-  { key: "team", icon: "/img/cats/cat-academy.png" },
-  { key: "verify", icon: "/img/cats/cat-verified.png" },
+  { key: "content", icon: catIcon("guides", 48) },
+  { key: "reviews", icon: catIcon("reviews", 48) },
+  { key: "team", icon: catIcon("academy", 48) },
+  { key: "verify", icon: catIcon("verified", 48) },
 ];
 </script>
 

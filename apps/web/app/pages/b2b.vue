@@ -235,7 +235,7 @@ useHead(() => ({
       color-mix(in srgb, var(--bg-base) 94%, transparent),
       color-mix(in srgb, var(--bg-base) 70%, transparent)
     ),
-    url("/img/sections/bg-b2b-hero.jpg");
+    url("/img/sections/bg-b2b-hero.webp");
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat;
@@ -247,7 +247,7 @@ html[data-theme="light"] .hero-bg {
       color-mix(in srgb, var(--bg-base) 96%, transparent),
       color-mix(in srgb, var(--bg-canvas) 88%, transparent)
     ),
-    url("/img/sections/bg-b2b-hero.jpg");
+    url("/img/sections/bg-b2b-hero.webp");
 }
 .hero-copy {
   position: relative;

@@ -230,7 +230,7 @@ const openSection = computed(() => siteNav.find((s) => s.id === openId.value && 
           >
             <img
               class="nav-ico"
-              :src="catIcon(iconForSection(section.id))"
+              :src="catIcon(iconForSection(section.id), 24)"
               alt=""
               width="22"
               height="22"
@@ -380,7 +380,7 @@ const openSection = computed(() => siteNav.find((s) => s.id === openId.value && 
             <div v-for="section in siteNav" :key="section.id" class="drawer-sec">
               <div class="drawer-head">
                 <NuxtLink :to="localePath(section.path)" class="drawer-title" @click="drawer = false">
-                  <img :src="catIcon(iconForSection(section.id))" alt="" width="28" height="28" />
+                  <img :src="catIcon(iconForSection(section.id), 48)" alt="" width="28" height="28" />
                   {{ sectionLabel(section) }}
                 </NuxtLink>
                 <button
@@ -404,7 +404,7 @@ const openSection = computed(() => siteNav.find((s) => s.id === openId.value && 
                     :class="{ on: (drawerCol[section.id] ?? 0) === i }"
                     @click="drawerCol[section.id] = i"
                   >
-                    <img :src="catIcon(iconForColumn(col.title.ru))" alt="" width="22" height="22" />
+                    <img :src="catIcon(iconForColumn(col.title.ru), 24)" alt="" width="22" height="22" />
                     {{ locTitle(col.title, locale) }}
                   </button>
                 </div>
@@ -416,7 +416,7 @@ const openSection = computed(() => siteNav.find((s) => s.id === openId.value && 
                     @click="drawer = false"
                   >
                     <img
-                      :src="catIcon(iconForPath(item.path, iconForSection(section.id)))"
+                      :src="catIcon(iconForPath(item.path, iconForSection(section.id)), 24)"
                       alt=""
                       width="24"
                       height="24"

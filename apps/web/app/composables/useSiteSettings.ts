@@ -64,7 +64,7 @@ const defaultHomeSections: HomeSections = {
 
 const defaults: SiteSettings = {
   siteName: "SS Audit",
-  logoUrl: "/img/brand/logo.png",
+  logoUrl: "/img/brand/logo.webp",
   faviconUrl: "/favicon.png",
   favicon32Url: "/favicon-32.png",
   appleTouchIconUrl: "/apple-touch-icon.png",

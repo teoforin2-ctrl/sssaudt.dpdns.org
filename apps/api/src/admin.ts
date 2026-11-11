@@ -1,4 +1,3 @@
-import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { FastifyInstance } from "fastify";
@@ -8,6 +7,7 @@ import { z } from "zod";
 import { decodeStoredText } from "@x-reviewer/shared";
 import { requireStaff, requireAdmin, isAdminRole } from "./auth.js";
 import { bumpCasinoCache } from "./cache.js";
+import { parseImageDataUrl, saveRasterAsWebp } from "./images.js";
 import { recalcCasinoRatings } from "./reviews.js";
 import { grantReviewApprovedXp } from "./gamification.js";
 import { collectServerStats } from "./server-stats.js";
@@ -38,32 +38,41 @@ function pageParams(query: unknown) {
 }
 
 async function saveArticleCover(articleId: string, dataUrl: string): Promise<string | null> {
-  const m = /^data:(image\/(png|jpeg|jpg|webp));base64,(.+)$/i.exec(dataUrl);
-  if (!m) return null;
-  const ext = m[2].toLowerCase() === "jpeg" ? "jpg" : m[2].toLowerCase();
-  const buf = Buffer.from(m[3], "base64");
-  if (buf.length > 5_000_000) return null;
-  await mkdir(WEB_UPLOADS, { recursive: true });
-  const filename = `${articleId}.${ext}`;
-  await writeFile(path.join(WEB_UPLOADS, filename), buf);
-  return `/uploads/articles/${filename}`;
+  const parsed = parseImageDataUrl(dataUrl);
+  if (!parsed || parsed.ext === "svg") return null;
+  if (parsed.buf.length > 5_000_000) return null;
+  try {
+    return await saveRasterAsWebp({
+      dir: WEB_UPLOADS,
+      basename: articleId,
+      buf: parsed.buf,
+      publicPathPrefix: "/uploads/articles",
+    });
+  } catch {
+    return null;
+  }
 }
 
 async function saveContentImage(dataUrl: string, folder = "content"): Promise<string | null> {
-  const m = /^data:(image\/(png|jpeg|jpg|webp|gif));base64,(.+)$/i.exec(dataUrl);
-  if (!m) return null;
-  const ext = m[2].toLowerCase() === "jpeg" ? "jpg" : m[2].toLowerCase();
-  const buf = Buffer.from(m[3], "base64");
-  if (buf.length > 5_000_000) return null;
+  const parsed = parseImageDataUrl(dataUrl);
+  if (!parsed || parsed.ext === "svg") return null;
+  if (parsed.buf.length > 5_000_000) return null;
   const safeFolder = folder.replace(/[^a-z0-9_-]/gi, "") || "content";
   const dir =
     safeFolder === "articles"
       ? WEB_UPLOADS
       : path.join(path.dirname(WEB_CONTENT_UPLOADS), safeFolder);
-  await mkdir(dir, { recursive: true });
-  const filename = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}.${ext}`;
-  await writeFile(path.join(dir, filename), buf);
-  return `/uploads/${safeFolder}/${filename}`;
+  const basename = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+  try {
+    return await saveRasterAsWebp({
+      dir,
+      basename,
+      buf: parsed.buf,
+      publicPathPrefix: `/uploads/${safeFolder}`,
+    });
+  } catch {
+    return null;
+  }
 }
 
 export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Redis) {
@@ -1603,15 +1612,20 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   );
 
   async function saveBannerImage(dataUrl: string, kind: "ru" | "en"): Promise<string | null> {
-    const m = /^data:(image\/(png|jpeg|jpg|webp));base64,(.+)$/i.exec(dataUrl);
-    if (!m) return null;
-    const ext = m[2].toLowerCase() === "jpeg" ? "jpg" : m[2].toLowerCase();
-    const buf = Buffer.from(m[3], "base64");
-    if (!buf.length || buf.length > 8_000_000) return null;
-    await mkdir(BANNER_UPLOADS, { recursive: true });
-    const filename = `${kind}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
-    await writeFile(path.join(BANNER_UPLOADS, filename), buf);
-    return `/uploads/banners/${filename}`;
+    const parsed = parseImageDataUrl(dataUrl);
+    if (!parsed || parsed.ext === "svg") return null;
+    if (!parsed.buf.length || parsed.buf.length > 8_000_000) return null;
+    const basename = `${kind}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
+    try {
+      return await saveRasterAsWebp({
+        dir: BANNER_UPLOADS,
+        basename,
+        buf: parsed.buf,
+        publicPathPrefix: "/uploads/banners",
+      });
+    } catch {
+      return null;
+    }
   }
 
   app.get("/v1/admin/banners", async (req, reply) => {

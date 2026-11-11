@@ -137,7 +137,7 @@ function onClose() {
             @click="onClose"
           >
             <span class="tile-icon">
-              <img :src="catIcon(item.icon)" :alt="''" width="48" height="48" loading="lazy" />
+              <img :src="catIcon(item.icon, 96)" :alt="''" width="48" height="48" loading="lazy" />
             </span>
             <span class="tile-name">{{ locTitle(item.title, locale) }}</span>
           </NuxtLink>
@@ -157,7 +157,7 @@ function onClose() {
             @click="activeCol = i"
           >
             <img
-              :src="catIcon(iconForColumn(col.title.ru))"
+              :src="catIcon(iconForColumn(col.title.ru), 48)"
               alt=""
               width="28"
               height="28"
@@ -173,7 +173,7 @@ function onClose() {
             <h3>
               <img
                 v-if="current"
-                :src="catIcon(iconForColumn(current.title.ru))"
+                :src="catIcon(iconForColumn(current.title.ru), 24)"
                 alt=""
                 width="22"
                 height="22"
@@ -196,7 +196,7 @@ function onClose() {
               class="item"
               @click="onClose"
             >
-              <img :src="catIcon(item.icon)" alt="" width="32" height="32" loading="lazy" />
+              <img :src="catIcon(item.icon, 48)" alt="" width="32" height="32" loading="lazy" />
               <span>{{ locTitle(item.title, locale) }}</span>
             </NuxtLink>
           </div>

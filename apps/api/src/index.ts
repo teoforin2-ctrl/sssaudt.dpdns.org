@@ -1206,27 +1206,106 @@ app.get("/v1/home", async (req) => {
       from casinos c
       where c.status = 'published'
     `;
+    const [casinosN, slotsN, providersN, bonusesN, reviewsN, articlesN] = await Promise.all([
+      count(`select count(*)::text as n from casinos where status = 'published'`),
+      count(`select count(*)::text as n from slots where status = 'published'`),
+      count(`select count(*)::text as n from game_providers where status = 'published'`),
+      count(`select count(*)::text as n from bonuses where status = 'active' and published = true`),
+      count(reviewsDisplayedSql),
+      count(`select count(*)::text as n from articles where status = 'published'`),
+    ]);
     const stats = {
-      casinos: await count(`select count(*)::text as n from casinos where status = 'published'`),
-      slots: await count(`select count(*)::text as n from slots where status = 'published'`),
-      providers: await count(`select count(*)::text as n from game_providers where status = 'published'`),
-      bonuses: await count(`select count(*)::text as n from bonuses where status = 'active' and published = true`),
-      reviews: await count(reviewsDisplayedSql),
-      articles: await count(`select count(*)::text as n from articles where status = 'published'`),
+      casinos: casinosN,
+      slots: slotsN,
+      providers: providersN,
+      bonuses: bonusesN,
+      reviews: reviewsN,
+      articles: articlesN,
     };
 
-    const { rows: slotRows } = await pool.query(
-      `
-      select s.id, s.slug, s.title, s.theme, s.mechanics, s.release_date, s.rtp, s.volatility, s.grid,
-             s.demo_url, p.name as provider_name, p.slug as provider_slug
-      from slots s
-      left join game_providers p on p.id = s.provider_id
-      where s.status = 'published'
-      order by s.release_date desc nulls last
-      limit 24
-      `,
-    );
+    const [
+      slotRes,
+      articleRes,
+      brandRes,
+      expertRes,
+      promoRes,
+      reviewRes,
+      newCasinoRes,
+    ] = await Promise.all([
+      pool.query(
+        `
+        select s.id, s.slug, s.title, s.theme, s.mechanics, s.release_date, s.rtp, s.volatility, s.grid,
+               s.demo_url, p.name as provider_name, p.slug as provider_slug
+        from slots s
+        left join game_providers p on p.id = s.provider_id
+        where s.status = 'published'
+        order by s.release_date desc nulls last
+        limit 24
+        `,
+      ),
+      pool.query(
+        `
+        select a.slug, a.kind, a.topic, a.title_ru, a.title_en, a.excerpt_ru, a.excerpt_en,
+               a.cover_theme, a.cover_url, a.reading_minutes, a.published_at,
+               au.name as author_name, au.slug as author_slug
+        from articles a
+        left join authors au on au.id = a.author_id
+        where a.status = 'published'
+        order by a.published_at desc
+        limit 24
+        `,
+      ),
+      pool.query(
+        `
+        select kind, slug, name, tagline_ru, tagline_en, bonus_text_ru, bonus_text_en,
+               rating, details, partner_url, has_representative, has_hot
+        from partner_brands
+        where status = 'published'
+        order by rating desc
+        `,
+      ),
+      pool.query(
+        `select slug, name, role_ru, role_en, quote_ru, quote_en, hue, is_seed
+         from authors where is_seed = true order by id limit 1`,
+      ),
+      pool.query(
+        `
+        select pb.id, pb.title_ru, pb.title_en, pb.valid_until, pb.theme,
+               c.slug as casino_slug, c.name, c.logo_url
+        from promo_banners pb
+        left join casinos c on c.id = pb.casino_id
+        where pb.active = true
+        order by pb.valid_until asc nulls last
+        limit 1
+        `,
+      ),
+      pool
+        .query(
+          `
+          select rv.id, rv.rating, rv.body, rv.author_name, rv.published_at,
+                 c.slug as casino_slug, c.name as casino_name, c.name_ru, c.name_en
+          from reviews rv
+          join casinos c on c.id = rv.casino_id
+          where rv.status = 'approved' and c.status = 'published'
+          order by coalesce(rv.published_at, rv.created_at) desc nulls last
+          limit 3
+          `,
+        )
+        .catch(() => ({ rows: [] as Record<string, unknown>[] })),
+      pool
+        .query(
+          `
+          select slug, name, name_ru, name_en, logo_url, final_rating, editorial_score, created_at
+          from casinos
+          where status = 'published'
+          order by created_at desc nulls last
+          limit 3
+          `,
+        )
+        .catch(() => ({ rows: [] as Record<string, unknown>[] })),
+    ]);
 
+    const slotRows = slotRes.rows;
     const mapSlot = (s: (typeof slotRows)[number]) => ({
       id: s.id,
       slug: s.slug,
@@ -1249,19 +1328,7 @@ app.get("/v1/home", async (req) => {
     const slots = slotRows.map(mapSlot);
     const newSlots = slots.filter((s) => s.isNew).slice(0, 5);
 
-    const { rows: articleRows } = await pool.query(
-      `
-      select a.slug, a.kind, a.topic, a.title_ru, a.title_en, a.excerpt_ru, a.excerpt_en,
-             a.cover_theme, a.cover_url, a.reading_minutes, a.published_at,
-             au.name as author_name, au.slug as author_slug
-      from articles a
-      left join authors au on au.id = a.author_id
-      where a.status = 'published'
-      order by a.published_at desc
-      limit 24
-      `,
-    );
-
+    const articleRows = articleRes.rows;
     const mapArticle = (a: (typeof articleRows)[number]) => ({
       slug: a.slug,
       kind: a.kind,
@@ -1293,17 +1360,7 @@ app.get("/v1/home", async (req) => {
       items: articles.filter((a) => a.kind === "guide" && a.topic === topic).slice(0, 6),
     }));
 
-    const { rows: brandRows } = await pool.query(
-      `
-      select kind, slug, name, tagline_ru, tagline_en, bonus_text_ru, bonus_text_en,
-             rating, details, partner_url, has_representative, has_hot
-      from partner_brands
-      where status = 'published'
-      order by rating desc
-      `,
-    );
-
-    const mapBrand = (b: (typeof brandRows)[number]) => ({
+    const mapBrand = (b: (typeof brandRes.rows)[number]) => ({
       kind: b.kind,
       slug: b.slug,
       name: b.name,
@@ -1322,16 +1379,12 @@ app.get("/v1/home", async (req) => {
       "land-casino": [],
       "affiliate-program": [],
     };
-    for (const b of brandRows.map(mapBrand)) {
+    for (const b of brandRes.rows.map(mapBrand)) {
       if (!brands[b.kind]) brands[b.kind] = [];
       if (brands[b.kind].length < 3) brands[b.kind].push(b);
     }
 
-    const { rows: expertRows } = await pool.query(
-      `select slug, name, role_ru, role_en, quote_ru, quote_en, hue, is_seed
-       from authors where is_seed = true order by id limit 1`,
-    );
-    const ex = expertRows[0];
+    const ex = expertRes.rows[0];
     const expert = ex
       ? {
           slug: ex.slug,
@@ -1343,18 +1396,7 @@ app.get("/v1/home", async (req) => {
         }
       : null;
 
-    const { rows: promoRows } = await pool.query(
-      `
-      select pb.id, pb.title_ru, pb.title_en, pb.valid_until, pb.theme,
-             c.slug as casino_slug, c.name, c.logo_url
-      from promo_banners pb
-      left join casinos c on c.id = pb.casino_id
-      where pb.active = true
-      order by pb.valid_until asc nulls last
-      limit 1
-      `,
-    );
-    const pr = promoRows[0];
+    const pr = promoRes.rows[0];
     const promo = pr
       ? {
           id: pr.id,
@@ -1367,53 +1409,23 @@ app.get("/v1/home", async (req) => {
         }
       : null;
 
-    let recentReviews: unknown[] = [];
-    try {
-      const { rows: rr } = await pool.query(
-        `
-        select rv.id, rv.rating, rv.body, rv.author_name, rv.published_at,
-               c.slug as casino_slug, c.name as casino_name, c.name_ru, c.name_en
-        from reviews rv
-        join casinos c on c.id = rv.casino_id
-        where rv.status = 'approved' and c.status = 'published'
-        order by coalesce(rv.published_at, rv.created_at) desc nulls last
-        limit 3
-        `,
-      );
-      recentReviews = rr.map((r) => ({
-        id: r.id,
-        rating: Number(r.rating ?? 0),
-        body: String(r.body || "").slice(0, 180),
-        authorName: r.author_name,
-        publishedAt: r.published_at,
-        casinoSlug: r.casino_slug,
-        casinoName: (lang === "en" ? r.name_en : r.name_ru) || r.casino_name,
-      }));
-    } catch {
-      recentReviews = [];
-    }
+    const recentReviews = reviewRes.rows.map((r) => ({
+      id: r.id,
+      rating: Number(r.rating ?? 0),
+      body: String(r.body || "").slice(0, 180),
+      authorName: r.author_name,
+      publishedAt: r.published_at,
+      casinoSlug: r.casino_slug,
+      casinoName: (lang === "en" ? r.name_en : r.name_ru) || r.casino_name,
+    }));
 
-    let newCasinos: unknown[] = [];
-    try {
-      const { rows: nc } = await pool.query(
-        `
-        select slug, name, name_ru, name_en, logo_url, final_rating, editorial_score, created_at
-        from casinos
-        where status = 'published'
-        order by created_at desc nulls last
-        limit 3
-        `,
-      );
-      newCasinos = nc.map((c) => ({
-        slug: c.slug,
-        name: (lang === "en" ? c.name_en : c.name_ru) || c.name,
-        logoUrl: c.logo_url,
-        rating: Number(c.final_rating ?? c.editorial_score ?? 0),
-        isNew: true,
-      }));
-    } catch {
-      newCasinos = [];
-    }
+    const newCasinos = newCasinoRes.rows.map((c) => ({
+      slug: c.slug,
+      name: (lang === "en" ? c.name_en : c.name_ru) || c.name,
+      logoUrl: c.logo_url,
+      rating: Number(c.final_rating ?? c.editorial_score ?? 0),
+      isNew: true,
+    }));
 
     return {
       ...empty,

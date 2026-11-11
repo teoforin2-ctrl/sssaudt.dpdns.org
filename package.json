@@ -16,8 +16,10 @@
     "docker:down": "docker compose down",
     "docker:logs": "docker compose logs -f --tail=100",
     "docker:ps": "docker compose ps",
-    "backup:pg": "bash scripts/backup-postgres.sh"
-
+    "backup:pg": "bash scripts/backup-postgres.sh",
+    "convert:banners": "pnpm --filter @x-reviewer/api convert:banners",
+    "convert:cats": "pnpm --filter @x-reviewer/api convert:cats",
+    "convert:static": "pnpm --filter @x-reviewer/api exec tsx src/scripts/convert-static-assets-webp.ts"
   },
   "pnpm": {
     "overrides": {

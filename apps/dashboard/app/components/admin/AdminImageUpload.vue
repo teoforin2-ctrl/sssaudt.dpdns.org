@@ -13,7 +13,7 @@ const props = withDefaults(
   {
     src: null,
     dataUrl: null,
-    hint: 'PNG / JPG / WebP · до 6 МБ',
+    hint: 'PNG / JPG / WebP · сохраняется как WebP · до 6 МБ',
   },
 )
 

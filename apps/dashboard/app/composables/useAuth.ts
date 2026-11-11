@@ -20,8 +20,8 @@ export function useAuth() {
     if (loaded.value && !force)
       return user.value
     try {
-      const res = await api<{ user: StaffUser }>('/v1/auth/me')
-      user.value = res.user
+      const res = await api<{ user: StaffUser | null }>('/v1/auth/me')
+      user.value = res.user ?? null
     }
     catch {
       user.value = null

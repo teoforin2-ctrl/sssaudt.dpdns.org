@@ -181,15 +181,6 @@ watch([filter, sort, listQuery], () => {
   visibleCount.value = 12;
 });
 
-const { data, error, pending, refresh } = await useAsyncData(
-  () => `casinos-${locale.value}`,
-  () =>
-    $fetch<{ items: CasinoListItem[] }>(`${config.public.apiBase}/v1/casinos`, {
-      query: { locale: locale.value },
-    }),
-  { watch: [locale] },
-);
-
 type HeroBanner = {
   id: string;
   slug: string;
@@ -198,14 +189,55 @@ type HeroBanner = {
   href?: string | null;
 };
 
-const { data: bannersData, pending: bannersPending } = await useAsyncData(
-  () => `banners-home-${locale.value}`,
-  () =>
-    $fetch<{ items: HeroBanner[] }>(`${config.public.apiBase}/v1/banners`, {
-      query: { locale: locale.value, placement: "home_hero" },
-    }),
-  { watch: [locale] },
-);
+// Parallel SSR fetches — sequential awaits previously inflated TTFB.
+const [
+  { data, error, pending, refresh },
+  { data: bannersData, pending: bannersPending },
+  { data: homeData, pending: homePending },
+  { data: homeBonusesData, pending: homeBonusesPending },
+  { data: homeForumData, pending: homeForumPending },
+] = await Promise.all([
+  useAsyncData(
+    () => `casinos-${locale.value}`,
+    () =>
+      $fetch<{ items: CasinoListItem[] }>(`${config.public.apiBase}/v1/casinos`, {
+        query: { locale: locale.value },
+      }),
+    { watch: [locale] },
+  ),
+  useAsyncData(
+    () => `banners-home-${locale.value}`,
+    () =>
+      $fetch<{ items: HeroBanner[] }>(`${config.public.apiBase}/v1/banners`, {
+        query: { locale: locale.value, placement: "home_hero" },
+      }),
+    { watch: [locale] },
+  ),
+  useAsyncData(
+    () => `home-${locale.value}`,
+    () =>
+      $fetch<Record<string, unknown>>(`${config.public.apiBase}/v1/home`, {
+        query: { locale: locale.value },
+      }),
+    { watch: [locale] },
+  ),
+  useAsyncData(
+    () => `home-bonuses-${locale.value}`,
+    () =>
+      $fetch<{ items: any[] }>(`${config.public.apiBase}/v1/bonuses`, {
+        query: { locale: locale.value, limit: 6 },
+      }),
+    { watch: [locale] },
+  ),
+  useAsyncData(
+    () => `home-forum-${locale.value}`,
+    () =>
+      $fetch<{ recent: any[] }>(`${config.public.apiBase}/v1/forum`, {
+        query: { locale: locale.value },
+      }),
+    { watch: [locale] },
+  ),
+]);
 
 watch(locale, () => refresh());
 
@@ -237,41 +269,16 @@ watch(
   { immediate: true },
 );
 
+/** Freeze "updated" label at SSR time — avoids hydration mismatch from `new Date()` on client. */
+const updatedAtMs = useState<number>("home-updated-at", () => Date.now());
 const updatedLabel = computed(() => {
-  const d = new Date();
+  const d = new Date(updatedAtMs.value);
   return d.toLocaleDateString(locale.value === "en" ? "en-GB" : "ru-RU", {
     day: "numeric",
     month: "short",
     year: "numeric",
   });
 });
-
-const { data: homeData, pending: homePending } = await useAsyncData(
-  () => `home-${locale.value}`,
-  () =>
-    $fetch<Record<string, unknown>>(`${config.public.apiBase}/v1/home`, {
-      query: { locale: locale.value },
-    }),
-  { watch: [locale] },
-);
-
-const { data: homeBonusesData, pending: homeBonusesPending } = await useAsyncData(
-  () => `home-bonuses-${locale.value}`,
-  () =>
-    $fetch<{ items: any[] }>(`${config.public.apiBase}/v1/bonuses`, {
-      query: { locale: locale.value, limit: 6 },
-    }),
-  { watch: [locale] },
-);
-
-const { data: homeForumData, pending: homeForumPending } = await useAsyncData(
-  () => `home-forum-${locale.value}`,
-  () =>
-    $fetch<{ recent: any[] }>(`${config.public.apiBase}/v1/forum`, {
-      query: { locale: locale.value },
-    }),
-  { watch: [locale] },
-);
 
 type HomeStatsShape = {
   casinos: number;
@@ -379,8 +386,7 @@ useJsonLd(() => ({
         :class="{ stuck: filterStuck }"
         data-track="filter_bar"
       >
-        <div ref="chipRow" class="chip-row" role="tablist">
-
+        <div ref="chipRow" class="chip-row" role="group" :aria-label="t('home.filters.all')">
           <span
             class="chip-pill"
             :class="{ ready: chipPill.ready }"

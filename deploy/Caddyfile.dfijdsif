@@ -25,8 +25,26 @@ ROBOTS
 		reverse_proxy ssaudit-api:3712
 	}
 
+	# Long-cache static assets (hashed Nuxt + public img/uploads)
+	@nuxtAssets path /_nuxt/*
+	handle @nuxtAssets {
+		header Cache-Control "public, max-age=31536000, immutable"
+		reverse_proxy ssaudit-web:3000
+	}
+	@dashNuxt path /_nuxt_dash*
+	handle @dashNuxt {
+		header Cache-Control "public, max-age=31536000, immutable"
+		reverse_proxy ssaudit-dashboard:3000
+	}
+	@staticMedia path /img/* /uploads/*
+	handle @staticMedia {
+		header Cache-Control "public, max-age=2592000, stale-while-revalidate=86400"
+		reverse_proxy ssaudit-web:3000
+	}
+
 	# Shared static: fonts (both apps) + glossary GeoJSON
 	handle_path /_fonts/* {
+		header Cache-Control "public, max-age=31536000, immutable"
 		root * /srv/ssaudit-fonts
 		file_server
 	}

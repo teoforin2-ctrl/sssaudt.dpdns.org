@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { catIcon } from "~/data/nav-icons";
+
 const props = defineProps<{
   stats: {
     casinos: number;
@@ -16,12 +18,12 @@ const root = ref<HTMLElement | null>(null);
 const shown = ref(false);
 
 const items = computed(() => [
-  { key: "casinos", n: props.stats.casinos, to: "/", icon: "/img/cats/cat-casinos.png" },
-  { key: "slots", n: props.stats.slots, to: "/slots", icon: "/img/cats/cat-slots.png" },
-  { key: "providers", n: props.stats.providers, to: "/slots/providers", icon: "/img/cats/cat-providers.png" },
-  { key: "bonuses", n: props.stats.bonuses, to: "/bonuses", icon: "/img/cats/cat-bonus.png" },
-  { key: "reviews", n: props.stats.reviews, to: "/", icon: "/img/cats/cat-reviews.png" },
-  { key: "articles", n: props.stats.articles, to: "/articles", icon: "/img/cats/cat-articles.png" },
+  { key: "casinos", n: props.stats.casinos, to: "/", icon: catIcon("casinos", 48) },
+  { key: "slots", n: props.stats.slots, to: "/slots", icon: catIcon("slots", 48) },
+  { key: "providers", n: props.stats.providers, to: "/slots/providers", icon: catIcon("providers", 48) },
+  { key: "bonuses", n: props.stats.bonuses, to: "/bonuses", icon: catIcon("bonus", 48) },
+  { key: "reviews", n: props.stats.reviews, to: "/", icon: catIcon("reviews", 48) },
+  { key: "articles", n: props.stats.articles, to: "/articles", icon: catIcon("articles", 48) },
 ]);
 
 const display = ref<Record<string, number>>({});

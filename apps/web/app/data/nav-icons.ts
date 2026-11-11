@@ -1,7 +1,23 @@
-/** Maps nav paths / column keys → cat-* icon slug (file: /img/cats/cat-{slug}.png). */
+/** Maps nav paths / column keys → cat-* icon slug.
+ * Files: `/img/cats/{24|48|96}/cat-{slug}.webp`
+ */
 
-export function catIcon(slug: string): string {
-  return `/img/cats/cat-${slug}.png`;
+export type CatIconSize = 24 | 48 | 96;
+
+/** Pick asset size for a CSS pixel box (prefer ~2× when a larger tier exists). */
+export function catIconSizeForCss(cssPx: number): CatIconSize {
+  if (cssPx <= 24) return 24;
+  if (cssPx <= 40) return 48;
+  return 96;
+}
+
+export function catIcon(slug: string, size: CatIconSize = 24): string {
+  return `/img/cats/${size}/cat-${slug}.webp`;
+}
+
+/** Convenience: path for a given on-screen CSS size. */
+export function catIconCss(slug: string, cssPx: number): string {
+  return catIcon(slug, catIconSizeForCss(cssPx));
 }
 
 const byPath: Record<string, string> = {
