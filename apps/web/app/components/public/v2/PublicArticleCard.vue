@@ -64,7 +64,7 @@ const initials = computed(() =>
           >{{ authorName }}</NuxtLink>
           <span v-else class="aname">{{ authorName }}</span>
         </span>
-        <span v-if="dateLabel" class="meta">{{ dateLabel }}</span>
+        <time v-if="dateLabel" class="meta" :datetime="publishedAt || undefined">{{ dateLabel }}</time>
         <span class="meta">{{ t("catalog.readMin", { n: readingMinutes || 5 }) }}</span>
         <span class="arrow" aria-hidden="true">→</span>
       </div>

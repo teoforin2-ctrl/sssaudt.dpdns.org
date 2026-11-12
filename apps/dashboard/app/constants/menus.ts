@@ -131,7 +131,11 @@ export const navMenu: NavMenu[] = [
         icon: 'i-lucide-settings',
         link: '/admin/settings',
       },
-
+      {
+        title: 'SEO',
+        icon: 'i-lucide-search-check',
+        link: '/admin/seo',
+      },
       {
         title: 'Награды / payout',
         icon: 'i-lucide-coins',

@@ -9,14 +9,10 @@
 dfijdsif.website {
 	encode zstd gzip
 
-	# Staging: block all crawlers (same as /var/www/dfijdsif/robots.txt)
-	handle /robots.txt {
-		header Content-Type "text/plain; charset=utf-8"
-		header X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
-		respond <<ROBOTS
-User-agent: *
-Disallow: /
-ROBOTS
+	# robots + sitemap from API (admin SEO toggle / entity index)
+	@seoFiles path /robots.txt /sitemap.xml /sitemaps/*
+	handle @seoFiles {
+		reverse_proxy ssaudit-api:3712
 	}
 
 	# API (Fastify)
@@ -77,5 +73,10 @@ ROBOTS
 }
 
 www.dfijdsif.website {
+	redir https://dfijdsif.website{uri} permanent
+}
+
+# OOS1: old domain → canonical host (path-preserving 301)
+casinoslotbetaudit.net, www.casinoslotbetaudit.net {
 	redir https://dfijdsif.website{uri} permanent
 }

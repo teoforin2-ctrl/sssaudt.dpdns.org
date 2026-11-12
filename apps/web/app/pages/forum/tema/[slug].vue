@@ -117,15 +117,52 @@ async function submitReply() {
   }
 }
 
-useHead(() => ({
-  title: `${data.value?.topic?.title || t("pages.forum.title")}`,
-  meta: [{
-    name: "description",
-    content: data.value?.topic
+usePageSeo({
+  title: () => data.value?.topic?.title || t("pages.forum.title"),
+  description: () =>
+    data.value?.topic
       ? `${data.value.topic.title}. ${forumReplyLabel(data.value.topic.postsCount, locale.value)}.`
       : t("pages.forum.lead"),
-  }],
-}));
+  path: () => (slug.value ? `/forum/tema/${slug.value}` : "/forum"),
+});
+
+useBreadcrumbJsonLd(() => {
+  if (!data.value?.topic) return [];
+  return [
+    { name: t("pages.forum.title"), path: "/forum" },
+    {
+      name: data.value.topic.categoryTitle,
+      path: `/forum/kategoriya/${data.value.topic.categorySlug}`,
+    },
+    { name: data.value.topic.title },
+  ];
+});
+
+useJsonLd(() => {
+  if (!data.value?.topic) return null;
+  const topic = data.value.topic;
+  const posts = data.value.posts || [];
+  return {
+    "@context": "https://schema.org",
+    "@type": "DiscussionForumPosting",
+    headline: topic.title,
+    datePublished: topic.createdAt || undefined,
+    author: topic.authorName
+      ? { "@type": "Person", name: topic.authorName }
+      : undefined,
+    interactionStatistic: {
+      "@type": "InteractionCounter",
+      interactionType: "https://schema.org/CommentAction",
+      userInteractionCount: topic.postsCount || posts.length || 0,
+    },
+    comment: posts.slice(0, 20).map((p: { bodyMd?: string; authorName?: string; createdAt?: string }) => ({
+      "@type": "Comment",
+      text: forumParagraphs(p.bodyMd || "")[0] || undefined,
+      datePublished: p.createdAt || undefined,
+      author: p.authorName ? { "@type": "Person", name: p.authorName } : undefined,
+    })),
+  };
+});
 </script>
 
 <template>

@@ -30,6 +30,24 @@ const { data, pending, error, refresh } = await useAsyncData(
   () => api<{ item: Bonus }>(`/v1/admin/bonuses/${id.value}`),
 )
 
+function emptySeo() {
+  return { ru: {} as Record<string, string>, en: {} as Record<string, string>, ogImage: null as string | null }
+}
+function normalizeSeo(raw: unknown) {
+  const base = emptySeo()
+  if (!raw || typeof raw !== 'object')
+    return base
+  const o = raw as Record<string, unknown>
+  if ('ru' in o || 'en' in o || 'ogImage' in o) {
+    return {
+      ru: { ...((o.ru as Record<string, string>) || {}) },
+      en: { ...((o.en as Record<string, string>) || {}) },
+      ogImage: typeof o.ogImage === 'string' ? o.ogImage : null,
+    }
+  }
+  return base
+}
+
 const fields = reactive({
   title: '',
   title_ru: '',
@@ -44,6 +62,7 @@ const fields = reactive({
   description_en: '',
   status: 'active',
   published: false,
+  seo: emptySeo(),
 })
 
 function toLocalInput(iso: string | null | undefined) {
@@ -74,6 +93,7 @@ watch(
     fields.description_en = item.description_en || ''
     fields.status = item.status || 'active'
     fields.published = Boolean(item.published)
+    fields.seo = normalizeSeo((item as Bonus & { seo?: unknown }).seo)
   },
   { immediate: true },
 )
@@ -105,6 +125,7 @@ async function save() {
         status: fields.status,
         published: fields.published,
         checked_by_editor: true,
+        seo: fields.seo,
       },
     })
     saveMsg.value = 'Сохранено'
@@ -223,6 +244,8 @@ async function removeBonus() {
       <AdminCheckbox v-model:checked="fields.published">
         Показывать на сайте
       </AdminCheckbox>
+
+      <AdminEntitySeoFields v-model="fields.seo" />
 
       <div class="flex flex-wrap items-center gap-3">
         <Button type="submit" :disabled="saving">

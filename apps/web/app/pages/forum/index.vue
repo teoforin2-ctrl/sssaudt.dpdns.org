@@ -50,10 +50,34 @@ const popular = computed(() =>
   [...(data.value?.recent || [])].sort((a, b) => b.posts_count - a.posts_count).slice(0, 10),
 );
 
-useHead(() => ({
-  title: `${t("pages.forum.title")}`,
-  meta: [{ name: "description", content: t("pages.forum.lead") }],
-}));
+const { pick: seoPick } = useSeoTemplate("forum");
+
+usePageSeo({
+  title: () => seoPick("title", t("pages.forum.title")),
+  description: () => seoPick("description", t("pages.forum.lead")),
+  path: "/forum",
+});
+
+useBreadcrumbJsonLd(() => [
+  { name: t("pages.forum.title"), path: "/forum" },
+]);
+
+useJsonLd(() => {
+  const topics = popular.value;
+  if (!topics.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t("pages.forum.title"),
+    numberOfItems: topics.length,
+    itemListElement: topics.map((topic, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: topic.title,
+      url: localePath(`/forum/tema/${topic.slug}`),
+    })),
+  };
+});
 </script>
 
 <template>

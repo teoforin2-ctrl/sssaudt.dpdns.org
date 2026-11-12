@@ -31,6 +31,32 @@ export type HomeSections = {
   [key: string]: boolean;
 };
 
+export type SeoLocaleFields = {
+  title?: string;
+  description?: string;
+  h1?: string;
+};
+
+export type SeoTemplateI18n = {
+  ru?: SeoLocaleFields;
+  en?: SeoLocaleFields;
+  title?: string;
+  description?: string;
+  h1?: string;
+};
+
+export type SeoSettings = {
+  indexingEnabled: boolean;
+  canonicalHost: string;
+  defaultOgImage: string | null;
+  organizationSameAs: string[];
+  aiRetrievalAllow: boolean;
+  aiTrainingAllow: boolean;
+  googleSiteVerification?: string;
+  yandexVerification?: string;
+  templates: Record<string, SeoTemplateI18n>;
+};
+
 export type SiteSettings = {
   siteName: string;
   logoUrl: string | null;
@@ -39,6 +65,7 @@ export type SiteSettings = {
   appleTouchIconUrl: string | null;
   contacts: SiteContacts;
   homeSections: HomeSections;
+  seo: SeoSettings;
   updatedAt: string | null;
 };
 
@@ -62,6 +89,18 @@ const defaultHomeSections: HomeSections = {
   homeB2b: true,
 };
 
+const defaultSeo: SeoSettings = {
+  indexingEnabled: false,
+  canonicalHost: "dfijdsif.website",
+  defaultOgImage: "/img/brand/logo.webp",
+  organizationSameAs: [],
+  aiRetrievalAllow: true,
+  aiTrainingAllow: false,
+  googleSiteVerification: "",
+  yandexVerification: "",
+  templates: {},
+};
+
 const defaults: SiteSettings = {
   siteName: "SS Audit",
   logoUrl: "/img/brand/logo.webp",
@@ -80,8 +119,20 @@ const defaults: SiteSettings = {
     discord: "",
   },
   homeSections: { ...defaultHomeSections },
+  seo: { ...defaultSeo },
   updatedAt: null,
 };
+
+function normalizeSeo(raw?: Partial<SeoSettings> | null): SeoSettings {
+  return {
+    ...defaultSeo,
+    ...(raw || {}),
+    organizationSameAs: Array.isArray(raw?.organizationSameAs)
+      ? raw!.organizationSameAs
+      : defaultSeo.organizationSameAs,
+    templates: { ...defaultSeo.templates, ...(raw?.templates || {}) },
+  };
+}
 
 function normalize(raw?: Partial<SiteSettings> | null): SiteSettings {
   return {
@@ -89,6 +140,7 @@ function normalize(raw?: Partial<SiteSettings> | null): SiteSettings {
     ...raw,
     contacts: { ...defaults.contacts, ...(raw?.contacts || {}) },
     homeSections: { ...defaultHomeSections, ...(raw?.homeSections || {}) },
+    seo: normalizeSeo(raw?.seo),
   };
 }
 
@@ -121,6 +173,7 @@ export function useSiteSettings() {
   );
   const contacts = computed(() => resolved.value.contacts);
   const homeSections = computed(() => resolved.value.homeSections);
+  const seo = computed(() => resolved.value.seo);
 
   return {
     settings: resolved,
@@ -131,6 +184,7 @@ export function useSiteSettings() {
     appleTouchIconUrl,
     contacts,
     homeSections,
+    seo,
     pending,
     error,
     refresh,

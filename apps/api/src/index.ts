@@ -12,6 +12,11 @@ import { registerAuth } from "./auth.js";
 import { registerAdmin } from "./admin.js";
 import { registerForum } from "./forum.js";
 import { registerSiteSettings } from "./site-settings.js";
+import { registerSeo } from "./seo.js";
+import { registerOg } from "./og.js";
+import { registerSeoPipeline } from "./seo-pipeline.js";
+import { registerSeoValidate } from "./seo-validate.js";
+import { registerSeoMonitor } from "./seo-monitor.js";
 import { registerB2b } from "./b2b.js";
 import { registerReviews } from "./reviews.js";
 import { registerPartner } from "./partner.js";
@@ -24,6 +29,7 @@ import {
   type HealthResponse,
   type SearchCandidate,
 } from "@x-reviewer/shared";
+import { pickEntitySeo } from "./entity-seo.js";
 
 
 
@@ -52,6 +58,11 @@ await registerReviews(app, pool, redis);
 await registerPartner(app, pool, redis);
 await registerForum(app, pool);
 await registerSiteSettings(app, pool);
+await registerSeo(app, pool);
+await registerOg(app, pool);
+await registerSeoPipeline(app, pool, redis);
+await registerSeoValidate(app, pool);
+await registerSeoMonitor(app, pool, redis);
 await registerB2b(app, pool);
 await registerKanban(app, pool);
 await registerTrust(app, pool);
@@ -91,9 +102,18 @@ app.get("/ready", async (_req, reply) => {
 app.get("/v1/casinos", async (req) => {
   const locale = ((req.query as { locale?: string }).locale || "ru").toLowerCase();
   const lang = locale.startsWith("en") ? "en" : "ru";
+  const limitRaw = Number((req.query as { limit?: string }).limit || 0);
+  const limit = Number.isFinite(limitRaw) && limitRaw > 0 ? Math.min(2000, Math.floor(limitRaw)) : 0;
 
   const cached = await getCachedCasinoList<{ locale: string; items: unknown[] }>(redis, lang);
-  if (cached.data) return cached.data;
+  if (cached.data) {
+    const items = Array.isArray(cached.data.items) ? cached.data.items : [];
+    return {
+      ...cached.data,
+      items: limit > 0 ? items.slice(0, limit) : items,
+      total: items.length,
+    };
+  }
 
   const { rows } = await pool.query<{
     id: string;
@@ -206,7 +226,7 @@ app.get("/v1/casinos", async (req) => {
             ? Date.now() - new Date(r.created_at).getTime() <= 45 * 86400000
             : false,
         hasRepresentative: r.has_representative,
-        shortDesc: lang === "en" ? r.short_desc_en : r.short_desc_ru,
+        // shortDesc omitted from list (card-only) — keeps HTML/JSON payload lean
         bonusLabel: cardBonus || r.bonus_title,
         bonusWager: r.bonus_wager ?? null,
         bonusPromo: cardPromo || r.bonus_promo || null,
@@ -216,7 +236,12 @@ app.get("/v1/casinos", async (req) => {
     }),
   };
   await setCachedCasinoList(redis, cached.key, payload);
-  return payload;
+  const items = payload.items;
+  return {
+    ...payload,
+    items: limit > 0 ? items.slice(0, limit) : items,
+    total: items.length,
+  };
 });
 
 app.get("/v1/casinos/:slug", async (req, reply) => {
@@ -251,9 +276,17 @@ app.get("/v1/casinos/:slug", async (req, reply) => {
     [slug],
   );
 
-  if (!rows[0]) return reply.code(404).send({ error: "not_found" });
+  if (!rows[0]) {
+    const { rows: anyRows } = await pool.query(
+      `select 1 from casinos where slug = $1 limit 1`,
+      [slug],
+    );
+    if (anyRows[0]) return reply.code(410).send({ error: "gone" });
+    return reply.code(404).send({ error: "not_found" });
+  }
   const c = rows[0];
   const rank = Number(c.rn);
+  const entitySeo = pickEntitySeo(c.seo, lang);
 
   const bonuses = await pool.query(
     `
@@ -372,6 +405,12 @@ app.get("/v1/casinos/:slug", async (req, reply) => {
       hasRepresentative: c.has_representative,
       shortDesc: lang === "en" ? c.short_desc_en : c.short_desc_ru,
       description: lang === "en" ? c.description_en : c.description_ru,
+      seo: {
+        title: entitySeo.title || null,
+        description: entitySeo.description || null,
+        h1: entitySeo.h1 || null,
+        ogImage: entitySeo.ogImage || null,
+      },
       payments: payments.rows.map((p) => ({
         code: p.code,
         name: lang === "en" ? p.name_en : p.name_ru,
@@ -540,7 +579,7 @@ app.get("/v1/slots/:slug", async (req, reply) => {
     const { rows } = await pool.query(
       `
       select s.id, s.slug, s.title, s.theme, s.mechanics, s.release_date, s.rtp, s.volatility, s.grid,
-             s.demo_url, s.description_ru, s.description_en,
+             s.demo_url, s.description_ru, s.description_en, s.seo,
              p.name as provider_name, p.slug as provider_slug
       from slots s
       left join game_providers p on p.id = s.provider_id
@@ -550,7 +589,15 @@ app.get("/v1/slots/:slug", async (req, reply) => {
       [slug],
     );
     const s = rows[0];
-    if (!s) return reply.code(404).send({ error: "not_found" });
+    if (!s) {
+      const { rows: anyRows } = await pool.query(
+        `select 1 from slots where slug = $1 limit 1`,
+        [slug],
+      );
+      if (anyRows[0]) return reply.code(410).send({ error: "gone" });
+      return reply.code(404).send({ error: "not_found" });
+    }
+    const entitySeo = pickEntitySeo(s.seo, lang);
 
     let casinos: { slug: string; name: string }[] = [];
     try {
@@ -586,6 +633,12 @@ app.get("/v1/slots/:slug", async (req, reply) => {
         description: lang === "en" ? s.description_en : s.description_ru,
         providerName: s.provider_name,
         providerSlug: s.provider_slug,
+        seo: {
+          title: entitySeo.title || null,
+          description: entitySeo.description || null,
+          h1: entitySeo.h1 || null,
+          ogImage: entitySeo.ogImage || null,
+        },
         isNew: s.release_date
           ? (Date.now() - new Date(s.release_date as string).getTime()) / 86400000 <= 45
           : false,
@@ -1093,7 +1146,7 @@ app.get("/v1/articles/:slug", async (req, reply) => {
       `
       select a.slug, a.kind, a.topic, a.title_ru, a.title_en, a.excerpt_ru, a.excerpt_en,
              a.body_md_ru, a.body_md_en, a.cover_theme, a.cover_url, a.reading_minutes, a.published_at,
-             au.name as author_name, au.slug as author_slug
+             a.seo, au.name as author_name, au.slug as author_slug
       from articles a
       left join authors au on au.id = a.author_id
       where a.status = 'published' and a.slug = $1
@@ -1102,7 +1155,15 @@ app.get("/v1/articles/:slug", async (req, reply) => {
       [slug],
     );
     const a = rows[0];
-    if (!a) return reply.code(404).send({ error: "not_found" });
+    if (!a) {
+      const { rows: anyRows } = await pool.query(
+        `select 1 from articles where slug = $1 limit 1`,
+        [slug],
+      );
+      if (anyRows[0]) return reply.code(410).send({ error: "gone" });
+      return reply.code(404).send({ error: "not_found" });
+    }
+    const entitySeo = pickEntitySeo(a.seo, lang);
     return {
       locale: lang,
       article: {
@@ -1118,6 +1179,12 @@ app.get("/v1/articles/:slug", async (req, reply) => {
         publishedAt: a.published_at,
         authorName: a.author_name,
         authorSlug: a.author_slug,
+        seo: {
+          title: entitySeo.title || null,
+          description: entitySeo.description || null,
+          h1: entitySeo.h1 || null,
+          ogImage: entitySeo.ogImage || null,
+        },
       },
     };
   } catch (err) {

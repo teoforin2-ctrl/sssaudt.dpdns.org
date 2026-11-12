@@ -41,6 +41,12 @@ type Casino = {
   hasRepresentative: boolean;
   shortDesc?: string | null;
   description?: string | null;
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+    h1?: string | null;
+    ogImage?: string | null;
+  } | null;
   payments: { code: string; name: string }[];
   providers: { code: string; name: string }[];
   bonuses: {
@@ -74,7 +80,21 @@ const { data, error, pending } = await useAsyncData(
   { watch: [slug, locale] },
 );
 
+if (import.meta.server && error.value) {
+  const status = Number((error.value as { statusCode?: number }).statusCode || 0);
+  if (status === 410) {
+    throw createError({ statusCode: 410, statusMessage: "Gone" });
+  }
+  if (status === 404) {
+    throw createError({ statusCode: 404, statusMessage: "Not Found" });
+  }
+}
+
 const c = computed(() => data.value?.casino);
+const ogImage = useEntityOgImage("casino", slug, {
+  seoOg: () => c.value?.seo?.ogImage,
+  fallbackImage: () => c.value?.logoUrl,
+});
 const reviewModal = ref(false);
 const { ensureGroup } = useRewardGroup();
 
@@ -130,30 +150,46 @@ async function goReviewPage(page: number) {
   }
 }
 
+const { pickEntity: seoPickEntity } = useSeoTemplate("casino", () => ({
+  casino: c.value?.name || "",
+  name: c.value?.name || "",
+}));
+
 usePageSeo({
   title: () =>
-    c.value ? t("seo.cardTitle", { name: c.value.name }) : t("seo.listingTitle"),
+    seoPickEntity(
+      "title",
+      () => c.value?.seo,
+      c.value ? t("seo.cardTitle", { name: c.value.name }) : t("seo.listingTitle"),
+    ),
   description: () => {
-    if (!c.value) return t("seo.listingDesc");
+    if (!c.value) return seoPickEntity("description", () => null, t("seo.listingDesc"));
     const desc = (c.value.shortDesc || "").trim();
-    return desc
+    const fallback = desc
       ? t("seo.cardDesc", { desc })
       : t("seo.cardDescFallback", { name: c.value.name });
+    return seoPickEntity("description", () => c.value?.seo, fallback);
   },
+  ogImage,
   // Paginated review deep-links are thin/duplicate — keep out of the index.
   noindex: () => reviewPage.value > 1,
 });
 
 const reviewHtml = computed(() => renderMarkdown(c.value?.description || ""));
 
+function displayCasinoName(name: string) {
+  return name.replace(/^Онлайн-казино\s+/i, "").replace(/^Online casino\s+/i, "").trim() || name;
+}
+
 useJsonLd(() => {
   if (!c.value) return null;
+  const visibleName = displayCasinoName(c.value.name);
   return {
     "@context": "https://schema.org",
     "@type": "Review",
     itemReviewed: {
       "@type": "Organization",
-      name: c.value.name,
+      name: visibleName,
       image: c.value.logoUrl || undefined,
     },
     author: { "@type": "Organization", name: siteName.value },
@@ -165,6 +201,11 @@ useJsonLd(() => {
     description: c.value.shortDesc || undefined,
   };
 });
+
+useBreadcrumbJsonLd(() => [
+  { name: t("catalog.ratingTitle"), path: "/rating" },
+  { name: c.value?.name || "…" },
+]);
 </script>
 
 

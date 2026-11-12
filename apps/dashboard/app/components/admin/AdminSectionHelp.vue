@@ -12,7 +12,12 @@ const props = withDefaults(defineProps<{
 })
 
 const open = ref(false)
-const help = computed((): AdminHelpSection => adminHelp[props.section])
+const fallbackHelp: AdminHelpSection = {
+  title: 'Справка',
+  summary: 'Описание раздела пока не добавлено.',
+  steps: ['Обратитесь к документации или разработчику.'],
+}
+const help = computed((): AdminHelpSection => adminHelp[props.section] || fallbackHelp)
 </script>
 
 <template>

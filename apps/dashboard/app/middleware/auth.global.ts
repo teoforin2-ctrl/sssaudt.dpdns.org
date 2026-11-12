@@ -51,7 +51,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
       if (role !== 'admin' && role !== 'developer')
         return navigateTo('/403')
     }
-    if (to.path.startsWith('/admin/branding') || to.path.startsWith('/admin/glossary')) {
+    if (to.path.startsWith('/admin/branding') || to.path.startsWith('/admin/glossary') || to.path.startsWith('/admin/seo')) {
       if (role !== 'admin' && role !== 'developer')
         return navigateTo('/403')
     }

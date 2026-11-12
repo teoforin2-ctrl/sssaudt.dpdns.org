@@ -27,7 +27,8 @@ const q = ref(String(route.query.q || ""));
 const typeFilter = ref(String(route.query.type || "all"));
 const onlyPromo = ref(route.query.promo === "1");
 const wagerFilter = ref(String(route.query.wager || "any"));
-const visibleCount = ref(24);
+const PAGE_SIZE = 24;
+const visibleCount = ref(PAGE_SIZE);
 
 const { data, pending, error, refresh } = await useAsyncData(
   () => `bonuses-catalog-${locale.value}-${showExpired.value ? "all" : "live"}`,
@@ -138,9 +139,34 @@ function resetFilters() {
   wagerFilter.value = "any";
 }
 
+const { pick: seoPick } = useSeoTemplate("bonuses");
+
 usePageSeo({
-  title: () => t("catalog.bonusesTitle"),
-  description: () => t("catalog.bonusesLead"),
+  title: () => seoPick("title", t("catalog.bonusesTitle")),
+  description: () => seoPick("description", t("catalog.bonusesLead")),
+  path: "/bonuses",
+});
+
+const bonusesH1 = computed(() => seoPick("h1", t("catalog.bonusesTitle")));
+
+useBreadcrumbJsonLd(() => [
+  { name: t("catalog.bonusesTitle"), path: "/bonuses" },
+]);
+
+useJsonLd(() => {
+  if (!visible.value.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t("catalog.bonusesTitle"),
+    numberOfItems: filtered.value.length,
+    itemListElement: visible.value.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `${b.title} — ${b.casinoName}`,
+      url: localePath(`/casino/${b.casinoSlug}`),
+    })),
+  };
 });
 </script>
 
@@ -148,7 +174,7 @@ usePageSeo({
   <section class="container-wide page">
     <PublicPageHero
       :eyebrow="t('catalog.bonusesTitle')"
-      :title="t('catalog.bonusesTitle')"
+      :title="bonusesH1"
       :lead="t('catalog.bonusesLead')"
       :count="t('catalog.count', { n: filtered.length })"
     >
@@ -223,11 +249,11 @@ usePageSeo({
       />
     </div>
 
-    <div v-if="visibleCount < filtered.length" class="more">
-      <UiButton variant="secondary" size="sm" @click="visibleCount += 24">
-        {{ t("catalog.showMoreN", { n: Math.min(24, filtered.length - visibleCount) }) }}
-        · {{ t("catalog.shownOf", { shown: visible.length, total: filtered.length }) }}
-      </UiButton>
+    <div v-if="filtered.length > PAGE_SIZE" class="more">
+      <NuxtLink class="btn btn-secondary btn-sm" :to="localePath('/bonuses/page/2')">
+        {{ t("catalog.showMoreN", { n: Math.min(PAGE_SIZE, filtered.length - PAGE_SIZE) }) }}
+        · {{ t("catalog.shownOf", { shown: Math.min(PAGE_SIZE, filtered.length), total: filtered.length }) }}
+      </NuxtLink>
     </div>
   </section>
 </template>

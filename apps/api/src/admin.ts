@@ -11,6 +11,9 @@ import { parseImageDataUrl, saveRasterAsWebp } from "./images.js";
 import { recalcCasinoRatings } from "./reviews.js";
 import { grantReviewApprovedXp } from "./gamification.js";
 import { collectServerStats } from "./server-stats.js";
+import { entitySeoSchema, normalizeEntitySeo } from "./entity-seo.js";
+import { runSeoPipeline } from "./seo-pipeline.js";
+import { shouldValidatePublish, validateEntitySeo } from "./seo-validate.js";
 
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -404,6 +407,7 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
         editorial_score: z.number().min(0).max(10).nullable().optional(),
         final_rating: z.number().min(0).max(10).nullable().optional(),
         published: z.boolean().optional(),
+        seo: entitySeoSchema.optional(),
       })
       .safeParse(req.body);
 
@@ -425,28 +429,78 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
     };
 
     for (const [key, val] of Object.entries(data)) {
-      if (val !== undefined) push(key, val);
+      if (val === undefined) continue;
+      if (key === "seo") {
+        push(key, JSON.stringify(normalizeEntitySeo(val)));
+        continue;
+      }
+      push(key, val);
     }
     if (!fields.length) return reply.code(400).send({ error: "empty_patch" });
 
+    const { rows: beforeRows } = await pool.query(
+      `select * from casinos where id = $1`,
+      [id],
+    );
+    const prevRow = beforeRows[0] as Record<string, unknown> | undefined;
+    const nextStatus = (data.status ?? prevRow?.status) as string | undefined;
+    if (shouldValidatePublish(nextStatus, prevRow?.status as string | undefined)) {
+      const merged = { ...(prevRow || {}), ...data, id };
+      const validation = await validateEntitySeo(pool, {
+        kind: "casino",
+        id,
+        slug: String(merged.slug || ""),
+        status: nextStatus || "draft",
+        name: (merged.name as string) || null,
+        name_ru: (merged.name_ru as string) || null,
+        name_en: (merged.name_en as string) || null,
+        short_desc_ru: (merged.short_desc_ru as string) || null,
+        short_desc_en: (merged.short_desc_en as string) || null,
+        seo: merged.seo,
+      });
+      if (!validation.ok) {
+        return reply.code(422).send({ error: "seo_invalid", validation });
+      }
+    }
+
     push("updated_at", new Date().toISOString());
     values.push(id);
-
     const { rows } = await pool.query(
       `update casinos set ${fields.join(", ")} where id = $${values.length} returning *`,
       values,
     );
     if (!rows[0]) return reply.code(404).send({ error: "not_found" });
     await bumpCasinoCache(redis);
+    const prev = beforeRows[0]?.status as string | undefined;
+    const next = rows[0].status as string;
+    const slug = String(rows[0].slug || "");
+    void runSeoPipeline(pool, {
+      action:
+        next === "published" && prev !== "published"
+          ? "publish"
+          : prev === "published" && next !== "published"
+            ? "unpublish"
+            : "update",
+      kind: "casino",
+      slug,
+    }).catch(() => undefined);
     return { item: rows[0] };
   });
 
   app.delete("/v1/admin/casinos/:id", async (req, reply) => {
     if (!requireStaff(req, reply)) return;
     const { id } = req.params as { id: string };
+    const { rows: before } = await pool.query(`select slug from casinos where id = $1`, [id]);
     const { rowCount } = await pool.query(`delete from casinos where id = $1`, [id]);
     if (!rowCount) return reply.code(404).send({ error: "not_found" });
     await bumpCasinoCache(redis);
+    if (before[0]?.slug) {
+      void runSeoPipeline(pool, {
+        action: "delete",
+        kind: "casino",
+        slug: String(before[0].slug),
+      }).catch(() => undefined);
+    }
     return { ok: true };
   });
 
@@ -763,6 +817,7 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
         status: z.enum(["active", "hidden"]).optional(),
         published: z.boolean().optional(),
         checked_by_editor: z.boolean().optional(),
+        seo: entitySeoSchema.optional(),
       })
       .safeParse(req.body);
     if (!body.success) return reply.code(400).send({ error: "invalid_body" });
@@ -771,6 +826,11 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
     const values: unknown[] = [];
     for (const [key, val] of Object.entries(body.data)) {
       if (val === undefined) continue;
+      if (key === "seo") {
+        values.push(JSON.stringify(normalizeEntitySeo(val)));
+        fields.push(`${key} = $${values.length}`);
+        continue;
+      }
       const stored =
         key === "description_ru" || key === "description_en"
           ? decodeStoredText(val as string | null)
@@ -1332,11 +1392,13 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
         cover_url: z.string().max(1000).nullable().optional(),
         cover_data_url: z.string().max(8_000_000).optional(),
         reading_minutes: z.number().int().min(1).max(120).optional(),
+        seo: entitySeoSchema.optional(),
       })
       .safeParse(req.body);
     if (!body.success) return reply.code(400).send({ error: "invalid_body" });
 
     const data = { ...body.data } as Record<string, unknown>;
+    const seoDraft = data.seo;
     if (typeof data.cover_data_url === "string" && data.cover_data_url.startsWith("data:image/")) {
       const saved = await saveArticleCover(id, data.cover_data_url);
       if (!saved) return reply.code(400).send({ error: "invalid_cover" });
@@ -1344,6 +1406,33 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
       delete data.cover_data_url;
     } else {
       delete data.cover_data_url;
+    }
+    if (data.seo !== undefined) {
+      data.seo = JSON.stringify(normalizeEntitySeo(data.seo));
+    }
+
+    const { rows: beforeRows } = await pool.query(
+      `select * from articles where id = $1`,
+      [id],
+    );
+    const prevRow = beforeRows[0] as Record<string, unknown> | undefined;
+    const nextStatus = (data.status ?? prevRow?.status) as string | undefined;
+    if (shouldValidatePublish(nextStatus, prevRow?.status as string | undefined)) {
+      const merged = { ...(prevRow || {}), ...body.data, id };
+      const validation = await validateEntitySeo(pool, {
+        kind: "article",
+        id,
+        slug: String(prevRow?.slug || ""),
+        status: nextStatus || "draft",
+        title_ru: (merged.title_ru as string) || null,
+        title_en: (merged.title_en as string) || null,
+        excerpt_ru: (merged.excerpt_ru as string) || null,
+        excerpt_en: (merged.excerpt_en as string) || null,
+        seo: seoDraft !== undefined ? seoDraft : prevRow?.seo,
+      });
+      if (!validation.ok) {
+        return reply.code(422).send({ error: "seo_invalid", validation });
+      }
     }
 
     const fields: string[] = [];
@@ -1362,14 +1451,35 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
       values,
     );
     if (!rows[0]) return reply.code(404).send({ error: "not_found" });
+    const prev = beforeRows[0]?.status as string | undefined;
+    const next = rows[0].status as string;
+    const slug = String(rows[0].slug || "");
+    void runSeoPipeline(pool, {
+      action:
+        next === "published" && prev !== "published"
+          ? "publish"
+          : prev === "published" && next !== "published"
+            ? "unpublish"
+            : "update",
+      kind: "article",
+      slug,
+    }).catch(() => undefined);
     return { item: rows[0] };
   });
 
   app.delete("/v1/admin/articles/:id", async (req, reply) => {
     if (!requireStaff(req, reply)) return;
     const { id } = req.params as { id: string };
+    const { rows: before } = await pool.query(`select slug from articles where id = $1`, [id]);
     const { rowCount } = await pool.query(`delete from articles where id = $1`, [id]);
     if (!rowCount) return reply.code(404).send({ error: "not_found" });
+    if (before[0]?.slug) {
+      void runSeoPipeline(pool, {
+        action: "delete",
+        kind: "article",
+        slug: String(before[0].slug),
+      }).catch(() => undefined);
+    }
     return { ok: true };
   });
 
@@ -1568,14 +1678,43 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
         release_date: z.string().max(32).nullable().optional(),
         description_ru: z.string().max(20000).nullable().optional(),
         description_en: z.string().max(20000).nullable().optional(),
+        seo: entitySeoSchema.optional(),
       })
       .safeParse(req.body);
     if (!body.success) return reply.code(400).send({ error: "invalid_body" });
+
+    const { rows: beforeRows } = await pool.query(
+      `select * from slots where id = $1`,
+      [id],
+    );
+    const prevRow = beforeRows[0] as Record<string, unknown> | undefined;
+    const nextStatus = (body.data.status ?? prevRow?.status) as string | undefined;
+    if (shouldValidatePublish(nextStatus, prevRow?.status as string | undefined)) {
+      const merged = { ...(prevRow || {}), ...body.data, id };
+      const validation = await validateEntitySeo(pool, {
+        kind: "slot",
+        id,
+        slug: String(merged.slug || ""),
+        status: nextStatus || "draft",
+        title: (merged.title as string) || null,
+        description_ru: (merged.description_ru as string) || null,
+        description_en: (merged.description_en as string) || null,
+        seo: merged.seo,
+      });
+      if (!validation.ok) {
+        return reply.code(422).send({ error: "seo_invalid", validation });
+      }
+    }
 
     const fields: string[] = [];
     const values: unknown[] = [];
     for (const [key, val] of Object.entries(body.data)) {
       if (val === undefined) continue;
+      if (key === "seo") {
+        values.push(JSON.stringify(normalizeEntitySeo(val)));
+        fields.push(`${key} = $${values.length}`);
+        continue;
+      }
       values.push(val);
       fields.push(`${key} = $${values.length}`);
     }
@@ -1587,6 +1726,19 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
         values,
       );
       if (!rows[0]) return reply.code(404).send({ error: "not_found" });
+      const prev = beforeRows[0]?.status as string | undefined;
+      const next = rows[0].status as string;
+      const slug = String(rows[0].slug || "");
+      void runSeoPipeline(pool, {
+        action:
+          next === "published" && prev !== "published"
+            ? "publish"
+            : prev === "published" && next !== "published"
+              ? "unpublish"
+              : "update",
+        kind: "slot",
+        slug,
+      }).catch(() => undefined);
       return { item: rows[0] };
     }
     catch (err: unknown) {
@@ -1599,8 +1751,16 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   app.delete("/v1/admin/slots/:id", async (req, reply) => {
     if (!requireStaff(req, reply)) return;
     const { id } = req.params as { id: string };
+    const { rows: before } = await pool.query(`select slug from slots where id = $1`, [id]);
     const { rowCount } = await pool.query(`delete from slots where id = $1`, [id]);
     if (!rowCount) return reply.code(404).send({ error: "not_found" });
+    if (before[0]?.slug) {
+      void runSeoPipeline(pool, {
+        action: "delete",
+        kind: "slot",
+        slug: String(before[0].slug),
+      }).catch(() => undefined);
+    }
     return { ok: true };
   });
 

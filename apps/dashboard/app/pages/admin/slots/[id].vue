@@ -38,6 +38,24 @@ const { data: providersData } = await useAsyncData(
   () => api<{ items: Provider[] }>('/v1/admin/game-providers'),
 )
 
+function emptySeo() {
+  return { ru: {} as Record<string, string>, en: {} as Record<string, string>, ogImage: null as string | null }
+}
+function normalizeSeo(raw: unknown) {
+  const base = emptySeo()
+  if (!raw || typeof raw !== 'object')
+    return base
+  const o = raw as Record<string, unknown>
+  if ('ru' in o || 'en' in o || 'ogImage' in o) {
+    return {
+      ru: { ...((o.ru as Record<string, string>) || {}) },
+      en: { ...((o.en as Record<string, string>) || {}) },
+      ogImage: typeof o.ogImage === 'string' ? o.ogImage : null,
+    }
+  }
+  return base
+}
+
 const form = reactive({
   title: '',
   slug: '',
@@ -51,6 +69,7 @@ const form = reactive({
   release_date: '',
   description_ru: '',
   description_en: '',
+  seo: emptySeo(),
 })
 
 watch(
@@ -70,6 +89,7 @@ watch(
     form.release_date = item.release_date ? String(item.release_date).slice(0, 10) : ''
     form.description_ru = item.description_ru || ''
     form.description_en = item.description_en || ''
+    form.seo = normalizeSeo((item as Slot & { seo?: unknown }).seo)
   },
   { immediate: true },
 )
@@ -78,11 +98,17 @@ const saving = ref(false)
 const saveMsg = ref<string | null>(null)
 const saveErr = ref<string | null>(null)
 const deleting = ref(false)
+const seoValidation = ref<{
+  ok: boolean
+  blockers: Array<{ level: 'error' | 'warning', code: string, locale?: 'ru' | 'en', message: string }>
+  warnings: Array<{ level: 'error' | 'warning', code: string, locale?: 'ru' | 'en', message: string }>
+} | null>(null)
 
 async function save() {
   saving.value = true
   saveMsg.value = null
   saveErr.value = null
+  seoValidation.value = null
   try {
     await api(`/v1/admin/slots/${id.value}`, {
       method: 'PATCH',
@@ -99,15 +125,23 @@ async function save() {
         release_date: form.release_date || null,
         description_ru: form.description_ru || null,
         description_en: form.description_en || null,
+        seo: form.seo,
       },
     })
     saveMsg.value = 'Сохранено'
     await refresh()
   }
   catch (e: unknown) {
-    const status = (e as { statusCode?: number, data?: { error?: string } }).statusCode
-    const err = (e as { data?: { error?: string } }).data?.error
-    saveErr.value = status === 409 || err === 'slug_taken' ? 'Slug уже занят' : 'Ошибка сохранения'
+    const fe = e as { statusCode?: number, data?: { error?: string, validation?: typeof seoValidation.value } }
+    if (fe.statusCode === 422 && fe.data?.validation) {
+      seoValidation.value = fe.data.validation
+      saveErr.value = 'SEO: исправьте блокеры перед публикацией'
+    }
+    else {
+      const status = fe.statusCode
+      const err = fe.data?.error
+      saveErr.value = status === 409 || err === 'slug_taken' ? 'Slug уже занят' : 'Ошибка сохранения'
+    }
   }
   finally {
     saving.value = false
@@ -218,6 +252,9 @@ async function removeSlot() {
           <Textarea v-model="form.description_en" rows="4" />
         </div>
       </div>
+
+      <AdminEntitySeoFields v-model="form.seo" />
+      <AdminSeoValidation :result="seoValidation" />
 
       <div class="flex flex-wrap items-center gap-3">
         <Button type="submit" :disabled="saving">

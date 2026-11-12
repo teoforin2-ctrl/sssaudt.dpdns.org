@@ -19,21 +19,26 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
-  // Inline component CSS into SSR HTML — less FOUC after hydration
+  // Keep critical CSS inlined via app.head; skip per-component style injection in HTML.
   features: {
-    inlineStyles: true,
+    inlineStyles: false,
+  },
+
+  experimental: {
+    // Extract __NUXT_DATA__ to a separate payload file on generate/prerender (smaller HTML).
+    payloadExtraction: true,
   },
 
   fonts: {
     defaults: {
-      weights: [400, 500, 600, 700, 800],
+      weights: [400, 600, 700],
       styles: ["normal"],
     },
     families: [
       {
         name: "Figtree",
         provider: "google",
-        weights: [400, 500, 600, 700, 800],
+        weights: [400, 600, 700],
         display: "swap",
         preload: true,
         subsets: ["latin", "cyrillic"],
@@ -41,7 +46,7 @@ export default defineNuxtConfig({
       {
         name: "Unbounded",
         provider: "google",
-        weights: [500, 600, 700, 800],
+        weights: [600, 700],
         display: "swap",
         preload: true,
         subsets: ["latin", "cyrillic"],
@@ -66,12 +71,15 @@ export default defineNuxtConfig({
       dashboardUrl: process.env.NUXT_PUBLIC_DASHBOARD_URL || "http://127.0.0.1:3711",
       siteName: "SS Audit",
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "http://127.0.0.1:3710",
-      // Staging/local stay noindex unless explicitly enabled for prod crawl.
+      // production | staging — staging always noindex (X-Robots + meta)
+      env: process.env.NUXT_PUBLIC_ENV || process.env.NODE_ENV || "development",
+      // Legacy/env AND-gate; admin SEO toggle can enable indexing on production.
       allowIndexing: process.env.NUXT_PUBLIC_ALLOW_INDEXING || "false",
     },
   },
 
   // Public pages: short edge/browser cache for HTML; long cache for hashed assets.
+  // Catalog/entity pages use SWR so publish updates land within ~1–5 min without full rebuild.
   routeRules: {
     "/_nuxt/**": {
       headers: {
@@ -88,6 +96,11 @@ export default defineNuxtConfig({
         "cache-control": "public, max-age=604800, stale-while-revalidate=86400",
       },
     },
+    "/": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=60, stale-while-revalidate=300",
+      },
+    },
     "/ru": {
       headers: {
         "cache-control": "public, max-age=0, s-maxage=60, stale-while-revalidate=300",
@@ -96,6 +109,81 @@ export default defineNuxtConfig({
     "/en": {
       headers: {
         "cache-control": "public, max-age=0, s-maxage=60, stale-while-revalidate=300",
+      },
+    },
+    "/ru/rating/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/en/rating/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/rating/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/ru/slots/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/en/slots/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/slots/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/ru/articles/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=180, stale-while-revalidate=900",
+      },
+    },
+    "/en/articles/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=180, stale-while-revalidate=900",
+      },
+    },
+    "/articles/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=180, stale-while-revalidate=900",
+      },
+    },
+    "/ru/bonuses/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/en/bonuses/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/bonuses/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/ru/casino/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/en/casino/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
+      },
+    },
+    "/casino/**": {
+      headers: {
+        "cache-control": "public, max-age=0, s-maxage=120, stale-while-revalidate=600",
       },
     },
   },
@@ -108,12 +196,13 @@ export default defineNuxtConfig({
     defaultLocale: "ru",
     lazy: true,
     langDir: "locales",
-    strategy: "prefix",
+    // `/` serves RU (200) without 302→/ru; `/ru/...` and `/en/...` still work
+    strategy: "prefix_and_default",
     detectBrowserLanguage: {
       cookieKey: "xr_lang",
       fallbackLocale: "ru",
       useCookie: true,
-      redirectOn: "root",
+      redirectOn: "no prefix",
     },
     baseUrl: process.env.NUXT_PUBLIC_SITE_URL || "http://127.0.0.1:3710",
   },

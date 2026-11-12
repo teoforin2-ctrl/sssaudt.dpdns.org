@@ -1,14 +1,12 @@
 export default defineNuxtPlugin(() => {
+  const { siteName, seo } = useSiteSettings();
+  const { robotsContent, indexingEnabled } = useIndexing();
   const config = useRuntimeConfig();
-  const { siteName } = useSiteSettings();
-  const allow =
-    String(config.public.allowIndexing ?? "").toLowerCase() === "true";
-  const robots = allow
-    ? "index, follow"
-    : "noindex, nofollow, noarchive, nosnippet";
 
   useHead(() => {
     const site = String(siteName.value || config.public.siteName || "SS Audit").trim();
+    const google = String(seo.value?.googleSiteVerification || "").trim();
+    const yandex = String(seo.value?.yandexVerification || "").trim();
     return {
       titleTemplate: (title?: string) => {
         const t = String(title || "").trim();
@@ -17,10 +15,19 @@ export default defineNuxtPlugin(() => {
         return `${t} — ${site}`;
       },
       meta: [
-        { name: "robots", content: robots },
-        { name: "googlebot", content: robots },
+        { name: "robots", content: robotsContent.value },
+        { name: "googlebot", content: robotsContent.value },
         { property: "og:site_name", content: site },
         { name: "application-name", content: site },
+        ...(google
+          ? [{ name: "google-site-verification", content: google }]
+          : []),
+        ...(yandex
+          ? [{ name: "yandex-verification", content: yandex }]
+          : []),
+        ...(indexingEnabled.value
+          ? []
+          : [{ name: "x-ssaudit-indexing", content: "off" }]),
       ],
     };
   });

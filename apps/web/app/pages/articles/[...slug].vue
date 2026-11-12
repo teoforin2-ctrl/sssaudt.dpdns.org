@@ -41,6 +41,12 @@ type ArticleItem = {
 
 type ArticleDetail = ArticleItem & {
   bodyMd?: string | null;
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+    h1?: string | null;
+    ogImage?: string | null;
+  } | null;
 };
 
 const { data: listData, pending: listPending } = await useAsyncData(
@@ -74,7 +80,7 @@ const hubItems = computed(() => {
   return items;
 });
 
-const { data, pending } = await useAsyncData(
+const { data, pending, error: articleError } = await useAsyncData(
   () => `article-detail-${leaf.value}-${locale.value}`,
   async () => {
     if (isHub.value || !leaf.value) return null;
@@ -83,7 +89,9 @@ const { data, pending } = await useAsyncData(
         `${config.public.apiBase}/v1/articles/${leaf.value}`,
         { query: { locale: locale.value } },
       );
-    } catch {
+    } catch (err: unknown) {
+      const status = Number((err as { statusCode?: number }).statusCode || 0);
+      if (status === 410) throw createError({ statusCode: 410, statusMessage: "Gone" });
       return null;
     }
   },
@@ -92,9 +100,19 @@ const { data, pending } = await useAsyncData(
 
 const article = computed(() => data.value?.article);
 
+if (import.meta.server && articleError.value) {
+  const status = Number((articleError.value as { statusCode?: number }).statusCode || 0);
+  if (status === 410) throw createError({ statusCode: 410, statusMessage: "Gone" });
+}
+
 if (!pending.value && !isHub.value && !article.value) {
   throw createError({ statusCode: 404, statusMessage: "Article not found" });
 }
+
+const ogImage = useEntityOgImage("article", () => article.value?.slug || leaf.value, {
+  seoOg: () => article.value?.seo?.ogImage,
+  fallbackImage: () => article.value?.coverUrl,
+});
 
 const stubTitle = computed(() => {
   if (hub.value) return t(hub.value.titleKey);
@@ -108,14 +126,55 @@ const bodyHtml = computed(() =>
 );
 
 
-useHead(() => ({
-  title: article.value
-    ? `${article.value.title}`
-    : `${stubTitle.value}`,
-  meta: article.value?.excerpt
-    ? [{ name: "description", content: article.value.excerpt }]
-    : [{ name: "description", content: stubLead.value }],
+const { pickEntity: seoPickEntity } = useSeoTemplate("article", () => ({
+  article: article.value?.title || stubTitle.value,
+  title: article.value?.title || stubTitle.value,
 }));
+
+usePageSeo({
+  title: () =>
+    seoPickEntity(
+      "title",
+      () => article.value?.seo,
+      article.value ? article.value.title : stubTitle.value,
+    ),
+  description: () =>
+    seoPickEntity(
+      "description",
+      () => article.value?.seo,
+      article.value?.excerpt || stubLead.value,
+    ),
+  ogType: () => (article.value ? "article" : "website"),
+  ogImage,
+});
+
+useBreadcrumbJsonLd(() => {
+  if (article.value) {
+    return [
+      { name: t("catalog.articlesTitle"), path: "/articles" },
+      { name: article.value.title },
+    ];
+  }
+  return [
+    { name: t("catalog.articlesTitle"), path: "/articles" },
+    { name: stubTitle.value },
+  ];
+});
+
+useJsonLd(() => {
+  if (!article.value) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.value.title,
+    description: article.value.excerpt || undefined,
+    datePublished: article.value.publishedAt || undefined,
+    author: article.value.authorName
+      ? { "@type": "Person", name: article.value.authorName }
+      : undefined,
+    image: article.value.coverUrl || undefined,
+  };
+});
 </script>
 
 <template>

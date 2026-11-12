@@ -1,67 +1,20 @@
 <script setup lang="ts">
-const config = useRuntimeConfig();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
 
-type CasinoListItem = {
-  id: string;
-  slug: string;
-  name: string;
-  logoUrl?: string | null;
-  rating: number;
-  editorialScore?: number;
-  playerScore?: number | null;
-  reviewCount?: number;
-  hot: boolean;
-  top: boolean;
-  rank: number;
-  isNew?: boolean;
-  hasRepresentative?: boolean;
-  bonusLabel?: string | null;
-  bonusWager?: string | null;
-  bonusPromo?: string | null;
-  bonusCheckedAt?: string | null;
-  license?: string | null;
-};
-
-type FilterKey = "all" | "top" | "hot" | "new";
-const filter = ref<FilterKey>("all");
+const filter = ref<"all" | "top" | "hot" | "new">("all");
 const viewMode = ref<"list" | "grid">("list");
-const visibleCount = ref(20);
 
-const { data, error, pending, refresh } = await useAsyncData(
-  () => `rating-casinos-${locale.value}`,
-  () =>
-    $fetch<{ items: CasinoListItem[] }>(`${config.public.apiBase}/v1/casinos`, {
-      query: { locale: locale.value },
-    }),
-  { watch: [locale] },
-);
+const { all, items, pageSlice, totalPages, pending, error, refresh, pageSize } =
+  useCasinoListing({ filter });
 
-const all = computed(() => data.value?.items ?? []);
-const items = computed(() => {
-  let list = [...all.value];
-  if (filter.value === "top") list = list.filter((c) => c.top);
-  else if (filter.value === "hot") list = list.filter((c) => c.hot);
-  else if (filter.value === "new") list = list.filter((c) => c.isNew);
-  return list;
-});
-const visible = computed(() =>
-  items.value.slice(0, visibleCount.value).map((c, i) => ({
-    ...c,
-    displayRank: i + 1,
-  })),
-);
+const visible = computed(() => pageSlice(1));
 
 const licensedCount = computed(() => all.value.filter((c) => !!c.license).length);
 const avgScore = computed(() => {
   if (!all.value.length) return null;
   const sum = all.value.reduce((a, c) => a + (c.rating || 0), 0);
   return (sum / all.value.length).toFixed(1);
-});
-
-watch(filter, () => {
-  visibleCount.value = 20;
 });
 
 const hubTabs = computed(() => [
@@ -73,7 +26,7 @@ const hubTabs = computed(() => [
   { key: "blacklist", label: t("catalog.hub.blacklistTitle"), to: localePath("/rating/blacklist") },
 ]);
 
-const filterChips: { key: FilterKey; label: string }[] = [
+const filterChips: { key: typeof filter.value; label: string }[] = [
   { key: "all", label: t("home.filters.all") },
   { key: "top", label: t("home.filters.top") },
   { key: "hot", label: t("home.filters.hot") },
@@ -90,9 +43,32 @@ const stats = computed(() => {
   return out;
 });
 
+const { pick: seoPick } = useSeoTemplate("catalog");
+
 usePageSeo({
-  title: () => t("catalog.ratingTitle"),
-  description: () => t("catalog.ratingLead"),
+  title: () => seoPick("title", t("catalog.ratingTitle")),
+  description: () => seoPick("description", t("catalog.ratingLead")),
+  path: "/rating",
+});
+
+useBreadcrumbJsonLd(() => [
+  { name: t("catalog.ratingTitle"), path: "/rating" },
+]);
+
+useJsonLd(() => {
+  if (!visible.value.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t("catalog.ratingTitle"),
+    numberOfItems: items.value.length,
+    itemListElement: visible.value.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      url: localePath(`/casino/${c.slug}`),
+    })),
+  };
 });
 </script>
 
@@ -138,10 +114,10 @@ usePageSeo({
       <PublicCasinoRow v-else v-for="c in visible" :key="c.id" :casino="c" />
     </div>
 
-    <div v-if="visibleCount < items.length" class="more">
-      <UiButton variant="secondary" size="sm" @click="visibleCount += 20">
-        {{ t("catalog.showMoreN", { n: Math.min(20, items.length - visibleCount) }) }}
-      </UiButton>
+    <div v-if="totalPages > 1" class="more">
+      <NuxtLink class="btn btn-secondary btn-sm" :to="localePath('/rating/page/2')">
+        {{ t("catalog.showMoreN", { n: Math.min(pageSize, items.length - pageSize) }) }}
+      </NuxtLink>
     </div>
   </section>
 </template>

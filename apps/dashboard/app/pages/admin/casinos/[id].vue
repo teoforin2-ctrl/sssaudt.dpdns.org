@@ -20,6 +20,33 @@ const { data, pending, error, refresh } = await useAsyncData(
   () => api<{ item: Casino }>(`/v1/admin/casinos/${id.value}`),
 )
 
+function emptySeo() {
+  return { ru: {}, en: {}, ogImage: null as string | null }
+}
+
+function normalizeSeo(raw: unknown) {
+  const base = emptySeo()
+  if (!raw || typeof raw !== 'object')
+    return base
+  const o = raw as Record<string, unknown>
+  if ('ru' in o || 'en' in o || 'ogImage' in o) {
+    return {
+      ru: { ...((o.ru as Record<string, string>) || {}) },
+      en: { ...((o.en as Record<string, string>) || {}) },
+      ogImage: typeof o.ogImage === 'string' ? o.ogImage : null,
+    }
+  }
+  return {
+    ru: {
+      title: typeof o.title === 'string' ? o.title : undefined,
+      description: typeof o.description === 'string' ? o.description : undefined,
+      h1: typeof o.h1 === 'string' ? o.h1 : undefined,
+    },
+    en: {},
+    ogImage: null as string | null,
+  }
+}
+
 const form = reactive({
   name: '',
   name_ru: '',
@@ -37,6 +64,7 @@ const form = reactive({
   description_en: '',
   editorial_score: '' as string,
   final_rating: '' as string,
+  seo: emptySeo(),
 })
 const reviewLang = ref<'ru' | 'en'>('ru')
 
@@ -61,6 +89,7 @@ watch(
     form.description_en = String(item.description_en || '')
     form.editorial_score = item.editorial_score != null ? String(item.editorial_score) : ''
     form.final_rating = item.final_rating != null ? String(item.final_rating) : ''
+    form.seo = normalizeSeo(item.seo)
   },
   { immediate: true },
 )
@@ -68,6 +97,11 @@ watch(
 const saving = ref(false)
 const saveMsg = ref<string | null>(null)
 const saveErr = ref<string | null>(null)
+const seoValidation = ref<{
+  ok: boolean
+  blockers: Array<{ level: 'error' | 'warning', code: string, locale?: 'ru' | 'en', message: string }>
+  warnings: Array<{ level: 'error' | 'warning', code: string, locale?: 'ru' | 'en', message: string }>
+} | null>(null)
 
 async function confirmRep() {
   await api(`/v1/admin/casinos/${id.value}/confirm-representative`, {
@@ -82,6 +116,7 @@ async function save() {
   saving.value = true
   saveMsg.value = null
   saveErr.value = null
+  seoValidation.value = null
   try {
     await api(`/v1/admin/casinos/${id.value}`, {
       method: 'PATCH',
@@ -102,13 +137,21 @@ async function save() {
         description_en: form.description_en || null,
         editorial_score: form.editorial_score === '' ? null : Number(form.editorial_score),
         final_rating: form.final_rating === '' ? null : Number(form.final_rating),
+        seo: form.seo,
       },
     })
     saveMsg.value = 'Сохранено'
     await refresh()
   }
-  catch {
-    saveErr.value = 'Ошибка сохранения'
+  catch (err: unknown) {
+    const e = err as { statusCode?: number, data?: { error?: string, validation?: typeof seoValidation.value } }
+    if (e.statusCode === 422 && e.data?.validation) {
+      seoValidation.value = e.data.validation
+      saveErr.value = 'SEO: исправьте блокеры перед публикацией'
+    }
+    else {
+      saveErr.value = 'Ошибка сохранения'
+    }
   }
   finally {
     saving.value = false
@@ -208,6 +251,9 @@ async function removeCasino() {
           <Textarea v-model="form.short_desc_en" rows="3" />
         </div>
       </div>
+
+      <AdminEntitySeoFields v-model="form.seo" />
+      <AdminSeoValidation :result="seoValidation" />
 
       <div class="space-y-3 rounded-xl border p-4">
         <div class="flex flex-wrap items-center gap-2">

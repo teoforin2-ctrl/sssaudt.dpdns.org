@@ -452,6 +452,7 @@
   "catalog": {
     "ratingTitle": "Casino ranking",
     "ratingLead": "Full list from our database: editorial score, player reviews and current bonuses.",
+    "pageN": "page {n}",
     "slotsTitle": "Slots",
     "slotsLead": "Published slots with RTP, provider and demo where available.",
     "authorsTitle": "Authors",

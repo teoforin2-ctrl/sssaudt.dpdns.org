@@ -63,6 +63,7 @@ services:
         NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://dfijdsif.website}
         NUXT_PUBLIC_DASHBOARD_URL: ${NUXT_PUBLIC_DASHBOARD_URL:-https://dfijdsif.website}
         NUXT_PUBLIC_ALLOW_INDEXING: ${NUXT_PUBLIC_ALLOW_INDEXING:-false}
+        NUXT_PUBLIC_ENV: ${NUXT_PUBLIC_ENV:-production}
     container_name: ssaudit-web
     restart: unless-stopped
     environment:
@@ -76,14 +77,13 @@ services:
       NUXT_PUBLIC_SITE_URL: ${NUXT_PUBLIC_SITE_URL:-https://dfijdsif.website}
       NUXT_PUBLIC_DASHBOARD_URL: ${NUXT_PUBLIC_DASHBOARD_URL:-https://dfijdsif.website}
       NUXT_PUBLIC_ALLOW_INDEXING: ${NUXT_PUBLIC_ALLOW_INDEXING:-false}
+      NUXT_PUBLIC_ENV: ${NUXT_PUBLIC_ENV:-production}
     volumes:
       # Do NOT mount whole /uploads — it hid image-baked /uploads/casinos (404s)
       - /var/www/dfijdsif/uploads/articles:/app/.output/public/uploads/articles
       - /var/www/dfijdsif/uploads/banners:/app/.output/public/uploads/banners
       - /var/www/dfijdsif/uploads/brand:/app/.output/public/uploads/brand
       - /var/www/dfijdsif/uploads/content:/app/.output/public/uploads/content
-      # Server-owned staging robots (Disallow: /) — overrides image copy
-      - /var/www/dfijdsif/robots.txt:/app/.output/public/robots.txt:ro
     ports:
       - "127.0.0.1:3710:3000"
     depends_on:

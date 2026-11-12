@@ -39,6 +39,24 @@ const { data, pending, error, refresh } = await useAsyncData(
   () => api<{ item: Article }>(`/v1/admin/articles/${id.value}`),
 )
 
+function emptySeo() {
+  return { ru: {} as Record<string, string>, en: {} as Record<string, string>, ogImage: null as string | null }
+}
+function normalizeSeo(raw: unknown) {
+  const base = emptySeo()
+  if (!raw || typeof raw !== 'object')
+    return base
+  const o = raw as Record<string, unknown>
+  if ('ru' in o || 'en' in o || 'ogImage' in o) {
+    return {
+      ru: { ...((o.ru as Record<string, string>) || {}) },
+      en: { ...((o.en as Record<string, string>) || {}) },
+      ogImage: typeof o.ogImage === 'string' ? o.ogImage : null,
+    }
+  }
+  return base
+}
+
 const form = reactive({
   slug: '',
   title_ru: '',
@@ -53,6 +71,7 @@ const form = reactive({
   cover_theme: 'guide',
   cover_url: '',
   reading_minutes: 5,
+  seo: emptySeo(),
 })
 
 const coverPreview = ref<string | null>(null)
@@ -77,6 +96,7 @@ watch(
     form.cover_theme = item.cover_theme || item.kind || 'guide'
     form.cover_url = item.cover_url || ''
     form.reading_minutes = item.reading_minutes || 5
+    form.seo = normalizeSeo((item as Article & { seo?: unknown }).seo)
     coverPreview.value = item.cover_url || null
     coverDataUrl.value = null
   },
@@ -86,6 +106,11 @@ watch(
 const saving = ref(false)
 const saveMsg = ref<string | null>(null)
 const saveErr = ref<string | null>(null)
+const seoValidation = ref<{
+  ok: boolean
+  blockers: Array<{ level: 'error' | 'warning', code: string, locale?: 'ru' | 'en', message: string }>
+  warnings: Array<{ level: 'error' | 'warning', code: string, locale?: 'ru' | 'en', message: string }>
+} | null>(null)
 
 function onCoverPick(ev: Event) {
   const input = ev.target as HTMLInputElement
@@ -111,6 +136,7 @@ async function save() {
   saving.value = true
   saveMsg.value = null
   saveErr.value = null
+  seoValidation.value = null
   try {
     const body: Record<string, unknown> = {
       title_ru: form.title_ru.trim() || 'Без названия',
@@ -124,6 +150,7 @@ async function save() {
       topic: form.topic || null,
       cover_theme: form.cover_theme || form.kind || 'guide',
       reading_minutes: Number(form.reading_minutes) || 5,
+      seo: form.seo,
     }
     if (coverDataUrl.value)
       body.cover_data_url = coverDataUrl.value
@@ -143,10 +170,16 @@ async function save() {
     await refresh()
   }
   catch (err: unknown) {
-    const e = err as { data?: { error?: string }, statusCode?: number, message?: string }
-    saveErr.value = e?.data?.error
-      ? `Ошибка: ${e.data.error}`
-      : e?.message || 'Ошибка сохранения'
+    const e = err as { data?: { error?: string, validation?: typeof seoValidation.value }, statusCode?: number, message?: string }
+    if (e.statusCode === 422 && e.data?.validation) {
+      seoValidation.value = e.data.validation
+      saveErr.value = 'SEO: исправьте блокеры перед публикацией'
+    }
+    else {
+      saveErr.value = e?.data?.error
+        ? `Ошибка: ${e.data.error}`
+        : e?.message || 'Ошибка сохранения'
+    }
   }
   finally {
     saving.value = false
@@ -298,6 +331,9 @@ async function removeArticle() {
           />
         </div>
       </template>
+
+      <AdminEntitySeoFields v-model="form.seo" />
+      <AdminSeoValidation :result="seoValidation" />
 
       <div class="flex flex-wrap items-center gap-3">
         <Button type="submit" :disabled="saving">

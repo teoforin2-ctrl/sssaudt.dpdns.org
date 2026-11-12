@@ -13,7 +13,9 @@ const config = useRuntimeConfig();
 
 
 useHead(() => {
-  const links = (locales.value as { code: string; language?: string }[]).map((l) => ({
+  const list = locales.value as { code: string; language?: string }[];
+  const current = list.find((l) => l.code === locale.value);
+  const links = list.map((l) => ({
     rel: "alternate" as const,
     hreflang: l.language || l.code,
     href: `${config.public.siteUrl}${switchLocalePath(l.code as "ru" | "en")}`,
@@ -24,7 +26,8 @@ useHead(() => {
     href: `${config.public.siteUrl}${switchLocalePath("ru")}`,
   });
   return {
-    htmlAttrs: { lang: locale.value },
+    // BCP 47: ru-RU / en-US for crawlers + a11y
+    htmlAttrs: { lang: current?.language || locale.value },
     link: links,
   };
 });

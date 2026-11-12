@@ -31,6 +31,12 @@ type SlotDetail = {
   demoUrl?: string | null;
   description?: string | null;
   releaseDate?: string | null;
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+    h1?: string | null;
+    ogImage?: string | null;
+  } | null;
   casinos?: { slug: string; name: string }[];
 };
 
@@ -100,7 +106,7 @@ const hubSlots = computed(() => {
 
 const provider = computed(() => providerData.value?.provider);
 
-const { data, pending } = await useAsyncData(
+const { data, pending, error: slotError } = await useAsyncData(
   () => `slot-detail-${leaf.value}-${locale.value}`,
   async () => {
     if (isHub.value || providerSlug.value || !leaf.value) return null;
@@ -109,7 +115,9 @@ const { data, pending } = await useAsyncData(
         `${config.public.apiBase}/v1/slots/${leaf.value}`,
         { query: { locale: locale.value } },
       );
-    } catch {
+    } catch (err: unknown) {
+      const status = Number((err as { statusCode?: number }).statusCode || 0);
+      if (status === 410) throw createError({ statusCode: 410, statusMessage: "Gone" });
       return null;
     }
   },
@@ -117,6 +125,11 @@ const { data, pending } = await useAsyncData(
 );
 
 const slot = computed(() => data.value?.slot);
+
+if (import.meta.server && slotError.value) {
+  const status = Number((slotError.value as { statusCode?: number }).statusCode || 0);
+  if (status === 410) throw createError({ statusCode: 410, statusMessage: "Gone" });
+}
 
 if (
   !pending.value &&
@@ -128,6 +141,10 @@ if (
   throw createError({ statusCode: 404, statusMessage: "Not found" });
 }
 
+const ogImage = useEntityOgImage("slot", () => slot.value?.slug || leaf.value, {
+  seoOg: () => slot.value?.seo?.ogImage,
+});
+
 const stubTitle = computed(() =>
   navLink.value ? locTitle(navLink.value.title, locale.value) : leaf.value,
 );
@@ -136,14 +153,62 @@ const hubLead = computed(() =>
   isProvidersIndex.value ? t("catalog.hub.providersLead") : t("catalog.hub.newSlotsLead"),
 );
 
+const { pickEntity: seoPickEntity } = useSeoTemplate("slot", () => ({
+  slot: slot.value?.title || provider.value?.name || stubTitle.value,
+  casino: "",
+}));
+
 usePageSeo({
   title: () =>
-    provider.value?.name
-    || slot.value?.title
-    || stubTitle.value,
+    seoPickEntity(
+      "title",
+      () => slot.value?.seo,
+      provider.value?.name || slot.value?.title || stubTitle.value,
+    ),
   description: () =>
-    provider.value?.description
-    || (isHub.value ? hubLead.value : undefined),
+    seoPickEntity(
+      "description",
+      () => slot.value?.seo,
+      provider.value?.description
+        || slot.value?.description
+        || (isHub.value ? hubLead.value : "")
+        || "",
+    ),
+  ogImage,
+});
+
+useBreadcrumbJsonLd(() => {
+  if (slot.value) {
+    return [
+      { name: t("catalog.slotsTitle"), path: "/slots" },
+      { name: slot.value.title },
+    ];
+  }
+  if (provider.value) {
+    return [
+      { name: t("catalog.slotsTitle"), path: "/slots" },
+      { name: t("catalog.hub.providersTitle"), path: "/slots/providers" },
+      { name: provider.value.name },
+    ];
+  }
+  return [
+    { name: t("catalog.slotsTitle"), path: "/slots" },
+    { name: stubTitle.value },
+  ];
+});
+
+useJsonLd(() => {
+  if (!slot.value) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    name: slot.value.title,
+    description: slot.value.description || undefined,
+    gamePlatform: "Online",
+    author: slot.value.providerName
+      ? { "@type": "Organization", name: slot.value.providerName }
+      : undefined,
+  };
 });
 </script>
 

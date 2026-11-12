@@ -61,6 +61,9 @@ const activeMenu = computed(() => {
       hidden.add('/admin/branding')
       hidden.add('/admin/glossary')
     }
+    // SEO — admin/developer only (editors filtered via EDITOR_ADMIN_ALLOW_PREFIXES)
+    if (!canKanban.value)
+      hidden.add('/admin/seo')
   }
 
   return navMenu

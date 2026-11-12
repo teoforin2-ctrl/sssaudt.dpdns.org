@@ -8,6 +8,7 @@ import { z } from "zod";
 import { mergeRewardSettings, type RewardSettings } from "@x-reviewer/shared";
 import { requireAdmin, requireStaff } from "./auth.js";
 import { parseImageDataUrl, saveRasterAsWebp } from "./images.js";
+import { mapSeoSettings, type SeoSettings } from "./seo.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WEB_PUBLIC =
@@ -83,6 +84,7 @@ export type SiteSettings = {
   contacts: SiteContacts;
   homeSections: HomeSections;
   rewardSettings: RewardSettings;
+  seo: SeoSettings;
   updatedAt: string | null;
 };
 
@@ -103,6 +105,7 @@ function mapRow(row: Record<string, unknown>): SiteSettings {
     contacts,
     homeSections: mapHomeSections(row.home_sections),
     rewardSettings: mergeRewardSettings(row.reward_settings),
+    seo: mapSeoSettings(row.seo_settings),
     updatedAt: row.updated_at ? String(row.updated_at) : null,
   };
 }
@@ -178,6 +181,7 @@ export async function registerSiteSettings(app: FastifyInstance, pool: Pool) {
           favicon_32_url: "/favicon-32.png",
           apple_touch_icon_url: "/apple-touch-icon.png",
           contacts: {},
+          seo_settings: {},
         }),
       };
     }

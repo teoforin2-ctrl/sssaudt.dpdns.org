@@ -4,7 +4,7 @@ import { isFeatureEnabled } from "@x-reviewer/shared";
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
-const { homeSections, siteName } = useSiteSettings();
+const { homeSections } = useSiteSettings();
 
 /** Admin home_sections override shared feature flags when present. */
 function sectionOn(key: string, featureFallback?: boolean) {
@@ -197,11 +197,12 @@ const [
   { data: homeBonusesData, pending: homeBonusesPending },
   { data: homeForumData, pending: homeForumPending },
 ] = await Promise.all([
+  // SSR: first page only — full catalog loads client-side for filters (T14 HTML weight).
   useAsyncData(
-    () => `casinos-${locale.value}`,
+    () => `casinos-home-ssr-${locale.value}`,
     () =>
-      $fetch<{ items: CasinoListItem[] }>(`${config.public.apiBase}/v1/casinos`, {
-        query: { locale: locale.value },
+      $fetch<{ items: CasinoListItem[]; total?: number }>(`${config.public.apiBase}/v1/casinos`, {
+        query: { locale: locale.value, limit: 36 },
       }),
     { watch: [locale] },
   ),
@@ -221,13 +222,14 @@ const [
       }),
     { watch: [locale] },
   ),
+  // Below-fold: client-only to keep SSR HTML lean
   useAsyncData(
     () => `home-bonuses-${locale.value}`,
     () =>
       $fetch<{ items: any[] }>(`${config.public.apiBase}/v1/bonuses`, {
         query: { locale: locale.value, limit: 6 },
       }),
-    { watch: [locale] },
+    { watch: [locale], server: false, lazy: true },
   ),
   useAsyncData(
     () => `home-forum-${locale.value}`,
@@ -235,13 +237,22 @@ const [
       $fetch<{ recent: any[] }>(`${config.public.apiBase}/v1/forum`, {
         query: { locale: locale.value },
       }),
-    { watch: [locale] },
+    { watch: [locale], server: false, lazy: true },
   ),
 ]);
 
+const { data: casinosFull } = await useAsyncData(
+  () => `casinos-home-full-${locale.value}`,
+  () =>
+    $fetch<{ items: CasinoListItem[]; total?: number }>(`${config.public.apiBase}/v1/casinos`, {
+      query: { locale: locale.value },
+    }),
+  { watch: [locale], server: false, lazy: true },
+);
+
 watch(locale, () => refresh());
 
-const all = computed(() => data.value?.items ?? []);
+const all = computed(() => casinosFull.value?.items ?? data.value?.items ?? []);
 const banners = computed(() => bannersData.value?.items ?? []);
 
 const items = computed(() => {
@@ -313,22 +324,14 @@ const newCasinos = computed(() => (home.value.newCasinos as any[]) || []);
 const homeBonusItems = computed(() => homeBonusesData.value?.items || []);
 const homeForumTopics = computed(() => homeForumData.value?.recent || []);
 
+const { pick: seoPick } = useSeoTemplate("home");
+
 usePageSeo({
-  title: () => t("seo.listingTitle"),
-  description: () => t("seo.listingDesc"),
+  title: () => seoPick("title", t("seo.listingTitle")),
+  description: () => seoPick("description", t("seo.listingDesc")),
 });
 
-useJsonLd(() => ({
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: siteName.value,
-  url: `${config.public.siteUrl}${localePath("/")}`,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${config.public.siteUrl}${localePath("/search")}?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
-}));
+const homeH1 = computed(() => seoPick("h1", t("home.title")));
 </script>
 
 
@@ -340,7 +343,7 @@ useJsonLd(() => ({
     <header class="intro">
       <div>
         <p class="eyebrow">{{ t("home.eyebrow") }}</p>
-        <h1 class="page-title">{{ t("home.title") }}</h1>
+        <h1 class="page-title">{{ homeH1 }}</h1>
         <p class="lead">{{ t("home.lead") }}</p>
       </div>
     </header>

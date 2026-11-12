@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
+const localePath = useLocalePath();
 
 type ArticleItem = {
   slug: string;
@@ -41,8 +42,10 @@ const items = computed(() => {
   return all.value.filter((a) => kindBucket(a.kind) === kindFilter.value);
 });
 
+const PAGE_SIZE = 24;
 const featured = computed(() => items.value[0] || null);
-const rest = computed(() => items.value.slice(1));
+const rest = computed(() => items.value.slice(1, PAGE_SIZE));
+const hasMorePages = computed(() => items.value.length > PAGE_SIZE);
 
 const tabs = computed(() => {
   const counts = {
@@ -62,6 +65,27 @@ const tabs = computed(() => {
 usePageSeo({
   title: () => t("catalog.articlesTitle"),
   description: () => t("catalog.articlesLead"),
+  path: "/articles",
+});
+
+useBreadcrumbJsonLd(() => [
+  { name: t("catalog.articlesTitle"), path: "/articles" },
+]);
+
+useJsonLd(() => {
+  if (!items.value.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t("catalog.articlesTitle"),
+    numberOfItems: items.value.length,
+    itemListElement: items.value.slice(0, 24).map((a, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: a.title,
+      url: localePath(`/articles/${a.slug}`),
+    })),
+  };
 });
 </script>
 
@@ -113,6 +137,11 @@ usePageSeo({
           :author-slug="a.authorSlug"
         />
       </div>
+      <div v-if="hasMorePages" class="more">
+        <NuxtLink class="btn btn-secondary btn-sm" :to="localePath('/articles/page/2')">
+          {{ t("catalog.showMoreN", { n: Math.min(PAGE_SIZE, items.length - PAGE_SIZE) }) }}
+        </NuxtLink>
+      </div>
     </template>
   </section>
 </template>
@@ -138,5 +167,10 @@ usePageSeo({
   .grid {
     grid-template-columns: 1fr;
   }
+}
+.more {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
 }
 </style>

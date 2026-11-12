@@ -271,6 +271,26 @@ export const adminHelp = {
     tips: ['Только admin/developer.'],
   },
 
+  'seo': {
+    title: 'SEO',
+    summary: 'Глобальная индексация, canonical host, шаблоны мета и политика AI-ботов.',
+    steps: [
+      'Тумблер «Индексация» — главный рубильник: выкл = noindex + robots Disallow: /.',
+      'Включайте индексацию только когда canonical, sitemap и мета готовы.',
+      'Canonical host без https:// — для sitemap/robots/canonical.',
+      'Default og:image загружайте файлом — сохранится 1200×630 WebP.',
+      'Счётчики sitemap внизу вкладки «Хост и OG» показывают потенциальные URL.',
+      'Шаблоны meta — отдельные RU и EN; на сайте подставляется локаль страницы.',
+      'Типы: главная, казино, слот, статья, бонусы, рейтинг, форум.',
+      'Шаблоны title/description/H1: переменные {siteName}, {casino}.',
+      'AI retrieval — разрешить цитирование в ChatGPT/Perplexity; training — обучение моделей.',
+    ],
+    tips: [
+      'Только admin/developer.',
+      'Staging всегда остаётся noindex независимо от тумблера.',
+    ],
+  },
+
   'settings-rewards': {
     title: 'Награды / payout',
     summary: 'Суммы A/B наград и режим payout (mock / provider).',

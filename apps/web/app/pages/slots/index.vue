@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
+const localePath = useLocalePath();
 const route = useRoute();
 const router = useRouter();
 
@@ -21,7 +22,8 @@ type SlotItem = {
 const filter = ref(String(route.query.filter || "all"));
 const q = ref(String(route.query.q || ""));
 const sort = ref(String(route.query.sort || "popular"));
-const visibleCount = ref(24);
+const PAGE_SIZE = 24;
+const visibleCount = ref(PAGE_SIZE);
 
 const filters = [
   { id: "all", label: "home.slots.filters.all" },
@@ -86,6 +88,27 @@ watch([filter, q, sort], () => {
 usePageSeo({
   title: () => t("catalog.slotsTitle"),
   description: () => t("catalog.slotsLead"),
+  path: "/slots",
+});
+
+useBreadcrumbJsonLd(() => [
+  { name: t("catalog.slotsTitle"), path: "/slots" },
+]);
+
+useJsonLd(() => {
+  if (!visible.value.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t("catalog.slotsTitle"),
+    numberOfItems: items.value.length,
+    itemListElement: visible.value.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: s.title,
+      url: localePath(`/slots/${s.slug}`),
+    })),
+  };
 });
 </script>
 
@@ -162,10 +185,10 @@ usePageSeo({
       />
     </div>
 
-    <div v-if="visibleCount < items.length" class="more">
-      <UiButton variant="secondary" size="sm" @click="visibleCount += 24">
-        {{ t("catalog.showMoreN", { n: Math.min(24, items.length - visibleCount) }) }}
-      </UiButton>
+    <div v-if="items.length > PAGE_SIZE" class="more">
+      <NuxtLink class="btn btn-secondary btn-sm" :to="localePath('/slots/page/2')">
+        {{ t("catalog.showMoreN", { n: Math.min(PAGE_SIZE, items.length - PAGE_SIZE) }) }}
+      </NuxtLink>
     </div>
   </section>
 </template>
