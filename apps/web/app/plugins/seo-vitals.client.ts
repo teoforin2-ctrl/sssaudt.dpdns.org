@@ -8,6 +8,10 @@ type VitalPayload = {
   navType?: string | null;
 };
 
+function localeFromPath(path: string): "ru" | "en" {
+  return path === "/en" || path.startsWith("/en/") ? "en" : "ru";
+}
+
 function observe(type: string, cb: (entries: PerformanceEntryList) => void) {
   try {
     const po = new PerformanceObserver((list) => cb(list.getEntries()));
@@ -24,18 +28,18 @@ export default defineNuxtPlugin(() => {
   if (/bot|crawler|spider|slurp/i.test(ua)) return;
 
   const config = useRuntimeConfig();
-  const { locale } = useI18n();
   const payload: VitalPayload = {
     path: "/",
-    locale: locale.value === "en" ? "en" : "ru",
+    locale: "ru",
   };
   let sent = false;
 
   function flush() {
     if (sent) return;
     sent = true;
-    payload.path = window.location.pathname.slice(0, 500) || "/";
-    payload.locale = locale.value === "en" ? "en" : "ru";
+    const path = window.location.pathname.slice(0, 500) || "/";
+    payload.path = path;
+    payload.locale = localeFromPath(path);
     const nav = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
     if (nav) {
       payload.ttfb = Math.round(nav.responseStart);
