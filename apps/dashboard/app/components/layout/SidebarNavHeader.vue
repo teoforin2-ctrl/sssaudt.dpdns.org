@@ -11,12 +11,24 @@ interface SidebarSettings {
 }
 
 async function loadSidebarSettings() {
-  return api<{ settings: SidebarSettings }>('/v1/admin/site-settings').catch(() => null)
+  const admin = await api<{ settings: SidebarSettings }>('/v1/admin/site-settings').catch(() => null)
+  if (admin?.settings)
+    return admin
+  return api<{ settings: SidebarSettings }>('/v1/site-settings').catch(() => null)
 }
 
 const { data } = await useAsyncData('admin-sidebar-site-settings', loadSidebarSettings)
 
-const siteName = computed(() => data.value?.settings?.siteName || 'SS Audit')
+const siteName = computed(() => data.value?.settings?.siteName || 'SSS Audit')
+const { user } = useAuth()
+const { t } = useCabinetLocale()
+const subtitle = computed(() => {
+  if (user.value?.role === 'player')
+    return t('subtitle.player')
+  if (user.value?.role === 'partner_rep')
+    return t('subtitle.partner')
+  return t('subtitle.admin')
+})
 const iconUrl = computed(() => {
   const path = data.value?.settings?.favicon32Url
     || data.value?.settings?.faviconUrl
@@ -53,7 +65,7 @@ const iconUrl = computed(() => {
               {{ siteName }}
             </span>
             <span class="truncate text-xs text-muted-foreground">
-              Админ-панель
+              {{ subtitle }}
             </span>
           </div>
         </div>

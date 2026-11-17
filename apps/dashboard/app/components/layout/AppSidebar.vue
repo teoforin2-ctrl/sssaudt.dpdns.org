@@ -3,6 +3,7 @@ import type { NavGroup, NavLink, NavSectionTitle } from '~/types/nav'
 import { EDITOR_ADMIN_ALLOW_PREFIXES } from '~/constants/editor-access'
 import { navMenu, navMenuBottom } from '~/constants/menus'
 import { partnerNavMenu, partnerNavMenuBottom } from '~/constants/partner-menus'
+import { playerNavMenu, playerNavMenuBottom } from '~/constants/player-menus'
 
 function resolveNavItemComponent(item: NavLink | NavGroup | NavSectionTitle): any {
   if ('children' in item)
@@ -13,9 +14,13 @@ function resolveNavItemComponent(item: NavLink | NavGroup | NavSectionTitle): an
 
 const { user } = useAuth()
 const route = useRoute()
+const { t, siteUrl } = useCabinetLocale()
 
 const isPartner = computed(() =>
   route.path.startsWith('/partner') || user.value?.role === 'partner_rep',
+)
+const isPlayer = computed(() =>
+  route.path.startsWith('/account') || user.value?.role === 'player',
 )
 
 const canKanban = computed(() =>
@@ -40,8 +45,24 @@ const badgeByLink = computed<Record<string, number>>(() => ({
 }))
 
 const activeMenu = computed(() => {
-  if (isPartner.value)
-    return partnerNavMenu
+  if (isPlayer.value) {
+    return playerNavMenu.map(group => ({
+      ...group,
+      heading: t('nav.player'),
+      items: group.items.map(item =>
+        'title' in item ? { ...item, title: t('nav.cabinet') } : item,
+      ),
+    }))
+  }
+  if (isPartner.value) {
+    return partnerNavMenu.map(group => ({
+      ...group,
+      heading: t('nav.partner'),
+      items: group.items.map(item =>
+        'title' in item ? { ...item, title: t('nav.cabinet') } : item,
+      ),
+    }))
+  }
 
   const hidden = new Set<string>()
   if (isEditor.value) {
@@ -64,6 +85,8 @@ const activeMenu = computed(() => {
     // SEO — admin/developer only (editors filtered via EDITOR_ADMIN_ALLOW_PREFIXES)
     if (!canKanban.value)
       hidden.add('/admin/seo')
+    if (!canKanban.value)
+      hidden.add('/admin/partners')
   }
 
   return navMenu
@@ -84,13 +107,17 @@ const config = useRuntimeConfig()
 const siteOrigin = String(config.public.siteUrl || 'http://127.0.0.1:3710').replace(/\/$/, '')
 
 const activeBottom = computed(() => {
-  const items = isPartner.value ? partnerNavMenuBottom : navMenuBottom
+  const items = isPlayer.value
+    ? playerNavMenuBottom
+    : isPartner.value
+      ? partnerNavMenuBottom
+      : navMenuBottom
   return items.map((item) => {
     if (!('link' in item))
       return item
     // "/" was resolving to the dashboard itself — send users to the public site.
-    if (item.link === '/' || item.link === '/ru' || item.title === 'Открыть сайт')
-      return { ...item, link: `${siteOrigin}/ru` }
+    if (item.link === '/' || item.link === '/ru' || item.title === 'Открыть сайт' || item.title === 'Open site')
+      return { ...item, title: (isPlayer.value || isPartner.value) ? t('nav.openSite') : item.title, link: (isPlayer.value || isPartner.value) ? siteUrl('/') : `${siteOrigin}/ru` }
     return item
   })
 })

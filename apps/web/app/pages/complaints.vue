@@ -3,6 +3,7 @@ const config = useRuntimeConfig();
 const route = useRoute();
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { user, fetchMe } = useAuth();
 
 const form = reactive({
   casinoSlug: String(route.query.casino || ""),
@@ -16,6 +17,16 @@ const busy = ref(false);
 const ok = ref(false);
 const err = ref<string | null>(null);
 
+onMounted(async () => {
+  await fetchMe();
+  if (user.value) {
+    if (!form.authorName)
+      form.authorName = user.value.displayName || "";
+    if (!form.authorEmail)
+      form.authorEmail = user.value.email;
+  }
+});
+
 usePageSeo({
   title: () => t("catalog.complaints.title"),
   description: () => t("catalog.complaints.lead"),
@@ -28,6 +39,7 @@ async function submit() {
   try {
     await $fetch(`${config.public.apiBase}/v1/complaints`, {
       method: "POST",
+      credentials: "include",
       body: {
         casinoSlug: form.casinoSlug || null,
         casinoName: form.casinoName || null,

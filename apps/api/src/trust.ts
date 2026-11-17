@@ -2,6 +2,7 @@ import type { FastifyInstance } from "fastify";
 import type { Pool } from "pg";
 import { z } from "zod";
 import { requireStaff, requireLawyer, isLawyerRole } from "./auth.js";
+import { ensurePlayerAccountSchema } from "./player-bind.js";
 
 
 export async function registerTrust(app: FastifyInstance, pool: Pool) {
@@ -18,6 +19,7 @@ export async function registerTrust(app: FastifyInstance, pool: Pool) {
       })
       .safeParse(req.body);
     if (!body.success) return reply.code(400).send({ error: "invalid_body", details: body.error.flatten() });
+    await ensurePlayerAccountSchema(pool);
 
     let casinoId: string | null = null;
     const slug = (body.data.casinoSlug || "").trim();
@@ -32,8 +34,8 @@ export async function registerTrust(app: FastifyInstance, pool: Pool) {
     const { rows } = await pool.query(
       `
       insert into complaints (
-        casino_id, casino_slug, casino_name, author_name, author_email, subject, body
-      ) values ($1,$2,$3,$4,$5,$6,$7)
+        casino_id, casino_slug, casino_name, author_name, author_email, subject, body, author_user_id
+      ) values ($1,$2,$3,$4,$5,$6,$7,$8)
       returning id, status, created_at
       `,
       [
@@ -44,6 +46,7 @@ export async function registerTrust(app: FastifyInstance, pool: Pool) {
         body.data.authorEmail.toLowerCase(),
         body.data.subject,
         body.data.body,
+        req.staffUser?.id ?? null,
       ],
     );
     return reply.code(201).send({ item: rows[0] });

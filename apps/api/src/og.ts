@@ -125,11 +125,11 @@ export async function registerOg(app: FastifyInstance, pool: Pool) {
       let title = slug;
       let kindLabel = kind;
       let imageUrl: string | null = null;
-      let siteName = "SS Audit";
+      let siteName = "SSS Audit";
 
       try {
         const { rows: siteRows } = await pool.query(
-          `select coalesce(site_name, 'SS Audit') as site_name from site_settings where id = 1`,
+          `select coalesce(site_name, 'SSS Audit') as site_name from site_settings where id = 1`,
         );
         if (siteRows[0]?.site_name) siteName = String(siteRows[0].site_name);
       } catch {

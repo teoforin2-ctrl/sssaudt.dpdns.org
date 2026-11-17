@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
+const { t, lang } = useCabinetLocale()
+const isCabinet = computed(() =>
+  route.path.startsWith('/partner') || route.path.startsWith('/account'),
+)
 
 const TITLE_MAP: Record<string, string> = {
   admin: 'Админ',
@@ -31,6 +35,8 @@ const TITLE_MAP: Record<string, string> = {
 function homeHref() {
   if (route.path.startsWith('/partner'))
     return '/partner'
+  if (route.path.startsWith('/account'))
+    return '/account'
   return '/admin'
 }
 
@@ -49,8 +55,8 @@ function segmentTitle(raw: string) {
 }
 
 function setLinks() {
-  const home = { title: 'Главная', href: homeHref() }
-  if (route.path === '/' || route.path === '/admin' || route.path === '/partner') {
+  const home = { title: isCabinet.value ? t('tabs.home') : 'Главная', href: homeHref() }
+  if (route.path === '/' || route.path === '/admin' || route.path === '/partner' || route.path === '/account') {
     return [home]
   }
 
@@ -71,10 +77,8 @@ const links = ref<{
   href: string
 }[]>(setLinks())
 
-watch(() => route.fullPath, (val) => {
-  if (val) {
-    links.value = setLinks()
-  }
+watch([() => route.fullPath, lang], () => {
+  links.value = setLinks()
 })
 </script>
 

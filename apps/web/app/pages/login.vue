@@ -3,6 +3,8 @@ const { t } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
 const { login, goDestination, user, fetchMe } = useAuth()
+const { siteName } = useSiteSettings()
+const brand = computed(() => String(siteName.value || 'SSS Audit').trim() || 'SSS Audit')
 
 definePageMeta({ layout: 'default' })
 
@@ -51,8 +53,8 @@ async function onSubmit() {
 <template>
   <div class="container-auth auth-page">
     <form class="card" @submit.prevent="onSubmit">
-      <h1 class="title">{{ t('auth.loginTitle') }}</h1>
-      <p class="lead">{{ t('auth.loginLead') }}</p>
+      <h1 class="title">{{ brand }}</h1>
+      <p class="lead">{{ t('auth.loginLead', { name: brand }) }}</p>
 
       <p v-if="error" class="err" role="alert">{{ error }}</p>
 

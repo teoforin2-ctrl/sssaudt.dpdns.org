@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import crypto from "node:crypto";
 import type { Pool } from "pg";
 import { z } from "zod";
+import { bindPlayerToUser } from "./player-bind.js";
 
 export const SESSION_COOKIE = "xr_session";
 const SESSION_DAYS = 7;
@@ -143,6 +144,7 @@ export async function registerAuth(app: FastifyInstance, pool: Pool) {
         email: z.string().email().max(320),
         password: z.string().min(6).max(200),
         displayName: z.string().trim().min(2).max(80),
+        playerId: z.string().uuid().optional(),
       })
       .safeParse(req.body);
 
@@ -185,9 +187,11 @@ export async function registerAuth(app: FastifyInstance, pool: Pool) {
         casinoId: created.casino_id,
       };
       await createSession(pool, user.id, req, reply);
+      const playerId = await bindPlayerToUser(pool, user.id, body.data.playerId ?? null);
       return reply.code(201).send({
         user,
         destination: destinationForUser(user),
+        playerId,
       });
     }
     catch (err: unknown) {
@@ -205,6 +209,7 @@ export async function registerAuth(app: FastifyInstance, pool: Pool) {
         // Accept email or short login (e.g. edmccain → edmccain@casino-review.local)
         email: z.string().trim().min(1).max(320),
         password: z.string().min(1).max(200),
+        playerId: z.string().uuid().optional(),
       })
       .safeParse(req.body);
 
@@ -259,10 +264,14 @@ export async function registerAuth(app: FastifyInstance, pool: Pool) {
     };
 
     await createSession(pool, user.id, req, reply);
+    const playerId = user.role === "player"
+      ? await bindPlayerToUser(pool, user.id, body.data.playerId ?? null)
+      : null;
 
     return {
       user,
       destination: destinationForUser(user),
+      playerId,
     };
   });
 
@@ -286,6 +295,27 @@ export async function registerAuth(app: FastifyInstance, pool: Pool) {
       user: req.staffUser,
       destination: destinationForUser(req.staffUser),
     };
+  });
+
+  app.get("/v1/me/notifications", async (req, reply) => {
+    if (!req.staffUser) return reply.code(401).send({ error: "unauthorized" });
+    const { rows } = await pool.query(
+      `select id, type, title, body, created_at, read_at
+       from user_notifications where user_id = $1
+       order by created_at desc limit 50`,
+      [req.staffUser.id],
+    ).catch(() => ({ rows: [] as { id: string; type: string; title: string; body: string | null; created_at: string; read_at: string | null }[] }));
+    return { items: rows };
+  });
+
+  app.post("/v1/me/notifications/read", async (req, reply) => {
+    if (!req.staffUser) return reply.code(401).send({ error: "unauthorized" });
+    await pool.query(
+      `update user_notifications set read_at = now()
+       where user_id = $1 and read_at is null`,
+      [req.staffUser.id],
+    ).catch(() => undefined);
+    return { ok: true };
   });
 }
 
@@ -338,6 +368,17 @@ export function requireAdmin(
   return user;
 }
 
+
+export function requireUser(
+  req: FastifyRequest,
+  reply: FastifyReply,
+): AuthUser | null {
+  if (!req.staffUser) {
+    void reply.code(401).send({ error: "unauthorized" });
+    return null;
+  }
+  return req.staffUser;
+}
 
 /** Partner rep with bound casino, or staff (for support). */
 export function requirePartner(

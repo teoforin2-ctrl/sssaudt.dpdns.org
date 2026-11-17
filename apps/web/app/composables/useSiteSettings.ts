@@ -102,7 +102,7 @@ const defaultSeo: SeoSettings = {
 };
 
 const defaults: SiteSettings = {
-  siteName: "SS Audit",
+  siteName: "SSS Audit",
   logoUrl: "/img/brand/logo.webp",
   faviconUrl: "/favicon.png",
   favicon32Url: "/favicon-32.png",

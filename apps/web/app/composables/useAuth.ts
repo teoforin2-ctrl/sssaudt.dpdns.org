@@ -35,6 +35,13 @@ export function useAuth() {
     return path
   }
 
+  function dashboardHref(path: string) {
+    const { locale } = useI18n()
+    const base = dashboardUrl.replace(/\/$/, '')
+    const sep = path.includes('?') ? '&' : '?'
+    return `${base}${path}${sep}lang=${locale.value}`
+  }
+
   async function goDestination(dest: AuthDestination) {
     const localePath = useLocalePath()
     const route = useRoute()
@@ -47,13 +54,13 @@ export function useAuth() {
     }
     if (dest === 'partner') {
       if (import.meta.client)
-        window.location.href = `${dashboardUrl.replace(/\/$/, '')}/partner`
+        window.location.href = dashboardHref('/partner')
       return
     }
     if (redirect)
       await navigateTo(redirect)
-    else
-      await navigateTo(localePath('/account'))
+    else if (import.meta.client)
+      window.location.href = dashboardHref('/account')
   }
 
   async function fetchMe(force = false) {
@@ -75,27 +82,43 @@ export function useAuth() {
     return user.value
   }
 
+  function guestPlayerId(): string | undefined {
+    if (!import.meta.client)
+      return undefined
+    const m = document.cookie.match(/(?:^|; )rv_player_id=([^;]*)/)
+    const raw = m ? decodeURIComponent(m[1]!) : ''
+    return /^[0-9a-f-]{36}$/i.test(raw) ? raw : undefined
+  }
+
+  function persistPlayerId(id?: string | null) {
+    if (!import.meta.client || !id)
+      return
+    document.cookie = `rv_player_id=${encodeURIComponent(id)}; path=/; max-age=${90 * 86400}; samesite=lax`
+  }
+
   async function login(email: string, password: string) {
-    const res = await $fetch<{ user: AuthUser, destination: AuthDestination }>('/v1/auth/login', {
+    const res = await $fetch<{ user: AuthUser, destination: AuthDestination, playerId?: string | null }>('/v1/auth/login', {
       baseURL: apiBase,
       method: 'POST',
-      body: { email, password },
+      body: { email, password, playerId: guestPlayerId() },
       credentials: 'include',
     })
     user.value = res.user
     loaded.value = true
+    persistPlayerId(res.playerId)
     return res
   }
 
   async function register(payload: { email: string, password: string, displayName: string }) {
-    const res = await $fetch<{ user: AuthUser, destination: AuthDestination }>('/v1/auth/register', {
+    const res = await $fetch<{ user: AuthUser, destination: AuthDestination, playerId?: string | null }>('/v1/auth/register', {
       baseURL: apiBase,
       method: 'POST',
-      body: payload,
+      body: { ...payload, playerId: guestPlayerId() },
       credentials: 'include',
     })
     user.value = res.user
     loaded.value = true
+    persistPlayerId(res.playerId)
     return res
   }
 

@@ -66,6 +66,11 @@ export const navMenu: NavMenu[] = [
       },
 
       {
+        title: 'Партнёры',
+        icon: 'i-lucide-handshake',
+        link: '/admin/partners',
+      },
+      {
         title: 'Клики /go/',
         icon: 'i-lucide-mouse-pointer-click',
         link: '/admin/clicks',

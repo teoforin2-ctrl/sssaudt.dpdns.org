@@ -35,7 +35,7 @@ dfijdsif.website {
 
 	# Runtime admin uploads — serve from host bind (Nitro misses post-build files).
 	# Mount on Caddy: /var/www/dfijdsif/uploads -> /srv/ssaudit-uploads
-	@mutableUploads path /uploads/articles/* /uploads/banners/* /uploads/brand/* /uploads/content/*
+	@mutableUploads path /uploads/articles/* /uploads/banners/* /uploads/brand/* /uploads/content/* /uploads/bonuses/*
 	handle @mutableUploads {
 		header Cache-Control "public, max-age=2592000, stale-while-revalidate=86400"
 		uri strip_prefix /uploads

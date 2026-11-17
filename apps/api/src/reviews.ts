@@ -234,9 +234,9 @@ export async function registerReviews(app: FastifyInstance, pool: Pool, redis: R
           casino_id, rating, body, status, player_id, played_duration,
           issues_registration, issues_deposit, issues_withdraw, modes_tried,
           ai_reject_reasons, reward_group, reward_status, locale, origin, is_seed,
-          author_name, body_hash
+          author_name, body_hash, author_user_id
         ) values (
-          $1,$2,$3,'rejected',$4,$5,$6,$7,$8,$9,$10,$11,'none',$12,'ugc',false,$13,$14
+          $1,$2,$3,'rejected',$4,$5,$6,$7,$8,$9,$10,$11,'none',$12,'ugc',false,$13,$14,$15
         )
         returning id
         `,
@@ -255,6 +255,7 @@ export async function registerReviews(app: FastifyInstance, pool: Pool, redis: R
           body.data.locale,
           body.data.authorName || null,
           bodyHash(body.data.body),
+          req.staffUser?.id ?? null,
         ],
       );
       return {
@@ -277,10 +278,10 @@ export async function registerReviews(app: FastifyInstance, pool: Pool, redis: R
           casino_id, rating, body, status, player_id, played_duration,
           issues_registration, issues_deposit, issues_withdraw, modes_tried,
           ai_quality_score, reward_group, reward_amount_usd, reward_status,
-          locale, origin, is_seed, author_name, body_hash, published_at
+          locale, origin, is_seed, author_name, body_hash, published_at, author_user_id
         ) values (
           $1,$2,$3,'approved',$4,$5,$6,$7,$8,$9,$10,$11,$12,
-          $13,$14,'ugc',false,$15,$16,now()
+          $13,$14,'ugc',false,$15,$16,now(),$17
         )
         returning id
         `,
@@ -301,6 +302,7 @@ export async function registerReviews(app: FastifyInstance, pool: Pool, redis: R
           body.data.locale,
           body.data.authorName || null,
           hash,
+          req.staffUser?.id ?? null,
         ],
       );
       reviewId = rows[0].id as string;

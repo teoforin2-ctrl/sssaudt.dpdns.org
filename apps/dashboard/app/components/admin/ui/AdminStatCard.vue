@@ -7,6 +7,7 @@ const props = withDefaults(defineProps<AdminStatCardProps>(), {
   ready: true,
   index: 0,
   delta: null,
+  locales: 'ru-RU',
 })
 
 const deltaText = computed(() => {
@@ -74,7 +75,7 @@ const cardClass = computed(() => [
       {{ label }}
     </p>
     <p class="mt-1 text-3xl font-semibold tracking-tight tabular-nums text-foreground">
-      <NumberFlow :value="ready ? value : 0" locales="ru-RU" />
+      <NumberFlow :value="ready ? value : 0" :locales="locales" />
     </p>
     <p v-if="hint" class="mt-1 text-xs text-foreground/60">
       {{ hint }}
@@ -107,7 +108,7 @@ const cardClass = computed(() => [
       {{ label }}
     </p>
     <p class="mt-1 text-3xl font-semibold tracking-tight tabular-nums text-foreground">
-      <NumberFlow :value="ready ? value : 0" locales="ru-RU" />
+      <NumberFlow :value="ready ? value : 0" :locales="locales" />
     </p>
     <p v-if="hint" class="mt-1 text-xs text-foreground/60">
       {{ hint }}

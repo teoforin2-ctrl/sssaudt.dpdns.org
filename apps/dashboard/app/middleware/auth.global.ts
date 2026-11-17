@@ -30,6 +30,8 @@ export default defineNuxtRouteMiddleware(async (to) => {
       return navigateTo('/admin')
     if (user.value?.role === 'partner_rep')
       return navigateTo('/partner')
+    if (user.value?.role === 'player')
+      return navigateTo('/account')
     return
   }
 
@@ -55,6 +57,10 @@ export default defineNuxtRouteMiddleware(async (to) => {
       if (role !== 'admin' && role !== 'developer')
         return navigateTo('/403')
     }
+    if (to.path.startsWith('/admin/partners')) {
+      if (role !== 'admin' && role !== 'developer')
+        return navigateTo('/403')
+    }
     return
   }
 
@@ -63,5 +69,17 @@ export default defineNuxtRouteMiddleware(async (to) => {
       return navigateTo('/login')
     if (!(user.value.isStaff || user.value.role === 'partner_rep'))
       return navigateTo('/login')
+    return
   }
+
+  if (to.path.startsWith('/account')) {
+    if (!user.value)
+      return navigateTo('/login')
+    if (!(user.value.role === 'player' || user.value.isStaff))
+      return navigateTo('/login')
+    return
+  }
+
+  if (user.value?.role === 'player')
+    return navigateTo('/account')
 })

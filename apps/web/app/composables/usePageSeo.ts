@@ -21,7 +21,7 @@ export function usePageSeo(input: SeoInput) {
   const route = useRoute();
 
   useHead(() => {
-    const name = String(siteName.value || config.public.siteName || "SS Audit").trim();
+    const name = String(siteName.value || config.public.siteName || "SSS Audit").trim();
     const title = String(toValue(input.title) || "").trim();
     const description = String(toValue(input.description) || "").trim() || undefined;
     const forceNoindex = toValue(input.noindex) === true;

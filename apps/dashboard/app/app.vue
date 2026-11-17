@@ -25,8 +25,8 @@ useHead({
   },
 })
 
-const title = 'SS Audit — Admin'
-const description = 'CMS и модерация SS Audit'
+const title = 'SSS Audit — Admin'
+const description = 'CMS и модерация SSS Audit'
 
 useSeoMeta({
   title,
@@ -54,8 +54,6 @@ const dir = computed(() => textDirection.value === 'rtl' ? 'rtl' : 'ltr')
         <NuxtLayout>
           <NuxtPage />
         </NuxtLayout>
-
-        <AppSettings />
       </div>
 
       <Toaster :theme="colorMode.preference as any || 'system'" />

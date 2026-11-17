@@ -13,6 +13,7 @@ type Casino = Record<string, unknown> & {
   hot: boolean
   has_representative: boolean
   published: boolean
+  revshare_rate?: number | string | null
 }
 
 const { data, pending, error, refresh } = await useAsyncData(
@@ -57,6 +58,7 @@ const form = reactive({
   has_representative: false,
   logo_url: '',
   partner_url: '',
+  revshare_rate: '' as string,
   license: '',
   short_desc_ru: '',
   short_desc_en: '',
@@ -82,6 +84,7 @@ watch(
     form.has_representative = Boolean(item.has_representative)
     form.logo_url = String(item.logo_url || '')
     form.partner_url = String(item.partner_url || '')
+    form.revshare_rate = item.revshare_rate != null && item.revshare_rate !== '' ? String(item.revshare_rate) : ''
     form.license = String(item.license || '')
     form.short_desc_ru = String(item.short_desc_ru || '')
     form.short_desc_en = String(item.short_desc_en || '')
@@ -130,6 +133,7 @@ async function save() {
         has_representative: form.has_representative,
         logo_url: form.logo_url || null,
         partner_url: form.partner_url || null,
+        revshare_rate: form.revshare_rate === '' ? null : Number(form.revshare_rate),
         license: form.license || null,
         short_desc_ru: form.short_desc_ru || null,
         short_desc_en: form.short_desc_en || null,
@@ -241,6 +245,10 @@ async function removeCasino() {
         <div class="grid gap-2 sm:col-span-2">
           <Label>Partner URL (/go)</Label>
           <Input v-model="form.partner_url" />
+        </div>
+        <div class="grid gap-2">
+          <Label>RevShare ставка %</Label>
+          <Input v-model="form.revshare_rate" type="number" step="0.1" min="0" max="100" placeholder="скрыто у партнёра, если пусто" />
         </div>
         <div class="grid gap-2 sm:col-span-2">
           <Label>Short desc RU</Label>

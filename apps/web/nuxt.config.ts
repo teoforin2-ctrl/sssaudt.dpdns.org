@@ -69,7 +69,7 @@ export default defineNuxtConfig({
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://127.0.0.1:3712",
       dashboardUrl: process.env.NUXT_PUBLIC_DASHBOARD_URL || "http://127.0.0.1:3711",
-      siteName: "SS Audit",
+      siteName: process.env.NUXT_PUBLIC_SITE_NAME || "SSS Audit",
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "http://127.0.0.1:3710",
       // production | staging — staging always noindex (X-Robots + meta)
       env: process.env.NUXT_PUBLIC_ENV || process.env.NODE_ENV || "development",
@@ -209,10 +209,10 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: process.env.NUXT_PUBLIC_SITE_NAME || "SS Audit",
+      title: process.env.NUXT_PUBLIC_SITE_NAME || "SSS Audit",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "description", content: "Online casino reviews — SS Audit" },
+        { name: "description", content: "Online casino reviews — SSS Audit" },
         { name: "theme-color", content: "#0b0612" },
       ],
       // Styles FIRST (before scripts) — blocks FOUC

@@ -8,7 +8,7 @@ export default defineNuxtPlugin(() => {
   const localePath = useLocalePath();
 
   useJsonLd(() => {
-    const name = String(siteName.value || config.public.siteName || "SS Audit").trim();
+    const name = String(siteName.value || config.public.siteName || "SSS Audit").trim();
     const host = String(
       settings.value.seo?.canonicalHost
         || config.public.siteUrl?.replace(/^https?:\/\//, "").replace(/\/$/, "")

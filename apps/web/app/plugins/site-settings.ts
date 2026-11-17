@@ -26,7 +26,7 @@ export default defineNuxtPlugin({
 
     function syncBrandMessages(name: string) {
       if (typeof i18n?.mergeLocaleMessage !== "function") return;
-      const n = String(name || "").trim() || "SS Audit";
+      const n = String(name || "").trim() || "SSS Audit";
       const patch = { brand: n, footer: { rights: n } };
       i18n.mergeLocaleMessage("ru", patch);
       i18n.mergeLocaleMessage("en", patch);
@@ -36,7 +36,7 @@ export default defineNuxtPlugin({
     watch(siteName, (name) => syncBrandMessages(name), { immediate: true });
 
     useHead(() => {
-      const name = String(siteName.value || "SS Audit").trim();
+      const name = String(siteName.value || "SSS Audit").trim();
       return {
         titleTemplate: (title?: string) => {
           const t = String(title || "").trim();

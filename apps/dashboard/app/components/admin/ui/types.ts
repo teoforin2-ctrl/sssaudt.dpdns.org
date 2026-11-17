@@ -14,4 +14,5 @@ export interface AdminStatCardProps {
   tone?: AdminTone
   ready?: boolean
   index?: number
+  locales?: string
 }

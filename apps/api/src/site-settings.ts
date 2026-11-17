@@ -97,7 +97,7 @@ function mapRow(row: Record<string, unknown>): SiteSettings {
   const contactsRaw = row.contacts && typeof row.contacts === "object" ? row.contacts : {};
   const contacts = contactsSchema.parse(contactsRaw);
   return {
-    siteName: String(row.site_name || "SS Audit"),
+    siteName: String(row.site_name || "SSS Audit"),
     logoUrl: (row.logo_url as string | null) || null,
     faviconUrl: (row.favicon_url as string | null) || null,
     favicon32Url: (row.favicon_32_url as string | null) || null,
@@ -175,7 +175,7 @@ export async function registerSiteSettings(app: FastifyInstance, pool: Pool) {
       app.log.error({ err }, "site-settings get failed");
       return {
         settings: mapRow({
-          site_name: "SS Audit",
+          site_name: "SSS Audit",
           logo_url: "/img/brand/logo.webp",
           favicon_url: "/favicon.png",
           favicon_32_url: "/favicon-32.png",

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>SSS Audit — партнёры и кабинеты</title>
+  <style>
+    :root {
+      --bg: #0f1218;
+      --panel: #171b24;
+      --panel-2: #1d2330;
+      --line: #2a3242;
+      --text: #e8ecf4;
+      --muted: #9aa6bc;
+      --accent: #3dd6c6;
+      --warn: #f0a202;
+      --ok: #5ad67d;
+      --radius: 14px;
+      --font: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(1100px 520px at 8% -8%, rgba(61, 214, 198, 0.12), transparent 55%),
+        radial-gradient(800px 420px at 100% 0%, rgba(240, 162, 2, 0.07), transparent 50%),
+        var(--bg);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { width: min(920px, calc(100% - 2rem)); margin: 0 auto; padding: 2rem 0 4rem; }
+    header.hero {
+      padding: 1.5rem 1.6rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 4px);
+      background: linear-gradient(160deg, var(--panel) 0%, #141924 100%);
+    }
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0.35rem 0 0.5rem;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .lead { margin: 0; color: var(--muted); max-width: 46rem; }
+    nav.toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 1.5rem;
+    }
+    nav.toc a {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+    nav.toc a:hover { border-color: var(--accent); text-decoration: none; }
+    section.card {
+      margin-bottom: 1rem;
+      padding: 1.25rem 1.4rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      margin: 1.1rem 0 0.45rem;
+      font-size: 0.98rem;
+      color: var(--accent);
+    }
+    ol, ul { margin: 0.4rem 0 0.6rem; padding-left: 1.25rem; }
+    li { margin: 0.35rem 0; }
+    li::marker { color: var(--muted); }
+    code, .path {
+      font-family: var(--mono);
+      font-size: 0.86em;
+      padding: 0.1rem 0.35rem;
+      border-radius: 6px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+    }
+    .note {
+      margin-top: 0.9rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid rgba(240, 162, 2, 0.35);
+      background: rgba(240, 162, 2, 0.08);
+      color: #f6d59a;
+      font-size: 0.92rem;
+    }
+    .ok {
+      border-color: rgba(90, 214, 125, 0.35);
+      background: rgba(90, 214, 125, 0.08);
+      color: #b7efc5;
+    }
+    .checklist li { list-style: none; position: relative; padding-left: 0.1rem; }
+    .checklist li::before {
+      content: "☐";
+      margin-right: 0.45rem;
+      color: var(--muted);
+    }
+    footer {
+      margin-top: 1.5rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow">SSS Audit · Admin guide</div>
+      <h1>Партнёры и личные кабинеты</h1>
+      <p class="lead">
+        Как админу создать партнёра, открыть кабинет казино и проверить ЛК партнёра и ЛК игрока.
+        Учётки создавайте в своей БД на сервере — в этой инструкции нет логинов и паролей.
+      </p>
+    </header>
+
+    <nav class="toc">
+      <a href="#partners">1. Добавить партнёра</a>
+      <a href="#open-cabinet">2. Открыть кабинет</a>
+      <a href="#check-partner">3. Проверить ЛК партнёра</a>
+      <a href="#check-player">4. Проверить ЛК игрока</a>
+      <a href="#i18n">5. Язык RU/EN</a>
+    </nav>
+
+    <section id="partners" class="card">
+      <h2>1. Как добавить партнёра</h2>
+      <p>Доступ: роль <code>admin</code> или <code>developer</code>.</p>
+      <ol>
+        <li>Войдите в админку CMS (dashboard).</li>
+        <li>Откройте раздел <strong>Партнёры</strong> — путь <span class="path">/admin/partners</span>.</li>
+        <li>Нажмите <strong>Создать партнёра</strong>.</li>
+        <li>Заполните:
+          <ul>
+            <li><strong>Email</strong> — логин партнёра для входа.</li>
+            <li><strong>Пароль</strong> — задайте сами и передайте партнёру отдельно.</li>
+            <li><strong>Имя</strong> — отображаемое имя (необязательно).</li>
+            <li><strong>Казино</strong> — выберите казино из списка (у одного казино один активный партнёр).</li>
+          </ul>
+        </li>
+        <li>Сохраните. В списке появится карточка партнёра.</li>
+      </ol>
+
+      <h3>Карточка партнёра</h3>
+      <p>Откройте партнёра в <span class="path">/admin/partners/&lt;id&gt;</span>. Там можно:</p>
+      <ul>
+        <li>сменить имя, пароль, slug казино;</li>
+        <li>задать <strong>ставку RevShare %</strong> (видна партнёру в кабинете);</li>
+        <li>включить/выключить аккаунт (<strong>Активен</strong>);</li>
+        <li>подтвердить бейдж представителя;</li>
+        <li>снять HOT или сбросить RevShare (кабинет снова закроется гейтом).</li>
+      </ul>
+
+      <div class="note">
+        Казино должно существовать в <span class="path">/admin/casinos</span> до создания партнёра.
+        Без привязки к казино кабинет партнёра бесполезен.
+      </div>
+    </section>
+
+    <section id="open-cabinet" class="card">
+      <h2>2. Как открывается кабинет партнёра</h2>
+      <ol>
+        <li>Партнёр входит на сайте или в CMS под своей учётой с ролью <code>partner_rep</code>.</li>
+        <li>Его перенаправляет на <span class="path">/partner</span>.</li>
+        <li>Пока нет RevShare-ссылки — виден только блок «подключить ссылку» (гейт).</li>
+        <li>После сохранения валидного URL партнёрки открываются вкладки:
+          <strong>Главная</strong>, <strong>Отзывы</strong>, <strong>Бонусы</strong>.</li>
+      </ol>
+      <p class="note ok">
+        В админке статус «Кабинет открыт» = у казино сохранена RevShare-ссылка.
+        «Гейт» = ссылки ещё нет.
+      </p>
+    </section>
+
+    <section id="check-partner" class="card">
+      <h2>3. Чеклист: проверить ЛК партнёра</h2>
+      <ul class="checklist">
+        <li>Создать партнёра и привязать к тестовому казино.</li>
+        <li>Войти этой учёткой → открывается <span class="path">/partner</span>, не админка.</li>
+        <li>Без RevShare: виден гейт, вкладок статистики нет.</li>
+        <li>Сохранить RevShare URL → появляются KPI (рейтинг, место, отзывы, клики).</li>
+        <li>Вкладка <strong>Отзывы</strong>: сортировка, шаблоны быстрых ответов, ответ на отзыв.</li>
+        <li>Вкладка <strong>Бонусы</strong>: создать/редактировать/удалить, лимит опубликованных.</li>
+        <li>Главная: графики истории оценок/позиций, блок HOT, отчёт по кликам за 7/30/90 дней.</li>
+        <li>В сайдбаре бренд из БД (site name), подпись «Кабинет партнёра».</li>
+        <li>Ссылка «Открыть сайт» ведёт на публичный сайт в текущем языке.</li>
+      </ul>
+    </section>
+
+    <section id="check-player" class="card">
+      <h2>4. Чеклист: проверить ЛК игрока (юзера)</h2>
+      <ol>
+        <li>Зарегистрируйте или создайте пользователя с ролью <code>player</code>
+          (регистрация на публичном сайте или через <span class="path">/admin/users</span>).</li>
+        <li>Войдите на сайте → редирект в CMS на <span class="path">/account</span>
+          (тот же UI, что у партнёра: сайдбар + вкладки).</li>
+      </ol>
+      <ul class="checklist">
+        <li>Вкладки: Главная, Отзывы, Награды, Прогресс, Жалобы, Уведомления.</li>
+        <li>Главная: KPI-карточки (отзывы, уровень, награды, уведомления) + профиль (имя/пароль).</li>
+        <li>Отзывы: список отзывов пользователя или пустое состояние со ссылкой на рейтинг.</li>
+        <li>Прогресс: уровень, XP, ачивки, эксклюзивные промо.</li>
+        <li>Жалобы / уведомления: список или пустые состояния.</li>
+        <li>Публичный <span class="path">/account</span> на сайте только редиректит в кабинет CMS.</li>
+      </ul>
+      <div class="note">
+        Staff (admin/editor) тоже может открыть <span class="path">/account</span> для проверки UI,
+        но основной сценарий — роль <code>player</code>.
+      </div>
+    </section>
+
+    <section id="i18n" class="card">
+      <h2>5. Язык кабинетов RU / EN</h2>
+      <ul>
+        <li>Язык ЛК берётся из cookie сайта <code>xr_lang</code> и/или параметра <code>?lang=ru|en</code>.</li>
+        <li>Если пользователь зашёл с <span class="path">/en/…</span>, кабинет открывается на английском.</li>
+        <li>Если с <span class="path">/ru/…</span> — на русском.</li>
+        <li>Админ-панель по разделам контента остаётся на русском; локализация касается ЛК партнёра и ЛК игрока.</li>
+      </ul>
+      <ul class="checklist">
+        <li>С сайта EN → кабинет на EN (Hi, Home, Reviews…).</li>
+        <li>С сайта RU → кабинет на RU (Привет, Главная, Отзывы…).</li>
+        <li>Ссылки «на сайт» из кабинета ведут в ту же локаль.</li>
+      </ul>
+    </section>
+
+    <footer>
+      Файл: <code>apps/dashboard/public/docs/partners-cabinets.html</code>
+      · в CMS доступен по пути <code>/docs/partners-cabinets.html</code>
+    </footer>
+  </div>
+</body>
+</html>

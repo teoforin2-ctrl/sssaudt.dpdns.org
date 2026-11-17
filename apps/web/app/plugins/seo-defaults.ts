@@ -4,7 +4,7 @@ export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig();
 
   useHead(() => {
-    const site = String(siteName.value || config.public.siteName || "SS Audit").trim();
+    const site = String(siteName.value || config.public.siteName || "SSS Audit").trim();
     const google = String(seo.value?.googleSiteVerification || "").trim();
     const yandex = String(seo.value?.yandexVerification || "").trim();
     return {

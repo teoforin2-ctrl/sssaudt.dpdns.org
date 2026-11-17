@@ -56,6 +56,9 @@ type Casino = {
     type?: string | null;
     amountOrPercent?: string | null;
     wager?: string | null;
+    description?: string | null;
+    terms?: string | null;
+    imageUrl?: string | null;
   }[];
   promo: { code: string; percent: number | null; title: string } | null;
   reviewCount?: number;
@@ -280,6 +283,9 @@ useBreadcrumbJsonLd(() => [
             :type="b.type"
             :wager="b.wager"
             :promo-code="b.promoCode"
+            :description="b.description"
+            :terms="b.terms"
+            :image-url="b.imageUrl"
             :casino-slug="c.slug"
             :casino-name="c.name"
             :casino-logo-url="c.logoUrl"

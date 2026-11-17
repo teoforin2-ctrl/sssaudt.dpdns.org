@@ -13,8 +13,6 @@ export function useAuth() {
   const user = useState<StaffUser | null>('auth-user', () => null)
   const loaded = useState('auth-loaded', () => false)
   const { api } = useApi()
-  const config = useRuntimeConfig()
-  const siteUrl = (config.public.siteUrl as string) || 'http://127.0.0.1:3710'
 
   async function fetchMe(force = false) {
     if (loaded.value && !force)
@@ -69,8 +67,7 @@ export function useAuth() {
       await navigateTo('/partner')
       return
     }
-    if (import.meta.client)
-      window.location.href = `${siteUrl.replace(/\/$/, '')}/ru/account`
+    await navigateTo('/account')
   }
 
   return { user, loaded, fetchMe, login, logout, goDestination, destinationFor }

@@ -14,6 +14,9 @@ const props = defineProps<{
   validUntil?: string | null;
   promoCode?: string | null;
   checkedAt?: string | null;
+  description?: string | null;
+  terms?: string | null;
+  imageUrl?: string | null;
   casinoSlug: string;
   casinoName: string;
   casinoLogoUrl?: string | null;
@@ -42,9 +45,19 @@ const minDep = computed(() => {
       </div>
     </div>
 
+    <img
+      v-if="imageUrl"
+      :src="imageUrl.startsWith('http') ? imageUrl : `${config.public.siteUrl}${imageUrl}`"
+      alt=""
+      class="cover"
+    >
+
     <h2 class="title">
       <NuxtLink :to="localePath(`/casino/${casinoSlug}`)">{{ title }}</NuxtLink>
     </h2>
+
+    <p v-if="description" class="desc">{{ description }}</p>
+    <p v-if="terms" class="terms">{{ terms }}</p>
 
     <div v-if="wagerLabel || minDep || validUntil" class="facts">
       <span v-if="wagerLabel" class="fact" :class="wagerToneVal ? `w-${wagerToneVal}` : undefined">
@@ -124,6 +137,20 @@ const minDep = computed(() => {
 .casino:hover {
   color: var(--accent-cta);
 }
+.cover {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius-md, 10px);
+  background: var(--bg-muted, #111);
+}
+.desc, .terms {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+.terms { font-size: 12px; }
 .title {
   margin: 0;
   font-family: var(--font-display);

@@ -9,7 +9,9 @@ import {
   setCachedCasinoList,
 } from "./cache.js";
 import { registerAuth } from "./auth.js";
+import { registerAccount } from "./account.js";
 import { registerAdmin } from "./admin.js";
+import { registerAdminPartners } from "./admin-partners.js";
 import { registerForum } from "./forum.js";
 import { registerSiteSettings } from "./site-settings.js";
 import { registerSeo } from "./seo.js";
@@ -53,7 +55,9 @@ const pool = createPool();
 const redis = createRedis();
 
 await registerAuth(app, pool);
+await registerAccount(app, pool);
 await registerAdmin(app, pool, redis);
+await registerAdminPartners(app, pool, redis);
 await registerReviews(app, pool, redis);
 await registerPartner(app, pool, redis);
 await registerForum(app, pool);
@@ -291,7 +295,8 @@ app.get("/v1/casinos/:slug", async (req, reply) => {
   const bonuses = await pool.query(
     `
     select id, title, title_ru, title_en, promo_code, type, amount_or_percent,
-           percent_value, is_percent_deposit, wager, status
+           percent_value, is_percent_deposit, wager, status,
+           description_ru, terms_ru, image_url
     from bonuses
     where casino_id = $1 and status = 'active' and published = true
     order by created_at desc
@@ -423,6 +428,9 @@ app.get("/v1/casinos/:slug", async (req, reply) => {
         type: b.type,
         amountOrPercent: b.amount_or_percent,
         wager: b.wager,
+        description: decodeStoredText(b.description_ru as string | null),
+        terms: b.terms_ru as string | null,
+        imageUrl: b.image_url as string | null,
       })),
       promo: promo
         ? {

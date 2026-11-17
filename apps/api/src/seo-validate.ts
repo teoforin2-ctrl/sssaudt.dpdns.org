@@ -87,7 +87,7 @@ function buildJsonLd(kind: EntityKind, name: string, description: string): Recor
     "@context": "https://schema.org",
     "@type": "Review",
     itemReviewed: { "@type": "Organization", name },
-    author: { "@type": "Organization", name: "SS Audit" },
+    author: { "@type": "Organization", name: "SSS Audit" },
     description: description || undefined,
   };
 }
@@ -145,9 +145,9 @@ export async function validateEntitySeo(
   const seo: EntitySeo = normalizeEntitySeo(draft.seo);
   const settings = await loadSeo(pool);
   const siteName = await pool
-    .query(`select coalesce(nullif(site_name, ''), 'SS Audit') as n from site_settings where id = 1`)
-    .then((r) => String(r.rows[0]?.n || "SS Audit"))
-    .catch(() => "SS Audit");
+    .query(`select coalesce(nullif(site_name, ''), 'SSS Audit') as n from site_settings where id = 1`)
+    .then((r) => String(r.rows[0]?.n || "SSS Audit"))
+    .catch(() => "SSS Audit");
 
   const tpl = settings.templates[draft.kind] || { ru: {}, en: {} };
   const resolved = { ru: { title: "", description: "" }, en: { title: "", description: "" } };

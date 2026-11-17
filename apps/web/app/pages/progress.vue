@@ -1,9 +1,19 @@
 <script setup lang="ts">
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
+const localePath = useLocalePath();
 const { playerId, hydrate } = useRewardGroup();
+const { user, fetchMe } = useAuth();
 
-onMounted(() => hydrate());
+onMounted(async () => {
+  hydrate();
+  await fetchMe();
+  if (user.value?.role === "player") {
+    const dash = String(config.public.dashboardUrl || "http://127.0.0.1:3711").replace(/\/$/, "");
+    window.location.href = `${dash}/account?tab=progress&lang=${locale.value}`;
+    return;
+  }
+});
 
 type Progress = {
   xp: number;
