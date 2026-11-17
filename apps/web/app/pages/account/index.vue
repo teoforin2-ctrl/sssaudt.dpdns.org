@@ -21,7 +21,23 @@ onMounted(async () => {
     await goDestination(user.value.isStaff ? 'admin' : 'partner')
     return
   }
-  window.location.href = `${dashboardUrl}/account?lang=${locale.value}`
+  // Player LK lives on dashboard. Same-origin /account must be proxied to dashboard
+  // (Caddy @dash); never assign the current URL — that loops forever.
+  const target = `${dashboardUrl}/account?lang=${locale.value}`
+  if (import.meta.client) {
+    try {
+      const next = new URL(target, window.location.origin)
+      const here = window.location
+      if (next.origin === here.origin && next.pathname === '/account') {
+        console.error('[account] dashboard /account is not routed — refusing self-redirect')
+        return
+      }
+    }
+    catch {
+      /* fall through */
+    }
+    window.location.assign(target)
+  }
 })
 </script>
 

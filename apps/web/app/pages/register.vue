@@ -33,6 +33,8 @@ onMounted(async () => {
 })
 
 async function onSubmit() {
+  if (loading.value)
+    return
   error.value = null
   loading.value = true
   try {
@@ -41,6 +43,7 @@ async function onSubmit() {
       password: password.value,
       displayName: displayName.value.trim(),
     })
+    // Keep spinner until full navigation to cabinet (window.location).
     await goDestination(res.destination)
   }
   catch (e: unknown) {
@@ -48,8 +51,6 @@ async function onSubmit() {
     error.value = status === 409
       ? t('auth.emailTaken')
       : t('auth.registerFailed')
-  }
-  finally {
     loading.value = false
   }
 }

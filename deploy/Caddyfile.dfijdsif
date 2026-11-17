@@ -60,8 +60,9 @@ dfijdsif.website {
 		file_server
 	}
 
-	# CMS / partner (Nuxt SPA) — /_nuxt_dash + /_fonts_dash after next image
-	@dash path /admin* /partner* /login /_nuxt_dash* /_fonts_dash* /critical-boot.css
+	# CMS / partner / player LK (Nuxt SPA) — /_nuxt_dash + /_fonts_dash after next image
+	# /account* must hit dashboard: web stub redirects here with same host and would loop otherwise.
+	@dash path /admin* /partner* /account* /login /_nuxt_dash* /_fonts_dash* /critical-boot.css
 	handle @dash {
 		reverse_proxy ssaudit-dashboard:3000
 	}

@@ -30,11 +30,14 @@ onMounted(async () => {
 })
 
 async function onSubmit() {
+  if (loading.value)
+    return
   error.value = null
   loading.value = true
   try {
     const res = await login(email.value.trim(), password.value)
     password.value = ''
+    // Keep spinner until full navigation to cabinet/admin.
     await goDestination(res.destination)
   }
   catch (e: unknown) {
@@ -43,8 +46,6 @@ async function onSubmit() {
       ? t('auth.invalidCredentials')
       : t('auth.loginFailed')
     password.value = ''
-  }
-  finally {
     loading.value = false
   }
 }
