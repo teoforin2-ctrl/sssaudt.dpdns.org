@@ -12,6 +12,7 @@ defineProps<{
 
 const { isMobile, setOpenMobile } = useSidebar()
 const { logout } = useAuth()
+const { t } = useCabinetLocale()
 const showModalTheme = ref(false)
 
 async function handleLogout() {
@@ -73,12 +74,12 @@ function initials(name: string) {
           <DropdownMenuSeparator />
           <DropdownMenuItem @click="showModalTheme = true">
             <Icon name="i-lucide-paintbrush" />
-            Тема
+            {{ t('nav.theme') }}
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem @click="handleLogout">
             <Icon name="i-lucide-log-out" />
-            Выйти
+            {{ t('nav.logout') }}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -88,9 +89,9 @@ function initials(name: string) {
   <Dialog v-model:open="showModalTheme">
     <DialogContent>
       <DialogHeader>
-        <DialogTitle>Тема</DialogTitle>
+        <DialogTitle>{{ t('nav.theme') }}</DialogTitle>
         <DialogDescription class="text-xs text-muted-foreground">
-          Настройки оформления
+          {{ t('nav.themeDesc') }}
         </DialogDescription>
       </DialogHeader>
       <ThemeCustomize />

@@ -9,6 +9,7 @@ const route = useRoute();
 const { theme, toggle, init } = useTheme();
 const { user, fetchMe, logout, goDestination } = useAuth();
 const { siteName } = useSiteSettings();
+const config = useRuntimeConfig();
 
 const drawer = ref(false);
 const searchOpen = ref(false);
@@ -108,9 +109,16 @@ async function onCabinet() {
     await navigateTo(localePath("/login"));
     return;
   }
-  await goDestination(
-    user.value.isStaff ? "admin" : user.value.role === "partner_rep" ? "partner" : "account",
-  );
+  const dest =
+    user.value.isStaff ? "admin" : user.value.role === "partner_rep" ? "partner" : "account";
+  try {
+    await goDestination(dest);
+  } catch {
+    const dash = String(config.public.dashboardUrl || "http://127.0.0.1:3711").replace(/\/$/, "");
+    const lang = locale.value === "en" ? "en" : "ru";
+    const path = dest === "admin" ? "/admin" : dest === "partner" ? "/partner" : "/account";
+    window.location.assign(`${dash}${path}?lang=${lang}`);
+  }
 }
 
 onBeforeUnmount(() => {

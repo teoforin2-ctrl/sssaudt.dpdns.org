@@ -13,6 +13,8 @@ export function useAuth() {
   const config = useRuntimeConfig()
   const apiBase = config.public.apiBase as string
   const dashboardUrl = (config.public.dashboardUrl as string) || 'http://127.0.0.1:3711'
+  const { locale } = useI18n()
+  const route = useRoute()
 
   const user = useState<AuthUser | null>('auth-user', () => null)
   const loaded = useState('auth-loaded', () => false)
@@ -36,31 +38,33 @@ export function useAuth() {
   }
 
   function dashboardHref(path: string) {
-    const { locale } = useI18n()
     const base = dashboardUrl.replace(/\/$/, '')
+    const lang = locale.value === 'en' ? 'en' : 'ru'
     const sep = path.includes('?') ? '&' : '?'
-    return `${base}${path}${sep}lang=${locale.value}`
+    return `${base}${path}${sep}lang=${lang}`
   }
 
   async function goDestination(dest: AuthDestination) {
-    const localePath = useLocalePath()
-    const route = useRoute()
     const redirect = safeRedirectPath(route.query.redirect)
 
     if (dest === 'admin') {
       if (import.meta.client)
-        window.location.href = `${dashboardUrl.replace(/\/$/, '')}/admin`
+        window.location.assign(`${dashboardUrl.replace(/\/$/, '')}/admin`)
       return
     }
     if (dest === 'partner') {
       if (import.meta.client)
-        window.location.href = dashboardHref('/partner')
+        window.location.assign(dashboardHref('/partner'))
       return
     }
-    if (redirect)
+    // Prefer absolute jump to CMS cabinet — same as partner/admin.
+    // Only honour same-origin redirect when it is not the public /account stub.
+    if (redirect && !redirect.replace(/\/(ru|en)(?=\/|$)/g, '').startsWith('/account')) {
       await navigateTo(redirect)
-    else if (import.meta.client)
-      window.location.href = dashboardHref('/account')
+      return
+    }
+    if (import.meta.client)
+      window.location.assign(dashboardHref('/account'))
   }
 
   async function fetchMe(force = false) {

@@ -90,7 +90,7 @@ watch([() => route.fullPath, lang], () => {
       <BaseBreadcrumbCustom :links="links" />
     </div>
     <div class="ml-auto flex items-center gap-2">
-      <AdminCommandPalette />
+      <AdminCommandPalette v-if="!isCabinet" />
       <slot />
     </div>
   </header>

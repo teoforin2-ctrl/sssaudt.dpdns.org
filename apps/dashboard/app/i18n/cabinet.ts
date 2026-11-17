@@ -7,6 +7,9 @@ const ru = {
     cabinet: 'Кабинет',
     account: 'Кабинет',
     openSite: 'Открыть сайт',
+    theme: 'Тема',
+    themeDesc: 'Настройки оформления',
+    logout: 'Выйти',
   },
   subtitle: {
     player: 'Кабинет игрока',
@@ -171,6 +174,9 @@ const en: typeof ru = {
     cabinet: 'Cabinet',
     account: 'Account',
     openSite: 'Open site',
+    theme: 'Theme',
+    themeDesc: 'Appearance settings',
+    logout: 'Log out',
   },
   subtitle: {
     player: 'Player cabinet',
