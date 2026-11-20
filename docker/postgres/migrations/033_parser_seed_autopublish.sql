@@ -5,6 +5,9 @@ alter table ai_settings
 
 insert into parser_sources (code, name, base_url, content_types, notes)
 values
+  ('manual', 'Ручной импорт', null, array['article','casino','slot','forum']::text[], 'Загрузка без внешнего парсера'),
+  ('demo_articles', 'Demo articles feed', 'https://news.example.com', array['article']::text[], 'Демо-парсер статей'),
+  ('demo_casinos', 'Demo casinos feed', 'https://directory.example.com', array['casino']::text[], 'Демо-парсер казино'),
   ('demo_slots', 'Demo slots scrape', 'https://slots.example.com', array['slot']::text[], 'Демо-парсер слотов'),
   ('demo_forum', 'Demo forum scrape', 'https://forum.example.com', array['forum']::text[], 'Демо-парсер форума')
 on conflict (code) do nothing;

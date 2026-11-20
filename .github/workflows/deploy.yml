@@ -102,8 +102,20 @@ jobs:
             source "$ENV_FILE"
             set +a
 
-            # Apply recent idempotent SQL migrations (home expert columns, AI/parser).
-            if [ -n "${DATABASE_URL:-}" ] && command -v psql >/dev/null 2>&1; then
+            # Apply recent idempotent SQL migrations (home expert columns, AI/parser + seeds).
+            # DATABASE_URL often uses host.docker.internal (works inside containers only).
+            if [ -n "${DATABASE_URL:-}" ]; then
+              MIGRATE_URL="$(printf '%s' "$DATABASE_URL" | sed -E 's/@host\.docker\.internal([:/])/@127.0.0.1\1/')"
+              run_migrate() {
+                local file="$1"
+                if command -v psql >/dev/null 2>&1; then
+                  psql "$MIGRATE_URL" -v ON_ERROR_STOP=1 -f "$file" && return 0
+                fi
+                docker run --rm --network host \
+                  -v "$APP_DIR/$file:/mig.sql:ro" \
+                  postgres:16-alpine \
+                  psql "$MIGRATE_URL" -v ON_ERROR_STOP=1 -f /mig.sql
+              }
               for f in \
                 docker/postgres/migrations/029_author_photo_locale.sql \
                 docker/postgres/migrations/030_ai_pipeline.sql \
@@ -113,12 +125,11 @@ jobs:
               do
                 if [ -f "$f" ]; then
                   echo "migrate: $f"
-                  psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f "$f" \
-                    || echo "WARNING: migrate failed $f"
+                  run_migrate "$f" || echo "WARNING: migrate failed $f"
                 fi
               done
             else
-              echo "WARNING: skip SQL migrations (psql or DATABASE_URL missing)"
+              echo "WARNING: skip SQL migrations (DATABASE_URL missing)"
             fi
 
             # GHCR from this host can flake/stall — bound each attempt, then fall back to local images
