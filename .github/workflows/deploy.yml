@@ -75,6 +75,8 @@ jobs:
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           port: 22
           envs: GHCR_TOKEN
+          # GHCR pulls from this host can stall; keep headroom above per-attempt pull timeouts
+          command_timeout: 25m
           script: |
             set -euo pipefail
             APP_DIR=/var/www/dfijdsif/app
@@ -100,10 +102,11 @@ jobs:
             source "$ENV_FILE"
             set +a
 
-            # GHCR from this host can flake on TLS — retry pull, then start with whatever is local
+            # GHCR from this host can flake/stall — bound each attempt, then fall back to local images
             pull_ok=0
             for attempt in 1 2 3 4 5; do
-              if docker compose -f deploy/docker-compose.prod.yml --env-file "$ENV_FILE" pull; then
+              echo "pull attempt $attempt..."
+              if timeout 240 docker compose -f deploy/docker-compose.prod.yml --env-file "$ENV_FILE" pull --quiet; then
                 pull_ok=1
                 break
               fi
