@@ -1304,6 +1304,9 @@ app.get("/v1/home", async (req) => {
       articles: articlesN,
     };
 
+    // Isolate each query — one missing column/table must not blank the whole homepage.
+    const emptyRows = <T = Record<string, unknown>>() =>
+      ({ rows: [] as T[] }) as { rows: T[] };
     const [
       slotRes,
       articleRes,
@@ -1314,8 +1317,9 @@ app.get("/v1/home", async (req) => {
       newCasinoRes,
       checksWeekRes,
     ] = await Promise.all([
-      pool.query(
-        `
+      pool
+        .query(
+          `
         select s.id, s.slug, s.title, s.theme, s.mechanics, s.release_date, s.rtp, s.volatility, s.grid,
                s.demo_url, p.name as provider_name, p.slug as provider_slug
         from slots s
@@ -1324,9 +1328,14 @@ app.get("/v1/home", async (req) => {
         order by s.release_date desc nulls last
         limit 24
         `,
-      ),
-      pool.query(
-        `
+        )
+        .catch((err) => {
+          app.log.error({ err }, "home slots query failed");
+          return emptyRows();
+        }),
+      pool
+        .query(
+          `
         select a.slug, a.kind, a.topic, a.title_ru, a.title_en, a.excerpt_ru, a.excerpt_en,
                a.cover_theme, a.cover_url, a.reading_minutes, a.published_at,
                au.name as author_name, au.slug as author_slug
@@ -1336,22 +1345,44 @@ app.get("/v1/home", async (req) => {
         order by a.published_at desc
         limit 24
         `,
-      ),
-      pool.query(
-        `
+        )
+        .catch((err) => {
+          app.log.error({ err }, "home articles query failed");
+          return emptyRows();
+        }),
+      pool
+        .query(
+          `
         select kind, slug, name, tagline_ru, tagline_en, bonus_text_ru, bonus_text_en,
                rating, details, partner_url, has_representative, has_hot
         from partner_brands
         where status = 'published'
         order by rating desc
         `,
-      ),
-      pool.query(
-        `select slug, name, name_ru, role_ru, role_en, quote_ru, quote_en, hue, is_seed, photo_url
+        )
+        .catch((err) => {
+          app.log.error({ err }, "home brands query failed");
+          return emptyRows();
+        }),
+      // Prefer locale/photo columns (029+); fall back if migration not applied yet.
+      pool
+        .query(
+          `select slug, name, name_ru, role_ru, role_en, quote_ru, quote_en, hue, is_seed, photo_url
          from authors where is_seed = true order by id limit 1`,
-      ),
-      pool.query(
-        `
+        )
+        .catch(() =>
+          pool.query(
+            `select slug, name, null::text as name_ru, role_ru, role_en, quote_ru, quote_en, hue, is_seed, null::text as photo_url
+             from authors where is_seed = true order by id limit 1`,
+          ),
+        )
+        .catch((err) => {
+          app.log.error({ err }, "home expert query failed");
+          return emptyRows();
+        }),
+      pool
+        .query(
+          `
         select pb.id, pb.title_ru, pb.title_en, pb.valid_until, pb.theme,
                c.slug as casino_slug, c.name, c.logo_url
         from promo_banners pb
@@ -1360,7 +1391,11 @@ app.get("/v1/home", async (req) => {
         order by pb.valid_until asc nulls last
         limit 1
         `,
-      ),
+        )
+        .catch((err) => {
+          app.log.error({ err }, "home promo query failed");
+          return emptyRows();
+        }),
       pool
         .query(
           `
@@ -1373,7 +1408,7 @@ app.get("/v1/home", async (req) => {
           limit 3
           `,
         )
-        .catch(() => ({ rows: [] as Record<string, unknown>[] })),
+        .catch(() => emptyRows()),
       pool
         .query(
           `
@@ -1384,7 +1419,7 @@ app.get("/v1/home", async (req) => {
           limit 3
           `,
         )
-        .catch(() => ({ rows: [] as Record<string, unknown>[] })),
+        .catch(() => emptyRows()),
       pool
         .query<{ n: string }>(
           `

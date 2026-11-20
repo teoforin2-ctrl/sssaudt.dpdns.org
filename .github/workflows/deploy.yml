@@ -102,6 +102,25 @@ jobs:
             source "$ENV_FILE"
             set +a
 
+            # Apply recent idempotent SQL migrations (home expert columns, AI/parser).
+            if [ -n "${DATABASE_URL:-}" ] && command -v psql >/dev/null 2>&1; then
+              for f in \
+                docker/postgres/migrations/029_author_photo_locale.sql \
+                docker/postgres/migrations/030_ai_pipeline.sql \
+                docker/postgres/migrations/031_parser_staging.sql \
+                docker/postgres/migrations/032_ai_flags_entities.sql \
+                docker/postgres/migrations/033_parser_seed_autopublish.sql
+              do
+                if [ -f "$f" ]; then
+                  echo "migrate: $f"
+                  psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f "$f" \
+                    || echo "WARNING: migrate failed $f"
+                fi
+              done
+            else
+              echo "WARNING: skip SQL migrations (psql or DATABASE_URL missing)"
+            fi
+
             # GHCR from this host can flake/stall — bound each attempt, then fall back to local images
             pull_ok=0
             for attempt in 1 2 3 4 5; do
