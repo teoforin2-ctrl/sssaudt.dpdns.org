@@ -142,6 +142,16 @@ export const navMenu: NavMenu[] = [
         link: '/admin/seo',
       },
       {
+        title: 'ИИ',
+        icon: 'i-lucide-bot',
+        link: '/admin/ai',
+      },
+      {
+        title: 'Парсер',
+        icon: 'i-lucide-radar',
+        link: '/admin/parser',
+      },
+      {
         title: 'Награды / payout',
         icon: 'i-lucide-coins',
         link: '/admin/settings/rewards',

@@ -46,7 +46,7 @@ export default defineNuxtConfig({
       {
         name: "Unbounded",
         provider: "google",
-        weights: [600, 700],
+        weights: [600, 700, 800],
         display: "swap",
         preload: true,
         subsets: ["latin", "cyrillic"],

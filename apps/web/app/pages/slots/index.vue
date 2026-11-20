@@ -143,7 +143,7 @@ useJsonLd(() => {
           :block="false"
           :options="[
             { value: 'popular', label: t('home.sort.rating') },
-            { value: 'rtp', label: 'RTP ↓' },
+            { value: 'rtp', label: 'RTP' },
             { value: 'new', label: t('home.sort.new') },
             { value: 'az', label: 'A–Я' },
           ]"

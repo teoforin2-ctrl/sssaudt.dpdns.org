@@ -170,6 +170,11 @@ const byPath: Record<string, string> = {
 
   "/articles": "articles",
   "/articles/news": "news",
+  "/articles/slot-cards": "slots",
+  "/articles/providers": "providers",
+  "/articles/glossary": "academy",
+  "/articles/mechanics-guides": "guides",
+  "/articles/collections": "trophy",
   "/articles/guides": "guides",
   "/articles/academy": "academy",
   "/articles/rules": "table-games",
@@ -274,17 +279,3 @@ export function iconForColumn(titleRu: string): string {
 export function iconForSection(id: string): string {
   return bySection[id] || "casinos";
 }
-
-/** Featured quick tiles per section (paths must exist in site-nav). */
-export const featuredBySection: Record<string, string[]> = {
-  casinos: ["/rating", "/rating/new", "/rating/licensed", "/rating/crypto"],
-  rating: ["/rating", "/rating/new", "/rating/licensed", "/rating/crypto"],
-  bonuses: [
-    "/bonuses/welcome",
-    "/bonuses/no-deposit",
-    "/bonuses/free-spins",
-    "/bonuses/codes",
-  ],
-  slots: ["/slots", "/slots/new", "/slots/providers"],
-  articles: ["/articles/news", "/articles/guides", "/articles/academy"],
-};

@@ -39,7 +39,7 @@ const stats = computed(() => {
   ];
   if (avgScore.value) out.push({ label: t("catalog.compare.rating"), value: avgScore.value });
   if (licensedCount.value) out.push({ label: t("catalog.hub.licensedTitle"), value: licensedCount.value });
-  out.push({ label: t("catalog.methodology.title"), value: "→", href: localePath("/methodology") });
+  out.push({ label: t("catalog.methodology.title"), value: "", href: localePath("/methodology") });
   return out;
 });
 

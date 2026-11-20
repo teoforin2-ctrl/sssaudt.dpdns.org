@@ -13,9 +13,10 @@
   --border-strong: rgba(255, 255, 255, 0.18);
   --border-focus: #3dff8a;
 
-  --text-primary: #f3f6fa;
-  --text-secondary: #9aa8b8;
-  --text-tertiary: #6b7a8c;
+  --text-primary: #f2f5f9;
+  --text-secondary: #9aa7b4;
+  /* ≥ ~4.5:1 on #080B10 — was #6b7a8c (too dim for small labels) */
+  --text-tertiary: #8b96a5;
   --text-inverse: #0b1220;
 
   --accent-cta: #3dff8a;
@@ -23,14 +24,16 @@
   --accent-cta-pressed: #2ad872;
   --accent-cta-soft: rgba(61, 255, 138, 0.12);
 
-  --accent-violet: #8b5cff;
-  --accent-violet-soft: rgba(139, 92, 255, 0.16);
+  --accent-violet: #a78bfa;
+  --accent-violet-soft: rgba(167, 139, 250, 0.16);
   --accent-amber: #f5a524;
   --accent-amber-soft: rgba(245, 165, 36, 0.14);
-  --accent-rose: #ff4d6d;
-  --accent-rose-soft: rgba(255, 77, 109, 0.14);
+  --accent-rose: #ff6b6b;
+  --accent-rose-soft: rgba(255, 107, 107, 0.14);
   --accent-cyan: #3ec7ff;
-  --accent-gold: #f0b429;
+  /* Ratings + HOT — concept #FFC24B (not CTA green) */
+  --accent-gold: #ffc24b;
+  --accent-gold-soft: rgba(255, 194, 75, 0.14);
 
   --success: #3dff8a;
   --warning: #f5a524;
@@ -51,6 +54,18 @@
 
   --font-display: "Unbounded", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-ui: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Type scale (redesign checklist) */
+  --text-caption: 11px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 15px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-display: clamp(40px, 5vw, 56px);
+  --text-h2: clamp(22px, 3vw, 36px);
+  --text-h3: 17px;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -93,9 +108,15 @@
   --accent-amber: #b45309;
   --accent-amber-soft: rgba(180, 83, 9, 0.12);
   --accent-cyan: #0369a1;
-  --accent-gold: #a16207;
+  /* Keep brand gold identity; darker only for soft fills / borders on light */
+  --accent-gold: #c4890a;
+  --accent-gold-soft: rgba(196, 137, 10, 0.14);
   --accent-violet: #6d28d9;
   --accent-violet-soft: rgba(109, 40, 217, 0.12);
+  --accent-rose: #dc2626;
+  --accent-rose-soft: rgba(220, 38, 38, 0.12);
+  --text-display: clamp(40px, 5vw, 56px);
+  --text-h2: clamp(20px, 2.8vw, 30px);
   --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.06);
   --shadow-2: 0 16px 40px rgba(15, 23, 42, 0.1);
   --glow-cta: 0 0 0 1px rgba(10, 122, 69, 0.22), 0 8px 20px rgba(10, 122, 69, 0.14);

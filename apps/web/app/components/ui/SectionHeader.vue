@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
+
 defineProps<{
   title: string;
   subtitle?: string;
@@ -16,7 +18,10 @@ const localePath = useLocalePath();
     </div>
     <div class="right">
       <slot name="actions" />
-      <NuxtLink v-if="to" class="all" :to="localePath(to)">{{ linkLabel }}</NuxtLink>
+      <NuxtLink v-if="to" class="all" :to="localePath(to)">
+        {{ linkLabel }}
+        <ArrowRight :size="14" :stroke-width="2" aria-hidden="true" />
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -51,6 +56,9 @@ h2 {
   flex: 0 0 auto;
 }
 .all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13px;
   font-weight: 750;
   color: var(--text-secondary);

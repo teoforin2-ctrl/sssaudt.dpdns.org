@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Home, MessageSquare, Search } from "lucide-vue-next";
 import { forumAgo, forumFmt, forumReplyLabel, forumTags } from "~/utils/forum";
 
 const config = useRuntimeConfig();
@@ -83,7 +84,9 @@ useJsonLd(() => {
 <template>
   <div class="page">
     <nav class="crumbs" aria-label="Breadcrumb">
-      <NuxtLink :to="localePath('/')">⌂</NuxtLink>
+      <NuxtLink :to="localePath('/')" class="crumb-home" :aria-label="locale === 'en' ? 'Home' : 'Главная'">
+        <Home :size="15" :stroke-width="2" aria-hidden="true" />
+      </NuxtLink>
       <span>/</span>
       <span>{{ t("pages.forum.title") }}</span>
     </nav>
@@ -107,7 +110,9 @@ useJsonLd(() => {
     </header>
 
     <NuxtLink class="search" :to="localePath('/search')">
-      <span class="search-ico" aria-hidden="true">⌕</span>
+      <span class="search-ico" aria-hidden="true">
+        <Search :size="16" :stroke-width="2" />
+      </span>
       <span>{{ locale === "en" ? "Search forum and site…" : "Поиск по форуму и сайту…" }}</span>
     </NuxtLink>
 
@@ -127,7 +132,9 @@ useJsonLd(() => {
               class="cat"
             >
               <NuxtLink class="cat-main" :to="localePath(`/forum/kategoriya/${c.slug}`)">
-                <div class="cat-ico" aria-hidden="true">{{ c.icon || "💬" }}</div>
+                <div class="cat-ico" aria-hidden="true">
+                  <ForumCatIcon :slug="c.slug" :emoji="c.icon" :size="22" />
+                </div>
                 <div class="cat-body">
                   <strong>{{ c.title }}</strong>
                   <p>{{ c.description }}</p>
@@ -159,7 +166,9 @@ useJsonLd(() => {
               class="topic"
               :to="localePath(`/forum/tema/${topic.slug}`)"
             >
-              <span class="topic-ico" aria-hidden="true">✦</span>
+              <span class="topic-ico" aria-hidden="true">
+                <MessageSquare :size="16" :stroke-width="2" />
+              </span>
               <div class="topic-body">
                 <strong class="line-clamp">{{ topic.title }}</strong>
                 <div class="topic-meta">
@@ -228,6 +237,11 @@ useJsonLd(() => {
   color: var(--text-tertiary);
 }
 .crumbs a { color: var(--text-secondary); text-decoration: none; font-weight: 700; }
+.crumb-home {
+  display: inline-flex;
+  align-items: center;
+}
+.crumb-home:hover { color: var(--accent-cta); }
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -235,12 +249,6 @@ useJsonLd(() => {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 18px;
-}
-.page-title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
 }
 .stats {
   margin: 8px 0 0;
@@ -262,7 +270,11 @@ useJsonLd(() => {
   text-decoration: none;
   font-size: 14px;
 }
-.search-ico { color: var(--accent-cta); font-size: 16px; }
+.search-ico {
+  color: var(--accent-cta);
+  display: grid;
+  place-items: center;
+}
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
@@ -306,8 +318,8 @@ useJsonLd(() => {
   border-radius: 12px;
   display: grid;
   place-items: center;
-  background: var(--bg-elev-2);
-  font-size: 22px;
+  background: color-mix(in srgb, var(--accent-cta) 10%, var(--bg-elev-2));
+  color: var(--accent-cta);
 }
 .cat-body { min-width: 0; }
 .cat-body strong { font-size: 15px; }
@@ -360,7 +372,8 @@ useJsonLd(() => {
 .topic-ico {
   color: var(--accent-cta);
   margin-top: 3px;
-  font-size: 12px;
+  display: grid;
+  place-items: start;
 }
 .topic-body { flex: 1; min-width: 0; }
 .topic-body strong { font-size: 14px; font-weight: 700; }

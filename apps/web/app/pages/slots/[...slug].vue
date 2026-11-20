@@ -241,18 +241,17 @@ useJsonLd(() => {
       <SkeletonSlotGrid v-if="hubPending" :count="6" />
       <UiEmptyState v-else-if="!hubSlots.length" :title="t('catalog.empty')" />
       <div v-else class="grid">
-        <article v-for="s in hubSlots" :key="s.slug" class="card">
-          <NuxtLink :to="localePath(`/slots/${s.slug}`)">
-            <SlotCover :title="s.title" :theme="s.theme" :slug="s.slug" set="slots" />
-          </NuxtLink>
-          <h2>
-            <NuxtLink :to="localePath(`/slots/${s.slug}`)">{{ s.title }}</NuxtLink>
-          </h2>
-          <p class="meta">
-            <span v-if="s.providerName">{{ s.providerName }}</span>
-            <span v-if="s.rtp != null"> · {{ t("catalog.rtp", { n: s.rtp }) }}</span>
-          </p>
-        </article>
+        <PublicSlotCard
+          v-for="s in hubSlots"
+          :key="s.slug"
+          :slug="s.slug"
+          :title="s.title"
+          :theme="s.theme"
+          :rtp="s.rtp"
+          :provider-name="s.providerName"
+          :is-new="s.isNew"
+          :demo-url="s.demoUrl"
+        />
       </div>
     </template>
   </section>
@@ -272,7 +271,7 @@ useJsonLd(() => {
         <li v-for="c in provider.casinos" :key="c.slug">
           <NuxtLink :to="localePath(`/casino/${c.slug}`)">
             {{ c.name }}
-            <span class="meta"> · {{ c.rating.toFixed(1) }}</span>
+            <span class="meta tabular-nums"> · {{ c.rating.toFixed(1) }}</span>
           </NuxtLink>
         </li>
       </ul>
@@ -281,14 +280,17 @@ useJsonLd(() => {
     <section class="block">
       <h2>{{ t("catalog.hub.providerSlots") }}</h2>
       <div class="grid">
-        <article v-for="s in provider.slots" :key="s.slug" class="card">
-          <NuxtLink :to="localePath(`/slots/${s.slug}`)">
-            <SlotCover :title="s.title" :theme="s.theme" :slug="s.slug" set="slots" />
-          </NuxtLink>
-          <h2>
-            <NuxtLink :to="localePath(`/slots/${s.slug}`)">{{ s.title }}</NuxtLink>
-          </h2>
-        </article>
+        <PublicSlotCard
+          v-for="s in provider.slots"
+          :key="s.slug"
+          :slug="s.slug"
+          :title="s.title"
+          :theme="s.theme"
+          :rtp="s.rtp"
+          :provider-name="s.providerName"
+          :is-new="s.isNew"
+          :demo-url="s.demoUrl"
+        />
       </div>
     </section>
   </article>
@@ -352,12 +354,6 @@ useJsonLd(() => {
   text-transform: uppercase;
   color: var(--accent-cta);
   font-weight: 750;
-}
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
 }
 .lead { margin: 0 0 12px; color: var(--text-secondary); max-width: 60ch; }
 .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }

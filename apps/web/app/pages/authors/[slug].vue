@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowLeft } from "lucide-vue-next";
+
 const config = useRuntimeConfig();
 const route = useRoute();
 const { locale, t } = useI18n();
@@ -44,7 +46,10 @@ usePageSeo({
 
 <template>
   <article v-if="author" class="page">
-    <NuxtLink class="back" :to="localePath('/authors')">← {{ t("catalog.authorsTitle") }}</NuxtLink>
+    <NuxtLink class="back" :to="localePath('/authors')">
+      <ArrowLeft :size="14" :stroke-width="2" aria-hidden="true" />
+      {{ t("catalog.authorsTitle") }}
+    </NuxtLink>
     <header class="head">
       <span class="avatar" :style="{ background: `oklch(0.55 0.12 ${author.hue})` }">
         {{ author.name.slice(0, 1) }}
@@ -72,16 +77,18 @@ usePageSeo({
 
 <style scoped>
 .page { max-width: 760px; }
-.back { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 700; }
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
 .head { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
 .avatar {
   width: 56px; height: 56px; border-radius: 14px;
   display: grid; place-items: center; font-weight: 800; color: #fff; font-size: 22px;
-}
-.page-title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
 }
 .role, .bio, .meta { color: var(--text-secondary); font-size: 14px; }
 .quote {

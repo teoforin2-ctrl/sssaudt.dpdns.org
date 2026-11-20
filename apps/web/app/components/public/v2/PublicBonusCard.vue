@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Check } from "lucide-vue-next";
 import { formatDate, formatWager, wagerTone } from "~/utils/format";
 
 const config = useRuntimeConfig();
@@ -83,7 +84,7 @@ const minDep = computed(() => {
         {{ t("catalog.openCasino") }}
       </NuxtLink>
       <p v-if="checked" class="checked">
-        <span aria-hidden="true">✓</span>
+        <Check :size="13" :stroke-width="2.5" aria-hidden="true" />
         {{ t("catalog.checked", { d: checked }) }}
       </p>
     </div>
@@ -185,8 +186,8 @@ const minDep = computed(() => {
   font-variant-numeric: tabular-nums;
 }
 .fact.w-good {
-  background: var(--accent-cta-soft);
-  color: var(--accent-cta);
+  background: color-mix(in srgb, var(--accent-cyan) 16%, transparent);
+  color: var(--accent-cyan);
   border-color: transparent;
 }
 .fact.w-mid {
@@ -226,8 +227,9 @@ const minDep = computed(() => {
   gap: 4px;
   justify-content: center;
 }
-.checked span {
-  color: var(--accent-cta);
+.checked :deep(svg) {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
 }
 .compact {
   padding: 12px;

@@ -88,9 +88,12 @@ export const siteNav: NavSection[] = [
       {
         title: t("Статьи", "Articles"),
         items: [
+          link("/articles/slot-cards", "Карточки слотов", "Slot cards"),
+          link("/articles/providers", "Провайдеры", "Providers"),
+          link("/articles/glossary", "Справочник и глоссарий", "Reference & glossary"),
+          link("/articles/mechanics-guides", "Гайды по механикам", "Mechanics guides"),
           link("/articles/news", "Новости", "News"),
-          link("/articles/guides", "Обзоры", "Reviews"),
-          link("/articles/academy", "Для новичков", "For beginners"),
+          link("/articles/collections", "Подборки", "Collections"),
         ],
       },
     ],
@@ -140,8 +143,12 @@ export const footerNav: { title: LocText; items: NavLink[] }[] = [
     title: t("Материалы", "Content"),
     items: [
       link("/articles", "Статьи", "Articles"),
+      link("/articles/slot-cards", "Карточки слотов", "Slot cards"),
+      link("/articles/providers", "Провайдеры", "Providers"),
+      link("/articles/glossary", "Справочник", "Glossary"),
+      link("/articles/mechanics-guides", "Гайды по механикам", "Mechanics guides"),
       link("/articles/news", "Новости", "News"),
-      link("/articles/guides", "Гайды", "Guides"),
+      link("/articles/collections", "Подборки", "Collections"),
       link("/faq", "FAQ", "FAQ"),
       link("/about", "О нас", "About"),
       link("/how-we-earn", "Как мы зарабатываем", "How we earn"),

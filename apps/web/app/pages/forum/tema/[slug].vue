@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Lock, ThumbsUp } from "lucide-vue-next";
 import { forumAgo, forumFmt, forumInitials, forumParagraphs, forumReplyLabel, forumTags } from "~/utils/forum";
 
 const config = useRuntimeConfig();
@@ -200,7 +201,9 @@ useJsonLd(() => {
             · {{ forumAgo(data.topic.createdAt, locale) }}
             · {{ forumReplyLabel(data.topic.postsCount, locale) }}
             · {{ forumFmt(data.topic.viewsCount, locale) }} {{ locale === "en" ? "views" : "просмотров" }}
-            <span v-if="data.topic.isLocked"> · 🔒</span>
+            <span v-if="data.topic.isLocked" class="locked-mark" title="Locked">
+              · <Lock :size="13" :stroke-width="2" aria-hidden="true" />
+            </span>
           </p>
         </div>
       </header>
@@ -240,7 +243,10 @@ useJsonLd(() => {
                 <button type="button" class="act" @click="setQuote(p)">
                   {{ locale === "en" ? "Quote" : "Цитировать" }}
                 </button>
-                <span class="helpful">👍 {{ locale === "en" ? "Helpful" : "Полезно" }} ({{ p.helpful }})</span>
+                <span class="helpful">
+                  <ThumbsUp :size="13" :stroke-width="2" aria-hidden="true" />
+                  {{ locale === "en" ? "Helpful" : "Полезно" }} ({{ p.helpful }})
+                </span>
               </div>
             </div>
           </article>
@@ -338,13 +344,6 @@ useJsonLd(() => {
   color: var(--text-secondary);
 }
 .chip.resolved { background: var(--accent-cta-soft); color: var(--accent-cta); }
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(24px, 3vw, 34px);
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-}
 .meta { margin: 0; font-size: 13px; color: var(--text-tertiary); }
 .layout {
   display: grid;
@@ -471,6 +470,13 @@ useJsonLd(() => {
   border-color: color-mix(in srgb, var(--accent-cta) 30%, var(--border-default));
   color: var(--accent-cta);
   background: var(--accent-cta-soft);
+}
+.locked-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+  color: var(--text-tertiary);
 }
 .panel {
   padding: 16px 18px;

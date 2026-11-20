@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
+
 export type StatItem = { label: string; value: string | number; href?: string };
 
 defineProps<{ items: StatItem[] }>();
@@ -13,7 +15,8 @@ defineProps<{ items: StatItem[] }>();
       role="listitem"
       :to="item.href!"
     >
-      <strong class="tabular-nums">{{ item.value }}</strong>
+      <strong v-if="item.value !== ''" class="tabular-nums">{{ item.value }}</strong>
+      <ArrowRight v-else :size="14" :stroke-width="2" class="link-ico" aria-hidden="true" />
       <span>{{ item.label }}</span>
     </NuxtLink>
     <div
@@ -37,7 +40,7 @@ defineProps<{ items: StatItem[] }>();
 }
 .chip {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
   gap: 6px;
   padding: 8px 12px;
   border-radius: 12px;
@@ -54,5 +57,9 @@ defineProps<{ items: StatItem[] }>();
 }
 .chip span {
   color: var(--text-tertiary);
+}
+.link-ico {
+  color: var(--accent-cta);
+  flex-shrink: 0;
 }
 </style>

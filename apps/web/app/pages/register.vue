@@ -95,7 +95,7 @@ async function onSubmit() {
         :label="t('auth.passwordMin')"
         autocomplete="new-password"
         :minlength="6"
-        :hint="passOk ? `✓ ${t('auth.passwordMin')}` : t('auth.passwordMin')"
+        :hint="t('auth.passwordMin')"
       />
 
       <UiButton type="submit" block :disabled="loading || !passOk" :loading="loading">

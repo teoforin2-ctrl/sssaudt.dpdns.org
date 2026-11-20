@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Check } from "lucide-vue-next";
+
 type PackageItem = {
   id: string;
   slug: string;
@@ -121,7 +123,9 @@ useHead(() => ({
           </div>
           <ul>
             <li v-for="f in p.features" :key="f">
-              <span class="check" aria-hidden="true">✓</span>
+              <span class="check" aria-hidden="true">
+                <Check :size="14" :stroke-width="2.5" />
+              </span>
               <span>{{ f }}</span>
             </li>
           </ul>
@@ -263,12 +267,6 @@ html[data-theme="light"] .hero-bg {
   text-transform: uppercase;
   color: var(--accent-cta);
   font-weight: 750;
-}
-.page-title {
-  margin: 0 0 12px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3.2vw, 44px);
-  letter-spacing: -0.03em;
 }
 .lead {
   margin: 0 0 18px;

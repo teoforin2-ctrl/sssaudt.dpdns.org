@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Check, Copy } from "lucide-vue-next";
+
 const props = defineProps<{ value: string; label?: string }>();
 const { t } = useI18n();
 const { push } = useToast();
@@ -32,7 +34,10 @@ async function copy() {
 <template>
   <button type="button" class="chip" :aria-label="label || t('ui.copy')" @click="copy">
     <code>{{ value }}</code>
-    <span class="ico" aria-hidden="true">{{ done ? "✓" : "⧉" }}</span>
+    <span class="ico" aria-hidden="true">
+      <Check v-if="done" :size="14" :stroke-width="2" />
+      <Copy v-else :size="14" :stroke-width="2" />
+    </span>
   </button>
 </template>
 
@@ -64,7 +69,8 @@ code {
   white-space: nowrap;
 }
 .ico {
-  font-size: 12px;
+  display: grid;
+  place-items: center;
   opacity: 0.85;
   flex-shrink: 0;
 }

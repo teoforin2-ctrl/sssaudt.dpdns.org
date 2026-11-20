@@ -151,10 +151,10 @@ html[data-theme="light"] .stat::before {
   font-variant-numeric: tabular-nums;
 }
 .label {
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   font-size: 11px;
   font-weight: 750;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .sep {

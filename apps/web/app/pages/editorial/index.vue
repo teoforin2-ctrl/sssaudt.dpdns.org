@@ -61,11 +61,6 @@ useJsonLd(() => ({
 
 <style scoped>
 .page { max-width: 820px; display: grid; gap: 14px; }
-.page-title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-}
 .lead { margin: 0; color: var(--text-secondary); }
 .card {
   padding: 20px;

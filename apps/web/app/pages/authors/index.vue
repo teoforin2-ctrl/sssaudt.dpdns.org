@@ -51,11 +51,6 @@ usePageSeo({
 
 <style scoped>
 .page { max-width: 820px; }
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-}
 .lead { margin: 0 0 18px; color: var(--text-secondary); }
 .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .card {

@@ -5,12 +5,14 @@ const localePath = useLocalePath();
 const route = useRoute();
 const router = useRouter();
 
+const MAX_COMPARE = 4;
+
 const selected = ref<string[]>(
   String(route.query.slugs || "")
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean)
-    .slice(0, 3),
+    .slice(0, MAX_COMPARE),
 );
 
 watch(
@@ -20,7 +22,7 @@ watch(
       .split(",")
       .map((s) => s.trim())
       .filter(Boolean)
-      .slice(0, 3);
+      .slice(0, MAX_COMPARE);
   },
 );
 
@@ -81,7 +83,7 @@ async function syncQuery(next: string[]) {
 
 function addCasino() {
   const slug = pick.value;
-  if (!slug || selected.value.includes(slug) || selected.value.length >= 3) return;
+  if (!slug || selected.value.includes(slug) || selected.value.length >= MAX_COMPARE) return;
   pick.value = "";
   syncQuery([...selected.value, slug]);
 }
@@ -111,9 +113,9 @@ usePageSeo({
         size="sm"
         :placeholder="t('catalog.compare.pick')"
         :options="pickOptions"
-        :disabled="selected.length >= 3"
+        :disabled="selected.length >= MAX_COMPARE"
       />
-      <UiButton type="submit" variant="secondary" size="sm" :disabled="!pick || selected.length >= 3">
+      <UiButton type="submit" variant="secondary" size="sm" :disabled="!pick || selected.length >= MAX_COMPARE">
         {{ t("catalog.compare.cta") }}
       </UiButton>
     </form>
@@ -150,21 +152,30 @@ usePageSeo({
         <tbody>
           <tr>
             <th>{{ t("catalog.compare.rating") }}</th>
-            <td v-for="c in data.items" :key="c.slug + 'r'">{{ c.rating.toFixed(1) }}</td>
+            <td v-for="c in data.items" :key="c.slug + 'r'" class="num gold">{{ c.rating.toFixed(1) }}</td>
           </tr>
           <tr>
             <th>{{ t("catalog.compare.editorial") }}</th>
-            <td v-for="c in data.items" :key="c.slug + 'e'">{{ c.editorialScore.toFixed(1) }}</td>
+            <td v-for="c in data.items" :key="c.slug + 'e'">
+              <div class="score-cell">
+                <span class="num gold">{{ c.editorialScore.toFixed(1) }}</span>
+                <span class="mini-track"><span class="mini-fill gold" :style="{ width: `${Math.min(100, (c.editorialScore / 5) * 100)}%` }" /></span>
+              </div>
+            </td>
           </tr>
           <tr>
             <th>{{ t("catalog.compare.players") }}</th>
             <td v-for="c in data.items" :key="c.slug + 'p'">
-              {{ c.playerScore != null ? c.playerScore.toFixed(1) : '—' }}
+              <div v-if="c.playerScore != null" class="score-cell">
+                <span class="num amber">{{ c.playerScore.toFixed(1) }}</span>
+                <span class="mini-track"><span class="mini-fill amber" :style="{ width: `${Math.min(100, (c.playerScore / 5) * 100)}%` }" /></span>
+              </div>
+              <template v-else>—</template>
             </td>
           </tr>
           <tr>
             <th>{{ t("catalog.compare.reviews") }}</th>
-            <td v-for="c in data.items" :key="c.slug + 'rv'">{{ c.reviewCount }}</td>
+            <td v-for="c in data.items" :key="c.slug + 'rv'" class="num">{{ c.reviewCount }}</td>
           </tr>
           <tr>
             <th>{{ t("catalog.compare.bonus") }}</th>
@@ -189,7 +200,19 @@ usePageSeo({
           <tr>
             <th />
             <td v-for="c in data.items" :key="c.slug + 'o'">
-              <NuxtLink :to="localePath(`/casino/${c.slug}`)">{{ t("catalog.compare.open") }}</NuxtLink>
+              <div class="cell-actions">
+                <UiButton
+                  variant="primary"
+                  size="sm"
+                  :href="`${config.public.apiBase}/go/${c.slug}?locale=${locale}`"
+                  external
+                >
+                  {{ t("home.play") }}
+                </UiButton>
+                <NuxtLink class="btn btn-ghost btn-sm" :to="localePath(`/casino/${c.slug}`)">
+                  {{ t("home.review") }}
+                </NuxtLink>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -201,12 +224,6 @@ usePageSeo({
 <style scoped>
 .page { max-width: 1100px; }
 .intro { margin-bottom: 16px; }
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
-}
 .lead { margin: 0; color: var(--text-secondary); font-size: 15px; max-width: 60ch; }
 .picker { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .select {
@@ -239,5 +256,42 @@ usePageSeo({
   color: var(--text-secondary);
   font-weight: 650;
   background: var(--bg-elev-1);
+}
+.num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.num.gold { color: var(--accent-gold); }
+.num.amber { color: var(--accent-amber); }
+.score-cell {
+  display: grid;
+  gap: 4px;
+  min-width: 72px;
+}
+.mini-track {
+  display: block;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--bg-elev-3);
+  overflow: hidden;
+}
+.mini-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+.mini-fill.gold { background: var(--accent-gold); }
+.mini-fill.amber { background: var(--accent-amber); }
+.cell-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 110px;
+}
+.cell-actions .btn,
+.cell-actions :deep(.btn) {
+  width: 100%;
+  justify-content: center;
 }
 </style>

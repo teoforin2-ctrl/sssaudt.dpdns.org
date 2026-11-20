@@ -42,24 +42,30 @@ function rankClass(rank: number) {
 
 const place = computed(() => props.casino.displayRank ?? props.casino.rank);
 
+/** Max 2 badges — prefer HOT, then NEW; Representative → checkmark by name. */
 const badges = computed(() => {
   const out: { tone: "top" | "hot" | "new" | "rep"; label: string }[] = [];
-  if (props.casino.top) out.push({ tone: "top", label: t("home.top") });
   if (props.casino.hot) out.push({ tone: "hot", label: t("home.hot") });
-  if (props.casino.hasRepresentative) out.push({ tone: "rep", label: t("card.rep") });
-  if (props.casino.isNew) out.push({ tone: "new", label: t("home.new") });
+  else if (props.casino.top) out.push({ tone: "top", label: t("home.top") });
+  if (props.casino.isNew && out.length < 2) out.push({ tone: "new", label: t("home.new") });
   return out.slice(0, 2);
 });
 
-const editorial = computed(() =>
-  (props.casino.editorialScore ?? props.casino.rating).toFixed(1),
+/** Editorial + player scores are 0–5 (JSON-LD bestRating: 5). */
+const SCORE_MAX = 5;
+const editorialScore = computed(() => props.casino.editorialScore ?? props.casino.rating);
+const editorial = computed(() => editorialScore.value.toFixed(1));
+const editorialPct = computed(() =>
+  Math.min(100, Math.max(0, (editorialScore.value / SCORE_MAX) * 100)),
 );
 
-const playersLabel = computed(() => {
-  const n = props.casino.reviewCount ?? 0;
-  if (n < 5 || props.casino.playerScore == null) return null;
-  return t("home.row.players", { n, score: props.casino.playerScore.toFixed(1) });
-});
+const playerScore = computed(() => props.casino.playerScore);
+const playerPct = computed(() =>
+  playerScore.value == null
+    ? 0
+    : Math.min(100, Math.max(0, (playerScore.value / SCORE_MAX) * 100)),
+);
+const showPlayers = computed(() => (props.casino.reviewCount ?? 0) >= 5 && playerScore.value != null);
 
 const wager = computed(() => formatWager(props.casino.bonusWager));
 const wagerToneVal = computed(() => wagerTone(props.casino.bonusWager));
@@ -81,17 +87,48 @@ const checkedLabel = computed(() => formatDate(props.casino.bonusCheckedAt, loca
       <CasinoLogo :name="casino.name" :src="casino.logoUrl" variant="v2" />
     </NuxtLink>
     <div class="main">
-      <NuxtLink class="name" :to="localePath(`/casino/${casino.slug}`)">
-        {{ displayName(casino.name) }}
-      </NuxtLink>
-      <div class="meta">
+      <div class="name-row">
+        <NuxtLink class="name" :to="localePath(`/casino/${casino.slug}`)">
+          {{ displayName(casino.name) }}
+          <svg
+            v-if="casino.hasRepresentative"
+            class="verified"
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            :aria-label="t('card.rep')"
+          >
+            <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </NuxtLink>
         <PublicBadge v-for="b in badges" :key="b.tone + b.label" :tone="b.tone">{{ b.label }}</PublicBadge>
-        <UiRatingStars :value="casino.rating" size="sm" animate />
-        <span class="score-pill tabular-nums">{{ casino.rating.toFixed(1) }}</span>
-        <span class="rating-line">
-          <span>{{ t("home.row.editorial", { score: editorial }) }}</span>
-          <span v-if="playersLabel"> · {{ playersLabel }}</span>
-        </span>
+      </div>
+      <div class="bars" aria-label="ratings">
+        <div class="rbar">
+          <div class="lbl">
+            <span>{{ t("home.row.editorialShort") }}</span>
+            <span class="val ed tabular-nums">{{ editorial }}<small>/5</small></span>
+          </div>
+          <div class="track">
+            <UiRatingBarFill tone="ed" :pct="editorialPct" :index="0" />
+          </div>
+        </div>
+        <div v-if="showPlayers" class="rbar">
+          <div class="lbl">
+            <span>{{ t("home.row.playersShort", { n: casino.reviewCount, score: playerScore!.toFixed(1) }) }}</span>
+            <span class="val pl tabular-nums">{{ playerScore!.toFixed(1) }}<small>/5</small></span>
+          </div>
+          <div class="track">
+            <UiRatingBarFill tone="pl" :pct="playerPct" :index="1" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="offer">
@@ -123,13 +160,6 @@ const checkedLabel = computed(() => formatDate(props.casino.bonusCheckedAt, loca
       </div>
     </div>
     <div class="actions">
-      <NuxtLink
-        class="btn btn-ghost btn-sm"
-        data-track="cta_review"
-        :to="localePath(`/casino/${casino.slug}`)"
-      >
-        {{ t("home.review") }} →
-      </NuxtLink>
       <UiButton
         variant="primary"
         size="sm"
@@ -139,6 +169,13 @@ const checkedLabel = computed(() => formatDate(props.casino.bonusCheckedAt, loca
       >
         {{ t("home.play") }}
       </UiButton>
+      <NuxtLink
+        class="btn btn-ghost btn-sm review-link"
+        data-track="cta_review"
+        :to="localePath(`/casino/${casino.slug}`)"
+      >
+        {{ t("home.review") }}
+      </NuxtLink>
     </div>
   </article>
 </template>
@@ -177,9 +214,17 @@ const checkedLabel = computed(() => formatDate(props.casino.bonusCheckedAt, loca
 .main {
   min-width: 0;
 }
+.name-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin-bottom: 8px;
+}
 .name {
-  display: inline-block;
-  margin: 0 0 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-weight: 750;
   font-size: 15px;
   color: var(--text-primary);
@@ -188,20 +233,44 @@ const checkedLabel = computed(() => formatDate(props.casino.bonusCheckedAt, loca
 .name:hover {
   color: var(--accent-cta);
 }
-.meta {
+.verified {
+  color: var(--accent-cta);
+  flex-shrink: 0;
+}
+.bars {
+  display: grid;
+  gap: 6px;
+  max-width: 280px;
+}
+.rbar .lbl {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 8px;
-  align-items: center;
-}
-.score-pill {
-  font-weight: 800;
-  font-size: 12px;
-  color: var(--accent-gold);
-}
-.rating-line {
-  font-size: 12px;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
   color: var(--text-secondary);
+  margin-bottom: 3px;
+}
+.rbar .val {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+}
+.rbar .val small {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  margin-left: 1px;
+}
+.rbar .val.ed { color: var(--accent-gold); }
+.rbar .val.pl { color: var(--accent-amber); }
+.track {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--bg-elev-3);
+  overflow: hidden;
+}
+.review-link {
+  color: var(--text-secondary) !important;
 }
 .offer {
   font-size: 13.5px;

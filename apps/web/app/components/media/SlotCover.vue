@@ -14,27 +14,7 @@ const props = withDefaults(
   { set: "slots", eager: false },
 );
 
-/** Real PNGs shipped under /img/automats|slots — API slugs rarely match filenames. */
-const PLACEHOLDER_COVERS = [
-  "berry-cascade",
-  "cactus-gold",
-  "candy-orbit",
-  "comet-chest",
-  "frost-nets",
-  "jelly-storm",
-  "koi-lantern",
-  "myth-spark",
-  "neon-mango",
-  "olympus-bolt",
-  "reef-hook",
-  "ringed-planet",
-  "sand-oracle",
-  "solar-scarab",
-  "tome-of-runes",
-  "vault-raid",
-] as const;
-
-/** Deterministic hash — hydration-safe fallback art. */
+/** Deterministic hash — hydration-safe unique SVG fallback. */
 function hash(s: string) {
   let h = 2166136261;
   for (let i = 0; i < s.length; i++) {
@@ -44,13 +24,10 @@ function hash(s: string) {
   return h >>> 0;
 }
 
+/** Only real cover URLs — missing art uses unique SVG (avoids duplicate PNG look). */
 const imgSrc = computed(() => {
-  if (props.src) return props.src;
-  const key = props.slug || props.title;
-  if (!key) return null;
-  // Prefer explicit cover URL later; until then map slug → existing placeholder (no 404 spam).
-  const name = PLACEHOLDER_COVERS[hash(key) % PLACEHOLDER_COVERS.length]!;
-  return `/img/${props.set}/${name}.png`;
+  const src = props.src?.trim();
+  return src || null;
 });
 
 const broken = ref(false);
@@ -67,7 +44,7 @@ const useImg = computed(() => !!activeSrc.value && !broken.value);
 
 const palettes: Record<string, { a: string; b: string; c: string; glow: string }> = {
   egypt: { a: "#1a0610", b: "#6a1430", c: "#ff4d8d", glow: "rgba(255,77,141,.45)" },
-  fruits: { a: "#120818", b: "#5a1240", c: "#ff6bnb", glow: "rgba(255,90,160,.4)" },
+  fruits: { a: "#120818", b: "#5a1240", c: "#ff6bb0", glow: "rgba(255,90,160,.4)" },
   fishing: { a: "#080818", b: "#3a145a", c: "#ff4db8", glow: "rgba(255,77,184,.4)" },
   mythology: { a: "#12061a", b: "#4a0a4a", c: "#d24dff", glow: "rgba(210,77,255,.4)" },
   sweets: { a: "#1a0614", b: "#7a1448", c: "#ff5eb0", glow: "rgba(255,94,176,.45)" },
@@ -78,11 +55,21 @@ const palettes: Record<string, { a: string; b: string; c: string; glow: string }
   treasure: { a: "#140810", b: "#5a1830", c: "#ff5a9a", glow: "rgba(255,90,154,.5)" },
 };
 
-const pal = computed(() => {
-  const p = palettes[theme.value] || palettes.treasure!;
-  // fix typo fruits c if any
-  return p.c.includes("ff6bnb") ? { ...p, c: "#ff6bb0" } : p;
+const pal = computed(() => palettes[theme.value] || palettes.treasure!);
+
+/** Short label unique per title — avoids “same art for different slots” look. */
+const shortTitle = computed(() => {
+  const raw = (props.title || props.slug || "SLOT").trim();
+  return raw.length > 18 ? `${raw.slice(0, 16)}…` : raw;
 });
+const initials = computed(() =>
+  (props.title || props.slug || "S")
+    .split(/[\s\-_/]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p[0]!.toUpperCase())
+    .join(""),
+);
 
 const stars = computed(() => {
   const n = 8 + (seed.value % 7);
@@ -137,7 +124,26 @@ const stars = computed(() => {
       <rect width="200" height="250" rx="16" :fill="`url(#${uid}-bg)`" />
       <rect width="200" height="250" rx="16" :fill="`url(#${uid}-glow)`" />
       <circle v-for="(s, i) in stars" :key="i" :cx="s.cx" :cy="s.cy" :r="s.r" fill="var(--c)" :opacity="s.o" />
-      <circle cx="100" cy="100" r="42" fill="rgba(255,77,141,.2)" stroke="var(--c)" stroke-width="2" />
+      <circle cx="100" cy="88" r="36" fill="rgba(0,0,0,.28)" stroke="var(--c)" stroke-width="2" />
+      <text
+        x="100"
+        y="96"
+        text-anchor="middle"
+        fill="#fff"
+        font-family="Unbounded, system-ui, sans-serif"
+        font-size="22"
+        font-weight="700"
+      >{{ initials }}</text>
+      <text
+        x="100"
+        y="210"
+        text-anchor="middle"
+        fill="#fff"
+        font-family="Figtree, system-ui, sans-serif"
+        font-size="11"
+        font-weight="700"
+        opacity="0.92"
+      >{{ shortTitle }}</text>
     </svg>
 
     <span v-if="rtp != null" class="rtp">RTP {{ rtp.toFixed(1) }}%</span>

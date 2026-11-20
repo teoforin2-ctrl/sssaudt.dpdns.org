@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Star } from "lucide-vue-next";
+
 const props = withDefaults(
   defineProps<{
     modelValue?: number;
@@ -20,6 +22,7 @@ const display = computed(() =>
 );
 
 const full = computed(() => Math.max(0, Math.min(5, Math.round(Number(display.value) || 0))));
+const iconSize = computed(() => (props.size === "sm" ? 13 : 16));
 
 function pick(n: number) {
   if (!props.interactive) return;
@@ -75,7 +78,12 @@ onBeforeUnmount(() => {
       :disabled="!interactive"
       @click="pick(n)"
     >
-      ★
+      <Star
+        :size="iconSize"
+        :stroke-width="2"
+        :fill="n <= full ? 'currentColor' : 'none'"
+        aria-hidden="true"
+      />
     </button>
   </div>
 </template>
@@ -94,6 +102,8 @@ onBeforeUnmount(() => {
   opacity: 0.22;
   line-height: 1;
   cursor: default;
+  display: grid;
+  place-items: center;
 }
 .stars.static .star.on,
 .stars.lit .star.on {
@@ -117,12 +127,6 @@ onBeforeUnmount(() => {
     opacity: 1;
     transform: none;
   }
-}
-.sm .star {
-  font-size: 13px;
-}
-.md .star {
-  font-size: 16px;
 }
 .interactive .star {
   cursor: pointer;

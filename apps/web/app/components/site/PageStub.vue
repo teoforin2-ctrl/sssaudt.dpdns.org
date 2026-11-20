@@ -50,13 +50,6 @@ useHead(() => ({ title: `${heading.value}` }));
   color: var(--text-tertiary);
   font-weight: 700;
 }
-.page-title {
-  margin: 0 0 12px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-}
 .lead {
   margin: 0 0 24px;
   color: var(--text-secondary);

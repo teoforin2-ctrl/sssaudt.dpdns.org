@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
+
 defineProps<{
   topics: {
     slug: string;
@@ -35,7 +37,10 @@ function ago(iso?: string) {
           <p class="eyebrow">{{ t("home.forum.eyebrow") }}</p>
           <h2 id="home-forum-title">{{ t("home.forum.title") }}</h2>
         </div>
-        <NuxtLink class="all" :to="localePath('/forum')">{{ t("home.forum.all") }}</NuxtLink>
+        <NuxtLink class="all" :to="localePath('/forum')">
+          {{ t("home.forum.all") }}
+          <ArrowRight :size="14" :stroke-width="2" aria-hidden="true" />
+        </NuxtLink>
       </div>
       <div class="list">
         <NuxtLink
@@ -55,7 +60,9 @@ function ago(iso?: string) {
               </template>
             </span>
           </div>
-          <span class="arrow" aria-hidden="true">→</span>
+          <span class="arrow" aria-hidden="true">
+            <ArrowRight :size="16" :stroke-width="2" />
+          </span>
         </NuxtLink>
       </div>
     </div>
@@ -122,6 +129,9 @@ h2 {
   color: var(--text-primary);
 }
 .all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   flex: 0 0 auto;
   font-size: 13px;
   font-weight: 750;
@@ -169,6 +179,8 @@ strong {
 }
 .arrow {
   color: var(--accent-cta);
-  font-weight: 800;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
 }
 </style>

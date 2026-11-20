@@ -342,9 +342,27 @@ const homeH1 = computed(() => seoPick("h1", t("home.title")));
 
     <header class="intro">
       <div>
-        <p class="eyebrow">{{ t("home.eyebrow") }}</p>
+        <div class="intro-pills">
+          <span class="pill pill-green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            {{ t("home.eyebrow") }}
+          </span>
+          <span class="pill pill-plain">{{ t("home.stats.updated") }} · {{ updatedLabel }}</span>
+        </div>
         <h1 class="page-title">{{ homeH1 }}</h1>
         <p class="lead">{{ t("home.lead") }}</p>
+        <div class="intro-cta">
+          <a class="btn btn-primary" href="#listing" data-track="hero_cta_top">
+            {{ t("home.cta.top") }}
+          </a>
+          <NuxtLink
+            class="btn btn-ghost"
+            :to="localePath('/methodology')"
+            data-track="hero_cta_method"
+          >
+            {{ t("home.cta.method") }}
+          </NuxtLink>
+        </div>
       </div>
     </header>
 
@@ -366,6 +384,9 @@ const homeH1 = computed(() => seoPick("h1", t("home.title")));
 
     <div v-if="flags.listing || flags.aside" id="listing" class="listing-scope">
       <div v-if="flags.listing" class="listing-help">
+        <p class="geo-hint" aria-live="polite">
+          {{ t("home.geo.hint", { lang: t(`lang.${locale}`), currency: t("home.geo.currency") }) }}
+        </p>
         <details class="rating-help">
           <summary>{{ t("home.method.help") }}</summary>
           <div class="rating-help-body">
@@ -447,7 +468,7 @@ const homeH1 = computed(() => seoPick("h1", t("home.title")));
             <CasinoTile v-for="c in visibleItems" :key="c.id" :casino="c" />
           </div>
           <div v-else class="listing">
-            <CasinoRow v-for="c in visibleItems" :key="c.id" :casino="c" />
+            <PublicCasinoRow v-for="c in visibleItems" :key="c.id" :casino="c" />
           </div>
           <div v-if="!pending && !error && items.length" class="more-wrap">
             <UiButton
@@ -572,10 +593,12 @@ const homeH1 = computed(() => seoPick("h1", t("home.title")));
       </div>
 
       <section v-if="flags.trust || flags.expert" class="home-band trust-sec">
-        <SectionHeader v-if="flags.trust" :title="t('home.trust.title')" />
-        <div class="expert-row">
-          <ExpertBlock v-if="flags.expert && homeExpert" :expert="homeExpert as any" />
-          <TrustGrid v-if="flags.trust" />
+        <div class="panel trust-band">
+          <h2 class="trust-title">{{ t("home.trust.title") }}</h2>
+          <div class="expert-row">
+            <ExpertBlock v-if="flags.expert && homeExpert" :expert="homeExpert as any" />
+            <TrustGrid v-if="flags.trust" />
+          </div>
         </div>
       </section>
 
@@ -624,22 +647,70 @@ const homeH1 = computed(() => seoPick("h1", t("home.title")));
   border-radius: 8px;
 }
 .intro {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+}
+.intro-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+}
+.pill-green {
+  border: 1px solid color-mix(in srgb, var(--accent-cta) 35%, transparent);
+  background: var(--accent-cta-soft);
+  color: var(--accent-cta);
+  text-transform: uppercase;
+}
+.pill-plain {
+  border: 1px solid var(--border-default);
+  background: var(--bg-elev-1);
+  color: var(--text-secondary);
 }
 .lead {
   margin: 0;
   max-width: 62ch;
   color: var(--text-secondary);
   font-size: 15px;
-  line-height: 1.45;
+  line-height: 1.6;
+}
+.intro-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.intro :deep(.page-title) {
+  margin-top: 0;
+}
+.intro :deep(.eyebrow) {
+  display: none;
 }
 .listing-scope {
   position: relative;
 }
 .listing-help {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
   margin: 0 0 8px;
+}
+.geo-hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 .rating-help {
   position: relative;
@@ -870,8 +941,9 @@ const homeH1 = computed(() => seoPick("h1", t("home.title")));
   }
 }
 .cv-auto {
+  /* Avoid huge empty reserved height for crawlers/print (audit w2-cvis). */
   content-visibility: auto;
-  contain-intrinsic-size: 1px 2400px;
+  contain-intrinsic-size: auto 320px;
 }
 .home-stack {
 
@@ -881,7 +953,7 @@ const homeH1 = computed(() => seoPick("h1", t("home.title")));
 .home-band {
   margin-top: 56px;
   content-visibility: auto;
-  contain-intrinsic-size: 800px;
+  contain-intrinsic-size: auto 280px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .home-band {
@@ -949,9 +1021,22 @@ const homeH1 = computed(() => seoPick("h1", t("home.title")));
   grid-template-columns: 1fr 1fr;
   gap: 28px 20px;
 }
+.trust-band {
+  padding: 22px;
+  display: grid;
+  gap: 18px;
+}
+.trust-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.8vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
 .expert-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 16px;
   align-items: stretch;
 }

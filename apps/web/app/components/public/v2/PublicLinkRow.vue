@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
+
 export type LinkItem = { to: string; label: string; primary?: boolean };
 
 defineProps<{ links: LinkItem[] }>();
@@ -14,7 +16,7 @@ defineProps<{ links: LinkItem[] }>();
       :class="{ primary: link.primary }"
     >
       {{ link.label }}
-      <span aria-hidden="true">→</span>
+      <ArrowRight :size="14" :stroke-width="2" aria-hidden="true" />
     </NuxtLink>
   </div>
 </template>

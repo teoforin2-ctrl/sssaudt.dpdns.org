@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
+
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
@@ -115,7 +117,8 @@ usePageSeo({
       </div>
       <p class="meta">
         {{ data.progress.intoLevel }} / {{ data.progress.nextLevelXp }} XP
-        → {{ t("progress.level") }} {{ data.progress.level + 1 }}
+        <ArrowRight :size="13" :stroke-width="2" aria-hidden="true" />
+        {{ t("progress.level") }} {{ data.progress.level + 1 }}
       </p>
 
       <h2>{{ t("progress.achievements") }}</h2>
@@ -156,12 +159,8 @@ usePageSeo({
 
 <style scoped>
 .page { max-width: 720px; }
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-}
 .lead, .hint, .meta { color: var(--text-secondary); font-size: 14px; }
+.meta { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .card.stats {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
   padding: 16px; border-radius: 14px; border: 1px solid var(--border-default);

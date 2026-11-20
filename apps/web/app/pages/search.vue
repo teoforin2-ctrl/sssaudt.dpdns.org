@@ -131,11 +131,6 @@ usePageSeo({
 .page {
   max-width: 860px;
 }
-.page-title {
-  margin: 0 0 16px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 36px);
-}
 .bar {
   display: flex;
   gap: 10px;

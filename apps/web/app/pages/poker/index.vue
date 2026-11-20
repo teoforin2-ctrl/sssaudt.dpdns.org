@@ -84,12 +84,6 @@ useHead(() => ({
 .intro {
   margin-bottom: 18px;
 }
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
-}
 .lead,
 .tagline,
 .bonus {

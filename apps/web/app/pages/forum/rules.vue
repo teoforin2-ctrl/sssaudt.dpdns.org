@@ -39,12 +39,6 @@ useHead(() => ({
   color: var(--accent-cta);
   font-weight: 750;
 }
-.page-title {
-  margin: 0 0 12px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
-}
 .lead {
   margin: 0 0 18px;
   color: var(--text-secondary);

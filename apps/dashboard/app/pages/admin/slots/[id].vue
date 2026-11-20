@@ -20,6 +20,7 @@ interface Slot {
   release_date: string | null
   description_ru: string | null
   description_en: string | null
+  ai_processed_at?: string | null
 }
 
 interface Provider {
@@ -148,6 +149,28 @@ async function save() {
   }
 }
 
+const aiBusy = ref(false)
+const aiMsg = ref<string | null>(null)
+
+async function queueAiProcess() {
+  aiBusy.value = true
+  aiMsg.value = null
+  try {
+    const res = await api<{ item: { status: string } }>('/v1/admin/ai/jobs', {
+      method: 'POST',
+      body: { contentType: 'slot', contentId: id.value, action: 'process' },
+    })
+    aiMsg.value = `Задача ИИ создана (${res.item.status})`
+  }
+  catch (err: unknown) {
+    const e = err as { data?: { error?: string }, message?: string }
+    aiMsg.value = e?.data?.error || e?.message || 'Не удалось поставить в очередь'
+  }
+  finally {
+    aiBusy.value = false
+  }
+}
+
 async function removeSlot() {
   deleting.value = true
   try {
@@ -171,10 +194,26 @@ async function removeSlot() {
       <h1 class="text-2xl font-bold tracking-tight">
         {{ form.title || 'Слот' }}
       </h1>
-      <div class="ml-auto">
+      <Badge
+        v-if="data?.item?.ai_processed_at"
+        variant="outline"
+        class="border-violet-500/40 bg-violet-500/10 text-[10px] font-semibold uppercase tracking-wide text-violet-700 dark:text-violet-300"
+      >
+        ИИ
+      </Badge>
+      <div class="ml-auto flex flex-wrap items-center gap-2">
+        <Button size="sm" variant="outline" :disabled="aiBusy || pending" @click="queueAiProcess">
+          {{ aiBusy ? 'В очередь…' : 'Обработать ИИ' }}
+        </Button>
         <AdminSectionHelp section="slots-edit" />
       </div>
     </div>
+    <p v-if="aiMsg" class="text-sm text-muted-foreground">
+      {{ aiMsg }}
+      <NuxtLink to="/admin/ai" class="ml-2 underline underline-offset-2">
+        очередь ИИ
+      </NuxtLink>
+    </p>
 
     <AdminFormSkeleton v-if="pending && !data" />
     <p v-else-if="error" class="text-sm text-destructive">

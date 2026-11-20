@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowLeft } from "lucide-vue-next";
+
 const config = useRuntimeConfig();
 const route = useRoute();
 const { locale, t } = useI18n();
@@ -76,7 +78,8 @@ useJsonLd(() => ({
 <template>
   <section class="page">
     <NuxtLink class="back" :to="localePath(`/casino/${slug}`)">
-      ← {{ t("catalog.reviewsPage.back") }}
+      <ArrowLeft :size="14" :stroke-width="2" aria-hidden="true" />
+      {{ t("catalog.reviewsPage.back") }}
     </NuxtLink>
     <header class="intro">
       <h1 class="page-title">{{ t("catalog.reviewsPage.title", { name: casinoName }) }}</h1>
@@ -127,18 +130,14 @@ useJsonLd(() => ({
 <style scoped>
 .page { max-width: 820px; }
 .back {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin-bottom: 12px;
   font-size: 14px;
   color: var(--text-secondary);
 }
 .intro { margin-bottom: 18px; }
-.page-title {
-  margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: clamp(26px, 3vw, 36px);
-  letter-spacing: -0.03em;
-}
 .lead { margin: 0; color: var(--text-secondary); font-size: 15px; }
 .count { margin: 8px 0 0; font-size: 13px; color: var(--text-tertiary); }
 .list { display: grid; gap: 12px; }

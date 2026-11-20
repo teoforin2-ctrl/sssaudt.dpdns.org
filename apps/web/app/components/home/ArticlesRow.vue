@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
+
 defineProps<{
   articles: {
     slug: string;
@@ -37,7 +39,10 @@ const localePath = useLocalePath();
           <NuxtLink class="name-link" :to="localePath(`/articles/${a.slug}`)">{{ a.title }}</NuxtLink>
         </h3>
         <p class="ex">{{ a.excerpt }}</p>
-        <NuxtLink :to="localePath(`/articles/${a.slug}`)">{{ t("home.articles.read") }}</NuxtLink>
+        <NuxtLink class="read" :to="localePath(`/articles/${a.slug}`)">
+          {{ t("home.articles.read") }}
+          <ArrowRight :size="14" :stroke-width="2" aria-hidden="true" />
+        </NuxtLink>
       </article>
     </div>
   </section>
@@ -87,7 +92,11 @@ h3 {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-a {
+a,
+.read {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13px;
   font-weight: 750;
   color: var(--accent-cta);

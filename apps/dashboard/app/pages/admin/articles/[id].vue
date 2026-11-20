@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ARTICLE_KIND_OPTIONS } from '~/constants/article-kinds'
+
 definePageMeta({ layout: 'default' })
 
 const { api } = useApi()
@@ -32,6 +34,9 @@ interface Article {
   reading_minutes: number
   cover_theme: string
   cover_url: string | null
+  ai_processed_at?: string | null
+  ai_source_locale?: string | null
+  ai_model?: string | null
 }
 
 const { data, pending, error, refresh } = await useAsyncData(
@@ -66,7 +71,7 @@ const form = reactive({
   body_md_ru: '',
   body_md_en: '',
   status: 'published',
-  kind: 'guide',
+  kind: 'slot-cards',
   topic: '',
   cover_theme: 'guide',
   cover_url: '',
@@ -187,6 +192,27 @@ async function save() {
 }
 
 const deleting = ref(false)
+const aiBusy = ref(false)
+const aiMsg = ref<string | null>(null)
+
+async function queueAiProcess() {
+  aiBusy.value = true
+  aiMsg.value = null
+  try {
+    const res = await api<{ item: { id: string, status: string } }>('/v1/admin/ai/jobs', {
+      method: 'POST',
+      body: { contentType: 'article', contentId: id.value, action: 'process' },
+    })
+    aiMsg.value = `Задача ИИ создана (${res.item.status})`
+  }
+  catch (err: unknown) {
+    const e = err as { data?: { error?: string }, message?: string }
+    aiMsg.value = e?.data?.error || e?.message || 'Не удалось поставить в очередь'
+  }
+  finally {
+    aiBusy.value = false
+  }
+}
 
 async function removeArticle() {
   deleting.value = true
@@ -202,7 +228,7 @@ async function removeArticle() {
 
 <template>
   <div class="space-y-4 max-w-5xl">
-    <div class="flex items-center gap-3">
+    <div class="flex flex-wrap items-center gap-3">
       <Button as-child variant="ghost" size="sm">
         <NuxtLink to="/admin/articles">
           ← Статьи
@@ -211,10 +237,27 @@ async function removeArticle() {
       <h1 class="text-2xl font-bold">
         {{ form.title_ru || 'Статья' }}
       </h1>
-      <div class="ml-auto">
+      <Badge
+        v-if="data?.item?.ai_processed_at"
+        variant="outline"
+        class="border-violet-500/40 bg-violet-500/10 text-[10px] font-semibold uppercase tracking-wide text-violet-700 dark:text-violet-300"
+        :title="`${data.item.ai_model || ''} · ${data.item.ai_source_locale || ''}`"
+      >
+        ИИ · {{ new Date(data.item.ai_processed_at).toLocaleDateString('ru-RU') }}
+      </Badge>
+      <div class="ml-auto flex flex-wrap items-center gap-2">
+        <Button size="sm" variant="outline" :disabled="aiBusy || pending" @click="queueAiProcess">
+          {{ aiBusy ? 'В очередь…' : 'Обработать ИИ' }}
+        </Button>
         <AdminSectionHelp section="articles-edit" />
       </div>
     </div>
+    <p v-if="aiMsg" class="text-sm text-muted-foreground">
+      {{ aiMsg }}
+      <NuxtLink to="/admin/ai" class="ml-2 underline underline-offset-2">
+        очередь ИИ
+      </NuxtLink>
+    </p>
 
     <AdminFormSkeleton v-if="pending && !data" :fields="5" />
     <p v-else-if="error" class="text-sm text-destructive">
@@ -239,14 +282,10 @@ async function removeArticle() {
           />
         </div>
         <div class="grid gap-2">
-          <Label>Kind</Label>
+          <Label>Категория</Label>
           <AdminSelect
             v-model="form.kind"
-            :options="[
-              { value: 'guide', label: 'guide' },
-              { value: 'news', label: 'news' },
-              { value: 'analytics', label: 'analytics' },
-            ]"
+            :options="[...ARTICLE_KIND_OPTIONS]"
           />
         </div>
         <div class="grid gap-2">

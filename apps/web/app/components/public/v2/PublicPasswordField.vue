@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Eye, EyeOff } from "lucide-vue-next";
+
 const model = defineModel<string>({ required: true });
 
 const props = withDefaults(
@@ -36,7 +38,8 @@ function onKey(e: KeyboardEvent) {
         @keyup="onKey"
       >
       <button type="button" class="tog" :aria-label="show ? 'Hide' : 'Show'" @click="show = !show">
-        {{ show ? "🙈" : "👁" }}
+        <EyeOff v-if="show" :size="18" :stroke-width="2" aria-hidden="true" />
+        <Eye v-else :size="18" :stroke-width="2" aria-hidden="true" />
       </button>
     </div>
     <small v-if="hint" class="hint">{{ hint }}</small>
@@ -75,7 +78,13 @@ input {
   border: 0;
   border-radius: 10px;
   background: transparent;
+  color: var(--text-tertiary);
+  display: grid;
+  place-items: center;
   cursor: pointer;
+}
+.tog:hover {
+  color: var(--text-primary);
 }
 .hint,
 .caps {

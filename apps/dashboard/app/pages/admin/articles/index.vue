@@ -6,6 +6,10 @@ import {
   Plus,
   Search,
 } from 'lucide-vue-next'
+import {
+  ARTICLE_KIND_FILTER_OPTIONS,
+  DEFAULT_ARTICLE_KIND,
+} from '~/constants/article-kinds'
 
 definePageMeta({ layout: 'default' })
 
@@ -51,6 +55,9 @@ interface Row {
   updated_at: string
   cover_url: string | null
   reading_minutes: number | null
+  ai_processed_at?: string | null
+  ai_source_locale?: string | null
+  ai_model?: string | null
 }
 
 interface ListRes {
@@ -110,7 +117,7 @@ const kpiCards = computed(() => {
     {
       label: 'Типы',
       value: s?.byKind?.length ?? 0,
-      hint: (s?.byKind || []).map(k => `${k.name}:${k.value}`).join(' · ') || '—',
+      hint: (s?.byKind || []).map((k: { name: string, value: number }) => `${k.name}:${k.value}`).join(' · ') || '—',
       tone: 'cyan' as AdminTone,
       icon: FileText,
     },
@@ -120,8 +127,12 @@ const kpiCards = computed(() => {
 function kindClass(kind: string) {
   if (kind === 'news')
     return 'border-cyan-500/40 text-cyan-700 dark:text-cyan-400'
-  if (kind === 'analytics')
+  if (kind === 'analytics' || kind === 'glossary')
     return 'border-violet-500/40 text-violet-700 dark:text-violet-400'
+  if (kind === 'collections' || kind === 'slot-cards')
+    return 'border-amber-500/40 text-amber-700 dark:text-amber-400'
+  if (kind === 'providers' || kind === 'mechanics-guides')
+    return 'border-sky-500/40 text-sky-700 dark:text-sky-400'
   return 'border-emerald-500/40 text-emerald-700 dark:text-emerald-400'
 }
 
@@ -139,7 +150,7 @@ async function createArticle() {
         slug: `article-${stamp}`,
         title_ru: 'Новая статья',
         title_en: 'New article',
-        kind: 'guide',
+        kind: DEFAULT_ARTICLE_KIND,
         status: 'draft',
         excerpt_ru: '',
         excerpt_en: '',
@@ -251,14 +262,9 @@ async function removeArticle(id: string) {
       </div>
       <AdminSelect
         v-model="kindFilter"
-        class="w-[150px]"
+        class="w-[220px]"
         size="sm"
-        :options="[
-          { value: 'all', label: 'Все типы' },
-          { value: 'guide', label: 'guide' },
-          { value: 'news', label: 'news' },
-          { value: 'analytics', label: 'analytics' },
-        ]"
+        :options="[...ARTICLE_KIND_FILTER_OPTIONS]"
       />
     </div>
 
@@ -306,8 +312,18 @@ async function removeArticle(id: string) {
                   <FileText v-else class="size-4 text-muted-foreground" />
                 </div>
                 <div class="min-w-0">
-                  <div class="truncate font-medium">
-                    {{ row.title_ru }}
+                  <div class="flex items-center gap-2">
+                    <div class="truncate font-medium">
+                      {{ row.title_ru }}
+                    </div>
+                    <Badge
+                      v-if="row.ai_processed_at"
+                      variant="outline"
+                      class="shrink-0 border-violet-500/40 bg-violet-500/10 px-1.5 text-[10px] font-semibold uppercase tracking-wide text-violet-700 dark:text-violet-300"
+                      :title="`ИИ · ${row.ai_model || 'model'} · ${row.ai_source_locale || '?'} · ${new Date(row.ai_processed_at).toLocaleString('ru-RU')}`"
+                    >
+                      ИИ
+                    </Badge>
                   </div>
                   <div class="font-mono text-xs text-muted-foreground">
                     {{ row.slug }}

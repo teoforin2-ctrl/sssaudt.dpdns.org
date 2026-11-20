@@ -1254,7 +1254,7 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
     const lim = `$${params.length - 1}`;
     const off = `$${params.length}`;
     const countParams = params.slice(0, -2);
-    const [{ rows: countRows }, { rows }, summaryRes] = await Promise.all([
+    const [{ rows: countRows }, { rows }, summaryRes, byKindRes] = await Promise.all([
       pool.query<{ n: string }>(
         `select count(*)::text as n from articles a where ${where}`,
         countParams,
@@ -1262,7 +1262,8 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
       pool.query(
         `
         select a.id, a.slug, a.kind, a.title_ru, a.title_en, a.status,
-               a.published_at, a.updated_at, a.reading_minutes, a.cover_url
+               a.published_at, a.updated_at, a.reading_minutes, a.cover_url,
+               a.ai_processed_at, a.ai_source_locale, a.ai_model
         from articles a
         where ${where}
         order by a.updated_at desc
@@ -1274,19 +1275,19 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
         total: string
         published: string
         draft: string
-        guide: string
-        news: string
-        analytics: string
       }>(`
         select
           count(*)::text as total,
           count(*) filter (where status = 'published')::text as published,
-          count(*) filter (where status = 'draft')::text as draft,
-          count(*) filter (where kind = 'guide')::text as guide,
-          count(*) filter (where kind = 'news')::text as news,
-          count(*) filter (where kind = 'analytics')::text as analytics
+          count(*) filter (where status = 'draft')::text as draft
         from articles
-      `).catch(() => ({ rows: [] as any[] })),
+      `).catch(() => ({ rows: [] as { total: string; published: string; draft: string }[] })),
+      pool.query<{ kind: string; n: string }>(`
+        select kind, count(*)::text as n
+        from articles
+        group by kind
+        order by count(*) desc, kind asc
+      `).catch(() => ({ rows: [] as { kind: string; n: string }[] })),
     ]);
     const s = summaryRes.rows[0];
     return {
@@ -1298,11 +1299,9 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
         total: Number(s?.total ?? 0),
         published: Number(s?.published ?? 0),
         draft: Number(s?.draft ?? 0),
-        byKind: [
-          { name: 'guide', value: Number(s?.guide ?? 0) },
-          { name: 'news', value: Number(s?.news ?? 0) },
-          { name: 'analytics', value: Number(s?.analytics ?? 0) },
-        ].filter(i => i.value > 0),
+        byKind: byKindRes.rows
+          .map((r) => ({ name: r.kind, value: Number(r.n) }))
+          .filter((i) => i.value > 0),
       },
     };
   });
@@ -1327,7 +1326,7 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
         body_md_ru: z.string().max(200000).nullable().optional(),
         body_md_en: z.string().max(200000).nullable().optional(),
         status: z.enum(["draft", "published", "hidden"]).default("draft"),
-        kind: z.string().max(80).default("guide"),
+        kind: z.string().max(80).default("slot-cards"),
         topic: z.string().max(120).nullable().optional(),
         cover_theme: z.string().max(80).optional(),
         cover_url: z.string().max(1000).nullable().optional(),

@@ -1,3 +1,4 @@
+import type { RouteLocationNormalized } from 'vue-router'
 import { isEditorAdminPathAllowed } from '~/constants/editor-access'
 
 const PUBLIC_PREFIXES = [
@@ -13,7 +14,7 @@ const PUBLIC_PREFIXES = [
   '/503',
 ]
 
-export default defineNuxtRouteMiddleware(async (to) => {
+export default defineNuxtRouteMiddleware(async (to: RouteLocationNormalized) => {
   if (!import.meta.client)
     return
 
@@ -53,7 +54,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
       if (role !== 'admin' && role !== 'developer')
         return navigateTo('/403')
     }
-    if (to.path.startsWith('/admin/branding') || to.path.startsWith('/admin/glossary') || to.path.startsWith('/admin/seo')) {
+    if (to.path.startsWith('/admin/branding') || to.path.startsWith('/admin/glossary') || to.path.startsWith('/admin/seo') || to.path.startsWith('/admin/ai') || to.path.startsWith('/admin/parser')) {
       if (role !== 'admin' && role !== 'developer')
         return navigateTo('/403')
     }

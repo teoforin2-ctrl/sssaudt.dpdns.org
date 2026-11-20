@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
 import {
-  findNavLink,
   locTitle,
   type NavColumn,
   type NavLink,
@@ -8,10 +8,8 @@ import {
 } from "~/data/site-nav";
 import {
   catIcon,
-  featuredBySection,
   iconForColumn,
   iconForPath,
-  iconForSection,
 } from "~/data/nav-icons";
 
 const props = defineProps<{
@@ -90,19 +88,6 @@ const columns = computed(() => props.section.columns ?? []);
 const showRail = computed(() => columns.value.length > 1);
 const current = computed<NavColumn | undefined>(() => columns.value[activeCol.value]);
 
-const featured = computed(() => {
-  const paths = featuredBySection[props.section.id] ?? [];
-  const items: (NavLink & { icon: string })[] = [];
-  for (const path of paths) {
-    const hit = findNavLink(path) ?? { path, title: props.section.title };
-    items.push({
-      ...hit,
-      icon: iconForPath(path, iconForSection(props.section.id)),
-    });
-  }
-  return items;
-});
-
 const listItems = computed(() => {
   const col = current.value;
   if (!col) return [] as (NavLink & { icon: string })[];
@@ -126,24 +111,6 @@ function onClose() {
     :style="panelStyle"
   >
     <div class="inner">
-      <div v-if="featured.length" class="featured">
-        <p class="label">{{ t("nav.popular") }}</p>
-        <div class="tiles" :style="{ '--tile-cols': Math.min(featured.length, 4) }">
-          <NuxtLink
-            v-for="item in featured"
-            :key="item.path"
-            :to="localePath(item.path)"
-            class="tile"
-            @click="onClose"
-          >
-            <span class="tile-icon">
-              <img :src="catIcon(item.icon, 96)" :alt="''" width="48" height="48" loading="lazy" />
-            </span>
-            <span class="tile-name">{{ locTitle(item.title, locale) }}</span>
-          </NuxtLink>
-        </div>
-      </div>
-
       <div class="body" :class="{ 'no-rail': !showRail }">
         <aside v-if="showRail" class="rail" aria-label="categories">
           <button
@@ -182,6 +149,7 @@ function onClose() {
             </h3>
             <NuxtLink class="all" :to="localePath(section.path)" @click="onClose">
               {{ t("nav.seeAll") }}
+              <ArrowRight :size="13" :stroke-width="2" aria-hidden="true" />
             </NuxtLink>
           </div>
 
@@ -246,65 +214,6 @@ function onClose() {
   max-width: 100%;
   box-sizing: border-box;
 }
-.label {
-  margin: 0 0 10px;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  font-weight: 800;
-}
-.tiles {
-  display: grid;
-  grid-template-columns: repeat(var(--tile-cols, 4), minmax(104px, 120px));
-  gap: 10px;
-}
-.tile {
-  display: grid;
-  justify-items: center;
-  gap: 8px;
-  padding: 12px 8px 10px;
-  border-radius: 16px;
-  border: 1px solid var(--border-default);
-  background: color-mix(in srgb, var(--bg-elev-2) 88%, transparent);
-  text-decoration: none;
-  color: var(--text-secondary);
-  transition:
-    border-color 0.15s,
-    background 0.15s,
-    transform 0.15s var(--ease);
-  min-height: 96px;
-}
-.tile:hover {
-  border-color: color-mix(in srgb, var(--accent-cta) 35%, var(--border-default));
-  background: var(--accent-cta-soft);
-  color: var(--text-primary);
-  text-decoration: none;
-  transform: translateY(-2px);
-}
-.tile-icon {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-}
-.tile-icon img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
-}
-.tile-name {
-  font-size: 12px;
-  font-weight: 750;
-  text-align: center;
-  line-height: 1.25;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .body {
   display: grid;
   grid-template-columns: 200px max-content;
@@ -392,6 +301,9 @@ function onClose() {
   object-fit: contain;
 }
 .all {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 12px;
   font-weight: 750;
   color: var(--accent-cta);
@@ -440,9 +352,6 @@ function onClose() {
     right: 12px;
     width: auto;
     max-width: none;
-  }
-  .tiles {
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
   }
   .body,
   .body.no-rail {

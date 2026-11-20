@@ -5,7 +5,8 @@ const { t, locale, locales } = useI18n();
 const localePath = useLocalePath();
 const switchLocalePath = useSwitchLocalePath();
 const { contacts, siteName } = useSiteSettings();
-const year = new Date().getFullYear();
+/* Freeze year at SSR — avoids rare hydration mismatch around New Year. */
+const year = useState("footer-year", () => new Date().getFullYear());
 
 const socials = computed(() => {
   const c = contacts.value;

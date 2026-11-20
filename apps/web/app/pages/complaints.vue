@@ -100,11 +100,6 @@ async function submit() {
 
 <style scoped>
 .page { max-width: 640px; }
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-}
 .lead { margin: 0 0 18px; color: var(--text-secondary); }
 .form { display: grid; gap: 12px; }
 label { display: grid; gap: 6px; font-size: 13px; font-weight: 650; }

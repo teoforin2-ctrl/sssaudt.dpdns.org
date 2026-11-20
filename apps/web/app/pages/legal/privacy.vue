@@ -67,15 +67,6 @@ usePageSeo({
   font-size: 12px;
   color: var(--text-tertiary);
 }
-.page-title {
-  margin: 0 0 12px;
-  font-family: var(--font-display);
-  font-size: clamp(24px, 7.2vw, 40px);
-  letter-spacing: -0.03em;
-  max-width: 100%;
-  overflow-wrap: break-word;
-  hyphens: auto;
-}
 .lead {
   margin: 0 0 22px;
   color: var(--text-secondary);

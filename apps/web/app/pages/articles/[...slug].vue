@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ARTICLE_KINDS } from "@x-reviewer/shared";
+import { ArrowLeft, ArrowRight } from "lucide-vue-next";
 import { findNavLink, locTitle } from "~/data/site-nav";
 
 const config = useRuntimeConfig();
@@ -15,11 +17,56 @@ if (leaf.value === "faq") {
 }
 
 const hubKinds: Record<string, { kind?: string; topic?: string; titleKey: string; leadKey: string }> = {
+  "slot-cards": {
+    kind: "slot-cards",
+    titleKey: "catalog.hub.slotCardsTitle",
+    leadKey: "catalog.hub.slotCardsLead",
+  },
+  providers: {
+    kind: "providers",
+    titleKey: "catalog.hub.providersTitle",
+    leadKey: "catalog.hub.providersLead",
+  },
+  glossary: {
+    kind: "glossary",
+    titleKey: "catalog.hub.glossaryTitle",
+    leadKey: "catalog.hub.glossaryLead",
+  },
+  "mechanics-guides": {
+    kind: "mechanics-guides",
+    titleKey: "catalog.hub.mechanicsGuidesTitle",
+    leadKey: "catalog.hub.mechanicsGuidesLead",
+  },
   news: { kind: "news", titleKey: "catalog.hub.newsTitle", leadKey: "catalog.hub.newsLead" },
+  collections: {
+    kind: "collections",
+    titleKey: "catalog.hub.collectionsTitle",
+    leadKey: "catalog.hub.collectionsLead",
+  },
+  // Legacy hubs kept for old URLs
   guides: { kind: "guide", titleKey: "catalog.hub.guidesTitle", leadKey: "catalog.hub.guidesLead" },
   academy: { topic: "Для новичков", titleKey: "catalog.hub.academyTitle", leadKey: "catalog.hub.academyLead" },
   analytics: { kind: "analytics", titleKey: "catalog.hub.analyticsTitle", leadKey: "catalog.hub.analyticsLead" },
 };
+
+const categoryTabs = [
+  { path: "/articles", labelKey: "catalog.hub.all" },
+  ...ARTICLE_KINDS.map((k) => ({
+    path: `/articles/${k.slug}`,
+    labelKey:
+      k.id === "slot-cards"
+        ? "catalog.hub.slotCardsTitle"
+        : k.id === "providers"
+          ? "catalog.hub.providersTitle"
+          : k.id === "glossary"
+            ? "catalog.hub.glossaryTitle"
+            : k.id === "mechanics-guides"
+              ? "catalog.hub.mechanicsGuidesTitle"
+              : k.id === "news"
+                ? "catalog.hub.newsTitle"
+                : "catalog.hub.collectionsTitle",
+  })),
+];
 
 const hub = computed(() => hubKinds[leaf.value] || null);
 const navLink = computed(() => findNavLink(path.value));
@@ -187,10 +234,14 @@ useJsonLd(() => {
     </header>
 
     <div class="tabs">
-      <NuxtLink :to="localePath('/articles')" class="tab">{{ t("catalog.hub.all") }}</NuxtLink>
-      <NuxtLink :to="localePath('/articles/news')" class="tab">{{ t("catalog.hub.newsTitle") }}</NuxtLink>
-      <NuxtLink :to="localePath('/articles/guides')" class="tab">{{ t("catalog.hub.guidesTitle") }}</NuxtLink>
-      <NuxtLink :to="localePath('/articles/academy')" class="tab">{{ t("catalog.hub.academyTitle") }}</NuxtLink>
+      <NuxtLink
+        v-for="tab in categoryTabs"
+        :key="tab.path"
+        :to="localePath(tab.path)"
+        class="tab"
+      >
+        {{ t(tab.labelKey) }}
+      </NuxtLink>
     </div>
 
     <SkeletonArticleGrid v-if="listPending" :count="6" />
@@ -227,6 +278,7 @@ useJsonLd(() => {
         <p v-if="a.excerpt" class="ex">{{ a.excerpt }}</p>
         <NuxtLink class="read" :to="localePath(`/articles/${a.slug}`)">
           {{ t("home.articles.read") }}
+          <ArrowRight :size="14" :stroke-width="2" aria-hidden="true" />
         </NuxtLink>
       </article>
     </div>
@@ -236,7 +288,10 @@ useJsonLd(() => {
     <UiSkeleton height="320px" radius="16px" />
   </article>
   <article v-else-if="article" class="page detail">
-    <NuxtLink class="back" :to="localePath('/articles')">{{ t("catalog.back") }}</NuxtLink>
+    <NuxtLink class="back" :to="localePath('/articles')">
+      <ArrowLeft :size="14" :stroke-width="2" aria-hidden="true" />
+      {{ t("catalog.back") }}
+    </NuxtLink>
     <ArticleCover
       :title="article.title"
       :theme="article.coverTheme"
@@ -283,12 +338,6 @@ useJsonLd(() => {
 }
 .intro {
   margin-bottom: 16px;
-}
-.page-title {
-  margin: 0 0 12px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
 }
 .lead {
   margin: 0 0 8px;
@@ -365,13 +414,18 @@ h2 a {
   overflow: hidden;
 }
 .read {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13px;
   font-weight: 750;
   color: var(--accent-cta);
   text-decoration: none;
 }
 .back {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin-bottom: 14px;
   font-size: 13px;
   font-weight: 750;

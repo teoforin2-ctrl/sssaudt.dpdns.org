@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowLeft, ArrowRight } from "lucide-vue-next";
+
 const config = useRuntimeConfig();
 const route = useRoute();
 const { locale, t } = useI18n();
@@ -220,7 +222,10 @@ useBreadcrumbJsonLd(() => [
       <span aria-hidden="true">/</span>
       <span>{{ c?.name || "…" }}</span>
     </nav>
-    <NuxtLink class="back-link mobile-only" :to="localePath('/rating')">← {{ t("card.back") }}</NuxtLink>
+    <NuxtLink class="back-link mobile-only" :to="localePath('/rating')">
+      <ArrowLeft :size="14" :stroke-width="2" aria-hidden="true" />
+      {{ t("card.back") }}
+    </NuxtLink>
 
     <div v-if="pending" class="stack">
       <UiSkeleton height="220px" radius="20px" />
@@ -236,6 +241,10 @@ useBreadcrumbJsonLd(() => [
 
     <template v-else>
       <CasinoHero :casino="c" @review="openReviewFlow" />
+
+      <section class="section-block trust-band">
+        <TrustGrid />
+      </section>
 
       <section v-if="reviewHtml" class="section-block editorial">
         <h2>{{ t("card.editorialReview") }}</h2>
@@ -292,8 +301,9 @@ useBreadcrumbJsonLd(() => [
           />
         </div>
         <p v-if="c.bonuses.length" class="all-bonuses">
-          <NuxtLink :to="localePath('/bonuses')">
-            {{ t("card.bonuses") }} ({{ c.bonuses.length }}) →
+          <NuxtLink class="all-bonuses-link" :to="localePath('/bonuses')">
+            {{ t("card.bonuses") }} ({{ c.bonuses.length }})
+            <ArrowRight :size="14" :stroke-width="2" aria-hidden="true" />
           </NuxtLink>
         </p>
       </section>
@@ -301,7 +311,7 @@ useBreadcrumbJsonLd(() => [
       <section id="reviews" class="section-block">
         <div class="reviews-head">
           <h2>{{ t("card.reviews") }}</h2>
-          <p v-if="reviews.total" class="reviews-count">
+          <p v-if="reviews.total" class="reviews-count tabular-nums">
             <NuxtLink :to="localePath(`/casino/${c.slug}/reviews`)">
               {{ t("card.reviewsCount", { n: reviews.total }) }}
             </NuxtLink>
@@ -340,7 +350,7 @@ useBreadcrumbJsonLd(() => [
             >
               {{ t("card.reviewsPrev") }}
             </UiButton>
-            <span class="page-label">
+            <span class="page-label tabular-nums">
               {{ t("card.reviewsPage", { page: reviews.page, pages: reviews.pages }) }}
             </span>
             <UiButton
@@ -386,6 +396,19 @@ useBreadcrumbJsonLd(() => [
 .crumbs a:hover {
   color: var(--accent-cta);
 }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.back-link:hover {
+  color: var(--accent-cta);
+}
 .mobile-only {
   display: none;
 }
@@ -402,9 +425,17 @@ useBreadcrumbJsonLd(() => [
   font-size: 13px;
   font-weight: 750;
 }
+.all-bonuses-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 .stack {
   display: grid;
   gap: 12px;
+}
+.trust-band {
+  margin-top: 18px;
 }
 .compare-line {
   margin: 12px 0 0;

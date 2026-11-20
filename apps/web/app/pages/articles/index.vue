@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ARTICLE_KINDS } from "@x-reviewer/shared";
+
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
@@ -18,6 +20,17 @@ type ArticleItem = {
 
 const kindFilter = ref("all");
 
+const kindTabMeta: Record<string, string> = {
+  "slot-cards": "catalog.hub.slotCardsTitle",
+  providers: "catalog.hub.providersTitle",
+  glossary: "catalog.hub.glossaryTitle",
+  "mechanics-guides": "catalog.hub.mechanicsGuidesTitle",
+  news: "catalog.hub.newsTitle",
+  collections: "catalog.hub.collectionsTitle",
+  guide: "catalog.hub.guidesTitle",
+  analytics: "catalog.hub.analyticsTitle",
+};
+
 const { data, pending, error, refresh } = await useAsyncData(
   () => `articles-catalog-${locale.value}`,
   () =>
@@ -29,17 +42,13 @@ const { data, pending, error, refresh } = await useAsyncData(
 
 const all = computed(() => data.value?.items ?? []);
 
-function kindBucket(kind?: string | null) {
-  const k = (kind || "").toLowerCase();
-  if (k.includes("news") || k.includes("новост")) return "news";
-  if (k.includes("guide") || k.includes("гайд") || k.includes("обзор")) return "guides";
-  if (k.includes("analyt") || k.includes("аналит")) return "analytics";
-  return "other";
+function normalizeKind(kind?: string | null) {
+  return (kind || "").toLowerCase().trim();
 }
 
 const items = computed(() => {
   if (kindFilter.value === "all") return all.value;
-  return all.value.filter((a) => kindBucket(a.kind) === kindFilter.value);
+  return all.value.filter((a) => normalizeKind(a.kind) === kindFilter.value);
 });
 
 const PAGE_SIZE = 24;
@@ -48,18 +57,25 @@ const rest = computed(() => items.value.slice(1, PAGE_SIZE));
 const hasMorePages = computed(() => items.value.length > PAGE_SIZE);
 
 const tabs = computed(() => {
-  const counts = {
-    all: all.value.length,
-    news: all.value.filter((a) => kindBucket(a.kind) === "news").length,
-    guides: all.value.filter((a) => kindBucket(a.kind) === "guides").length,
-    analytics: all.value.filter((a) => kindBucket(a.kind) === "analytics").length,
-  };
+  const primary = ARTICLE_KINDS.map((k) => ({
+    key: k.id,
+    label: t(kindTabMeta[k.id]!),
+    count: all.value.filter((a) => normalizeKind(a.kind) === k.id).length,
+    active: kindFilter.value === k.id,
+  }));
+  const legacy = (["guide", "analytics"] as const)
+    .map((id) => ({
+      key: id,
+      label: t(kindTabMeta[id]!),
+      count: all.value.filter((a) => normalizeKind(a.kind) === id).length,
+      active: kindFilter.value === id,
+    }))
+    .filter((tab) => tab.count > 0);
   return [
-    { key: "all", label: t("catalog.hub.all"), count: counts.all, active: kindFilter.value === "all" },
-    { key: "news", label: t("catalog.hub.newsTitle"), count: counts.news, active: kindFilter.value === "news" },
-    { key: "guides", label: t("catalog.hub.guidesTitle"), count: counts.guides, active: kindFilter.value === "guides" },
-    { key: "analytics", label: t("catalog.hub.analyticsTitle"), count: counts.analytics, active: kindFilter.value === "analytics" },
-  ].filter((tab) => tab.key === "all" || (tab.count as number) > 0);
+    { key: "all", label: t("catalog.hub.all"), count: all.value.length, active: kindFilter.value === "all" },
+    ...primary,
+    ...legacy,
+  ];
 });
 
 usePageSeo({

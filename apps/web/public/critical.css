@@ -194,130 +194,153 @@ html.age-gate-pending #__nuxt {
 .age-gate-boot__card {
   position: relative;
   z-index: 1;
-  width: min(440px, 100%);
-  border-radius: 22px;
+  width: min(420px, 100%);
+  border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(180deg, #1a2330, #141b24);
+  background:
+    radial-gradient(420px 180px at 50% 0%, rgba(61, 255, 138, 0.1), transparent 60%),
+    linear-gradient(180deg, #1a2330, #141b24);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-  padding: 24px 22px 20px;
+  padding: 28px 24px 22px;
   color: #f3f6fa;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  text-align: center;
 }
-.age-gate-boot__top {
+.age-gate-boot__brand {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: center;
   margin-bottom: 14px;
+}
+.age-gate-boot__logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
 }
 .age-gate-boot__badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 52px;
-  height: 32px;
+  gap: 6px;
+  height: 28px;
   padding: 0 12px;
+  margin: 0 auto 14px;
   border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
   letter-spacing: 0.04em;
-  color: #0b1220;
-  background: #3dff8a;
+  color: #fff;
+  background: #ff6b6b;
+}
+.age-gate-boot__title {
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.age-gate-boot__lead {
+  margin: 0 auto 16px;
+  max-width: 34ch;
+  color: #9aa8b8;
+  font-size: 14px;
+  line-height: 1.55;
 }
 .age-gate-boot__langs {
   display: inline-flex;
   gap: 4px;
-  padding: 3px;
+  padding: 4px;
+  margin: 0 auto 18px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #222d3d;
 }
 .age-gate-boot__lang {
-  min-width: 44px;
-  height: 28px;
-  padding: 0 10px;
+  min-width: 52px;
+  height: 32px;
+  padding: 0 14px;
   border: 0;
   border-radius: 999px;
   background: transparent;
   color: #9aa8b8;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
   letter-spacing: 0.04em;
   cursor: pointer;
 }
 .age-gate-boot__lang.on {
-  background: #141b24;
-  color: #f3f6fa;
-}
-.age-gate-boot__title {
-  margin: 0 0 8px;
-  font-size: 22px;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-}
-.age-gate-boot__lead {
-  margin: 0 0 14px;
-  color: #9aa8b8;
-  font-size: 14px;
-  line-height: 1.5;
+  background: #3dff8a;
+  color: #0b1220;
 }
 .age-gate-boot__points {
-  margin: 0 0 14px;
-  padding: 0;
+  margin: 0 0 16px;
+  padding: 16px 0 0;
   list-style: none;
   display: grid;
-  gap: 8px;
+  gap: 10px;
+  text-align: left;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 .age-gate-boot__points li {
-  position: relative;
-  padding-left: 18px;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: start;
   font-size: 13px;
   line-height: 1.45;
-  color: #f3f6fa;
+  color: #9aa8b8;
 }
-.age-gate-boot__points li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #f5a524;
-  box-shadow: 0 0 0 3px rgba(245, 165, 36, 0.14);
+.age-gate-boot__check {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #3dff8a;
+  background: rgba(61, 255, 138, 0.12);
+  border: 1px solid rgba(61, 255, 138, 0.28);
 }
 .age-gate-boot__note {
-  margin: 0 0 18px;
+  margin: 0 0 6px;
   font-size: 12px;
   color: #6b7a8c;
   line-height: 1.45;
 }
-.age-gate-boot__link {
+.age-gate-boot__ext {
   color: #3dff8a;
+  font-weight: 700;
+  text-decoration: none;
+}
+.age-gate-boot__policy {
+  margin: 0 0 18px;
+  font-size: 12px;
+}
+.age-gate-boot__link {
+  color: #6b7a8c;
   text-underline-offset: 2px;
 }
 .age-gate-boot__actions {
   display: grid;
-  gap: 8px;
-}
-.age-gate-boot__ok,
-.age-gate-boot__leave {
-  width: 100%;
-  height: 44px;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
+  gap: 12px;
 }
 .age-gate-boot__ok {
+  width: 100%;
+  height: 48px;
   border: 0;
+  border-radius: 14px;
   background: #3dff8a;
   color: #0b1220;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
 }
 .age-gate-boot__leave {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: transparent;
-  color: #9aa8b8;
+  border: 0;
+  background: none;
+  padding: 4px;
+  color: #6b7a8c;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
 }
 html[data-theme="light"].age-gate-pending,
 html[data-theme="light"].age-gate-pending body {
@@ -331,19 +354,30 @@ html[data-theme="light"] .age-gate-boot__card {
 html[data-theme="light"] .age-gate-boot__lead,
 html[data-theme="light"] .age-gate-boot__leave,
 html[data-theme="light"] .age-gate-boot__note,
-html[data-theme="light"] .age-gate-boot__lang {
-  color: #475569;
-}
+html[data-theme="light"] .age-gate-boot__link,
+html[data-theme="light"] .age-gate-boot__lang,
 html[data-theme="light"] .age-gate-boot__points li {
-  color: #0f172a;
+  color: #475569;
 }
 html[data-theme="light"] .age-gate-boot__langs {
   background: #e8eef5;
   border-color: rgba(15, 23, 42, 0.1);
 }
 html[data-theme="light"] .age-gate-boot__lang.on {
-  background: #ffffff;
-  color: #0f172a;
+  background: #0a7a45;
+  color: #ffffff;
+}
+html[data-theme="light"] .age-gate-boot__check {
+  color: #0a7a45;
+  background: rgba(10, 122, 69, 0.12);
+  border-color: rgba(10, 122, 69, 0.28);
+}
+html[data-theme="light"] .age-gate-boot__ok {
+  background: #0a7a45;
+  color: #ffffff;
+}
+html[data-theme="light"] .age-gate-boot__ext {
+  color: #0a7a45;
 }
 html[data-theme="light"] .age-gate-boot__blur {
   background: rgba(247, 249, 252, 0.78);

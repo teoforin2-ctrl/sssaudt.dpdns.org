@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Check } from "lucide-vue-next";
+
 withDefaults(
   defineProps<{
     items: string[];
@@ -13,7 +15,7 @@ withDefaults(
     <li v-for="(item, i) in items" :key="i">
       <span class="mark" aria-hidden="true">
         <template v-if="variant === 'number'">{{ i + 1 }}</template>
-        <template v-else-if="variant === 'check'">✓</template>
+        <Check v-else-if="variant === 'check'" :size="14" :stroke-width="2.5" />
         <template v-else>•</template>
       </span>
       <span>{{ item }}</span>

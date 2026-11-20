@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ChevronDown } from "lucide-vue-next";
+
 const { t } = useI18n();
 const localePath = useLocalePath();
 const route = useRoute();
@@ -59,7 +61,9 @@ useJsonLd(() => ({
           @click="toggle(item.id)"
         >
           <span>{{ item.q }}</span>
-          <span class="chev" aria-hidden="true">▾</span>
+          <span class="chev" aria-hidden="true">
+            <ChevronDown :size="16" :stroke-width="2" />
+          </span>
         </button>
         <div v-show="openId === item.id" class="ans">
           <p>{{ item.a }}</p>

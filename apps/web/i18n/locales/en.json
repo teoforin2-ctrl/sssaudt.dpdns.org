@@ -11,7 +11,6 @@
     "cardDescFallback": "{name}: license, bonuses, payouts and player reviews. Honest overview on SS Audit."
   },
   "nav": {
-
     "main": "Main navigation",
     "rating": "Casino ranking",
     "bonuses": "Bonuses",
@@ -21,7 +20,7 @@
     "more": "More",
     "sitemap": "Sitemap",
     "popular": "Popular",
-    "seeAll": "See all →",
+    "seeAll": "See all",
     "responsible": "Responsible gambling",
     "legal": "Legal",
     "search": "Search casinos",
@@ -102,7 +101,7 @@
     "lead": "This page is reserved for navigation. Content will be added later.",
     "sitemapLead": "All site sections and subsections.",
     "sitemapCount": "Total pages in the map: {n}",
-    "toLiveRating": "← Back to the live ranking on the home page"
+    "toLiveRating": "Back to the live ranking on the home page"
   },
   "ui": {
     "copy": "Copy",
@@ -123,12 +122,12 @@
     "title": "Adults 18+ only",
     "lead": "This site covers online casinos and gambling. Confirm your age and that you understand the risks before entering.",
     "point1": "You are 18 years of age or older",
-    "point2": "Gambling can be addictive and may cause financial loss",
-    "point3": "Content is informational — not an invitation to gamble or a promise of winnings",
-    "point4": "If gambling is restricted where you live, do not use affiliate links",
+    "point2": "Gambling can be addictive and may lead to financial loss",
+    "point3": "Content is informational — not a call to gamble or a promise of winnings",
+    "point4": "If gambling is prohibited in your jurisdiction, do not use affiliate links",
     "note": "More on responsible gambling:",
-    "responsibleLink": "responsible gambling",
-    "confirm": "I am 18+ and I agree",
+    "responsibleLink": "Our responsible gambling policy",
+    "confirm": "I am 18+, I agree",
     "leave": "Under 18 / leave site",
     "language": "Language"
   },
@@ -162,7 +161,7 @@
     "forum": {
       "eyebrow": "Community",
       "title": "Players forum",
-      "all": "Go to forum →"
+      "all": "Go to forum"
     },
     "b2b": {
       "eyebrow": "B2B",
@@ -179,7 +178,7 @@
     "community": {
       "title": "Independent reviews: rankings, bonuses, slots and player feedback",
       "lead": "Compare terms and read reviews — no guaranteed-win claims.",
-      "open": "Open →",
+      "open": "Open",
       "casinos": "Casinos",
       "slots": "Slots & games",
       "providers": "Providers",
@@ -201,7 +200,7 @@
     },
     "slots": {
       "title": "Slots",
-      "all": "All slots →",
+      "all": "All slots",
       "newTitle": "Fresh releases",
       "demo": "Demo",
       "more": "Details",
@@ -226,42 +225,52 @@
     },
     "articles": {
       "title": "Articles & analysis",
-      "all": "All articles →",
-      "read": "Read more →",
+      "all": "All articles",
+      "read": "Read more",
       "min": "{n} min"
     },
     "newbie": {
       "title": "For beginners",
-      "all": "All section materials →"
+      "all": "All section materials"
     },
     "brands": {
       "poker": "Best poker rooms",
       "bookmakers": "Best bookmakers",
       "land": "Best land-based casinos",
       "affiliates": "Affiliate programs",
-      "allPoker": "All poker rooms →",
-      "allBookmakers": "All bookmakers →",
-      "allLand": "All land-based casinos →",
-      "allAffiliates": "All affiliate programs →",
+      "allPoker": "All poker rooms",
+      "allBookmakers": "All bookmakers",
+      "allLand": "All land-based casinos",
+      "allAffiliates": "All affiliate programs",
       "claim": "Claim bonus",
       "details": "Details",
       "join": "Become a partner"
     },
+    "cta": {
+      "top": "Top-10 casinos",
+      "method": "How we rate"
+    },
+    "geo": {
+      "hint": "Locale: {lang} · currency focus {currency}",
+      "currency": "$"
+    },
     "expert": {
       "title": "Site expert",
       "label": "Editorial",
-      "profile": "Author profile →"
+      "profile": "Author profile",
+      "verified": "Verified author",
+      "checksWeek": "{n} checks this week"
     },
     "trust": {
       "title": "Why players trust us",
-      "content": "Useful content only",
-      "contentBody": "We explain terms and risks in plain language — without win promises.",
-      "reviews": "Moderated player reviews",
-      "reviewsBody": "Reviews go live after checks. That is moderation, not a “100% real” guarantee.",
+      "content": "Useful content without promises",
+      "contentBody": "We explain bonus terms and risks in plain language — no “guaranteed wins”.",
+      "reviews": "Player review moderation",
+      "reviewsBody": "A review goes live after checks. That is moderation — not a “100% real” claim.",
       "team": "Experienced editors",
-      "teamBody": "Editors review bonuses and wording before publishing.",
-      "verify": "Information checks",
-      "verifyBody": "Bonus terms include a checked date. Operators may change conditions."
+      "teamBody": "Every bonus and wording is proofread before publication.",
+      "verify": "Data verification",
+      "verifyBody": "Bonus terms include a checked date. Operators change conditions — we track them."
     },
     "facts": {
       "title": "Helping you choose deliberately",
@@ -298,7 +307,7 @@
       "reviewsTitle": "Latest reviews",
       "newTitle": "New in ranking",
       "anon": "Player",
-      "readReview": "Read →",
+      "readReview": "Read",
       "pickCasino": "Choose a casino",
       "pickHint": "Pick a casino to leave a review.",
       "reviewHint": "Honest reviews improve the ranking. Rewards after moderation.",
@@ -313,7 +322,9 @@
     },
     "row": {
       "editorial": "Editorial {score}",
+      "editorialShort": "Editorial",
       "players": "Players {score} · {n} reviews",
+      "playersShort": "Players · {n} reviews",
       "fewReviews": "Few reviews",
       "wager": "wager ×{x}",
       "terms": "Terms",
@@ -335,7 +346,6 @@
       "title": "Affiliate links",
       "body": "Play buttons go through /go/ and may earn us a commission. That does not change editorial scores."
     },
-
     "backToTop": "Back to top"
   },
   "card": {
@@ -367,7 +377,6 @@
     "editorialReview": "Editorial review",
     "rewardedReview": "Reward-program review",
     "officialReply": "Official reply"
-
   },
   "pages": {
     "about": {
@@ -465,7 +474,7 @@
       "rulesLink": "Forum rules",
       "rulesTitle": "Forum rules",
       "rulesLead": "A short code so discussions stay useful.",
-      "back": "← Back to forum",
+      "back": "Back to forum",
       "t1t": "Casino complaints",
       "t1b": "Include operator, amount, date and payout method. Threads without facts may be closed.",
       "t2t": "Slot discussion",
@@ -494,7 +503,6 @@
     "hideExpired": "Hide expired",
     "showExpired": "Show expired",
     "bonusesTitle": "Bonuses",
-
     "bonusesLead": "Compare wager, limits and validity. Terms may change — verify with the operator.",
     "articlesTitle": "Articles",
     "articlesLead": "Industry news, casino reviews, beginner guides and slot deep-dives.",
@@ -513,17 +521,27 @@
     "nothingFound": "Nothing found — reset filters",
     "checked": "Checked {d}",
     "empty": "Nothing published yet",
-    "back": "← Back",
+    "back": "Back",
     "hub": {
       "all": "All",
       "newsTitle": "News",
-      "newsLead": "Industry updates and editorial notes.",
+      "newsLead": "Provider releases and regulation changes — for content and indexing.",
       "guidesTitle": "Reviews & guides",
       "guidesLead": "Casino write-ups, mechanics and practical playbooks.",
       "academyTitle": "For beginners",
       "academyLead": "Checklists and basics to start carefully.",
       "analyticsTitle": "Analytics",
       "analyticsLead": "RTP, volatility and numbers without marketing noise.",
+      "slotCardsTitle": "Slot cards",
+      "slotCardsLead": "RTP, volatility, mechanics and demos — game cards for comparison.",
+      "providersTitle": "Providers",
+      "providersLead": "Studios whose games appear in our catalogue.",
+      "glossaryTitle": "Reference & glossary",
+      "glossaryLead": "What RTP, wager, free spins, bonus buy and cascades mean — one article a day.",
+      "mechanicsGuidesTitle": "Mechanics guides",
+      "mechanicsGuidesLead": "Megaways, clusters, jackpots, live games and other mechanics.",
+      "collectionsTitle": "Collections",
+      "collectionsLead": "Top high-RTP slots, monthly new releases and other curated lists.",
       "welcomeTitle": "Welcome",
       "welcomeLead": "First-deposit packs and newbie offers.",
       "noDepositTitle": "No deposit",
@@ -547,11 +565,8 @@
       "blacklistEmpty": "No published entries yet — the list grows after lawyer review.",
       "complaintCta": "File a complaint",
       "blacklistNote": "Operators: turnkey AML/KYC —",
-
       "newSlotsTitle": "New slots",
       "newSlotsLead": "Fresh releases in the catalogue.",
-      "providersTitle": "Providers",
-      "providersLead": "Studios whose games appear in our catalogue.",
       "paymentsTitle": "Payment methods",
       "paymentsLead": "Casinos with cards, instant bank transfers and crypto from our database.",
       "payGroupCards": "Cards",
@@ -565,7 +580,7 @@
     },
     "compare": {
       "title": "Compare casinos",
-      "lead": "Up to three brands side by side: rating, bonus, payments and providers.",
+      "lead": "Up to four brands side by side: rating, bonus, payments and providers.",
       "pick": "Add a casino",
       "empty": "Pick at least two casinos to compare.",
       "rating": "Rating",
@@ -633,8 +648,6 @@
     }
   },
   "legal": {
-
-
     "title": "Legal",
     "draftNote": "MVP legal pack · RU/EN · launch geo: RU/CIS. Lawyer review required before a new market.",
     "updated": "Updated: November 2026",
@@ -690,7 +703,6 @@
     "affiliate": "Affiliate disclosure",
     "affiliateBody": "SS Audit includes affiliate links to casinos. Clicks via /go/ may earn us a commission. This does not affect editorial scores or review moderation. HOT is paid placement and is always labelled."
   },
-
   "footer": {
     "about": "Independent online casino reviews: editorial ranking, player feedback and honest bonus terms. No guaranteed-win claims.",
     "nav": "Navigation",
@@ -701,7 +713,6 @@
     "disclaimer": "Gambling is for adults 18+ only and can be addictive.",
     "helpTitle": "Help with gambling addiction",
     "helpBody": "If play gets out of control — use operator limits and self-exclusion; international resources: BeGambleAware, Gambling Therapy. Local helpline numbers after geo legal sign-off."
-
   },
   "lang": {
     "ru": "RU",
@@ -779,7 +790,6 @@
     "done": "Done",
     "back": "Back"
   },
-
   "progress": {
     "title": "Player progress",
     "lead": "Levels and achievements for approved reviews. Exclusive promos unlock with level.",
@@ -792,4 +802,3 @@
     "claim": "Claim code"
   }
 }
-

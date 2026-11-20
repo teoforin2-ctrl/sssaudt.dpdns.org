@@ -25,6 +25,9 @@ import { registerPartner } from "./partner.js";
 import { registerKanban } from "./kanban.js";
 import { registerTrust } from "./trust.js";
 import { registerGamification } from "./gamification.js";
+import { registerAiAdmin } from "./ai/admin.js";
+import { registerParserAdmin } from "./ai/parser-admin.js";
+import { startAiWorker, stopAiWorker } from "./ai/worker.js";
 import {
   decodeStoredText,
   rankSearchHits,
@@ -71,6 +74,9 @@ await registerB2b(app, pool);
 await registerKanban(app, pool);
 await registerTrust(app, pool);
 await registerGamification(app, pool);
+await registerAiAdmin(app, pool);
+await registerParserAdmin(app, pool);
+startAiWorker(pool);
 
 app.get("/health", async (): Promise<HealthResponse> => ({
   ok: true,
@@ -860,7 +866,7 @@ app.get("/v1/compare", async (req, reply) => {
   const locale = ((req.query as { locale?: string }).locale || "ru").toLowerCase();
   const lang = locale.startsWith("en") ? "en" : "ru";
   const raw = String((req.query as { slugs?: string }).slugs || "");
-  const slugs = [...new Set(raw.split(",").map((s) => s.trim()).filter(Boolean))].slice(0, 3);
+  const slugs = [...new Set(raw.split(",").map((s) => s.trim()).filter(Boolean))].slice(0, 4);
   if (slugs.length < 2) {
     return reply.code(400).send({ error: "need_2_slugs" });
   }
@@ -1306,6 +1312,7 @@ app.get("/v1/home", async (req) => {
       promoRes,
       reviewRes,
       newCasinoRes,
+      checksWeekRes,
     ] = await Promise.all([
       pool.query(
         `
@@ -1340,7 +1347,7 @@ app.get("/v1/home", async (req) => {
         `,
       ),
       pool.query(
-        `select slug, name, role_ru, role_en, quote_ru, quote_en, hue, is_seed
+        `select slug, name, name_ru, role_ru, role_en, quote_ru, quote_en, hue, is_seed, photo_url
          from authors where is_seed = true order by id limit 1`,
       ),
       pool.query(
@@ -1378,6 +1385,18 @@ app.get("/v1/home", async (req) => {
           `,
         )
         .catch(() => ({ rows: [] as Record<string, unknown>[] })),
+      pool
+        .query<{ n: string }>(
+          `
+          select count(distinct casino_id)::text as n
+          from bonuses
+          where status = 'active'
+            and published = true
+            and casino_id is not null
+            and checked_at >= now() - interval '14 days'
+          `,
+        )
+        .catch(() => ({ rows: [{ n: "0" }] as { n: string }[] })),
     ]);
 
     const slotRows = slotRes.rows;
@@ -1459,15 +1478,33 @@ app.get("/v1/home", async (req) => {
       if (brands[b.kind].length < 3) brands[b.kind].push(b);
     }
 
-    const ex = expertRes.rows[0];
+    const checksThisWeek = Number(checksWeekRes.rows[0]?.n ?? 0);
+    const ex = expertRes.rows[0] as
+      | {
+          slug: string;
+          name: string;
+          name_ru?: string | null;
+          role_ru?: string | null;
+          role_en?: string | null;
+          quote_ru?: string | null;
+          quote_en?: string | null;
+          hue?: number | null;
+          is_seed?: boolean;
+          photo_url?: string | null;
+        }
+      | undefined;
     const expert = ex
       ? {
           slug: ex.slug,
-          name: ex.name,
+          name: lang === "en" ? ex.name : (ex.name_ru || ex.name),
           role: lang === "en" ? ex.role_en : ex.role_ru,
           quote: lang === "en" ? ex.quote_en : ex.quote_ru,
           hue: ex.hue,
           isSeed: ex.is_seed,
+          photoUrl:
+            ex.photo_url ||
+            (ex.slug === "mira-volkova" ? "/img/authors/mira-volkova.jpg" : null),
+          checksThisWeek,
         }
       : null;
 
@@ -1601,6 +1638,7 @@ app.get("/go/:slug", async (req, reply) => {
 });
 
 const shutdown = async () => {
+  stopAiWorker();
   await app.close();
   await pool.end();
   redis.disconnect();

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { MessageSquare } from "lucide-vue-next";
 import { forumAgo, forumFmt, forumReplyLabel, forumTags } from "~/utils/forum";
 
 const config = useRuntimeConfig();
@@ -60,7 +61,9 @@ useHead(() => ({
     <template v-else>
       <header class="hero">
         <div>
-          <div class="icon" aria-hidden="true">{{ data.category.icon || "💬" }}</div>
+          <div class="icon" aria-hidden="true">
+            <ForumCatIcon :slug="data.category.slug" :emoji="data.category.icon" :size="28" />
+          </div>
           <h1 class="page-title">{{ data.category.title }}</h1>
           <p class="lead">{{ data.category.description }}</p>
           <p class="count">{{ forumFmt(data.total, locale) }} {{ locale === "en" ? "topics" : "тем" }}</p>
@@ -77,7 +80,9 @@ useHead(() => ({
           class="topic"
           :to="localePath(`/forum/tema/${topic.slug}`)"
         >
-          <span class="topic-ico" aria-hidden="true">✦</span>
+          <span class="topic-ico" aria-hidden="true">
+            <MessageSquare :size="16" :stroke-width="2" />
+          </span>
           <div class="topic-body">
             <strong>{{ topic.title }}</strong>
             <div class="topic-meta">
@@ -123,12 +128,15 @@ useHead(() => ({
   align-items: flex-end;
   margin-bottom: 22px;
 }
-.icon { font-size: 28px; margin-bottom: 8px; }
-.page-title {
-  margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: -0.03em;
+.icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--accent-cta) 10%, var(--bg-elev-2));
+  color: var(--accent-cta);
 }
 .lead {
   margin: 0 0 6px;
@@ -154,7 +162,7 @@ useHead(() => ({
 }
 .topic:first-child { border-top: 0; }
 .topic:hover { background: var(--bg-elev-2); }
-.topic-ico { color: var(--accent-cta); margin-top: 3px; font-size: 12px; }
+.topic-ico { color: var(--accent-cta); margin-top: 3px; display: grid; place-items: start; }
 .topic-body { min-width: 0; flex: 1; }
 .topic-body strong { font-size: 14px; }
 .topic-meta {

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
+
 const { t } = useI18n();
 const localePath = useLocalePath();
 
@@ -53,6 +55,7 @@ function clip(text: string) {
           <p class="body">{{ clip(r.body) }}</p>
           <NuxtLink class="more" :to="localePath(`/casino/${r.casinoSlug}`)">
             {{ t("home.aside.readReview") }}
+            <ArrowRight :size="13" :stroke-width="2" aria-hidden="true" />
           </NuxtLink>
         </li>
       </ul>
@@ -171,6 +174,9 @@ h2 {
   overflow: hidden;
 }
 .more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 12px;
   font-weight: 750;
   color: var(--accent-cta);

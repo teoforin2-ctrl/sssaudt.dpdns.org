@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { articleKindLabel } from "@x-reviewer/shared";
+import { ArrowRight } from "lucide-vue-next";
 import { formatDate } from "~/utils/format";
 
 const { locale, t } = useI18n();
@@ -18,12 +20,23 @@ const props = defineProps<{
   featured?: boolean;
 }>();
 
+const kindI18nKey: Record<string, string> = {
+  "slot-cards": "catalog.hub.slotCardsTitle",
+  providers: "catalog.hub.providersTitle",
+  glossary: "catalog.hub.glossaryTitle",
+  "mechanics-guides": "catalog.hub.mechanicsGuidesTitle",
+  news: "catalog.hub.newsTitle",
+  collections: "catalog.hub.collectionsTitle",
+  guide: "catalog.hub.guidesTitle",
+  analytics: "catalog.hub.analyticsTitle",
+};
+
 const kindLabel = computed(() => {
-  const k = (props.kind || "").toLowerCase();
-  if (k.includes("news") || k.includes("новост")) return t("catalog.hub.newsTitle");
-  if (k.includes("guide") || k.includes("гайд") || k.includes("обзор")) return t("catalog.hub.guidesTitle");
-  if (k.includes("analyt") || k.includes("аналит")) return t("catalog.hub.analyticsTitle");
-  return props.kind || null;
+  const k = (props.kind || "").toLowerCase().trim();
+  if (!k) return null;
+  const key = kindI18nKey[k];
+  if (key) return t(key);
+  return articleKindLabel(k, locale.value === "en" ? "en" : "ru");
 });
 
 const dateLabel = computed(() => formatDate(props.publishedAt, locale.value));
@@ -66,7 +79,9 @@ const initials = computed(() =>
         </span>
         <time v-if="dateLabel" class="meta" :datetime="publishedAt || undefined">{{ dateLabel }}</time>
         <span class="meta">{{ t("catalog.readMin", { n: readingMinutes || 5 }) }}</span>
-        <span class="arrow" aria-hidden="true">→</span>
+        <span class="arrow" aria-hidden="true">
+          <ArrowRight :size="14" :stroke-width="2" />
+        </span>
       </div>
     </div>
   </article>
@@ -193,10 +208,11 @@ const initials = computed(() =>
 }
 .arrow {
   margin-left: auto;
+  display: grid;
+  place-items: center;
   opacity: 0;
   transition: opacity 0.15s, transform 0.15s;
   color: var(--accent-cta);
-  font-weight: 800;
 }
 .featured {
   display: grid;

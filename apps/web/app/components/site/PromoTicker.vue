@@ -56,28 +56,28 @@ const loop = computed(() => {
 <style scoped>
 .ticker {
   border-bottom: 1px solid var(--border-subtle);
-  background: color-mix(in srgb, var(--bg-elev-1) 82%, transparent);
-  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--bg-elev-1) 70%, transparent);
+  backdrop-filter: blur(8px);
 }
 .inner {
   display: flex;
   align-items: center;
-  gap: 14px;
-  min-height: 40px;
-  padding-block: 8px;
+  gap: 10px;
+  min-height: 28px;
+  padding-block: 4px;
   overflow: hidden;
 }
 .chip {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  padding: 0 12px;
+  min-height: 24px;
+  padding: 0 10px;
   border-radius: var(--radius-pill);
   background: var(--accent-cta-soft);
   color: var(--accent-cta);
   border: 1px solid color-mix(in srgb, var(--accent-cta) 35%, var(--border-default));
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.02em;
   text-decoration: none;
@@ -106,11 +106,11 @@ const loop = computed(() => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 32px;
+  min-height: 24px;
   white-space: nowrap;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 650;
 }
 .item:hover {

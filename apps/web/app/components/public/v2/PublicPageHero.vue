@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <header class="hero">
     <p v-if="eyebrow" class="eyebrow">{{ eyebrow }}</p>
-    <h1 class="title">{{ title }}</h1>
+    <h1 class="page-title">{{ title }}</h1>
     <p v-if="lead" class="lead">{{ lead }}</p>
     <p v-if="count" class="count tabular-nums">{{ count }}</p>
     <div v-if="$slots.actions" class="actions">
@@ -34,13 +34,8 @@ defineProps<{
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.title {
+.page-title {
   margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
   text-wrap: balance;
   max-width: 22ch;
 }

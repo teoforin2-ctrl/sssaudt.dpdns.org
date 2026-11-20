@@ -70,7 +70,8 @@ export const adminHelp = {
     summary: 'Гайды, новости, аналитика. Markdown-редактор с загрузкой картинок.',
     steps: [
       '«Создать» — черновик, затем откройте карточку.',
-      'Заполните title/excerpt RU и EN, kind, topic, reading minutes.',
+      'Заполните title/excerpt RU и EN, категорию (kind), topic, reading minutes.',
+      'Категории: карточки слотов, провайдеры, глоссарий, гайды по механикам, новости, подборки.',
       'Текст пишите в Markdown: toolbar → image для загрузки в /uploads/articles.',
       'В списке глаз — вкл/выкл показ; карандаш — редактор.',
       'Статус published — статья появится в /articles.',
@@ -299,6 +300,38 @@ export const adminHelp = {
     tips: [
       'Только admin/developer.',
       'Staging всегда остаётся noindex независимо от тумблера.',
+    ],
+  },
+
+  'ai': {
+    title: 'ИИ',
+    summary: 'OpenAI ключ, очередь unique/translate, учёт токенов по дням.',
+    steps: [
+      'Настройки: вставьте API key (хранится зашифрованным), модель, source/target locales.',
+      'Дневной лимит токенов останавливает новые задачи при превышении.',
+      'Очередь: pending → processing → done/failed; Retry / Cancel.',
+      'Со статьи: «Обработать ИИ» ставит job (unique + translate в live fields).',
+      'Вкладка «Токены» — сумма и breakdown по типу/действию за период.',
+    ],
+    tips: [
+      'Только admin/developer. Ключ на фронт не отдаётся — только mask.',
+      'Можно задать OPENAI_API_KEY в env как fallback.',
+    ],
+  },
+
+  'parser': {
+    title: 'Парсер',
+    summary: 'Staging спарсенного контента: источники, типы, статус ИИ и публикация на сайте.',
+    steps: [
+      'Фильтры: тип (article/casino/slot/forum), источник, статус пайплайна, ИИ, на сайте да/нет.',
+      '«ИИ + сайт» — draft в нужном разделе + AI unique/translate + published после успеха.',
+      '«Все new → ИИ + сайт» — массовый прогон демо/спарсенных строк.',
+      'В /admin/ai: ключ OpenAI, автообработка staging, автопубликация.',
+      'Вкладка «Источники» — справочник парсеров/фидов (code, URL, типы).',
+    ],
+    tips: [
+      'Только admin/developer. Без ключа OpenAI jobs упадут с openai_api_key_missing — это нормально до настройки.',
+      'Дедуп по dedupe_key (type+source+externalId/url).',
     ],
   },
 

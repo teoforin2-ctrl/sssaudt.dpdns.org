@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
+
 const config = useRuntimeConfig();
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
@@ -127,7 +129,7 @@ const checkedLabel = computed(() => {
         :to="localePath(`/casino/${casino.slug}`)"
       >
         {{ t("home.review") }}
-        <span class="review-arrow" aria-hidden="true">→</span>
+        <ArrowRight class="review-arrow" :size="14" :stroke-width="2" aria-hidden="true" />
       </NuxtLink>
       <UiButton
         variant="primary"

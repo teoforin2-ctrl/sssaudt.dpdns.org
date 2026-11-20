@@ -77,7 +77,7 @@ defineProps<{
   font-variant-numeric: tabular-nums;
 }
 .rtp.good {
-  background: color-mix(in srgb, var(--accent-cta) 75%, #000);
+  background: color-mix(in srgb, var(--accent-gold) 78%, #000);
 }
 .corner {
   position: absolute;

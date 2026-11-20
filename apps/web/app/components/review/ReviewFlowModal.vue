@@ -5,6 +5,7 @@ import {
   isTrc20Address,
   DEFAULT_REWARD_SETTINGS,
 } from "@x-reviewer/shared";
+import { Check, Hourglass } from "lucide-vue-next";
 
 const props = defineProps<{
   open: boolean;
@@ -423,7 +424,7 @@ const yesNo = [
       <div v-else-if="step === 'moderating'" class="step center">
         <h3>{{ t("reviewFlow.moderatingTitle") }}</h3>
         <div class="hourglass" aria-hidden="true">
-          ⏳
+          <Hourglass :size="36" :stroke-width="2" />
         </div>
         <p class="hint">
           {{ t("reviewFlow.moderatingHint") }}
@@ -444,7 +445,7 @@ const yesNo = [
 
       <div v-else-if="step === 'reward'" class="step center">
         <div class="check" aria-hidden="true">
-          ✓
+          <Check :size="32" :stroke-width="2.5" />
         </div>
         <p class="thanks">
           {{ t("reviewFlow.thanks") }}
@@ -496,8 +497,8 @@ const yesNo = [
       </div>
 
       <div v-else-if="step === 'success'" class="step center">
-        <div class="emoji" aria-hidden="true">
-          🤝
+        <div class="success-ico" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
         </div>
         <h3>{{ t("reviewFlow.successTitle") }}</h3>
         <p class="meta">
@@ -679,7 +680,9 @@ legend {
   font-size: 13px;
 }
 .hourglass {
-  font-size: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--accent-cta);
   animation: tick 1.2s ease-in-out infinite;
 }
 @keyframes tick {
@@ -761,7 +764,17 @@ legend {
 @keyframes spin {
   to { transform: rotate(1turn); }
 }
-.emoji { font-size: 48px; }
+.success-ico {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 8px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: var(--accent-cta);
+  background: var(--accent-cta-soft);
+  border: 1px solid color-mix(in srgb, var(--accent-cta) 30%, transparent);
+}
 .tx {
   color: var(--accent-cta);
   font-size: 14px;

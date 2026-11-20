@@ -124,24 +124,16 @@ function onKey(e: KeyboardEvent) {
     >
       <div class="blur" aria-hidden="true" />
       <div ref="panel" class="card" tabindex="-1">
-        <div class="top">
-          <div class="badge" aria-hidden="true">
-            18+
-          </div>
-          <div class="langs" role="group" :aria-label="t('ageGate.language')">
-            <button
-              v-for="l in locales"
-              :key="l.code"
-              type="button"
-              class="lang"
-              :class="{ on: l.code === locale }"
-              :disabled="switching"
-              :aria-pressed="l.code === locale"
-              @click="pickLang(l.code)"
-            >
-              {{ t(`lang.${l.code}`) }}
-            </button>
-          </div>
+        <div class="brand">
+          <BrandMark />
+        </div>
+
+        <div class="badge" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          18+
         </div>
 
         <h2 :id="`age-gate-title-${locale}`">
@@ -150,25 +142,62 @@ function onKey(e: KeyboardEvent) {
         <p class="lead">
           {{ t("ageGate.lead") }}
         </p>
+
+        <div class="langs" role="group" :aria-label="t('ageGate.language')">
+          <button
+            v-for="l in locales"
+            :key="l.code"
+            type="button"
+            class="lang"
+            :class="{ on: l.code === locale }"
+            :disabled="switching"
+            :aria-pressed="l.code === locale"
+            @click="pickLang(l.code)"
+          >
+            {{ String(l.code).toUpperCase() }}
+          </button>
+        </div>
+
         <ul class="points">
-          <li>{{ t("ageGate.point1") }}</li>
-          <li>{{ t("ageGate.point2") }}</li>
-          <li>{{ t("ageGate.point3") }}</li>
-          <li>{{ t("ageGate.point4") }}</li>
+          <li v-for="n in 4" :key="n">
+            <span class="check" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </span>
+            <span>{{ t(`ageGate.point${n}`) }}</span>
+          </li>
         </ul>
+
         <p class="note">
           {{ t("ageGate.note") }}
+          <a
+            class="ext"
+            href="https://www.begambleaware.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            BeGambleAware
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 3h6v6" />
+              <path d="M10 14 21 3" />
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            </svg>
+          </a>
+        </p>
+        <p class="policy">
           <NuxtLink :to="localePath('/legal/responsible-gambling')" class="link" @click="onConfirm">
             {{ t("ageGate.responsibleLink") }}
           </NuxtLink>
         </p>
+
         <div class="actions">
-          <UiButton variant="primary" size="lg" type="button" class="confirm" @click="onConfirm">
+          <button type="button" class="confirm" @click="onConfirm">
             {{ t("ageGate.confirm") }}
-          </UiButton>
-          <UiButton variant="ghost" size="md" type="button" @click="onLeave">
+          </button>
+          <button type="button" class="leave" @click="onLeave">
             {{ t("ageGate.leave") }}
-          </UiButton>
+          </button>
         </div>
       </div>
     </div>
@@ -188,129 +217,198 @@ function onKey(e: KeyboardEvent) {
 .blur {
   position: absolute;
   inset: 0;
-  background: rgba(8, 11, 16, 0.72);
-  backdrop-filter: blur(14px) saturate(0.75);
-  -webkit-backdrop-filter: blur(14px) saturate(0.75);
+  background: rgba(8, 11, 16, 0.78);
+  backdrop-filter: blur(16px) saturate(0.7);
+  -webkit-backdrop-filter: blur(16px) saturate(0.7);
 }
 .card {
   position: relative;
   z-index: 1;
-  width: min(440px, 100%);
-  border-radius: 22px;
+  width: min(420px, 100%);
+  border-radius: 24px;
   border: 1px solid var(--border-default);
-  background: linear-gradient(180deg, var(--bg-elev-2), var(--bg-elev-1));
-  box-shadow: var(--shadow-2), 0 0 0 1px rgba(61, 255, 138, 0.08);
-  padding: 24px 22px 20px;
+  background:
+    radial-gradient(420px 180px at 50% 0%, color-mix(in srgb, var(--accent-cta) 10%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--bg-elev-2), var(--bg-elev-1));
+  box-shadow: var(--shadow-2), 0 0 0 1px rgba(61, 255, 138, 0.06);
+  padding: 28px 24px 22px;
   outline: none;
+  text-align: center;
   animation: pop 0.22s var(--ease-out);
 }
-.top {
+.brand {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: center;
   margin-bottom: 14px;
+}
+.brand :deep(svg),
+.brand :deep(img) {
+  height: 36px;
+  width: auto;
 }
 .badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 52px;
-  height: 32px;
+  gap: 6px;
+  height: 28px;
   padding: 0 12px;
+  margin: 0 auto 14px;
   border-radius: 999px;
   font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
   letter-spacing: 0.04em;
-  color: var(--text-inverse);
-  background: var(--accent-cta);
-  box-shadow: var(--glow-cta);
+  color: #fff;
+  background: var(--accent-rose);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent-rose) 35%, transparent);
+}
+h2 {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.2vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.lead {
+  margin: 0 auto 16px;
+  max-width: 34ch;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.55;
 }
 .langs {
   display: inline-flex;
   gap: 4px;
-  padding: 3px;
+  padding: 4px;
+  margin: 0 auto 18px;
   border-radius: 999px;
   border: 1px solid var(--border-default);
   background: var(--bg-elev-3);
 }
 .lang {
-  min-width: 44px;
-  height: 28px;
-  padding: 0 10px;
+  min-width: 52px;
+  height: 32px;
+  padding: 0 14px;
   border: 0;
   border-radius: 999px;
   background: transparent;
   color: var(--text-secondary);
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
   letter-spacing: 0.04em;
   cursor: pointer;
+  transition: background 0.15s, color 0.15s;
 }
 .lang.on {
-  background: var(--bg-elev-1);
-  color: var(--text-primary);
-  box-shadow: var(--shadow-1);
+  background: var(--accent-cta);
+  color: var(--text-inverse);
+  box-shadow: var(--glow-cta);
 }
 .lang:disabled {
   opacity: 0.6;
   cursor: wait;
 }
-h2 {
-  margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: clamp(20px, 3vw, 24px);
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-}
-.lead {
-  margin: 0 0 14px;
-  color: var(--text-secondary);
-  font-size: 14px;
-  line-height: 1.5;
-}
 .points {
-  margin: 0 0 14px;
-  padding: 0;
+  margin: 0 0 16px;
+  padding: 16px 0 0;
   list-style: none;
   display: grid;
-  gap: 8px;
+  gap: 10px;
+  text-align: left;
+  border-top: 1px solid var(--border-subtle);
 }
 .points li {
-  position: relative;
-  padding-left: 18px;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: start;
   font-size: 13px;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   line-height: 1.45;
 }
-.points li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent-amber);
-  box-shadow: 0 0 0 3px var(--accent-amber-soft);
+.check {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--accent-cta);
+  background: var(--accent-cta-soft);
+  border: 1px solid color-mix(in srgb, var(--accent-cta) 28%, transparent);
 }
 .note {
-  margin: 0 0 18px;
+  margin: 0 0 6px;
   font-size: 12px;
   color: var(--text-tertiary);
   line-height: 1.45;
 }
-.link {
+.ext {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   color: var(--accent-cta);
+  font-weight: 700;
+  text-decoration: none;
+}
+.ext:hover {
+  text-decoration: underline;
   text-underline-offset: 2px;
+}
+.policy {
+  margin: 0 0 18px;
+  font-size: 12px;
+}
+.link {
+  color: var(--text-tertiary);
+  text-underline-offset: 2px;
+}
+.link:hover {
+  color: var(--accent-cta);
 }
 .actions {
   display: grid;
-  gap: 8px;
+  gap: 12px;
 }
 .confirm {
   width: 100%;
+  height: 48px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--accent-cta);
+  color: var(--text-inverse);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--glow-cta);
+  transition: background 0.15s, transform 0.15s;
+}
+.confirm:hover {
+  background: var(--accent-cta-hover);
+}
+.confirm:active {
+  background: var(--accent-cta-pressed);
+  transform: translateY(1px);
+}
+.leave {
+  border: 0;
+  background: none;
+  padding: 4px;
+  color: var(--text-tertiary);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  text-decoration: none;
+}
+.leave:hover {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 @keyframes pop {
   from {

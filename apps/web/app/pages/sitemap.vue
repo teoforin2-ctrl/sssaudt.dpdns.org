@@ -41,11 +41,6 @@ useHead(() => ({ title: `${t("nav.sitemap")}` }));
 .map {
   max-width: 960px;
 }
-.page-title {
-  margin: 0 0 10px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 3vw, 40px);
-}
 .lead {
   margin: 0 0 28px;
   color: var(--text-secondary);

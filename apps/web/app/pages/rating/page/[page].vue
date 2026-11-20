@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ArrowLeft, ArrowRight } from "lucide-vue-next";
 const { locale, t } = useI18n();
 const localePath = useLocalePath();
 const route = useRoute();
@@ -131,7 +132,7 @@ const nextPage = computed(() =>
 
     <nav v-if="totalPages > 1" class="pager" :aria-label="locale === 'en' ? 'Pagination' : 'Пагинация'">
       <NuxtLink class="pager-link" :to="prevPage">
-        ← {{ locale === "en" ? "Prev" : "Назад" }}
+        <ArrowLeft :size="14" :stroke-width="2" aria-hidden="true" /> {{ locale === "en" ? "Prev" : "Назад" }}
       </NuxtLink>
       <span class="pager-status tabular-nums">{{ pageNum }} / {{ totalPages }}</span>
       <NuxtLink
@@ -139,9 +140,9 @@ const nextPage = computed(() =>
         class="pager-link"
         :to="nextPage"
       >
-        {{ locale === "en" ? "Next" : "Дальше" }} →
+        {{ locale === "en" ? "Next" : "Дальше" }} <ArrowRight :size="14" :stroke-width="2" aria-hidden="true" />
       </NuxtLink>
-      <span v-else class="pager-link is-disabled">{{ locale === "en" ? "Next" : "Дальше" }} →</span>
+      <span v-else class="pager-link is-disabled">{{ locale === "en" ? "Next" : "Дальше" }} <ArrowRight :size="14" :stroke-width="2" aria-hidden="true" /></span>
     </nav>
   </section>
 </template>
@@ -187,6 +188,9 @@ const nextPage = computed(() =>
   gap: 16px;
 }
 .pager-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 14px;
   font-weight: 600;
   color: var(--accent-cta);

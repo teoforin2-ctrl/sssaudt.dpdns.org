@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { ArrowRight } from "lucide-vue-next";
 import { locTitle, siteNav, type NavSection } from "~/data/site-nav";
 import { catIcon, iconForColumn, iconForPath, iconForSection } from "~/data/nav-icons";
 
-const { locale, locales, t } = useI18n();
+const { locale, t } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 const localePath = useLocalePath();
 const route = useRoute();
@@ -278,20 +279,25 @@ const openSection = computed(() => siteNav.find((s) => s.id === openId.value && 
           </div>
         </div>
 
-        <span class="langs" role="group" :aria-label="t('nav.language')">
-          <NuxtLink
-            v-for="l in locales"
-            :key="l.code"
-            :to="switchLocalePath(l.code)"
-            class="lang"
-            :class="{ on: l.code === locale }"
-          >
-            {{ t(`lang.${l.code}`) }}
-          </NuxtLink>
-        </span>
+        <NuxtLink
+          class="lang-toggle"
+          :to="switchLocalePath(locale === 'en' ? 'ru' : 'en')"
+          :aria-label="t('nav.language')"
+          :title="t(`lang.${locale === 'en' ? 'ru' : 'en'}`)"
+        >
+          <span class="lang-cur">{{ t(`lang.${locale}`) }}</span>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <span class="lang-alt">{{ t(`lang.${locale === 'en' ? 'ru' : 'en'}`) }}</span>
+        </NuxtLink>
 
         <button type="button" class="icon-btn" :aria-label="t('nav.theme')" @click="toggle()">
-          {{ theme === "dark" ? "☀" : "☾" }}
+          <svg v-if="theme === 'dark'" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+          </svg>
         </button>
 
         <div class="auth-actions desktop-auth">
@@ -463,17 +469,15 @@ const openSection = computed(() => siteNav.find((s) => s.id === openId.value && 
             </div>
 
             <div class="drawer-tools">
-              <span class="langs">
-                <NuxtLink
-                  v-for="l in locales"
-                  :key="l.code"
-                  :to="switchLocalePath(l.code)"
-                  class="lang"
-                  :class="{ on: l.code === locale }"
-                >
-                  {{ t(`lang.${l.code}`) }}
-                </NuxtLink>
-              </span>
+              <NuxtLink
+                class="lang-toggle"
+                :to="switchLocalePath(locale === 'en' ? 'ru' : 'en')"
+                @click="drawer = false"
+              >
+                <span class="lang-cur">{{ t(`lang.${locale}`) }}</span>
+                <ArrowRight class="lang-sep" :size="12" :stroke-width="2" aria-hidden="true" />
+                <span class="lang-alt">{{ t(`lang.${locale === 'en' ? 'ru' : 'en'}`) }}</span>
+              </NuxtLink>
               <UiButton variant="secondary" size="sm" type="button" @click="toggle()">
                 {{ theme === "dark" ? t("nav.themeLight") : t("nav.themeDark") }}
               </UiButton>
@@ -585,6 +589,34 @@ const openSection = computed(() => siteNav.find((s) => s.id === openId.value && 
   display: grid;
   place-items: center;
   cursor: pointer;
+}
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elev-1);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    border-color var(--dur-fast) ease,
+    color var(--dur-fast) ease;
+}
+.lang-toggle:hover {
+  border-color: color-mix(in srgb, var(--accent-cta) 40%, var(--border-default));
+  color: var(--accent-cta);
+  text-decoration: none;
+}
+.lang-cur {
+  color: var(--text-primary);
+}
+.lang-sep {
+  opacity: 0.45;
 }
 .langs {
   display: inline-flex;
@@ -859,6 +891,7 @@ const openSection = computed(() => siteNav.find((s) => s.id === openId.value && 
     display: grid;
   }
   .top-right > .langs,
+  .top-right > .lang-toggle,
   .top-right > .search-wrap {
     display: none;
   }
