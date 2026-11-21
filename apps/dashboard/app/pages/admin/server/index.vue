@@ -533,7 +533,7 @@ onBeforeUnmount(stop)
           AI API фалбек-цепочка (newsbot)
         </h2>
         <p class="mt-1 text-xs text-muted-foreground">
-          ok/fail по каждому провайдеру из 15-ти, сортировка по числу вызовов. fail растёт — ключ/модель деградируют.
+          ok/fail по каждому провайдеру из 20-ти, сортировка по числу вызовов. fail растёт — ключ/модель деградируют.
         </p>
         <div class="mt-3 overflow-x-auto">
           <table class="w-full text-sm">
