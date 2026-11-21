@@ -10,7 +10,7 @@ import { bumpCasinoCache } from "./cache.js";
 import { parseImageDataUrl, saveRasterAsWebp } from "./images.js";
 import { recalcCasinoRatings } from "./reviews.js";
 import { grantReviewApprovedXp } from "./gamification.js";
-import { collectServerStats } from "./server-stats.js";
+import { collectServerStats, collectPostgresStats, collectNewsbotHealth } from "./server-stats.js";
 import { entitySeoSchema, normalizeEntitySeo } from "./entity-seo.js";
 import { runSeoPipeline } from "./seo-pipeline.js";
 import { shouldValidatePublish, validateEntitySeo } from "./seo-validate.js";
@@ -1172,7 +1172,12 @@ export async function registerAdmin(app: FastifyInstance, pool: Pool, redis: Red
   /** Live host / process metrics — admin & developer only. */
   app.get("/v1/admin/server-stats", async (req, reply) => {
     if (!requireAdmin(req, reply)) return;
-    return collectServerStats();
+    const stats = collectServerStats();
+    const [postgres, newsbot] = await Promise.all([
+      collectPostgresStats(pool),
+      Promise.resolve(collectNewsbotHealth()),
+    ]);
+    return { ...stats, postgres, newsbot };
   });
 
   /** Lightweight ops snapshot (admin / developer). */

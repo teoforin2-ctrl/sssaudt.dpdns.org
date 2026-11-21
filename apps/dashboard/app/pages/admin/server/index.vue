@@ -42,6 +42,39 @@ interface ServerStats {
     heapTotalBytes: number
     externalBytes: number
   }
+  postgres?: {
+    ok: boolean
+    error?: string
+    version?: string
+    uptimeSec?: number
+    sizeBytes?: number
+    connections?: number
+    connectionsActive?: number
+    reviewsCount?: number
+    articlesCount?: number
+    casinosCount?: number
+    topTables?: Array<{ name: string, sizeBytes: number }>
+  }
+  newsbot?: {
+    ok: boolean
+    error?: string
+    updated_at?: string
+    last_run?: string
+    last_status?: string
+    last_slug?: string
+    last_source?: string
+    last_error?: string | null
+    provider_used?: string
+    cover_method?: string
+    inline_image?: boolean
+    words?: number
+    publish_mode?: string
+    last_seed_run?: string
+    last_seed_count?: number
+    last_seed?: { id?: string, casino?: string, rating?: number, quality?: number } | null
+    seed_totals?: { ok?: number, runs?: number }
+    providers?: Record<string, { ok: number, fail: number, last_error: string | null, last_ok_at: string | null }>
+  }
 }
 
 const allowed = computed(() =>
@@ -131,6 +164,29 @@ const heapPct = computed(() => {
   if (!p?.heapTotalBytes)
     return 0
   return Math.round((p.heapUsedBytes / p.heapTotalBytes) * 1000) / 10
+})
+
+function fmtAgo(iso?: string) {
+  if (!iso)
+    return '—'
+  const diff = Date.now() - new Date(iso).getTime()
+  if (!Number.isFinite(diff) || diff < 0)
+    return '—'
+  const m = Math.floor(diff / 60000)
+  if (m < 60)
+    return `${m} мин назад`
+  const h = Math.floor(m / 60)
+  if (h < 24)
+    return `${h} ч ${m % 60} мин назад`
+  return `${Math.floor(h / 24)} д ${h % 24} ч назад`
+}
+
+const newsbotProviders = computed(() => {
+  const p = stats.value?.newsbot?.providers
+  if (!p)
+    return []
+  return Object.entries(p).map(([name, v]) => ({ name, ...v }))
+    .sort((a, b) => (b.ok + b.fail) - (a.ok + a.fail))
 })
 
 async function tick() {
@@ -347,6 +403,180 @@ onBeforeUnmount(stop)
           <p class="mt-2 text-xs text-muted-foreground">
             API process {{ fmtUptime(stats.process.uptimeSec) }} · pid {{ stats.process.pid }}
           </p>
+        </div>
+      </div>
+
+      <div class="grid gap-3 lg:grid-cols-2">
+        <div class="rounded-2xl border bg-card p-4">
+          <h2 class="text-sm font-semibold">
+            Postgres
+          </h2>
+          <template v-if="stats.postgres?.ok">
+            <div class="mt-3 grid gap-3 sm:grid-cols-2 text-sm">
+              <div>
+                <p class="text-xs text-muted-foreground">
+                  Размер БД
+                </p>
+                <p class="font-medium tabular-nums">
+                  {{ fmtBytes(stats.postgres.sizeBytes ?? 0) }}
+                </p>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground">
+                  Соединения
+                </p>
+                <p class="font-medium tabular-nums">
+                  {{ stats.postgres.connections }} (активных {{ stats.postgres.connectionsActive }})
+                </p>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground">
+                  Отзывы / статьи / казино
+                </p>
+                <p class="font-medium tabular-nums">
+                  {{ stats.postgres.reviewsCount }} / {{ stats.postgres.articlesCount }} / {{ stats.postgres.casinosCount }}
+                </p>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground">
+                  Версия
+                </p>
+                <p class="font-medium">
+                  {{ stats.postgres.version }}
+                </p>
+              </div>
+            </div>
+            <p
+              v-if="stats.postgres.topTables?.length"
+              class="mt-3 text-xs text-muted-foreground"
+            >
+              Топ таблиц (размер): {{ stats.postgres.topTables.map(t => `${t.name} ${fmtBytes(t.sizeBytes)}`).join(' · ') }}
+            </p>
+          </template>
+          <p
+            v-else
+            class="mt-3 text-sm text-destructive"
+          >
+            Postgres недоступен: {{ stats.postgres?.error }}
+          </p>
+        </div>
+
+        <div class="rounded-2xl border bg-card p-4">
+          <h2 class="text-sm font-semibold">
+            Newsbot
+          </h2>
+          <template v-if="stats.newsbot?.ok">
+            <div class="mt-3 grid gap-3 sm:grid-cols-2 text-sm">
+              <div>
+                <p class="text-xs text-muted-foreground">
+                  Последний прогон
+                </p>
+                <p class="font-medium">
+                  {{ fmtAgo(stats.newsbot.last_run) }}
+                  <Badge
+                    variant="outline"
+                    class="ml-1"
+                    :class="stats.newsbot.last_status === 'published' ? 'border-emerald-500/40 text-emerald-700' : stats.newsbot.last_status === 'error' ? 'border-rose-500/40 text-rose-700' : ''"
+                  >
+                    {{ stats.newsbot.last_status || '—' }}
+                  </Badge>
+                </p>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground">
+                  Провайдер / обложка
+                </p>
+                <p class="font-medium">
+                  {{ stats.newsbot.provider_used || '—' }} · {{ stats.newsbot.cover_method || '—' }}
+                  <span v-if="stats.newsbot.inline_image"> · +inline-img</span>
+                </p>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground">
+                  Последний сеянец отзывов
+                </p>
+                <p class="font-medium">
+                  {{ fmtAgo(stats.newsbot.last_seed_run) }}
+                  · {{ stats.newsbot.seed_totals?.ok ?? 0 }} всего ({{ stats.newsbot.seed_totals?.runs ?? 0 }} запусков)
+                </p>
+              </div>
+              <div>
+                <p class="text-xs text-muted-foreground">
+                  Режим
+                </p>
+                <p class="font-medium">
+                  {{ stats.newsbot.publish_mode || '—' }}
+                </p>
+              </div>
+            </div>
+            <p
+              v-if="stats.newsbot.last_error"
+              class="mt-3 text-xs text-rose-600 dark:text-rose-400"
+            >
+              Ошибка: {{ stats.newsbot.last_error }}
+            </p>
+          </template>
+          <p
+            v-else
+            class="mt-3 text-sm text-muted-foreground"
+          >
+            Нет данных health.json: {{ stats.newsbot?.error || '—' }}
+          </p>
+        </div>
+      </div>
+
+      <div
+        v-if="newsbotProviders.length"
+        class="rounded-2xl border bg-card p-4"
+      >
+        <h2 class="text-sm font-semibold">
+          AI API фалбек-цепочка (newsbot)
+        </h2>
+        <p class="mt-1 text-xs text-muted-foreground">
+          ok/fail по каждому провайдеру из 15-ти, сортировка по числу вызовов. fail растёт — ключ/модель деградируют.
+        </p>
+        <div class="mt-3 overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left text-xs text-muted-foreground">
+                <th class="py-1 pr-3">
+                  Провайдер
+                </th>
+                <th class="py-1 pr-3">
+                  ok
+                </th>
+                <th class="py-1 pr-3">
+                  fail
+                </th>
+                <th class="py-1 pr-3">
+                  Последняя ошибка
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="p in newsbotProviders"
+                :key="p.name"
+                class="border-t"
+              >
+                <td class="py-1.5 pr-3 font-medium">
+                  {{ p.name }}
+                </td>
+                <td class="py-1.5 pr-3 tabular-nums text-emerald-600 dark:text-emerald-400">
+                  {{ p.ok }}
+                </td>
+                <td
+                  class="py-1.5 pr-3 tabular-nums"
+                  :class="p.fail > 0 ? 'text-amber-600 dark:text-amber-400' : 'text-muted-foreground'"
+                >
+                  {{ p.fail }}
+                </td>
+                <td class="max-w-[320px] truncate py-1.5 pr-3 text-xs text-muted-foreground">
+                  {{ p.last_error || '—' }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 

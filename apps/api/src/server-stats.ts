@@ -246,3 +246,68 @@ export function collectServerStats() {
 }
 
 export type ServerStats = ReturnType<typeof collectServerStats>;
+
+/** Postgres health: size, connections, row counts (admin monitoring). */
+export async function collectPostgresStats(pool: import("pg").Pool) {
+  try {
+    const [info, counts, tables] = await Promise.all([
+      pool.query<{ version: string; uptimeSec: string; sizeBytes: string }>(
+        `select version() as version,
+                extract(epoch from pg_postmaster_start_time())::text as "uptimeSec",
+                pg_database_size(current_database())::text as "sizeBytes"`,
+      ),
+      pool.query<{ conns: string; active: string; reviews: string; articles: string; casinos: string }>(
+        `select (select count(*)::text from pg_stat_activity where datname = current_database()) as conns,
+                (select count(*)::text from pg_stat_activity where datname = current_database() and state = 'active') as active,
+                (select count(*)::text from reviews) as reviews,
+                (select count(*)::text from articles) as articles,
+                (select count(*)::text from casinos) as casinos`,
+      ),
+      pool.query<{ relname: string; sizeBytes: string }>(
+        `select relname, pg_total_relation_size(relid)::text as "sizeBytes"
+         from pg_catalog.pg_stat_user_tables
+         order by pg_total_relation_size(relid) desc
+         limit 5`,
+      ),
+    ]);
+    return {
+      ok: true as const,
+      version: (info.rows[0]?.version || "").split(" ").slice(0, 2).join(" "),
+      uptimeSec: Number(info.rows[0]?.uptimeSec || 0),
+      sizeBytes: Number(info.rows[0]?.sizeBytes || 0),
+      connections: Number(counts.rows[0]?.conns || 0),
+      connectionsActive: Number(counts.rows[0]?.active || 0),
+      reviewsCount: Number(counts.rows[0]?.reviews || 0),
+      articlesCount: Number(counts.rows[0]?.articles || 0),
+      casinosCount: Number(counts.rows[0]?.casinos || 0),
+      topTables: tables.rows.map((r) => ({
+        name: r.relname,
+        sizeBytes: Number(r.sizeBytes),
+      })),
+    };
+  }
+  catch (err) {
+    return {
+      ok: false as const,
+      error: err instanceof Error ? err.message : "postgres_stats_failed",
+    };
+  }
+}
+
+/** Newsbot health from /opt/newsbot/data/health.json (host mount). */
+export function collectNewsbotHealth() {
+  const file = path.join(HOST_ROOT, "opt/newsbot/data/health.json");
+  try {
+    if (!existsSync(file)) {
+      return { ok: false as const, error: "no_health_file" };
+    }
+    const data = JSON.parse(readFileSync(file, "utf8")) as Record<string, unknown>;
+    return { ok: true as const, ...(data as object) };
+  }
+  catch (err) {
+    return {
+      ok: false as const,
+      error: err instanceof Error ? err.message : "newsbot_health_failed",
+    };
+  }
+}
