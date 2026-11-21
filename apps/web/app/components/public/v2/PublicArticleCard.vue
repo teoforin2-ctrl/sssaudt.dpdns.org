@@ -39,7 +39,7 @@ const kindLabel = computed(() => {
   return articleKindLabel(k, locale.value === "en" ? "en" : "ru");
 });
 
-const dateLabel = computed(() => formatDate(props.publishedAt, locale.value));
+const dateLabel = computed(() => formatDateTime(props.publishedAt, locale.value));
 const initials = computed(() =>
   (props.authorName || "?")
     .split(/\s+/)

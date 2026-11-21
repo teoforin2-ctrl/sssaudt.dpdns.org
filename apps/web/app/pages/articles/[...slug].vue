@@ -259,7 +259,7 @@ useJsonLd(() => {
         </NuxtLink>
         <p class="meta">
           <span v-if="a.publishedAt">
-            {{ new Date(a.publishedAt).toLocaleDateString(locale === "en" ? "en-GB" : "ru-RU") }}
+            {{ formatDateTime(a.publishedAt, locale) }}
           </span>
           · {{ t("catalog.readMin", { n: a.readingMinutes || 5 }) }}
           <span v-if="a.authorName">
@@ -301,7 +301,7 @@ useJsonLd(() => {
     />
     <p class="meta">
       <span v-if="article.publishedAt">
-        {{ new Date(article.publishedAt).toLocaleDateString(locale === "en" ? "en-GB" : "ru-RU") }}
+        {{ formatDateTime(article.publishedAt, locale) }}
       </span>
       · {{ t("catalog.readMin", { n: article.readingMinutes || 5 }) }}
       <span v-if="article.authorName">

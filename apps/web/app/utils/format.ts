@@ -108,6 +108,20 @@ export function formatDate(date: string | Date | null | undefined, locale = "ru"
   });
 }
 
+/** Date + time label: «21 нояб. 2026, 18:15» / «21 Nov 2026, 18:15». */
+export function formatDateTime(date: string | Date | null | undefined, locale = "ru"): string | null {
+  if (!date) return null;
+  const d = typeof date === "string" ? new Date(date) : date;
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toLocaleString(locale.startsWith("en") ? "en-GB" : "ru-RU", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
 /** Strip seed/review junk like `(Pokerdom, #2423)` and `[3c04d6bc]`. */
 export function sanitizeReviewText(text: string | null | undefined): string {
   if (!text) return "";
