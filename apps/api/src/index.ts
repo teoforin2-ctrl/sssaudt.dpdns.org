@@ -27,6 +27,7 @@ import { registerTrust } from "./trust.js";
 import { registerGamification } from "./gamification.js";
 import { registerAiAdmin } from "./ai/admin.js";
 import { registerParserAdmin } from "./ai/parser-admin.js";
+import { registerNewsSources } from "./news-sources.js";
 import { startAiWorker, stopAiWorker } from "./ai/worker.js";
 import {
   decodeStoredText,
@@ -76,6 +77,7 @@ await registerTrust(app, pool);
 await registerGamification(app, pool);
 await registerAiAdmin(app, pool);
 await registerParserAdmin(app, pool);
+await registerNewsSources(app, pool);
 startAiWorker(pool);
 
 app.get("/health", async (): Promise<HealthResponse> => ({

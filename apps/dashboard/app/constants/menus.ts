@@ -152,6 +152,11 @@ export const navMenu: NavMenu[] = [
         link: '/admin/parser',
       },
       {
+        title: 'Источники новостей',
+        icon: 'i-lucide-rss',
+        link: '/admin/news-sources',
+      },
+      {
         title: 'Награды / payout',
         icon: 'i-lucide-coins',
         link: '/admin/settings/rewards',
